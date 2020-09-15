@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor" />
 
 
-<meta name="date" content="2020-09-14" />
+<meta name="date" content="2020-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,7 +269,7 @@ Interpret summary statistics
 </tbody>
 </table>
 <p>In rows are the modalities (categories) of the variable “school status” in the original database and in columns are the frequency of students in each category. The first column is the <code>absolute frequency</code> or count and the second column is the <code>relative frequency</code> or proportion out of the total of students. The <code>margin total</code> is essential to display for quick assessment of potential mistake or missing values.</p>
-<p>To summarize a <code>quantitative</code> variable in to a contingency table, the numerical values first need to be grouped into classes, generating in fact a categorical variable. Next, the frequency of the statistical units in each group (category) of the new variable is counted.</p>
+<p>To summarize a <code>quantitative</code> variable into a contingency table, the numerical values first need to be grouped into classes, generating in fact like a categorical variable. Next, the frequency of the statistical units in each group (class) of the new variable is counted.</p>
 <p>In Table <a href="statdesc.html#tab:twoTable2">3.2</a>, first the quantitative variable <em>age</em> was used to create age groups and, next, the partition of students according to age group was summarized.</p>
 <table>
 <caption><span id="tab:twoTable2">Table 3.2: </span>Frequency table to summarize age distribution of children in the HBSC database, in France in 2006.</caption>
@@ -309,7 +309,7 @@ Interpret summary statistics
 </tbody>
 </table>
 <p>One must read <code>[11-13[</code> as 11 years-old students being included (counted) in that group while 13 years-old students being excluded. <code>NA</code> stands for Not Attributed or missing values.</p>
-<p>When summarizing two (or more) variables in two-way (or more) table using frequencies via a statistical software you might have to look for the term <code>pivot table</code>. Table <a href="statdesc.html#tab:twoTable3">3.3</a> summarize in absolute frequencies the different age groups and the smoking status. For relative frequencies, you need to decide which way to count (Table <span class="citation">(<span class="citeproc-not-found" data-reference-id="ref"><strong>???</strong></span>)</span>(tab:twoTable4) and <span class="citation">(<span class="citeproc-not-found" data-reference-id="ref"><strong>???</strong></span>)</span>(tab:twoTable5)). You need to ask yourself: Who are you interested in? What is your denominator?</p>
+<p>When summarizing two (or more) variables in two-way (or more) table using frequencies via a statistical software you might have to look for the term <code>pivot table</code>. Table <a href="statdesc.html#tab:twoTable3">3.3</a> summarize in absolute frequencies the different age groups and the smoking status. For relative frequencies, you need to decide which way to count (Table <a href="statdesc.html#tab:twoTable4">3.4</a> and <a href="statdesc.html#tab:twoTable5">3.5</a>). You need to ask yourself: Who are you interested in? What is your denominator?</p>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:twoTable3">Table 3.3: </span>Repartition of smokers and non smokers among age groups in the HSBC sample, in France in 2006
@@ -603,6 +603,7 @@ A central parameter, or location parameter, is the numerical value around which 
 </div>
 <div id="mean" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Mean</h3>
+<p>The (arithmetic) mean is the most well known and commonly (but not always appropriately) used central parameter.</p>
 <div class="definition">
 <p>
 The arithmetic mean is the sum of the values divided by the number of values in the data serie.
@@ -724,7 +725,6 @@ The quartile split the sorted data values into quarters.
 Figure 3.4: Quartiles
 </p>
 </div>
-<p>The <code>interquartile range (IQR)</code> summarizes the spread by focusing on the middle half of the data. It is defined as the difference between the two quartiles: <span class="math inline">\(IQR = Q3 - Q1\)</span>. It often is reported as en interval.</p>
 <p>Using the R statistical software and the HBSC data set we can quickly describe the “Weight” variable of the French student aged 11 to 16 in 2006 with the <code>five-number summary</code>. The five-number summary provides a good overall look at the distribution of the data.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="statdesc.html#cb1-1"></a><span class="kw">summary</span>(hbsc<span class="op">$</span>Weight)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
@@ -737,7 +737,6 @@ Figure 3.4: Quartiles
 <li>The median is 47 Kg meaning that 50% of the students weighted less than 47Kg and 50% of the students are heavier.</li>
 <li>The 1<span class="math inline">\(^{st}\)</span> quartile is 38.8Kg meaning that 25% of the students weighted less than 38.8Kg and 75% weighted more.</li>
 <li>The 3<span class="math inline">\(^{rd}\)</span> quartile is 56Kg meaning that 75% of the students weighted less than 56Kg and 25% weighted more.</li>
-<li>The IQR is [38.8-56] Kg</li>
 </ul>
 <p><strong>Mean versus Median</strong></p>
 <p>If the data is normally distributed, i.e. bell shape, as statisticians like it (bottom of Figure <a href="statdesc.html#fig:distribution">3.5</a>), feel free to use the mean.he mean is easier to communicate and so if you can use it, use it. In fact the value of the mean should be really close the value of the median and the mode (or modal class).</p>
@@ -867,7 +866,7 @@ In which hospital will you go for emergency care?
 Figure 3.6: Hospitals ER
 </p>
 </div>
-<p>The <code>inter-quartile range</code> IQR can be considered as a variation parameter as it summarize the spread of the data around the median. As the range, the IQR should be reported as an interval.</p>
+<p>The <code>interquartile range (IQR)</code> summarizes the spread by focusing on the middle half of the data. It is defined as the difference between the two quartiles: <span class="math inline">\(IQR = Q3 - Q1\)</span>. As the range, the IQR should be reported as an interval. For example, the five-number summary above on HBSC weight data show us that IQR is [38.8-56] Kg.</p>
 </div>
 <div id="sd" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Variance and standard deviation</h3>
@@ -888,7 +887,7 @@ In a population the equation is:
 <p>where</p>
 <ul>
 <li><span class="math inline">\(\sigma^2\)</span> is the variance of population</li>
-<li><span class="math inline">\(X_i\)</span> is the i^{th} value in the population</li>
+<li><span class="math inline">\(X_i\)</span> is the <span class="math inline">\(i^{th}\)</span> value in the population</li>
 <li><span class="math inline">\(\bar{X}\)</span> is the mean in the population</li>
 <li><span class="math inline">\(N\)</span> is the size of the population</li>
 </ul>
@@ -901,7 +900,7 @@ In a population the equation is:
 <p>where</p>
 <ul>
 <li><span class="math inline">\(s^2\)</span> is the variance of the sample</li>
-<li><span class="math inline">\(x_i\)</span> is the i^{th} value of the data serie</li>
+<li><span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i^{th}\)</span> value of the data serie</li>
 <li><span class="math inline">\(\bar{x}\)</span> is the mean of the data serie</li>
 <li><span class="math inline">\(n\)</span> is number of values in the data serie</li>
 </ul>
