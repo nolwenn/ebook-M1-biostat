@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor" />
 
 
-<meta name="date" content="2020-09-15" />
+<meta name="date" content="2020-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -738,6 +738,14 @@ Figure 3.4: Quartiles
 <li>The 1<span class="math inline">\(^{st}\)</span> quartile is 38.8Kg meaning that 25% of the students weighted less than 38.8Kg and 75% weighted more.</li>
 <li>The 3<span class="math inline">\(^{rd}\)</span> quartile is 56Kg meaning that 75% of the students weighted less than 56Kg and 25% weighted more.</li>
 </ul>
+<div class="caution">
+<p>
+Several algorithms exit to compute quantile (for instance see ?quantile in the R staistical software). They rely on different definition the underlying distribution of the sample: discontinuous or continuous.
+</p>
+<p>
+In your case, no need to go into the details but you should know how to interpret the values.
+</p>
+</div>
 <p><strong>Mean versus Median</strong></p>
 <p>If the data is normally distributed, i.e. bell shape, as statisticians like it (bottom of Figure <a href="statdesc.html#fig:distribution">3.5</a>), feel free to use the mean.he mean is easier to communicate and so if you can use it, use it. In fact the value of the mean should be really close the value of the median and the mode (or modal class).</p>
 <p>If your data is skewed (top of Figure <a href="statdesc.html#fig:distribution">3.5</a>), or there are large outliers, then use the median to find the centre of the data. Better yet, report both the mean and the median since any differences will reveal information about the presence of skew/outliers.</p>
