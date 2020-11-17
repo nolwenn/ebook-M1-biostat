@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor" />
 
 
-<meta name="date" content="2020-11-15" />
+<meta name="date" content="2020-11-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -200,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="tests.html"><a href="tests.html#paranonpara"><i class="fa fa-check"></i><b>5.7</b> Parametric and non-parametric test</a><ul>
 <li class="chapter" data-level="5.7.1" data-path="tests.html"><a href="tests.html#asessing-normality"><i class="fa fa-check"></i><b>5.7.1</b> Asessing Normality</a></li>
-<li class="chapter" data-level="5.7.2" data-path="tests.html"><a href="tests.html#two-sample-wilcoxon-tests-or-mann-whitney-u-test"><i class="fa fa-check"></i><b>5.7.2</b> Two-sample Wilcoxon tests (or Mann-Whitney U test)</a></li>
+<li class="chapter" data-level="5.7.2" data-path="tests.html"><a href="tests.html#two-sample-wilcoxon-test-or-mann-whitney-u-test"><i class="fa fa-check"></i><b>5.7.2</b> Two-sample Wilcoxon test (or Mann-Whitney U test)</a></li>
 <li class="chapter" data-level="5.7.3" data-path="tests.html"><a href="tests.html#which-test-to-use"><i class="fa fa-check"></i><b>5.7.3</b> Which test to use?</a></li>
 </ul></li>
 </ul></li>
@@ -559,10 +559,10 @@ girl
 Total
 </td>
 <td style="text-align:right;">
-67
+432
 </td>
 <td style="text-align:right;">
-432
+67
 </td>
 <td style="text-align:right;">
 499
@@ -667,10 +667,10 @@ Smoking status
 <th style="text-align:left;">
 </th>
 <th style="text-align:left;">
-No
+Yes
 </th>
 <th style="text-align:left;">
-Yes
+No
 </th>
 <th style="text-align:left;">
 Total
@@ -1020,6 +1020,14 @@ In example 2, we tested H0 with a <span class="math inline"><span class="math in
 We also tested H0 with the Fisher’s Exact test. The <span class="math inline"><span class="math inline">\(p-value\)</span></span> is 0.431. Do you reach the same conclusion than with the <span class="math inline"><span class="math inline">\(\chi^2\)</span></span> test? Why?
 </p>
 </div>
+<p>If you try to compare the effects of different risk factors or compare similar studies but with different protocols, you sholud not compare the <em>p-values</em>. A <em>p-value</em> smaller than an other <em>p-value</em> does not mean that the observed difference is greater. It only means that your are more confident on the results of the test.</p>
+<div class="caution">
+<p>
+You should not compare p-values.
+</p>
+</div>
+<p><img src="fig/pval_nocomparison.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>In the cholestrol studies presented above, the <em>p-values</em> are different, one is smaller than the other (even significant). Although the observed differences in mean are identical. The difference is the same in study 1 and 2 (<span class="math inline">\(\delta=4\)</span>). The differences between the two studies are on the standard deviations of the samples and the sample sizes which affect the t-statistics.</p>
 </div>
 <div id="risk-alpha-and-risk-beta" class="section level2">
 <h2><span class="header-section-number">5.5</span> Risk <span class="math inline">\(\alpha\)</span> and risk <span class="math inline">\(\beta\)</span></h2>
@@ -1320,8 +1328,8 @@ TukeyHSD’s test.</p>
 ## alternative hypothesis: two-sided</code></pre>
 <p>What are your conclusions?</p>
 </div>
-<div id="two-sample-wilcoxon-tests-or-mann-whitney-u-test" class="section level3">
-<h3><span class="header-section-number">5.7.2</span> Two-sample Wilcoxon tests (or Mann-Whitney U test)</h3>
+<div id="two-sample-wilcoxon-test-or-mann-whitney-u-test" class="section level3">
+<h3><span class="header-section-number">5.7.2</span> Two-sample Wilcoxon test (or Mann-Whitney U test)</h3>
 <ul>
 <li>Given two samples X et Y</li>
 <li>Sort in increasing order the data from X and Y</li>
