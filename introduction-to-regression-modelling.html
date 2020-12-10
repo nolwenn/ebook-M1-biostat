@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor" />
 
 
-<meta name="date" content="2020-11-17" />
+<meta name="date" content="2020-12-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -205,8 +205,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html"><i class="fa fa-check"></i><b>6</b> Introduction to regression modelling</a><ul>
-<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression</a></li>
-<li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression</a></li>
+<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#pearsons-coefficient-of-correlation"><i class="fa fa-check"></i><b>6.1.1</b> Pearson’s coefficient of correlation</a></li>
+<li class="chapter" data-level="6.1.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simple-linear-regression-model"><i class="fa fa-check"></i><b>6.1.2</b> simple linear regression model</a></li>
+<li class="chapter" data-level="6.1.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#posthocreg"><i class="fa fa-check"></i><b>6.1.3</b> Post-hoc assumptions verification</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression-model"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression model</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -240,18 +244,168 @@ Master I</p></a>
 the step by step procedure to obtain an informative linear model, assess its validity and interpret it
 </li>
 <li>
-Interpret results of a statistical test
+Interpret results of a simple linear model
 </li>
 <li>
-Discuss significance of a statistical test
+Discuss significance of a simple linear model
 </li>
 </ul>
 </div>
 <div id="simplelm" class="section level2">
 <h2><span class="header-section-number">6.1</span> Simple linear regression</h2>
+<div class="definition">
+<p>
+A regression attempt to explain the variations observed for a variable by other variables
+</p>
 </div>
-<div id="multiple-linear-regression" class="section level2">
-<h2><span class="header-section-number">6.2</span> Multiple linear regression</h2>
+<p>In the plot below, we try to explain the observed distances to stop for cars by the speed of the cars. Here between the two variables, we see a rather linear diagonal trend. We may be able to fit a <strong>simple linear regression</strong> model.</p>
+<p><img src="ebook-M1-biostat_files/figure-html/unnamed-chunk-83-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="definition">
+<p>
+A simple linear regression model is a statistical model that attempt to fit a linear relationship between two variables: one to be explain and one explanatory variable
+</p>
+</div>
+<p>By convention:</p>
+<ul>
+<li><strong>Y axis</strong> presents the variable to explain also named the dependent variable, the outcome variable or the response variable<br />
+</li>
+<li><strong>X axis</strong> presents the explanatory variable also named the independent variable or the predictor variable.</li>
+</ul>
+<p>A first measure of linear relationship, often wrongly used, is the coefficient of correlation.</p>
+<div id="pearsons-coefficient-of-correlation" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Pearson’s coefficient of correlation</h3>
+<p>When we talk about correlation we often talk about the Pearson’s coefficient of correlation that quantify the linear association between two quantitative variables.</p>
+<p>Mathematically, the coefficient of correlation is the standardized covariance (Equation <a href="introduction-to-regression-modelling.html#eq:r">(6.1)</a>). While the covariance is the average the product of the deviations of observed values to their mean (Equation <a href="introduction-to-regression-modelling.html#eq:cov">(6.2)</a>).</p>
+<p><span class="math display" id="eq:r">\[\begin{equation}
+r = \frac{cov_x,_y}{s_xs_y} \tag{6.1}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:cov">\[\begin{equation}
+cov(x,y) = \frac{\sum{(x_i-\bar{x})(y_i-\bar{y})}}{N-1}  \tag{6.2}
+\end{equation}\]</span></p>
+<div class="definition">
+<p>
+The coefficient of correlation <em>r</em> is :
+</p>
+<ul>
+<li>
+Dimensionless<br />
+</li>
+<li>
+Range between -1 and 1<br />
+</li>
+<li>
+its absolute value presents the force of the relationship<br />
+</li>
+<li>
+its sign presents the direction of the relationship
+</li>
+</ul>
+</div>
+<div class="practice">
+<p>
+In the graphics below, what would be the estimated value of the Pearson’s coefficient of correlation?
+</p>
+</div>
+<p><img src="fig/coef_correlation.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="caution">
+<p>
+Absence of linear association (r=0) does not mean absence of relation.
+</p>
+</div>
+<p><img src="fig/coef_correlation2.png" width="40%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="simple-linear-regression-model" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> simple linear regression model</h3>
+<p>A simple linear model fit a line between the points of the two variables. The final equation is of the form:</p>
+<p><span class="math display" id="eq:lm">\[\begin{equation}
+Y = \beta_1X + \beta_0 + \epsilon  \tag{6.3}
+\end{equation}\]</span></p>
+<p>Which line fits best ?</p>
+<p><img src="ebook-M1-biostat_files/figure-html/unnamed-chunk-90-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Of all possible lines, the <strong>regression line is the one that is the closest on average to all the points.</strong></p>
+<p><img src="fig/regression_residuals.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>the fitting of the regression line is based the least squares criteria. The aim is to minimize the sum of square distance between observed values and fitted values on the line (Equation <a href="introduction-to-regression-modelling.html#eq:sse">(6.4)</a>). The sum of square distance also named sum of square Error (SSE) or sum of square residuals (SSRes). When SSE is minimum it implies that the variance of the residuals that remain to be explained are fit to the minimum.</p>
+<p><span class="math display" id="eq:sse">\[\begin{equation}
+SSE=\sum_{i=1}^{n}{(y_i-\hat{y_i})^2} \tag{6.4}
+\end{equation}\]</span></p>
+<p>To fit a simple linear regression with R follow the example below:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-regression-modelling.html#cb19-1"></a><span class="co"># load the data</span></span>
+<span id="cb19-2"><a href="introduction-to-regression-modelling.html#cb19-2"></a><span class="kw">data</span>(cars)</span>
+<span id="cb19-3"><a href="introduction-to-regression-modelling.html#cb19-3"></a><span class="co"># fit the line</span></span>
+<span id="cb19-4"><a href="introduction-to-regression-modelling.html#cb19-4"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data=</span>cars)</span>
+<span id="cb19-5"><a href="introduction-to-regression-modelling.html#cb19-5"></a><span class="co"># display the results</span></span>
+<span id="cb19-6"><a href="introduction-to-regression-modelling.html#cb19-6"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -29.069  -9.525  -2.272   9.215  43.201 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -17.5791     6.7584  -2.601   0.0123 *  
+## speed         3.9324     0.4155   9.464 1.49e-12 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 15.38 on 48 degrees of freedom
+## Multiple R-squared:  0.6511,	Adjusted R-squared:  0.6438 
+## F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
+<p>The output tells us that:</p>
+<ul>
+<li>Y(distance to stop) = 3.93*X(speed) -17.57(intercept) + <span class="math inline">\(\epsilon\)</span></li>
+<li>If a car increases its speed by 1 mph, its distance to stop increases by 3.93 ft.</li>
+<li>This estimated coefficient is significantly different from 0 (<span class="math inline">\(Pr(&gt;|t|) = p-value = 1.49e^{-12}\)</span>)</li>
+<li>The model explain 64% of the observed variance in distances to stop for cars (Adjusted R-squared or coefficient of determination <span class="math inline">\(R^2\)</span>).</li>
+</ul>
+<p>The residuals are leftover of the outcome variance after fitting a model. They are use to:</p>
+<ul>
+<li>Verify if linear regression assumptions are met {<a href="introduction-to-regression-modelling.html#posthocreg">6.1.3</a>}</li>
+<li>Show how poorly a model represents data</li>
+<li>Reveal unexplained patterns in the data by the fitted model</li>
+<li>Could help improving the model in an exploratory way.</li>
+</ul>
+</div>
+<div id="posthocreg" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Post-hoc assumptions verification</h3>
+<p>How to verify if a simple linear regression model was appropriate?</p>
+<p>The method is descriptive and based on the distribution of the residuals that allows assessing:</p>
+<ul>
+<li>Linear and additivity of predictive relationships</li>
+<li>Homoscedasticity (constant variance) of residuals (errors)</li>
+<li>Normality of the residuals distribution</li>
+<li>Independence (lack of correlation) residuals (in particular, no correlation between consecutive errors in the case of time series data)</li>
+</ul>
+<p>Using R:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-regression-modelling.html#cb21-1"></a><span class="co"># Define a plotting area with 4 panels</span></span>
+<span id="cb21-2"><a href="introduction-to-regression-modelling.html#cb21-2"></a><span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow=</span><span class="dv">2</span>))</span>
+<span id="cb21-3"><a href="introduction-to-regression-modelling.html#cb21-3"></a><span class="co"># Ask for diagnostic plots for linear regression</span></span>
+<span id="cb21-4"><a href="introduction-to-regression-modelling.html#cb21-4"></a><span class="kw">plot</span>(m1)</span></code></pre></div>
+<p><img src="ebook-M1-biostat_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-regression-modelling.html#cb22-1"></a><span class="co"># Set back the plotting area to 1 panel</span></span>
+<span id="cb22-2"><a href="introduction-to-regression-modelling.html#cb22-2"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
+<p>From top to bottom and left to right the plots assess :</p>
+<ol style="list-style-type: decimal">
+<li>Linear and additivity of predictive relationships. A good fitting should show a red horizontal line, the variance of the residuals is randomly spread above and below the horizontal line.</li>
+<li>Homoscedasticity (<em>i.e.</em> constant variance) of residuals (errors). A good fitting should show a red horizontal line, the variance of the residuals is constant and do not depend on the fitted values.</li>
+<li>Normality of the residuals distribution. A good fitting should show a alignment of the dots on the diagonal of the Q-Q plot.</li>
+<li>Influential observations and Cook’s distance. If dots appear outside the Cook’s distance limits they are influential observation or even outliers (extreme). Their value need to be verified as they might negatively influence the fitting.</li>
+</ol>
+<div class="practice">
+<p>
+What do you think of the model above?
+</p>
+</div>
+<p>Below is an example of post-hoc assumptions verification of a linear model that shows problems. Here the model need to be refined or done differently.</p>
+<p><img src="fig/badmodel.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="multiple-linear-regression-model" class="section level2">
+<h2><span class="header-section-number">6.2</span> Multiple linear regression model</h2>
 
 </div>
 </div>
