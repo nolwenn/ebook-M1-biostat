@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor" />
 
 
-<meta name="date" content="2020-11-17" />
+<meta name="date" content="2020-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -205,8 +205,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html"><i class="fa fa-check"></i><b>6</b> Introduction to regression modelling</a><ul>
-<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression</a></li>
-<li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression</a></li>
+<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#pearsons-coefficient-of-correlation"><i class="fa fa-check"></i><b>6.1.1</b> Pearson’s coefficient of correlation</a></li>
+<li class="chapter" data-level="6.1.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simple-linear-regression-model"><i class="fa fa-check"></i><b>6.1.2</b> simple linear regression model</a></li>
+<li class="chapter" data-level="6.1.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#posthocreg"><i class="fa fa-check"></i><b>6.1.3</b> Post-hoc assumptions verification</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression-model"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression model</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -646,8 +650,8 @@ Total
 </table>
 <p>To compute a theoretical two-way table with your <code>expected counts</code>:</p>
 <ul>
-<li>the proportion exposed student is: <span class="math inline">\(p= 67/499= 0.134\)</span>, <em>i.e</em> 13.4%.</li>
-<li>the number of boys students exposed would be: <span class="math inline">\(p= (67/499)*251= 33.7\)</span>.</li>
+<li>the proportion exposed student is: <span class="math inline">\(p= 251/499= 0.503\)</span>, <em>i.e</em> 50.3%.</li>
+<li>the number of boys students exposed would be: <span class="math inline">\(p= (251/499)*67= 33.7\)</span>.</li>
 </ul>
 <table>
 <caption>
@@ -667,10 +671,10 @@ Smoking status
 <th style="text-align:left;">
 </th>
 <th style="text-align:left;">
-Yes
+No
 </th>
 <th style="text-align:left;">
-No
+Yes
 </th>
 <th style="text-align:left;">
 Total
@@ -686,7 +690,7 @@ boy
 ?
 </td>
 <td style="text-align:left;">
-(67/499)*251
+(251/499)*67
 </td>
 <td style="text-align:left;">
 251
@@ -1134,7 +1138,7 @@ How do we compare the means? Can we do 2 by 2 comparisons?
 </tr>
 </tbody>
 </table>
-<p>To the aboce question the answer is “No” : it increases the likelihood of incorrectly concluding that there are statistically significant differences, since each comparison adds to the probability of a type I error, <span class="math inline">\(\alpha\)</span>.</p>
+<p>To the above question the answer is “No” : it increases the likelihood of incorrectly concluding that there are statistically significant differences, since each comparison adds to the probability of a type I error, <span class="math inline">\(\alpha\)</span>.</p>
 <p>At the end, if <span class="math inline">\(k\)</span> is the number of comparisons, the error rate becomes <span class="math inline">\(1-(0.95)^k\)</span></p>
 <div id="graphical-comparison" class="section level3">
 <h3><span class="header-section-number">5.6.1</span> Graphical comparison</h3>
