@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Descriptive statistics |  Introduction to biostatistics for public health Master I</title>
+  <title>Chapter 3 Descriptive statistics | index.split</title>
   <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Descriptive statistics |  Introduction to biostatistics for public health Master I" />
+  <meta property="og:title" content="Chapter 3 Descriptive statistics | index.split" />
   <meta property="og:type" content="book" />
   
   
@@ -16,15 +16,15 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Descriptive statistics |  Introduction to biostatistics for public health Master I" />
+  <meta name="twitter:title" content="Chapter 3 Descriptive statistics | index.split" />
   
   <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
   
 
-<meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor" />
+<meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2021-01-13" />
+<meta name="date" content="2021-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="variables.html"/>
 <link rel="next" href="inferencestat.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,7 +51,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -58,18 +58,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -89,7 +89,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -139,27 +139,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data and Variables</a><ul>
+<li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#statistical-units"><i class="fa fa-check"></i><b>2.1</b> Statistical units</a></li>
-<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#data"><i class="fa fa-check"></i><b>2.2</b> Data</a></li>
-<li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable types</a></li>
+<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.2</b> Variables</a></li>
+<li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#data-storage"><i class="fa fa-check"></i><b>2.3</b> Data storage</a></li>
+<li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#variable-types"><i class="fa fa-check"></i><b>2.4</b> Variable types</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="statdesc.html"><a href="statdesc.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="3" data-path="statdesc.html"><a href="statdesc.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="statdesc.html"><a href="statdesc.html#frequency-table"><i class="fa fa-check"></i><b>3.1</b> Frequency table</a></li>
-<li class="chapter" data-level="3.2" data-path="statdesc.html"><a href="statdesc.html#central-parameters"><i class="fa fa-check"></i><b>3.2</b> Central parameters</a><ul>
+<li class="chapter" data-level="3.2" data-path="statdesc.html"><a href="statdesc.html#central-parameters"><i class="fa fa-check"></i><b>3.2</b> Central parameters</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="statdesc.html"><a href="statdesc.html#mean"><i class="fa fa-check"></i><b>3.2.1</b> Mean</a></li>
 <li class="chapter" data-level="3.2.2" data-path="statdesc.html"><a href="statdesc.html#median"><i class="fa fa-check"></i><b>3.2.2</b> Median</a></li>
 <li class="chapter" data-level="3.2.3" data-path="statdesc.html"><a href="statdesc.html#percentile-and-quantile"><i class="fa fa-check"></i><b>3.2.3</b> Percentile and quantile</a></li>
 <li class="chapter" data-level="3.2.4" data-path="statdesc.html"><a href="statdesc.html#mode"><i class="fa fa-check"></i><b>3.2.4</b> Mode</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="statdesc.html"><a href="statdesc.html#variation-parameters"><i class="fa fa-check"></i><b>3.3</b> Variation parameters</a><ul>
+<li class="chapter" data-level="3.3" data-path="statdesc.html"><a href="statdesc.html#variation-parameters"><i class="fa fa-check"></i><b>3.3</b> Variation parameters</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="statdesc.html"><a href="statdesc.html#range-and-iqr"><i class="fa fa-check"></i><b>3.3.1</b> Range and IQR</a></li>
 <li class="chapter" data-level="3.3.2" data-path="statdesc.html"><a href="statdesc.html#sd"><i class="fa fa-check"></i><b>3.3.2</b> Variance and standard deviation</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="statdesc.html"><a href="statdesc.html#plot"><i class="fa fa-check"></i><b>3.4</b> Graphical summary</a><ul>
+<li class="chapter" data-level="3.4" data-path="statdesc.html"><a href="statdesc.html#plot"><i class="fa fa-check"></i><b>3.4</b> Graphical summary</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="statdesc.html"><a href="statdesc.html#barplot"><i class="fa fa-check"></i><b>3.4.1</b> Barplot</a></li>
 <li class="chapter" data-level="3.4.2" data-path="statdesc.html"><a href="statdesc.html#pie-chart"><i class="fa fa-check"></i><b>3.4.2</b> Pie chart</a></li>
 <li class="chapter" data-level="3.4.3" data-path="statdesc.html"><a href="statdesc.html#histogram"><i class="fa fa-check"></i><b>3.4.3</b> Histogram</a></li>
@@ -168,15 +175,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.6" data-path="statdesc.html"><a href="statdesc.html#communication-tips"><i class="fa fa-check"></i><b>3.4.6</b> Communication tips</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="inferencestat.html"><a href="inferencestat.html"><i class="fa fa-check"></i><b>4</b> Inference and sample</a><ul>
-<li class="chapter" data-level="4.1" data-path="inferencestat.html"><a href="inferencestat.html#sample"><i class="fa fa-check"></i><b>4.1</b> Sample</a><ul>
+<li class="chapter" data-level="4" data-path="inferencestat.html"><a href="inferencestat.html"><i class="fa fa-check"></i><b>4</b> Inference and sample</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="inferencestat.html"><a href="inferencestat.html#sample"><i class="fa fa-check"></i><b>4.1</b> Sample</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="inferencestat.html"><a href="inferencestat.html#population-versus-sample"><i class="fa fa-check"></i><b>4.1.1</b> Population versus Sample</a></li>
 <li class="chapter" data-level="4.1.2" data-path="inferencestat.html"><a href="inferencestat.html#sample-designs"><i class="fa fa-check"></i><b>4.1.2</b> Sample designs</a></li>
 <li class="chapter" data-level="4.1.3" data-path="inferencestat.html"><a href="inferencestat.html#probability-sampling"><i class="fa fa-check"></i><b>4.1.3</b> Probability sampling</a></li>
 <li class="chapter" data-level="4.1.4" data-path="inferencestat.html"><a href="inferencestat.html#non-probability-sampling"><i class="fa fa-check"></i><b>4.1.4</b> Non-probability sampling</a></li>
 <li class="chapter" data-level="4.1.5" data-path="inferencestat.html"><a href="inferencestat.html#sampling-bias"><i class="fa fa-check"></i><b>4.1.5</b> Sampling bias</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="inferencestat.html"><a href="inferencestat.html#confidence-intervals"><i class="fa fa-check"></i><b>4.2</b> Confidence intervals</a><ul>
+<li class="chapter" data-level="4.2" data-path="inferencestat.html"><a href="inferencestat.html#confidence-intervals"><i class="fa fa-check"></i><b>4.2</b> Confidence intervals</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="inferencestat.html"><a href="inferencestat.html#within-and-between-sample-variation"><i class="fa fa-check"></i><b>4.2.1</b> Within and between sample variation</a></li>
 <li class="chapter" data-level="4.2.2" data-path="inferencestat.html"><a href="inferencestat.html#the-clt-and-the-confidence-interval"><i class="fa fa-check"></i><b>4.2.2</b> The CLT and the confidence interval</a></li>
 <li class="chapter" data-level="4.2.3" data-path="inferencestat.html"><a href="inferencestat.html#interpretation-of-confidence-intervals"><i class="fa fa-check"></i><b>4.2.3</b> Interpretation of confidence intervals</a></li>
@@ -184,43 +194,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.5" data-path="inferencestat.html"><a href="inferencestat.html#precision-or-margin-error"><i class="fa fa-check"></i><b>4.2.5</b> Precision or Margin error</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>5</b> Inference and statistical tests</a><ul>
+<li class="chapter" data-level="5" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>5</b> Inference and statistical tests</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="tests.html"><a href="tests.html#formulate-a-hypothesis"><i class="fa fa-check"></i><b>5.1</b> Formulate a hypothesis</a></li>
 <li class="chapter" data-level="5.2" data-path="tests.html"><a href="tests.html#comparison-of-two-means"><i class="fa fa-check"></i><b>5.2</b> Comparison of two means</a></li>
-<li class="chapter" data-level="5.3" data-path="tests.html"><a href="tests.html#comparison-of-two-proportions"><i class="fa fa-check"></i><b>5.3</b> Comparison of two proportions</a><ul>
+<li class="chapter" data-level="5.3" data-path="tests.html"><a href="tests.html#comparison-of-two-proportions"><i class="fa fa-check"></i><b>5.3</b> Comparison of two proportions</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="tests.html"><a href="tests.html#chi-square-test"><i class="fa fa-check"></i><b>5.3.1</b> Chi-square test</a></li>
 <li class="chapter" data-level="5.3.2" data-path="tests.html"><a href="tests.html#fishers-exact-test"><i class="fa fa-check"></i><b>5.3.2</b> Fisher’s Exact test</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="tests.html"><a href="tests.html#alpha-p"><i class="fa fa-check"></i><b>5.4</b> Risk <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(p-value\)</span></a></li>
 <li class="chapter" data-level="5.5" data-path="tests.html"><a href="tests.html#risk-alpha-and-risk-beta"><i class="fa fa-check"></i><b>5.5</b> Risk <span class="math inline">\(\alpha\)</span> and risk <span class="math inline">\(\beta\)</span></a></li>
-<li class="chapter" data-level="5.6" data-path="tests.html"><a href="tests.html#multi-comp"><i class="fa fa-check"></i><b>5.6</b> Comparison of multiple groups</a><ul>
+<li class="chapter" data-level="5.6" data-path="tests.html"><a href="tests.html#multi-comp"><i class="fa fa-check"></i><b>5.6</b> Comparison of multiple groups</a>
+<ul>
 <li class="chapter" data-level="5.6.1" data-path="tests.html"><a href="tests.html#graphical-comparison"><i class="fa fa-check"></i><b>5.6.1</b> Graphical comparison</a></li>
 <li class="chapter" data-level="5.6.2" data-path="tests.html"><a href="tests.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.6.2</b> Analysis Of Variance</a></li>
 <li class="chapter" data-level="5.6.3" data-path="tests.html"><a href="tests.html#post-hoc-analysis-and-anova-assumptions"><i class="fa fa-check"></i><b>5.6.3</b> Post-hoc analysis and ANOVA assumptions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="tests.html"><a href="tests.html#paranonpara"><i class="fa fa-check"></i><b>5.7</b> Parametric and non-parametric test</a><ul>
+<li class="chapter" data-level="5.7" data-path="tests.html"><a href="tests.html#paranonpara"><i class="fa fa-check"></i><b>5.7</b> Parametric and non-parametric test</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="tests.html"><a href="tests.html#asessing-normality"><i class="fa fa-check"></i><b>5.7.1</b> Asessing Normality</a></li>
 <li class="chapter" data-level="5.7.2" data-path="tests.html"><a href="tests.html#two-sample-wilcoxon-test-or-mann-whitney-u-test"><i class="fa fa-check"></i><b>5.7.2</b> Two-sample Wilcoxon test (or Mann-Whitney U test)</a></li>
 <li class="chapter" data-level="5.7.3" data-path="tests.html"><a href="tests.html#which-test-to-use"><i class="fa fa-check"></i><b>5.7.3</b> Which test to use?</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html"><i class="fa fa-check"></i><b>6</b> Introduction to regression modelling</a><ul>
-<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html"><i class="fa fa-check"></i><b>6</b> Introduction to regression modelling</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#pearsons-coefficient-of-correlation"><i class="fa fa-check"></i><b>6.1.1</b> Pearson’s coefficient of correlation</a></li>
 <li class="chapter" data-level="6.1.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simple-linear-regression-model"><i class="fa fa-check"></i><b>6.1.2</b> Simple linear regression model</a></li>
 <li class="chapter" data-level="6.1.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#posthocreg"><i class="fa fa-check"></i><b>6.1.3</b> Post-hoc assumptions verification</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression-model"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression model</a></li>
-<li class="chapter" data-level="6.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#collinearity"><i class="fa fa-check"></i><b>6.3</b> Collinearity</a></li>
-<li class="chapter" data-level="6.4" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#detecting-multi-collinearity"><i class="fa fa-check"></i><b>6.4</b> Detecting (multi-)collinearity</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#coefficient-of-correlation-and-visual-assessment"><i class="fa fa-check"></i><b>6.4.1</b> Coefficient of correlation and visual assessment</a></li>
-<li class="chapter" data-level="6.4.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#variance-inflation-factor"><i class="fa fa-check"></i><b>6.4.2</b> Variance Inflation Factor</a></li>
-<li class="chapter" data-level="6.4.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#remedial-measures"><i class="fa fa-check"></i><b>6.4.3</b> Remedial measures</a></li>
+<li class="chapter" data-level="6.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#logistic-regression-model"><i class="fa fa-check"></i><b>6.3</b> Logistic regression model</a></li>
+<li class="chapter" data-level="6.4" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#collinearity"><i class="fa fa-check"></i><b>6.4</b> Collinearity</a></li>
+<li class="chapter" data-level="6.5" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#detecting-multi-collinearity"><i class="fa fa-check"></i><b>6.5</b> Detecting (multi-)collinearity</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#coefficient-of-correlation-and-visual-assessment"><i class="fa fa-check"></i><b>6.5.1</b> Coefficient of correlation and visual assessment</a></li>
+<li class="chapter" data-level="6.5.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#variance-inflation-factor"><i class="fa fa-check"></i><b>6.5.2</b> Variance Inflation Factor</a></li>
+<li class="chapter" data-level="6.5.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#remedial-measures"><i class="fa fa-check"></i><b>6.5.3</b> Remedial measures</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#explanatory-variable-selection"><i class="fa fa-check"></i><b>6.5</b> Explanatory variable selection</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#iterative-procedures-for-explanatory-variable-selection"><i class="fa fa-check"></i><b>6.5.1</b> Iterative procedures for explanatory variable selection</a></li>
-<li class="chapter" data-level="6.5.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#goodness-of-fit-analysis"><i class="fa fa-check"></i><b>6.5.2</b> Goodness of fit analysis</a></li>
-<li class="chapter" data-level="6.5.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#ressources"><i class="fa fa-check"></i><b>6.5.3</b> Ressources</a></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6</b> Explanatory variable selection</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#iterative-procedures-for-explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6.1</b> Iterative procedures for explanatory variable selection</a></li>
+<li class="chapter" data-level="6.6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#goodness-of-fit-analysis"><i class="fa fa-check"></i><b>6.6.2</b> Goodness of fit analysis</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary</a></li>
@@ -237,9 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="fig/logo_ehesp.jpg" style="width:1in" /><br />
-Introduction to biostatistics for public health
-Master I</p></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><img src="fig/logo_ehesp.jpg" style="width:1in" /></a>
           </h1>
         </div>
 
@@ -247,7 +263,7 @@ Master I</p></a>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statdesc" class="section level1">
+<div id="statdesc" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Descriptive statistics</h1>
 <div class="objective">
 <ul>
@@ -259,7 +275,7 @@ Interpret summary statistics
 </li>
 </ul>
 </div>
-<div id="frequency-table" class="section level2">
+<div id="frequency-table" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Frequency table</h2>
 <p>One type of data statistical summary are <code>frequency table</code>, or <code>contingency table</code>.</p>
 <p>To summarize a <code>qualitative</code> variable, the frequency of the statistical units in each modality (category) of the variable is computed. The frequency can be reported as absolute count (absolute frequency) or proportion (relative frequency or count). For instance, in Table <a href="statdesc.html#tab:twoTable1">3.1</a> the partition of students according to the school status is summarized (HBSC dataset).</p>
@@ -616,14 +632,14 @@ Total
 <p>Among the smokers, 65% are aged [15-17[ years old.</p>
 <p>The proportion of smoker seems to increase with age. We will verify this later using inferential statistics (see Chapter <a href="tests.html#tests">5</a>)</p>
 </div>
-<div id="central-parameters" class="section level2">
+<div id="central-parameters" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Central parameters</h2>
 <div class="definition">
 <p>
 A central parameter, or location parameter, is the numerical value around which are distributed most of the values of a serie of data.
 </p>
 </div>
-<div id="mean" class="section level3">
+<div id="mean" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Mean</h3>
 <p>The (arithmetic) mean is the most well known and commonly (but not always appropriately) used central parameter.</p>
 <div class="definition">
@@ -669,7 +685,7 @@ Why the mean is not between 40 and 45Kg?
 </ul>
 <p><img src="fig/salary.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="median" class="section level3">
+<div id="median" class="section level3" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Median</h3>
 <p>The mean is not always the appropriate statistical indicator to summarize the distribution data and should be sometimes replaced by the median.</p>
 <div class="definition">
@@ -714,7 +730,7 @@ Would you use the median or the mean to compare French region rainfall?
 <li>Easy to understand but need to be explicitly exposed</li>
 </ul>
 </div>
-<div id="percentile-and-quantile" class="section level3">
+<div id="percentile-and-quantile" class="section level3" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Percentile and quantile</h3>
 <p>When looking at height distribution, the median is the exact middle value when people are ordered by height which correspond to the 50<span class="math inline">\(^{th}\)</span> <code>percentile</code> or 50% below and above that value (Figure <a href="statdesc.html#fig:percentile">3.3</a>). But you could pick any percentile like the 80<span class="math inline">\(^{th}\)</span> with 80% below and 20% above.</p>
 <div class="definition">
@@ -748,7 +764,7 @@ Figure 3.4: Quartiles
 </p>
 </div>
 <p>Using the R statistical software and the HBSC data set we can quickly describe the “Weight” variable of the French student aged 11 to 16 in 2006 with the <code>five-number summary</code>. The five-number summary provides a good overall look at the distribution of the data.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="statdesc.html#cb1-1"></a><span class="kw">summary</span>(hbsc<span class="op">$</span>Weight)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="statdesc.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hbsc<span class="sc">$</span>Weight)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   24.50   38.83   47.00   48.09   56.00   90.00      18</code></pre>
 <ul>
@@ -782,7 +798,7 @@ Figure 3.5: Bell shape distribution
 </div>
 <p>A more subtle rule: if you are more concerned with the total sum, rather than the typical value, use the mean. For instance, if you have a salary cap and you are interested in the average salary of your players, use the mean. In this case, the mean is biased towards the high earners, and you really care about the high earners because they are the ones who are eating up your salary cap.</p>
 </div>
-<div id="mode" class="section level3">
+<div id="mode" class="section level3" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Mode</h3>
 <div class="definition">
 <p>
@@ -873,19 +889,19 @@ every day
 A Likert Scale is a type of rating scale used to measure attitudes or opinions. Five to seven items are usually used in the scale.
 </p>
 <p>
-In a survey with a 1-5 scale of “1-Very bad”, “2-Bad”, “3-Neutral”, “4-Good” and “5-Very Good” categories, the mean result across many participants came out to be 3.5. But what does 3.5 even mean in this context? Half way between Neutral and Good : Neutood? In terms of best practice, use the median when describing the centre of Likert data. Some may even argue for only using the mode on Likert data.
+In a survey with a 1-5 scale of “1-Very bad,” “2-Bad,” “3-Neutral,” “4-Good” and “5-Very Good” categories, the mean result across many participants came out to be 3.5. But what does 3.5 even mean in this context? Half way between Neutral and Good : Neutood? In terms of best practice, use the median when describing the centre of Likert data. Some may even argue for only using the mode on Likert data.
 </p>
 </div>
 </div>
 </div>
-<div id="variation-parameters" class="section level2">
+<div id="variation-parameters" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Variation parameters</h2>
 <div class="definition">
 <p>
 A variation parameter is numerical value which describes the dispersion of all the values of a serie of data around its location parameter
 </p>
 </div>
-<div id="range-and-iqr" class="section level3">
+<div id="range-and-iqr" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Range and IQR</h3>
 <p>The <code>range</code> is the difference between the minimum and maximum value of a data serie. It is better to report the boundaries rather then the output of the difference because otherwise we do not know from where it starts.</p>
 <div class="practice">
@@ -901,7 +917,7 @@ Figure 3.6: Hospitals ER
 </div>
 <p>The <code>interquartile range (IQR)</code> summarizes the spread by focusing on the middle half of the data. It is defined as the difference between the two quartiles: <span class="math inline">\(IQR = Q3 - Q1\)</span>. As the range, the IQR should be reported as an interval. For example, the five-number summary above on HBSC weight data show us that IQR is [38.8-56] Kg.</p>
 </div>
-<div id="sd" class="section level3">
+<div id="sd" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Variance and standard deviation</h3>
 <p>A powerful measure of spread is the distance of the values of a data serie to its mean.</p>
 <div class="definition">
@@ -956,7 +972,7 @@ In the HBSC sample, one average pupils weight 48.09 Kg +/- 12.25Kg. It means tha
 </div>
 </div>
 </div>
-<div id="plot" class="section level2">
+<div id="plot" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Graphical summary</h2>
 <p>Graphical representations, as summary in tables, must be self-content and self-explanatory. They should be readable without text around.</p>
 <div class="caution">
@@ -968,7 +984,7 @@ Who are you representing, What characteristics, Where and When it is happening.
 </p>
 </div>
 <p><em>Note: I will be intransigent on that matter</em></p>
-<div id="barplot" class="section level3">
+<div id="barplot" class="section level3" number="3.4.1">
 <h3><span class="header-section-number">3.4.1</span> Barplot</h3>
 <p>For one <code>qualitative</code> variable, the frequency <code>barplot</code>, or <code>barchart</code>, is the most appropriate plot. It could use the absolute or relative frequencies.</p>
 <div class="figure" style="text-align: center"><span id="fig:barplot1"></span>
@@ -992,9 +1008,9 @@ Figure 3.9: Repartition of students according to their sport activity level, in 
 </p>
 </div>
 </div>
-<div id="pie-chart" class="section level3">
+<div id="pie-chart" class="section level3" number="3.4.2">
 <h3><span class="header-section-number">3.4.2</span> Pie chart</h3>
-<p>For one <code>qualitative</code> variable, you can also use a <code>pie chart</code>. However you should be careful on the number of modalities the variable to display can have: too few, the plot take lots of room for few information but too many you will rapidly get “the wheel of fortune”.</p>
+<p>For one <code>qualitative</code> variable, you can also use a <code>pie chart</code>. However you should be careful on the number of modalities the variable to display can have: too few, the plot take lots of room for few information but too many you will rapidly get “the wheel of fortune.”</p>
 <div class="figure" style="text-align: center"><span id="fig:pie"></span>
 <img src="ebook-M1-biostat_files/figure-html/pie-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
 <p class="caption">
@@ -1003,7 +1019,7 @@ Figure 3.10: Repartition of students according to their sport activity level, in
 </div>
 <p>My advice would be to avoid using that plot but if you absolutely need to use it do not forget to <strong>display number and/or %</strong> in the sectors of the plot so reader do not have to do the math.</p>
 </div>
-<div id="histogram" class="section level3">
+<div id="histogram" class="section level3" number="3.4.3">
 <h3><span class="header-section-number">3.4.3</span> Histogram</h3>
 <p>For one <code>quantitative</code> variable, the <code>histogram</code> is often used to visualize the shape of the distibution of the data serie. Although one have to be careful of the bin width (breaks) use to group the numerical values.</p>
 <div class="figure" style="text-align: center"><span id="fig:histogram2"></span>
@@ -1039,7 +1055,7 @@ Figure 3.13: Distribution of students weight by gender group in France in 2006 (
 </p>
 </div>
 </div>
-<div id="boxplot" class="section level3">
+<div id="boxplot" class="section level3" number="3.4.4">
 <h3><span class="header-section-number">3.4.4</span> Boxplot</h3>
 <p>A boxplot helps presenting the five-number summary classically used to describe a sample.</p>
 <p>The central box shows the middle half of the data, between the quartiles. The top of the box is at the third quartile (Q3) and the bottom is at Q1, the height of the box is equal to which is the IQR. The median is displayed as a horizontal line. If the median is roughly centered between the quartiles, then the middle half of the data is roughly symmetric. If it is not centered,
@@ -1065,7 +1081,7 @@ What proportion of students lies between 42 and 55 Kg?
 </p>
 </div>
 </div>
-<div id="scatterplot" class="section level3">
+<div id="scatterplot" class="section level3" number="3.4.5">
 <h3><span class="header-section-number">3.4.5</span> Scatterplot</h3>
 <p>For two <code>quantitative</code> variables, a scatterplot is used to assess if there is a relationship between the two variables.</p>
 <div class="figure" style="text-align: center"><span id="fig:scatterplot"></span>
@@ -1076,7 +1092,7 @@ Figure 3.16: School results and BMI among students in France in 2006 (source: HB
 </div>
 <p>Figure <a href="statdesc.html#fig:scatterplot">3.16</a> displays the school results and BMI among students in France in 2006. It appears that there is no linear relationship between the two variables (see Chapter <a href="tests.html#tests">5</a> and <a href="introduction-to-regression-modelling.html#simplelm">6.1</a>).</p>
 </div>
-<div id="communication-tips" class="section level3">
+<div id="communication-tips" class="section level3" number="3.4.6">
 <h3><span class="header-section-number">3.4.6</span> Communication tips</h3>
 <div class="caution">
 <p>
@@ -1188,7 +1204,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ebook-M1-biostat.pdf", "ebook-M1-biostat.epub"],
+"download": ["ebook-M1-biostat.pdf", "ebook-M1-biostat.epub", "ebook-M1-biostat.html"],
 "toc": {
 "collapse": "subsection"
 }
