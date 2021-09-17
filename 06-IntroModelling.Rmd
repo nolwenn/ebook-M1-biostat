@@ -255,7 +255,7 @@ We can be $95\%$ confident that the lung capacity score of an individual with ag
 
 ## Logistic regression model
 
-Under construction
+Coming soon
 
 ## Collinearity
 
