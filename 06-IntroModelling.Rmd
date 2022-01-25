@@ -1,17 +1,17 @@
 # Introduction to regression modelling
 
-```{block, type='objective'}
+::: {.objective}
 - the step by step procedure to obtain an informative linear model, assess its validity and interpret it
 - Interpret results of a simple linear model
 - Discuss significance of a simple linear model
-```
+:::
 
 
 ## Simple linear regression {#simplelm}
 
-```{block, type='definition'}
+::: {.define}
 A regression attempt to explain the variations observed for a variable by other variables
-```
+::: 
 
 In the plot below, we try to explain the observed distances to stop for cars by the speed of the cars. Here between the two variables, we see a rather linear diagonal trend. We may be able to fit a **simple linear regression** model.
 
@@ -20,9 +20,9 @@ data(cars)
 ggplot(cars, aes(speed, dist)) + geom_point() + ggtitle("Distance to stop (ft) and speed of cars (mph) in the 1920s") + xlab("Speed of the cars (mph)") + ylab("Distance to stop (ft)")
 ```
 
-```{block, type='definition'}
+::: {.define}
 A simple linear regression model is a statistical model that attempt to fit a linear relationship between two variables: one to explain and one explanatory variable
-```
+::: 
 
 By convention:  
 
@@ -45,36 +45,36 @@ r = \frac{cov_x,_y}{s_xs_y} (\#eq:r)
 cov(x,y) = \frac{\sum{(x_i-\bar{x})(y_i-\bar{y})}}{N-1}  (\#eq:cov)
 \end{equation}
 
-```{block, type='definition'}
+::: {.define}
 The coefficient of correlation *r* is :  
 
 - Dimensionless  
 - Range between -1 and 1  
 - its absolute value presents the force of the relationship  
 - its sign presents the direction of the relationship  
-```
+::: 
 
-```{block, type='practice'}
+::: {.practice}
 In the graphics below, what would be the estimated value of the Pearson's coefficient of correlation? 
-```
+:::
 
 ```{r, out.width='70%', fig.asp=.75, fig.align="center", echo=FALSE}
 knitr::include_graphics('fig/coef_correlation.png')
 ```
 
 
-```{block, type='caution'}
+::: {.caution}
 Absence of linear association (r=0) does not mean absence of relation.
-```
+:::
 
 ```{r, out.width='40%', fig.asp=.75, fig.align="center", echo=FALSE}
 knitr::include_graphics('fig/coef_correlation2.png')
 ```
 
 
-```{block, type='caution'}
+::: {.caution}
 Correlation does not mean causation.
-```
+:::
 
 For details and other examples on too fast conclusions  or spurious correlations  see PennState Eberly College of Science [@STAT501] and Tyler Vigen's Website [@SpuriousCorrelation].
 
@@ -166,9 +166,9 @@ From top to bottom and left to right the plots assess :
 (3) Normality of the residuals distribution. A good fitting should show a alignment of the dots on the diagonal of the Q-Q plot.
 (4) Influential observations with Cook's distance: if dots appear outside the Cook's distance limits (red dashses) they are influential observations or even outliers (extreme). Their value need to be verified as they might negatively influence the fitting.
 
-```{block, type='practice'}
+::: {.practice}
 What do you think of the model above?
-```
+:::
 
 Below is an example of post-hoc assumptions verification of a linear model that shows problems. Here the model need to be refined or done differently. 
 
@@ -179,9 +179,9 @@ knitr::include_graphics('fig/badmodel.png')
 
 ## Multiple linear regression model
 
-```{block, type='definition'}
+::: {.define}
 A multiple (or multivariate) linear regression model is a statistical model that attempt to fit a linear relationship between one outcome variable to explain and several explanatory variables (determinants).
-```
+:::
 
 
 For instance, do your age and your height predict your lung capacity?
@@ -255,15 +255,102 @@ We can be $95\%$ confident that the lung capacity score of an individual with ag
 
 ## Logistic regression model
 
-Coming soon
+::: {.define}
+Logistic regression is a process of modeling the probability of a discrete outcome given an input variable.  
+:::
+
+The most common logistic regression models a binary outcome (Dead/Alive, yes/no). Multinomial logistic regression can model scenarios where there are more than two possible discrete outcomes. 
+
+As an example, let's investigate the risk factor of chronic kidney disease (CKD).The response variable is either 1 (Affected) or 0 (Not affected) - a dichotomous response. By definition, that's a categorical response, so we can't use linear regression methods to predict it.
+
+When coding the outcome variable 0 and 1 we can still represent what is happening in association with a covariate such as age. 
+```{r, echo=FALSE}
+ckd <- read.csv("ckd-dataset.csv", skip=2,  col.names=c("Diastolic","bp.limit",       "sg","al","class","rbc","su","pc","pcc","ba","bgr","bu","sod","sc","pot","hemo","pcv","rbcc","wbcc","htn","dm","cad","appet","pe","ane","grf","stage","affected","age" ), stringsAsFactors = TRUE)
+ckd <- ckd[-c(1,2), ]
+ckd$affected <- as.numeric(ckd$affected)
+ckd$ckd <- ifelse(ckd$affected== "0", 0, 1)
+ckd$age2 <- NA
+ckd$age2[ckd$age =="< 12"] <- sample(9:11, 4, replace = T)
+ckd$age2[ckd$age =="≥ 74"] <- sample(75:85, 10, replace = T)
+ckd$age2[ckd$age =="12 - 20"] <- sample(12:19, 4, replace = T)
+ckd$age2[ckd$age =="20 - 27"] <- sample(20:26, 10, replace = T)
+ckd$age2[ckd$age =="27 - 35"] <- sample(27:34, 14, replace = T)
+ckd$age2[ckd$age =="35 - 43"] <- sample(35:42, 12, replace = T)
+ckd$age2[ckd$age =="43 - 51"] <- sample(43:50, 31, replace = T)
+ckd$age2[ckd$age =="51 - 59"] <- sample(51:58, 33, replace = T)
+ckd$age2[ckd$age =="59 - 66"] <- sample(59:65, 48, replace = T)
+ckd$age2[ckd$age =="66 - 74"] <- sample(66:73, 34, replace = T)
+```
+
+
+```{r plot ckd, out.height="350px", out.width="350px", message=F,warning=FALSE}
+plot(ckd$age2, ckd$affected, ylab="Affected", xlab="age (in years)", pch="*")
+```
+
+We can see that the proportions (or probabilities) of having the disease must lie between 0 and 1. It corresponds to the prevalence (%) of CKD according to age.
+
+This relationship can be model using the Logistic function.
+
+- $Y = \frac{1}{1 + e^{-(\beta_0 + \beta_1X)}}$
+
+ \centerline{\includegraphics[height=2in]{fig/logReg5.png}}
+
+- $\beta_0$ and $\beta_1$ give the shape of the curve
+
+We note the the $\beta_0 + \beta_1X$ part looks really similar a  linear model. In fact, to estimate those coefficient a mathematical trick is to transform the above equation in order to get to a linear form.
+
+By transformation:
+
+$Y/(1-Y) =  \frac{1}{e^{-(\beta_0 + \beta_1X + \beta_2x_2 + ... +\beta_ix_i)}}$
+
+$ln(Y/1-Y)=\beta_0 + \beta_1x_1 + \beta_2x_2 + ...\beta_ix_i$
+
+$\beta_0$ =  log odds of disease in unexposed
+
+$\beta_i$ =  log odds ratio associated with being exposed to *i* (age for instance)
+
+The *Logit function* is defined as the natural log of the odds. A probability of 0.5 corresponds to a logit of 0, probabilities smaller than 0.5 correspond to negative logit values, and probabilities greater than 0.5 correspond to positive logit values. 
+
+After fit the model and estimating the $\beta_0$ and $\beta_1$ coefficients, we can retrieve the Odds Ratio (OR) which is the Probability of having the outcome / Probability of not having the outcome when exposed:
+
+::: {.define}
+OR= $e^\beta_i$ = odds ratio associated with being exposed to *i*
+::: 
+
+```{r}
+model_ckd <- glm(affected  ~ age2, family=binomial("logit"), data=ckd)
+```
+
+```{r}
+summary(model_ckd) 
+```
+
+The coefficient is positively link to the disease. When you increase in age you increase your risk of having disease. To compute the OR, we can use the $exp(0.039)$ but for a nicest output with confidence interval we can use the *epiDisplay* library and its *logistic.display()* function.
+
+```{r}
+library(epiDisplay)
+logistic.display(model_ckd) 
+```
+
+The odd (risk) of having the disease is 1.04 times higher when people get older by 1 year (95%CI[1.02,1.06]). The P(Wald's test) tells us that the estimated coefficient is different from 0 (or the OR is different from 1). The  P(LR-test) log-likelihood ratio test tells us that the model is better than the NULL model (without any covariate).
+
+We can add other covariates and then use a stepwise approach to get the most parsimonious model.
+
+```{r}
+model_ckd2 <- glm(affected  ~ age2 + bp.limit, family=binomial("logit"), data=ckd)
+summary(model_ckd2)
+model_ckd2<- step(model_ckd2)
+logistic.display(model_ckd) 
+```
+
 
 ## Collinearity
 
-```{block, type='definition'}
+::: {.define}
 Collinearity is the correlation between 2 independent variables (predictors).  
 
 Multi-collinearity is cross-correlation between multiple independent variables (predictors).  
-```
+:::
 
 
 If the independent variables are perfectly correlated, you will face these problems:
@@ -299,12 +386,12 @@ Note that even a small correlation between 2 variables and thus the test over th
 
 Therefore other metrics can be computed. The most commun one is the Variance Inflation Factor or **VIF** and its inverse the Tolerance indicator or **TOL**
 
-```{block, type='definition'}
+::: {.define}
   
 Variance Inflation Factor (**VIF**): how much of the inflation of the standard error could be caused by collinearity  
 
 Tolerance indicator (**TOL**) = $\frac{1}{VIF}$ 
-```
+:::
 
 If all of the variables are orthogonal to each other (uncorrelated with each other) both indicators (TOL and VIF) are 1.  
 

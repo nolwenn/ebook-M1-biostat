@@ -1,11 +1,11 @@
 # Inference and sample {#inferencestat}
 
-```{block, type='objective'} 
+::: {.objective}
 - Make the difference between individual variation and sample variation
 - Make the difference between observed values and estimated parameters
 - Interpret a confidence interval
 - Interpret a statistical test
-```
+::: 
 
 
 ## Sample {#sample}
@@ -30,13 +30,12 @@ What is the main property of a good sample?
 - Poor sampling designs can yield misleading conclusions
 
 
-```{block, type='definition'}  
+::: {.define}
 - Set of observations drawn from a population
 - All the individuals of the study population should have the same probability of being drawn
 - A `representative sample` should be an unbiased reflection of what the targeted population is like for the units of interest (outcome and  covariates/determinants)
 - A representative sample for a variable should reflect the variable distribution observed in the targeted population.
-
-```
+:::
 
 For example, you plan to determine the relationship between gratitude and job satisfaction in gynecologists. Your sample might consist of 30 to 40 gynecologists. Your population might be "gynecologists in the United States", or, if the scope of your study was more narrow, "gynecologists in New York City". So, if most gynecologists in the population are women, but your sample is all male, you do not have a good case for representativeness because your sample does not share the same characteristics as the larger population. In this case, you cannot generalize the results of your study to the population.
 
@@ -74,7 +73,7 @@ knitr::include_graphics('fig/cluster_F4.png')
 
 For example, the HBSC study is based on a multistage sampling. In France, in each region some schools were randomly selected, within a school some classes were randomly selected and all the students of the selected class were interrogate.
 
-```{block, type='practice'}
+::: {.practice}
 The Dean of the School of public health wants to meet with several members of the faculty of the Department of Statistics to discuss concerns they might have about their department. He does not have time to talk to all of the faculty members, but wants to be sure that he meets with faculty with various levels of seniority.  
 The Department of Statistics is composed of:
 
@@ -83,7 +82,7 @@ The Department of Statistics is composed of:
 5 Assistant Professors  
 
 The Dean decides to speak with 5 Professors, 2 Associate Professors, and 3 Assistant Professors. What sampling design can be used? 
-```
+:::
 
 4. **Systematic sampling**
 
@@ -156,9 +155,9 @@ knitr::include_graphics('fig/betweenvar.png')
 
 If you drawn different samples from the same population you will get different means (Figure \@ref(fig:betweenvar)) due to `sampling fluctuation` or `sampling distribution of the mean`. This variance between the means of different samples can be estimated by the standard deviation of this sampling distribution and it is the standard error (SE) of the estimate of the mean. 
 
-```{block, type='definition'}
+::: {.define}
 The standard error (SE) is a type of standard deviation for the distribution of the means of samples drawn from the same population.
-```
+:::
 
 Standard Error:
 ```{block, type='center'}  
@@ -180,19 +179,19 @@ knitr::include_graphics('fig/estimatedmu.png')
 ```
 
 
-```{block, type='definition'}  
+::: {.define}
 **Central Limit Theorem (CLT)**  
 
 The mean of a random sample has a sampling distribution whose shape can be approximated by a Normal model. The larger the sample, the better the approximation will be.
-````
+:::
 
 For example, in the HBSC survey  the observed mean of weights of 11 years-old French children in 2006 in our sample (n=500) is  38, 55 Kg (s = 8,10 Kg). How do we estimate the **TRUE value** in the population of children aged 11 in 2006 in France?
 
 Using central limit theorem, one can demonstrate that **we can be 95% confident that the true mean $\mu$ of the population from which is extracted our sample is within the interval**:
 
-```{block, type='center'}  
+:::{.center}  
 $m-1.96*\sigma_\mu \leq \mu \leq m+1.96*\sigma_\mu$
-````
+:::
 
 where:
 
@@ -210,9 +209,9 @@ For example, you are interested in the proportion of children (aged 2-3) with sl
 
 Using central limit theorem, one can demonstrate that **we can be 95% confident that the true proportion $\pi$ of the population from which is extracted our sample is within the interval**:
 
-```{block, type='center'}  
+:::{.center}  
 $p-1.96*\sigma_\pi \leq \pi \leq p+1.96*\sigma_\pi$
-````
+:::
 
 where:
 
@@ -256,9 +255,9 @@ For the proportion example, we are 95% confident that the true proportion of chi
 
 We can generalize the equation above to:
 
-```{block, type='center'}  
+:::{.center}  
 $m-Z_\alpha\sigma_\mu \leq \mu \leq m+Z_\alpha\sigma_\mu$
-````
+:::
 
 where:
 
@@ -269,9 +268,9 @@ knitr::include_graphics('fig/Zalpha.png')
 ```
 
 
-```{block, type='practice'}  
+::: {.practice}  
 The critical value $Z_\alpha$ will be larger or smaller when computing a confidence interval at 90?
-````
+:::
 
 
 ### Precision or Margin error
@@ -279,9 +278,9 @@ The critical value $Z_\alpha$ will be larger or smaller when computing a confide
 The term $Z_\alpha\sigma_\mu$ or $Z_\alpha\sigma_\pi$ is noted $i$ and named the `precision` or `margin error` of the confidence interval. 
 
 
-```{block, type='caution'}  
+:::{.caution}  
 In a simple random sample, the precision is proportional to the square root of the inverse of the sample size. It is not linear!
-```
+:::
 
 ```{r precision, fig.cap='Precision to sample size relationship in a simple random sample.', out.width='60%', fig.asp=.75, fig.align='center', echo=F}
 knitr::include_graphics('fig/precision.png')

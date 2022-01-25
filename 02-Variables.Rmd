@@ -1,15 +1,13 @@
 # Data: Statistical units and Variables {#variables}
 
-```{block, type='objective'} 
-
-
+::: {.objective}
   The `W's` and their types are what you should be interested in and careful about in the data:
 
  - Who
  - What 
  - Where
  - When
-````
+:::
 
 Statistics, from the latin `status` and same root as State, is the art of counting and classifying. At first, statistics were used to describe countable information on population. Rapidly they became essential to model and predict data from experiences to foresee outcomes and help decision making.  
 
@@ -23,17 +21,17 @@ In Public Health, we are interested in population. In biostatistics, we like to 
  - health care services
  - countries
 
-```{block, type='definition'} 
+::: {.define}
 The *Who* is the `statistical unit`, the unitary element of interest (individual, hospital, country...).
-```
+:::
 
 ## Variables
 
 The statistical units are characterized by one or more `variables`, which by definition varies between statistical units. 
 
-```{block, type='definition'}
+::: {.define}
 The *What* are `variables`, the recorded characteristics of the statistical units.
-```
+:::
 
 For example, the variables characterizing the schooled children could be: age, height, weight...(Figure \@ref(fig:fig1)). For health care establishments, the characteristics could be the legal status, the number of beds, nurses, doctors, patients...(Figure \@ref(fig:fig2)). 
 
@@ -59,17 +57,17 @@ knitr::kable(
 ```
 
 
-```{block, type='practice'}
+::: {.practice}
 Try to guess what these data represent and what information is available.  
 
 
 **Hint:** Do not forget to read the title of the table.
-```
+:::
 
 
-```{block, type='definition'}
+::: {.define}
 The *Where* and *When* are the context/location and time of the data collection. 
-```
+:::
 
 
 For instance in our HBSC the *When* is the year 2006 and the *Where* is in France. The scale of time and place are of great importance that need to be clearly defined. For example, the time can be a time point or a period of several months or years. As for France, it could be metropolitan France (excluding overseas departments) or France with all its departments. We could also look at different geographical levels like the city, the county, the state...  
@@ -109,7 +107,7 @@ The `quantitative` variables can be discrete or continuous. A quantitative discr
 
 
 
-```{block, type='practice'}
+::: {.practice}
 Propose a set of variables, one of each type.
-```
+:::
 

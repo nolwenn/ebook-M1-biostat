@@ -12,7 +12,6 @@ pre {
 pre code {
   white-space: inherit;
 }
-
 .practice {
     padding: 1em;
     margin: 1em 0;
@@ -35,7 +34,7 @@ pre code {
     background-position: 15px center;
     background-color: #fff5ee;
 }
-.definition {
+.define {
     padding: 1em;
     margin: 1em 0;
     padding-left: 100px;
@@ -47,11 +46,10 @@ pre code {
     background-color: #f5f5f5;
     background-image: url("fig/bookmark.png");
 }
-.definition > :first-child:before {
+.define > :first-child:before {
   font-weight: bold;
   content: "Definition: ";
 }
-
 .caution {
     padding: 1em;
     margin: 1em 0;
@@ -64,7 +62,6 @@ pre code {
     background-color: #f5f5f5;
     background-image: url("fig/caution.png");
 }
-
 .objective {
     padding: 1em;
     margin: 1em 0;
@@ -79,10 +76,8 @@ pre code {
 }
 .objective > :first-child:before {
   font-weight: bold;
-  content: "Learning objective:  ";
+  content: "Learning objective: ";
 }
-
-
 .center {
   text-align: center;
 }

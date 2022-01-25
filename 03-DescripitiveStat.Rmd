@@ -5,10 +5,10 @@ output:
 ---
 # Descriptive statistics {#statdesc}
 
-```{block, type='objective'} 
+::: {.objective}
 - Choose appropriate summary statistics (tables, graphics, parameters) to describe a population or a sample
 - Interpret summary statistics
-````
+:::
 
 
 ## Frequency table 
@@ -104,33 +104,33 @@ The proportion of smoker seems to increase with age. We will verify this later u
 
 ## Central parameters
 
-```{block, type='definition'}  
+::: {.define} 
 A central parameter, or location parameter, is the numerical value around which are distributed most of the values of a serie of data.
-```
+:::
 
 ### Mean
 
 The  (arithmetic) mean is the most well known and commonly (but not always appropriately) used central parameter.
 
-```{block, type='definition'}   
+::: {.define}   
 The arithmetic mean is the sum of the values divided by the number of values in the data serie.
-```
+:::
 
 
 Mathematically, in a population the equation is:  
 
 
-```{block, type='center'}   
+::: {.center}  
 $\mu = ({\sum^{{i=N}}_{{i=1}} X_{i})/N}$
-```
+:::
 
 
 In a sample, the equation is:  
 
 
-```{block, type='center'}   
+::: {.center}    
 $m = ({\sum^{{i=n}}_{{i=1}} x_{i})/n}$
-```
+:::
 
 *Note: Greek letters are used for population and Roman letters for sample. The mean is also sometimes symbolized like $\bar{X}$ for population or $\bar{x}$ for sample*
 
@@ -138,7 +138,7 @@ $m = ({\sum^{{i=n}}_{{i=1}} x_{i})/n}$
 Figure \@ref(fig:histogram) presents a `histogram` that summarize the distribution of weight of French student in the HBSC `sample` (for histogram definition see section \@ref(plot) and sample definition see \@ref(sample)). From the graphic, the central point (pick) of the distribution, around which values of the data serie are spread is around the weight class [40-45[ Kg.  
 
 
-```{r histogram,  fig.cap='Distrubution of weights (Kg) of 11 to 16 years-old students, in France in 2006', out.width='70%', fig.asp=.75, echo=FALSE, message=FALSE, warning=FALSE}
+```{r histogram,  fig.cap='Distribution of weights (Kg) of 11 to 16 years-old students, in France in 2006', out.width='70%', fig.asp=.75, echo=FALSE, message=FALSE, warning=FALSE}
 library(ggplot2)
 ggplot(hbsc, aes(Weight)) + geom_histogram(binwidth =5, fill='lightblue', color="black") + geom_vline(xintercept = 48, size = 1, colour = "#FF3721",linetype = "dashed")
 ```
@@ -146,9 +146,9 @@ ggplot(hbsc, aes(Weight)) + geom_histogram(binwidth =5, fill='lightblue', color=
 On average, in 2006 the French students aged 11 to 16 weighted `r round(mean(hbsc$Weight, na.rm=T),0)` Kg (dashed red color).  
 
 
-```{block, type='practice'}
+::: {.practice}    
 Why the mean is not between 40 and 45Kg?
-```
+:::
 
 The advantages:
 
@@ -169,9 +169,9 @@ knitr::include_graphics('fig/salary.png')
 The mean is not always the appropriate statistical indicator to summarize the distribution data and should be sometimes replaced by the median.  
 
 
-```{block, type='definition'}   
+::: {.define}  
 The median is the middle value of a ordered data serie. The median split the data serie in two part of equal number of data.
-```
+:::
 
 
 ```{r mercuryMean, fig.cap='Mean or Median, that is the question?', out.width='70%', fig.asp=.75, fig.align='center', echo=F}
@@ -191,9 +191,9 @@ How to compute a median?
 - 2) If there are an odd number of observations, find the middle value
 - 2'. If there are an even number of observations, find the middle two values and average them
 
-```{block, type='practice'}
+::: {.practice}  
 Would you use the median or the mean to compare French region rainfall?
-```
+:::
 
 The advantages:
 
@@ -213,9 +213,9 @@ The drawbacks:
 
 When looking at height distribution, the median is the exact middle value when people are ordered by height  which correspond to the 50$^{th}$ `percentile` or 50% below and above that value (Figure \@ref(fig:percentile)). But you could pick any percentile like the 80$^{th}$ with 80% below and 20% above. 
 
-```{block, type='definition'}  
+::: {.define}
 The n$^{th}$ percentile of a set of data is the value at which *n* percent of the data is below it.
-```
+:::
 
 
 ```{r percentile, fig.cap='Percentile', out.width='70%', fig.asp=.75, fig.align='center', echo=F}
@@ -224,15 +224,15 @@ knitr::include_graphics('fig/percentile.png')
 
 Percentiles can be calculated using the formula $n = (P/100)*N$, where *P* = percentile, *N* = number of values in a data set (sorted from smallest to largest), and *n* = ordinal rank of a given value.
 
-```{block, type='practice'}
+::: {.practice}  
 A student scores in the 75$^{th}$ percentile of his class. What does that mean?
-```
+:::
 
 The 75$^{th}$ percentile is also the 3rd `quartile`. 
 
-```{block, type='definition'}  
+::: {.define} 
 The quartile split the sorted data values into quarters.
-```
+:::
 
 The quartiles are the values that frame the middle 50% of the data (median or Q2). One quarter of the data lies below the lower quartile, Q1 (25% or 25$^{th}$ percentile), and one quarter of the data lies above the upper quartile, Q3 (75% or 75$^{th}$ percentile).  
 
@@ -256,14 +256,14 @@ summary(hbsc$Weight)
 - The 1$^{st}$ quartile is 38.8Kg meaning that 25% of the students weighted less than 38.8Kg and 75% weighted more. 
 - The 3$^{rd}$ quartile is 56Kg meaning that 75% of the students weighted less than 56Kg and 25% weighted more. 
 
-```{block, type='caution'}  
+:::  {.caution}
 **Quantile algorithms**
 
 Several algorithms exit to compute quantile (for instance see ?quantile in the R staistical software). They rely on different definitions of the underlying distribution of the sample: discontinuous or continuous.  
 
 
 In your case no needs to go into the details but you should know how to interpret the values. 
-```
+:::
 
 
 **Mean versus Median**  
@@ -286,9 +286,9 @@ A more subtle rule: if you are more concerned with the total sum, rather than th
 
 ### Mode
 
-```{block, type='definition'}  
+::: {.define}
 The most frequent value or modality
-```
+:::
 
 It is the only statistical parameter for the `qualitative` variables.
 
@@ -304,28 +304,28 @@ In table \@ref(tab:mode) the mode is the category "2 or 3 times a week" with 175
 
 For `quantitative` variables it could be a number or a class interval as in Figure \@ref(fig:histogram) where the modal class is [40-45[Kg.
 
-```{block, type='caution'}  
+::: {.caution} 
 **Likert scale data**.  
 
 
 A Likert Scale is a type of rating scale used to measure attitudes or opinions. Five to seven items are usually used in the scale.
 
 In a survey with a 1-5 scale of "1-Very bad", "2-Bad", "3-Neutral", "4-Good" and "5-Very Good" categories, the mean result across many participants came out to be 3.5. But what does 3.5 even mean in this context? Half way between Neutral and Good : Neutood? In terms of best practice, use the median when describing the centre of Likert data. Some may even argue for only using the mode on Likert data. 
-```
+:::
 
 ## Variation parameters
 
-```{block, type='definition'}  
+::: {.define} 
 A variation parameter is numerical value which describes the dispersion of all the values of a serie of data around its location parameter
-```
+::: 
 
 ### Range and IQR
 
 The `range` is the difference between the minimum and maximum value of a data serie. It is better to report the boundaries rather then the output of the difference because otherwise we do not know from where it starts.
 
-```{block, type='practice'}  
+::: {.practice} 
 In which hospital will you go for emergency care?
-```
+::: 
 
 
 ```{r range, fig.cap='Hospitals ER', out.width='70%', fig.asp=.75, fig.align='center', echo=F}
@@ -338,9 +338,9 @@ The `interquartile range (IQR)` summarizes the spread by focusing on the middle 
 
 A powerful measure of spread is the distance of the values of a data serie to its mean.  
 
-```{block, type='definition'}  
+::: {.define} 
 The variance is the average squared differences to the mean.
-```
+:::
 
 Based on the mean, the `variance` is appropriate only for symmetric data and can be influenced by outlying observations.
 
@@ -350,7 +350,7 @@ Mathematically, if we tried to average the distances of all the values a data se
 In a population the equation is:
 ```{block, type='center'}  
  $\sigma^2=\frac{\sum_{1}^{N}(X_i-\bar{X})^2}{N}$
-````
+```
 
 where 
 
@@ -361,9 +361,9 @@ where
 
 In a sample, the formula is:
 
-```{block, type='center'}  
+::: {.center} 
  $s^2=\frac{\sum_{1}^{n}(x_i-\bar{x})^2}{(n-1)}$
-````
+:::
 
 where 
 
@@ -374,21 +374,21 @@ where
 
 The variance plays an important role in statistics, but as a measure of spread, it has a problem. Whatever the units of the original data, the variance is in squared units. To express the spread to in the same units as the data we take the square root of the variance. That gives the `standard deviation`.
 
-```{block, type='definition'}  
+::: {.define} 
 A standard deviation is the square root of the variance, the average differences to the mean.
-```
+::: 
 
 
 Mathematically, in a sample the formula is:
 
-```{block, type='center'}  
+::: {.center}  
 $s=\sqrt\frac{\sum_{1}^{n}(x_i-\bar{x})^2}{(n-1)}$
-````
+::: 
 
 
-```{block, type='example'}  
+::: {.example}   
 In the HBSC sample, one average pupils weight 48.09 Kg +/- 12.25Kg. It means that the **average variation** of the weights around the mean is of 12.25Kg. However some pupils can be lighter than 35.75kg (48-12.25 - the minimum is in fact 24.5Kg) and some pupils can be heavier than 60.25kg (48+12.25 the minimum is in fact 90Kg).
-````
+:::
 
 
 
@@ -396,12 +396,11 @@ In the HBSC sample, one average pupils weight 48.09 Kg +/- 12.25Kg. It means tha
 
 Graphical representations, as summary in tables, must be self-content and self-explanatory. They should be readable without text around. 
 
-```{block, type='caution'} 
+::: {.caution} 
 **Plot title should include the W's**  
 
-
 Who are you representing, What characteristics, Where and When it is happening.   
-```
+::: 
 
 *Note: I will be intransigent on that matter* 
 
@@ -471,14 +470,14 @@ Figures \@ref(fig:histogram2) and \@ref(fig:histogram3) present the same data se
 
 There is no recipe, statistical software helps you with default algorithm but my advice would be to try a couple of bin widths and select the one you believe summarize the best the data   
 
-```{block, type='caution'} 
+::: {.caution}
 **Barplot versus Histogram**  
 
 
 Barplot are for `qualitative` data. The bars are separated.
 
 Histogram are for `quantitative` data. The bins are joined. Gaps may occurred when no one fall in a particular bin. 
-```
+:::
 
 If you want to compare the distribution of `one quantitative variable between more than 2 groups (qualitative)` the histogram remain interesting, as shown below. But up to three the comparison start to be difficult. A boxplot is then more appropriate. 
 
@@ -513,9 +512,9 @@ In Figure \@ref(fig:boxplot2) the distribution of students' weight vary by group
 
 Let's interpret the "never" group (bottom boxplot): around 50% of the students in that group weight 45Kg or less, 75% of the students weight 55Kg or less while 25% weight 55Kg or more
 
-```{block, type='practice'} 
+::: {.practice} 
 What proportion of students lies between 42 and 55 Kg? 
-```
+:::
 
 ### Scatterplot
 
@@ -529,9 +528,9 @@ Figure \@ref(fig:scatterplot) displays  the school results and BMI among student
 
 ### Communication tips
 
-```{block, type='caution'} 
+::: {.caution}
 **Avoid 3D plots** our eyes are not good at visualizing 3D and mathematically it's often wrong you do not manipulate volumes but numbers. 
-```
+:::
 
 ```{r badvisual1, fig.cap='Bad visual 1', out.width='50%', fig.asp=.75, fig.align='center', echo=F}
 knitr::include_graphics('fig/badpic1.png')
@@ -541,7 +540,7 @@ knitr::include_graphics('fig/badpic1.png')
 knitr::include_graphics('fig/badpic2.png')
 ```
   
-```{block, type='caution'} 
+::: {.caution} 
 **Use appropriate colors** 
 
 - Proscribe rainbow plots
@@ -549,7 +548,7 @@ knitr::include_graphics('fig/badpic2.png')
 - Diverging palettes put equal emphasis on mid-range critical values and extremes at both ends of the data range
 -Qualitative palettes do not imply magnitude differences between legend classes, and hues are used to create the primary visual differences between classes.
 - Do not forget our color-blind friends !
-``` 
+:::
 
 What summary statistics should you use: tables, graphics or statistical parameters?  It all depends.  
 

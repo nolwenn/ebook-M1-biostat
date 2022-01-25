@@ -1,5 +1,4 @@
-
-# Introduction {#intro}
+# Introduction {#introduction}
 
 You may wonder why you will need to learn some statistics as you do not plan to compute statistics yourself in your future job. But, as a public health professional, the decisions you may be brought to make based on data will be too important to delegate. You will want to be able to interpret the data that surrounds you and to come to your own conclusions [@sharpe_business_2012].
 
@@ -11,24 +10,23 @@ When you see a term written like `statistics` in the text it is a concept that y
 
 Different boxes will highlight the concepts, warnings and small practical exercises. 
 
-```{block, type='objective'}
- The first learning objective is to relax and trust yourself on your capacities to enjoy the biostat class.
-`````
+::: {.objective}
+The first learning objective is to relax and trust yourself on your capacities to enjoy the biostat class.
+:::
+
+::: {.define}
+This will be the definition of a concept you should understand along with its usage 
+:::
 
 
-```{block, type='definition'}  
- This will be the definition of a concept you should understand along with its usage 
-````
+::: {.caution}
+This is a warning
+:::
 
+::: {.practice}
+This is a small question you should try to answer
+:::
 
-```{block, type='caution'}  
- This is a warning
-````
-
-
-```{block, type='practice'}  
- This is a small question you should try to answer
-````
 
 This little book is being developed as a support for my online classroom in the context of the SARS-Cov2 pandemic. The content is a mix of my usual slides with definitions and examples from the books by @sharpe_business_2012 (second edition), by @diez2019openintro (fourth edition), and by @thierry_ancelle [in French].
 
@@ -36,3 +34,4 @@ To illustrate the different concepts, I mostly use a sample of the 2006 French H
 
 
 The statistical software R is used to illustrate some of the statistical tests and modeling methods [@Rsoftware]. Commands and output examples are presented. R and the bookdown package were in fact used to create this little e-book [@bookdown2016].  
+

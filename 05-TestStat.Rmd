@@ -1,15 +1,10 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # Inference and statistical tests {#tests}
 
-```{block, type='objective'}
+:::{.objective}
 - Understand statistical test reasoning
 - Interpret results of a statistical test
 - Discuss significance of a statistical test
-```
+:::
 
 The aim of a statistical test is to reach a scientific decision on a difference (or effect), on a
 probabilistic basis, based on observed data.
@@ -31,13 +26,13 @@ In **hypothesis formulation** you always have two possibilities: **it is not dif
 
 In the HBSC data, we are interested in the characteristics of the smoking students compare to the non-smoking. Do they differ by some characteristics?
 
-```{block, type='example'}
+::: {.example}
 **Example 1:**  we would like to test whether there is, on average, a difference in height between smokers and non-smokers.
-```
+::: 
 
-```{block, type='example'}
+::: {.example}
 **Example 2:**  we would like to test if the proportion of smokers varies according to gender.
-```
+::: 
 
 First, we describe the distribution of the variable between the groups.  
 
@@ -93,19 +88,19 @@ knitr::include_graphics('fig/meancomparison.png')
 
 When you state the hypothesis you should explicit H0 an H1. 
 
-```{block, type='definition'}
+::: {.definition}
   
 
 **H0** : The null hypothesis is that the parameters are EQUAL, i.e they are not different.
 
 **H1**: The alternative hypothesis is that the parameters are NOT EQUAL, i.e they are different.
-```
+::: 
 
 I like to write down the hypothesis with the $=$ sign and $\neq$ as I find easier to pick the test and interpret the results afterward.
 
 Remember the **W's** they should appear in the hypothesis if you have the information.
 
-```{block, type='example'}
+::: {.example}
 **Example 1:**  
 
 
@@ -115,9 +110,9 @@ H0: In France in 2006, the mean height of the students 11-16 who smoke was equal
 
 
 H1: In France in 2006, the mean height of the students 11-16 who smoke was NOT equal to the mean height of the students 11-16 who do not smoke.
-```
+::: 
 
-```{block, type='example'}
+::: {.example}
 **Example 2:**    
 
 
@@ -128,7 +123,7 @@ H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal
 
 
 H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.
-```
+::: 
 
 
 A statistical test is always performed to answer the H0 hypothesis (Figure \@ref(fig:testH0rule)).  
@@ -171,15 +166,15 @@ For a risk $\alpha=5$% the critical value is  $Z_\alpha=1.96$.
 
 If H0 is true, 95% of values of $(m_1-m_2)/s_\Delta$  are between -1.96 and 1.96. If the statistical value  $(m_1-m_2)/s_\Delta$ returned by your test is above 1.96 or below -1.96, you reject H0 and accept H1. 
 
-```{block, type='practice'}
+::: {.practice}
 In example 1, the statistical value for a risk $\alpha=0.05$ is -5.4582. What is you conclusion?
-```
+::: 
 
 ## Comparison of two proportions
 
 In the context of proportion comparison like in example 2, the objective is to assess whether the proportion of cases among the exposed group is equal to the proportion of cases among the non-exposed group.
 
-```{block, type='example'}
+::: {.example}
 **Example 2:**    
 
 
@@ -190,7 +185,7 @@ H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal
 
 
 H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.
-```
+::: 
 
 
 To this aim, as for the comparison of means, we will compute the standardized differences (distances) between groups.
@@ -260,10 +255,9 @@ knitr::kable(
 
 Then we compute the Chi-square ($\chi^2$) statistic which is the standardized sum of the differences between the observed and the expected value.
 
-
-```{block, type='center'}
+::: {.center}
 $\chi^2_{Obs}= \sum(\dfrac{(Obs-Exp)^2}{Exp}$
-```
+::: 
 
 Using the R statistical software, we have
 ```{r computeChi2}
@@ -288,14 +282,14 @@ knitr::include_graphics('fig/chi2-distrib.png')
 
 When the two-way table of the expected number is drawn, the degree of freedom is the number of values in the final calculation that are free to vary. For instance, in a 2x2 table once you have set one value the others cannot change. The quick formula to compute the degree of freedom (df) for the $\chi^2$ distribution is the number of rows in the table minus 1 multiply by the number of columns in the table minus 1:
 
-```{block, type='center'}
+::: {.center}
 df = (#rows - 1) * (#cols - 1)
-```
+::: 
 
 
-```{block, type='practice'}
+::: {.practice}
 For a 2x3 table, what is the degree of freedom?
-```
+::: 
 
 
 Next, we need to look at the statistical table of the $\chi^2$ law (Figure \@ref(fig:chi2-table)). The threshold value also depends on the $\alpha$ risk you are willing to take.
@@ -309,13 +303,13 @@ In the $\chi^2$ table, for our 2x2 table the $df = 1$ and for a $\alpha$ risk of
 
 Next the decision rule is the same as for the comparison of means.
 
-```{block, type='practice'}
+::: {.practice}
 In example 2, the statistical value for a risk $\alpha=0.05$ and $df=1$ is 3.84. The $\chi^2_{Obs} = 0.54$.  What is you conclusion?
-```
+::: 
 
-```{block, type='caution'}
+::: {.caution}
 To correctly use the $\chi^2$ test and have accurate estimation of the associated probabilities, we need to have at least **n=5** count in each cell of the **table of expected** numbers.
-```
+::: 
 
 ### Fisher's Exact test
 
@@ -332,9 +326,9 @@ knitr::kable(
   caption = 'Fisher Exact test principal.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3)) 
 ```
 
-```{block, type='center'}
+::: {.center}
 $p = \dfrac{n_1!n_2!t_1!t_2!}{a!b!c!d!}$
-```
+::: 
 
 
 Using the R statistical software, we have
@@ -353,9 +347,9 @@ As it is a ratio (numerator/denominator) if there is no difference (numerator=de
 - If the confidence interval includes 1, we fail to reject H0, we can not conclude that the proportions differ.
 - If the confidence interval does not include 1, we reject H0, the proportions differ.
 
-```{block, type='practice'}
+::: {.practice}
 In example 2, the Fisher's exact test returns an odds ratio of 0.79 and 95% CI [0.45, 1.37]. What is your conclusion?
-```
+::: 
 
 
 2) We can look at the $p-value$ but what is a $p-value$ ? See next section \@ref(alpha-p).
@@ -373,7 +367,7 @@ The common practice is then to compare the risk $\alpha$, defined *a priori*, to
 
 
 
-```{block, type='definition'}
+::: {.define}
 
 **$\alpha$ risk and $p-value$ **  
 
@@ -382,21 +376,21 @@ $\alpha$ risk: *a priori* risk to conclude about a difference that does not exis
 
 
 $p-value$:  *a posteriori* error risk that is taken knowing the result of the test
-```
+::: 
 
 
-```{block, type='definition'}
+::: {.define}
 
 **Statistical test's decision rule**
 
 When $p-value$ > $\alpha$ risk, we FAIL to reject H0
 
 When $p-value \leq  \alpha$ risk, we reject H0
-```
+::: 
 
 The $p-value$ is not synonymous of the importance of the possible difference between groups. In other words, a very small p-value means that the risk of making a mistake is very low. It does not mean that there is a huge difference between groups.
 
-```{block, type='example'}
+::: {.example}
 **Example 3:** Using 2 studies we are assessing 2 new methods (A and B) for the prevention of surgical site infections (SSI) compared to a conventional method (0).  
 
 
@@ -404,7 +398,7 @@ The $p-value$ is not synonymous of the importance of the possible difference bet
 - In study B: method B shows 12% of SSI and the conventional method 24% of SSI. The test between B and 0 returns a $p-value \leq 0.001$
 
 Is method B better than method A in preventing SSI?  
-```
+::: 
 
 In the example above, we cannot tell if method B is better than method A : we did not test A versus B. The only information we get is that method A is different from method 0 and that method B is different from method 0. In fact method A and B present the same level of SSI. They might not be different but to conclude (with a certain level of confidence) we need to do a test. (see section 5.7 for comparison of multiple groups) 
 
@@ -414,23 +408,23 @@ restest<- t.test(hbsc$Height~hbsc$SmokingStatus)
 ```
 
 
-```{block, type='practice'}
+::: {.practice}
 In example 1, we tested H0 with the Student's T test. The $p-value$ is 4.342e-07. What is your conclusion?
-```
+:::
 
-```{block, type='practice'}
+::: {.practice}
 In example 2, we tested H0 with a $\chi^2$ test. The $p-value$ is 0.462. What is your conclusion?  
 
 
 We also tested H0 with the Fisher's Exact test. The $p-value$ is 0.431. Do you reach the same conclusion than with the $\chi^2$ test? Why?
-```
+:::
 
 
 If you try to compare the effects of different risk factors or compare similar studies but with different protocols, you sholud not compare the *p-values*. A *p-value* smaller than an other *p-value* does not mean that the observed difference is greater. It only means that your are more confident on the results of the test.
 
-```{block, type='caution'}
+::: {.caution}
 You should not compare p-values. 
-```
+::: 
 
 
 ```{r pval no comparison, out.width='80%',  fig.align='center', echo=F}
@@ -471,12 +465,12 @@ knitr::include_graphics('fig/betavisual.png')
 
 It is a difficult question.
 
-```{block, type='example'}
+::: {.example}
 **Example 4:** Hepatitis B vaccination and multiple sclerosis. Many study protocols have been conduct to assess an possible association between vaccination against Hepatitis B and the development of multiple sclerosis. The null hypothesis was that prevalence of multiple sclerosis was the same among people vaccinated against Hepatitis B and people not vaccinated against Hepatitis B.  
 
 
 In that context, what would you favour $\alpha$ or $\beta$?
-```
+::: 
 
 - Wrongly reject H0 and conclude that there is an effect : it could be catastrophic as the immunization coverage will fall down
 - Not seeing an effect: people may not get Hepatitis B vaccination but multiple sclerosis   !!!
@@ -484,7 +478,7 @@ In that context, what would you favour $\alpha$ or $\beta$?
 Note that there have been many studies on the above question and that no effect as been seen so far. 
 
 
-```{block, type='practice'}
+::: {.practice}
 You test the hypothesis of an absence of difference in school grades between gender. What is your conclusion if:  
 
 - $p-value = 0.049$
@@ -492,16 +486,16 @@ You test the hypothesis of an absence of difference in school grades between gen
 - $p-value = 0.051$
 
 Comment on your conclusions.
-```
+::: 
 
 
 ## Comparison of multiple groups {#multi-comp}
 
-```{block, type='example'}
+::: {.example}
 **Example 5:**  We are interested in the effect of 2 treatments to gain weight. The protocol include treatment A, treatment B, and a placebo group. We would like to compare the weights between the 3 groups.  
 
 How do we compare the means?  Can we do 2 by 2 comparisons?  
-```
+::: 
 
 Table 1: Effects of 2 treatments to gain weight
 
@@ -542,9 +536,9 @@ ggplot(treatFrame, aes(y=Weight, x=Treatment)) +
   geom_boxplot() 
 ```
 
-```{block, type='practice'} 
+::: {.practice} 
 What are the IQR of the 3 groups?
-```
+::: 
 
 In Figure \@ref(fig:boxplotanova) the medians are not in the middle of the box. This suggest that the distributions might be skewed.  
 
@@ -563,9 +557,9 @@ The next step is thus to statistically test the hypothesis of equality of means.
 
 The Analysis Of Variance or ANOVA allows comparing multiple groups 
 
-```{block, type='definition'}
+::: {.define}
 The Analysis Of Variance or ANOVA systematically compare variability *within* and *between* groups. When the variations observed between groups is greater than the within group variation, at least one group is differ from the other.
-```
+::: 
 
 The statistical hypotheses are:  
 - H0: $\mu1 = \mu2 = \mu3 ... = \mu k$  with $\alpha$=5%  
@@ -577,9 +571,9 @@ where $k$ is the number of independent groups
 To that aim we use the F-test (named in honor of Sir Ronald Fisher). The F-statistic is a ratio of two variances that examine variability.  
 
 
-```{block, type='center'}
+::: {.center}
 $F = \frac{Mean Square Between}{Mean Square Error}= \frac{MSB}{MSE}$  
-```
+::: 
 
 -  between groups being compared   (Mean Square Between or Mean Square Treatment)
 -  within the groups being compared (Mean Square Error or Mean Square Residuals)
@@ -612,9 +606,9 @@ summary(res)
 
 The F-value is the F statistics. The F-value = 16.48 (=135.26/8.21). To conclude under H0 and a given $\alpha$ risk, we can try to look for the appropriate statistical law and its associated table or we can conclude using the p-value.
 
-```{block, type='practice'}
+::: {.practice}
 The  $p-value = 2.62e^{-07}$. What is your conclusion?
-```
+::: 
 
 
 ### Post-hoc analysis and ANOVA assumptions
@@ -737,7 +731,7 @@ If n1 and n2 < 20,  Mann-Whitney's table
 IF n1 and n2 > 20, Normal law table  
 
 
-```{block, type='example'}
+::: {.example}
 **Example:**
 
 Among diabetes patients, is there a difference in age at diagnosis between men and women? 
@@ -755,7 +749,7 @@ R2 = 3+5+7+8+9 = 32 and Un2= 3
 Table de Mann-Whitney p-value =0.11
 
 What is you conlusion?
-```
+::: 
 
 
 ### Which test to use?
