@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Little e-book for MPH1 biostatistics</title>
+  <title>Chapter 1 Introduction | Little e-book for MPH1 biostatistics</title>
   <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Little e-book for MPH1 biostatistics" />
+  <meta property="og:title" content="Chapter 1 Introduction | Little e-book for MPH1 biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Little e-book for MPH1 biostatistics" />
+  <meta name="twitter:title" content="Chapter 1 Introduction | Little e-book for MPH1 biostatistics" />
   
   <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduction.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="variables.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -286,23 +286,60 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Little e-book for MPH1 biostatistics</h1>
-<p class="author"><em>Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic</em></p>
-<p class="date"><em>2022-01-24</em></p>
+<div id="introduction" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<p>You may wonder why you will need to learn some statistics as you do not plan to compute statistics yourself in your future job. But, as a public health professional, the decisions you may be brought to make based on data will be too important to delegate. You will want to be able to interpret the data that surrounds you and to come to your own conclusions <span class="citation">(<a href="#ref-sharpe_business_2012" role="doc-biblioref">Sharpe, De Veaux, and Velleman 2012</a>)</span>.</p>
+<p>At the end, I hope you will understand the importance of statistics in our complex world and even enjoy studying the discipline.</p>
+<div id="lecture-tips" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Lecture Tips</h2>
+<p>When you see a term written like <code>statistics</code> in the text it is a concept that you must understand the definition and the usage. A proper definition will often be highlighted in a box. No need to know the definition by heart.</p>
+<p>Different boxes will highlight the concepts, warnings and small practical exercises.</p>
+<div class="objective">
+<p>The first learning objective is to relax and trust yourself on your capacities to enjoy the biostat class.</p>
 </div>
-<div id="prerequisites" class="section level1 unnumbered">
-<h1>Prerequisites</h1>
-<p>Not to be afraid of numbers ! Otherwise I will try to work around it.</p>
+<div class="define">
+<p>This will be the definition of a concept you should understand along with its usage</p>
+</div>
+<div class="caution">
+<p>This is a warning</p>
+</div>
+<div class="practice">
+<p>This is a small question you should try to answer</p>
+</div>
+<p>This little book is being developed as a support for my online classroom in the context of the SARS-Cov2 pandemic. The content is a mix of my usual slides with definitions and examples from the books by <span class="citation"><a href="#ref-sharpe_business_2012" role="doc-biblioref">Sharpe, De Veaux, and Velleman</a> (<a href="#ref-sharpe_business_2012" role="doc-biblioref">2012</a>)</span> (second edition), by <span class="citation"><a href="#ref-diez2019openintro" role="doc-biblioref">Diez, Barr, and Çetinkaya-Rundel</a> (<a href="#ref-diez2019openintro" role="doc-biblioref">2019</a>)</span> (fourth edition), and by <span class="citation"><a href="#ref-thierry_ancelle" role="doc-biblioref">Ancelle</a> (<a href="#ref-thierry_ancelle" role="doc-biblioref">2017</a>, in French)</span>.</p>
+<p>To illustrate the different concepts, I mostly use a sample of the 2006 French Health Behavior School-aged Children database (HBSC). Since 1982 HBSC has been a pioneer cross-national study gaining insight into young people’s well-being, health behaviors and their social context. This research collaboration with the WHO Regional Office for Europe is conducted every four years in 50 countries and regions across Europe and North America. For more details please visit the <a href="http://www.hbsc.org/">HBSC website</a> <span class="citation">(<a href="#ref-aaro1986health" role="doc-biblioref">Aarø et al. 1986</a>)</span></p>
+<p>The statistical software R is used to illustrate some of the statistical tests and modeling methods <span class="citation">(<a href="#ref-Rsoftware" role="doc-biblioref">R Core Team 2020</a>)</span>. Commands and output examples are presented. R and the bookdown package were in fact used to create this little e-book <span class="citation">(<a href="#ref-bookdown2016" role="doc-biblioref">Xie 2016</a>)</span>.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-aaro1986health" class="csl-entry">
+Aarø, Leif Edvard, Bente Wold, Lasse Kannas, and Matti Rimpelä. 1986. <span>“Health Behaviour in Schoolchildren a WHO Cross-National Survey: A Presentation of Philosophy, Methods and Selected Results of the First Survey.”</span> <em>Health Promotion International</em> 1 (1): 17–33.
+</div>
+<div id="ref-thierry_ancelle" class="csl-entry">
+Ancelle, Thierry. 2017. <em>Statistique, Epidemiologie / Thierry Ancelle</em>. 4e Edition. Sciences Fondamentales. Paris: Editions Maloine.
+</div>
+<div id="ref-diez2019openintro" class="csl-entry">
+Diez, D. M., C. D. Barr, and M. Çetinkaya-Rundel. 2019. <em>OpenIntro Statistics</em>. OpenIntro, Incorporated. <a href="https://leanpub.com/openintro-statistics">https://leanpub.com/openintro-statistics</a>.
+</div>
+<div id="ref-Rsoftware" class="csl-entry">
+R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-sharpe_business_2012" class="csl-entry">
+Sharpe, Norean Radke, Richard D De Veaux, and Paul F Velleman. 2012. <em>Business Statistics</em>. Boston: Pearson Education.
+</div>
+<div id="ref-bookdown2016" class="csl-entry">
+Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with <span>R</span> Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/bookdown">https://bookdown.org/yihui/bookdown</a>.
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -333,7 +370,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-Introduction.Rmd",
 "text": "Edit"
 },
 "history": {

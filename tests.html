@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Inference and statistical tests | index.split</title>
+  <title>Chapter 5 Inference and statistical tests | Little e-book for MPH1 biostatistics</title>
   <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Inference and statistical tests | index.split" />
+  <meta property="og:title" content="Chapter 5 Inference and statistical tests | Little e-book for MPH1 biostatistics" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Inference and statistical tests | index.split" />
+  <meta name="twitter:title" content="Chapter 5 Inference and statistical tests | Little e-book for MPH1 biostatistics" />
   
   <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2021-09-17" />
+<meta name="date" content="2022-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="inferencestat.html"/>
 <link rel="next" href="introduction-to-regression-modelling.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,8 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -122,6 +122,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -135,13 +158,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Little Book of Introduction to Biostatistics</a></li>
+<li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables</a>
 <ul>
@@ -255,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><img src="fig/logo_ehesp.jpg" style="width:1in" /></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little e-book for MPH1 biostatistics</a>
           </h1>
         </div>
 
@@ -267,15 +290,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 5</span> Inference and statistical tests</h1>
 <div class="objective">
 <ul>
-<li>
-Understand statistical test reasoning
-</li>
-<li>
-Interpret results of a statistical test
-</li>
-<li>
-Discuss significance of a statistical test
-</li>
+<li>Understand statistical test reasoning</li>
+<li>Interpret results of a statistical test</li>
+<li>Discuss significance of a statistical test</li>
 </ul>
 </div>
 <p>The aim of a statistical test is to reach a scientific decision on a difference (or effect), on a
@@ -293,14 +310,10 @@ probabilistic basis, based on observed data.</p>
 <p>In <strong>hypothesis formulation</strong> you always have two possibilities: <strong>it is not different OR it is different</strong>.</p>
 <p>In the HBSC data, we are interested in the characteristics of the smoking students compare to the non-smoking. Do they differ by some characteristics?</p>
 <div class="example">
-<p>
-<strong>Example 1:</strong> we would like to test whether there is, on average, a difference in height between smokers and non-smokers.
-</p>
+<p><span id="exm:unlabeled-div-2" class="example"><strong>Example 5.1  </strong></span><strong>Example 1:</strong> we would like to test whether there is, on average, a difference in height between smokers and non-smokers.</p>
 </div>
 <div class="example">
-<p>
-<strong>Example 2:</strong> we would like to test if the proportion of smokers varies according to gender.
-</p>
+<p><span id="exm:unlabeled-div-3" class="example"><strong>Example 5.2  </strong></span><strong>Example 2:</strong> we would like to test if the proportion of smokers varies according to gender.</p>
 </div>
 <p>First, we describe the distribution of the variable between the groups.</p>
 <p>In example 1, the height is a quantitative continuous variable which can be summarized by the mean (Table <a href="tests.html#tab:smokeheight">5.1</a>). In our sample, the students who do not smoke measure on average 157 cm while the students who smoke measure in average 166 cm. The question is “At the population level, is that different knowing that you do have individual variation (SD) and sample variations (SE)?”</p>
@@ -426,7 +439,7 @@ girl
 </tbody>
 </table>
 <p><strong>In theory</strong>, we test whether the two groups (samples) come from the same population (Figure <a href="tests.html#fig:meancomparison">5.1</a>). For instance, sample 1 with mean <em>m1</em> from population 1 with <span class="math inline">\(\mu_1\)</span> is coming from the same population as sample 2 with mean <em>m2</em> from population 1 with <span class="math inline">\(\mu_2\)</span>. Population 1 is equal to population 2.</p>
-<div class="figure" style="text-align: center"><span id="fig:meancomparison"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:meancomparison"></span>
 <img src="fig/meancomparison.png" alt="Population versus Sample" width="70%" />
 <p class="caption">
 Figure 5.1: Population versus Sample
@@ -434,49 +447,29 @@ Figure 5.1: Population versus Sample
 </div>
 <p>When you state the hypothesis you should explicit H0 an H1.</p>
 <div class="definition">
-<p>
-<strong>H0</strong> : The null hypothesis is that the parameters are EQUAL, i.e they are not different.
-</p>
-<p>
-<strong>H1</strong>: The alternative hypothesis is that the parameters are NOT EQUAL, i.e they are different.
-</p>
+<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 5.1  </strong></span><strong>H0</strong> : The null hypothesis is that the parameters are EQUAL, i.e they are not different.</p>
+<p><strong>H1</strong>: The alternative hypothesis is that the parameters are NOT EQUAL, i.e they are different.</p>
 </div>
 <p>I like to write down the hypothesis with the <span class="math inline">\(=\)</span> sign and <span class="math inline">\(\neq\)</span> as I find easier to pick the test and interpret the results afterward.</p>
 <p>Remember the <strong>W’s</strong> they should appear in the hypothesis if you have the information.</p>
 <div class="example">
-<p>
-<strong>Example 1:</strong>
-</p>
-<p>
-we would like to test whether there is, on average, a difference in height between smokers and non-smokers.
-</p>
-<p>
-H0: In France in 2006, the mean height of the students 11-16 who smoke was equal to the mean height of the students 11-16 who do not smoke.
-</p>
-<p>
-H1: In France in 2006, the mean height of the students 11-16 who smoke was NOT equal to the mean height of the students 11-16 who do not smoke.
-</p>
+<p><span id="exm:unlabeled-div-5" class="example"><strong>Example 5.3  </strong></span><strong>Example 1:</strong></p>
+<p>we would like to test whether there is, on average, a difference in height between smokers and non-smokers.</p>
+<p>H0: In France in 2006, the mean height of the students 11-16 who smoke was equal to the mean height of the students 11-16 who do not smoke.</p>
+<p>H1: In France in 2006, the mean height of the students 11-16 who smoke was NOT equal to the mean height of the students 11-16 who do not smoke.</p>
 </div>
 <div class="example">
-<p>
-<strong>Example 2:</strong>
-</p>
-<p>
-we would like to test if the proportion of smokers varies according to the groups of ages.
-</p>
-<p>
-H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.
-</p>
-<p>
-H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.
-</p>
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 5.4  </strong></span><strong>Example 2:</strong></p>
+<p>we would like to test if the proportion of smokers varies according to the groups of ages.</p>
+<p>H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.</p>
+<p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.</p>
 </div>
 <p>A statistical test is always performed to answer the H0 hypothesis (Figure <a href="tests.html#fig:testH0rule">5.2</a>).</p>
 <ul>
 <li>When we prove that the statistical parameters differ we reject H0 and accept H1. We say that we observed a statistically significant difference between the parameters.</li>
 <li>When we cannot prove that the statistical parameters differ, we stay under H0 and say that: we fail to reject H0 because we cannot show any statistically significant difference. H0 is never accepted as an error risk still exists that we can not compute.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:testH0rule"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:testH0rule"></span>
 <img src="fig/testH0rule.png" alt="Statistical test interpretation" width="70%" />
 <p class="caption">
 Figure 5.2: Statistical test interpretation
@@ -487,7 +480,7 @@ Figure 5.2: Statistical test interpretation
 <h2><span class="header-section-number">5.2</span> Comparison of two means</h2>
 <p>Once the hypothesis are stated, we choose a test. In the context if the comparison of means, the test will assess whether the observed difference (<span class="math inline">\(\Delta\)</span>) between the two groups is random (due to individuals’ and sampling variations) or not (Figure <a href="tests.html#fig:meandelta">5.3</a>).</p>
 <p>In theory, if H0 is true <span class="math inline">\(\Delta = m_1 - m_2 = 0\)</span></p>
-<div class="figure" style="text-align: center"><span id="fig:meandelta"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:meandelta"></span>
 <img src="fig/meandelta.png" alt="Population versus Sample" width="70%" />
 <p class="caption">
 Figure 5.3: Population versus Sample
@@ -500,27 +493,17 @@ that does not exist in reality, the <span class="math inline">\(\alpha\)</span> 
 <p>For a risk <span class="math inline">\(\alpha=5\)</span>% the critical value is <span class="math inline">\(Z_\alpha=1.96\)</span>.</p>
 <p>If H0 is true, 95% of values of <span class="math inline">\((m_1-m_2)/s_\Delta\)</span> are between -1.96 and 1.96. If the statistical value <span class="math inline">\((m_1-m_2)/s_\Delta\)</span> returned by your test is above 1.96 or below -1.96, you reject H0 and accept H1.</p>
 <div class="practice">
-<p>
-In example 1, the statistical value for a risk <span class="math inline"><span class="math inline">\(\alpha=0.05\)</span></span> is -5.4582. What is you conclusion?
-</p>
+<p>In example 1, the statistical value for a risk <span class="math inline">\(\alpha=0.05\)</span> is -5.4582. What is you conclusion?</p>
 </div>
 </div>
 <div id="comparison-of-two-proportions" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Comparison of two proportions</h2>
 <p>In the context of proportion comparison like in example 2, the objective is to assess whether the proportion of cases among the exposed group is equal to the proportion of cases among the non-exposed group.</p>
 <div class="example">
-<p>
-<strong>Example 2:</strong>
-</p>
-<p>
-we would like to test if the proportion of smokers varies according to the groups of ages.
-</p>
-<p>
-H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.
-</p>
-<p>
-H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.
-</p>
+<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 5.5  </strong></span><strong>Example 2:</strong></p>
+<p>we would like to test if the proportion of smokers varies according to the groups of ages.</p>
+<p>H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.</p>
+<p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.</p>
 </div>
 <p>To this aim, as for the comparison of means, we will compute the standardized differences (distances) between groups.</p>
 <div id="chi-square-test" class="section level3" number="5.3.1">
@@ -828,14 +811,12 @@ Total
 </table>
 <p>Then we compute the Chi-square (<span class="math inline">\(\chi^2\)</span>) statistic which is the standardized sum of the differences between the observed and the expected value.</p>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(\chi^2_{Obs}= \sum(\dfrac{(Obs-Exp)^2}{Exp}\)</span></span>
-</p>
+<p><span class="math inline">\(\chi^2_{Obs}= \sum(\dfrac{(Obs-Exp)^2}{Exp}\)</span></p>
 </div>
 <p>Using the R statistical software, we have</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tests.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(hbsc<span class="sc">$</span>Gender, hbsc<span class="sc">$</span>SmokingStatus)</span></code></pre></div>
 <pre><code>## 
-## 	Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
 ## data:  hbsc$Gender and hbsc$SmokingStatus
 ## X-squared = 0.54013, df = 1, p-value = 0.4624</code></pre>
@@ -843,7 +824,7 @@ Total
 <p>“is it equal to 0?”</p>
 <p>As for the comparison of means, in theory, if H0 is true <span class="math inline">\(\chi^2_{Obs} \sim 0\)</span> but it is never 0. There are variations and we test H0 with a <span class="math inline">\(\alpha\)</span> risk. Therefore, what is the threshold?</p>
 <p>To define that threshold, we need to choose the correct statistical law. The <span class="math inline">\(\chi^2\)</span> distribution depends on <em>k</em>, the number of degrees of freedom (df) which depends on the number of characteristics of the two variables we are comparing (Figure <a href="tests.html#fig:chi2-distrib">5.4</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:chi2-distrib"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:chi2-distrib"></span>
 <img src="fig/chi2-distrib.png" alt="Chi2 distribution depends on the degree of fredom K" width="70%" />
 <p class="caption">
 Figure 5.4: Chi2 distribution depends on the degree of fredom K
@@ -851,17 +832,13 @@ Figure 5.4: Chi2 distribution depends on the degree of fredom K
 </div>
 <p>When the two-way table of the expected number is drawn, the degree of freedom is the number of values in the final calculation that are free to vary. For instance, in a 2x2 table once you have set one value the others cannot change. The quick formula to compute the degree of freedom (df) for the <span class="math inline">\(\chi^2\)</span> distribution is the number of rows in the table minus 1 multiply by the number of columns in the table minus 1:</p>
 <div class="center">
-<p>
-df = (#rows - 1) * (#cols - 1)
-</p>
+<p>df = (#rows - 1) * (#cols - 1)</p>
 </div>
 <div class="practice">
-<p>
-For a 2x3 table, what is the degree of freedom?
-</p>
+<p>For a 2x3 table, what is the degree of freedom?</p>
 </div>
 <p>Next, we need to look at the statistical table of the <span class="math inline">\(\chi^2\)</span> law (Figure <a href="tests.html#fig:chi2-table">5.5</a>). The threshold value also depends on the <span class="math inline">\(\alpha\)</span> risk you are willing to take.</p>
-<div class="figure" style="text-align: center"><span id="fig:chi2-table"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:chi2-table"></span>
 <img src="fig/chi2-table.png" alt="Chi2 distribution depends on the degree of fredom K" width="70%" />
 <p class="caption">
 Figure 5.5: Chi2 distribution depends on the degree of fredom K
@@ -870,14 +847,10 @@ Figure 5.5: Chi2 distribution depends on the degree of fredom K
 <p>In the <span class="math inline">\(\chi^2\)</span> table, for our 2x2 table the <span class="math inline">\(df = 1\)</span> and for a <span class="math inline">\(\alpha\)</span> risk of 5%, the <span class="math inline">\(\chi^2_{Theo}= 3.84\)</span>.</p>
 <p>Next the decision rule is the same as for the comparison of means.</p>
 <div class="practice">
-<p>
-In example 2, the statistical value for a risk <span class="math inline"><span class="math inline">\(\alpha=0.05\)</span></span> and <span class="math inline"><span class="math inline">\(df=1\)</span></span> is 3.84. The <span class="math inline"><span class="math inline">\(\chi^2_{Obs} = 0.54\)</span></span>. What is you conclusion?
-</p>
+<p>In example 2, the statistical value for a risk <span class="math inline">\(\alpha=0.05\)</span> and <span class="math inline">\(df=1\)</span> is 3.84. The <span class="math inline">\(\chi^2_{Obs} = 0.54\)</span>. What is you conclusion?</p>
 </div>
 <div class="caution">
-<p>
-To correctly use the <span class="math inline"><span class="math inline">\(\chi^2\)</span></span> test and have accurate estimation of the associated probabilities, we need to have at least <strong>n=5</strong> count in each cell of the <strong>table of expected</strong> numbers.
-</p>
+<p>To correctly use the <span class="math inline">\(\chi^2\)</span> test and have accurate estimation of the associated probabilities, we need to have at least <strong>n=5</strong> count in each cell of the <strong>table of expected</strong> numbers.</p>
 </div>
 </div>
 <div id="fishers-exact-test" class="section level3" number="5.3.2">
@@ -957,14 +930,12 @@ N
 </tbody>
 </table>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(p = \dfrac{n_1!n_2!t_1!t_2!}{a!b!c!d!}\)</span></span>
-</p>
+<p><span class="math inline">\(p = \dfrac{n_1!n_2!t_1!t_2!}{a!b!c!d!}\)</span></p>
 </div>
 <p>Using the R statistical software, we have</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tests.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(hbsc<span class="sc">$</span>Gender, hbsc<span class="sc">$</span>SmokingStatus)</span></code></pre></div>
 <pre><code>## 
-## 	Fisher&#39;s Exact Test for Count Data
+##  Fisher&#39;s Exact Test for Count Data
 ## 
 ## data:  hbsc$Gender and hbsc$SmokingStatus
 ## p-value = 0.4316
@@ -984,9 +955,7 @@ N
 <li>If the confidence interval does not include 1, we reject H0, the proportions differ.</li>
 </ul>
 <div class="practice">
-<p>
-In example 2, the Fisher’s exact test returns an odds ratio of 0.79 and 95% CI [0.45, 1.37]. What is your conclusion?
-</p>
+<p>In example 2, the Fisher’s exact test returns an odds ratio of 0.79 and 95% CI [0.45, 1.37]. What is your conclusion?</p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>We can look at the <span class="math inline">\(p-value\)</span> but what is a <span class="math inline">\(p-value\)</span> ? See next section <a href="tests.html#alpha-p">5.4</a>.</li>
@@ -998,64 +967,36 @@ In example 2, the Fisher’s exact test returns an odds ratio of 0.79 and 95% CI
 <p>The demonstrations above and the use of <span class="math inline">\(Z_\alpha\)</span> or <span class="math inline">\(\chi^2_\alpha\)</span> values are valid for comparison of means or proportions under some assumptions and conditions (<span class="math inline">\(Z_\alpha\)</span> with sample size above 30 in each group; <span class="math inline">\(\chi^2_\alpha\)</span> function <em>df</em>…). What is happening for other tests?</p>
 <p>The philosophy is exactly the same but the critical value might come from other statistical laws than the Normal law (Chi-square, Binomial, Poisson…). It might be difficult to retrieve the critical value need to compare to your computed statistical value. There are more statistical tables that there are statistical tests.</p>
 <p>The common practice is then to compare the risk <span class="math inline">\(\alpha\)</span>, defined <em>a priori</em>, to the <span class="math inline">\(p-value\)</span> returned by the test <em>a posteriori</em>.We want to know the ultimate risk that is taken. Meaning, the risk corresponding to the value found by the test.</p>
-<div class="definition">
-<p>
-<strong><span class="math inline"><span class="math inline">\(\alpha\)</span></span> risk and <span class="math inline"><span class="math inline">\(p-value\)</span></span> </strong>
-</p>
-<p>
-<span class="math inline"><span class="math inline">\(\alpha\)</span></span> risk: <em>a priori</em> risk to conclude about a difference that does not exist in reality
-</p>
-<p>
-<span class="math inline"><span class="math inline">\(p-value\)</span></span>: <em>a posteriori</em> error risk that is taken knowing the result of the test
-</p>
+<div class="define">
+<p><strong><span class="math inline">\(\alpha\)</span> risk and <span class="math inline">\(p-value\)</span> </strong></p>
+<p><span class="math inline">\(\alpha\)</span> risk: <em>a priori</em> risk to conclude about a difference that does not exist in reality</p>
+<p><span class="math inline">\(p-value\)</span>: <em>a posteriori</em> error risk that is taken knowing the result of the test</p>
 </div>
-<div class="definition">
-<p>
-<strong>Statistical test’s decision rule</strong>
-</p>
-<p>
-When <span class="math inline"><span class="math inline">\(p-value\)</span></span> &gt; <span class="math inline"><span class="math inline">\(\alpha\)</span></span> risk, we FAIL to reject H0
-</p>
-<p>
-When <span class="math inline"><span class="math inline">\(p-value \leq \alpha\)</span></span> risk, we reject H0
-</p>
+<div class="define">
+<p><strong>Statistical test’s decision rule</strong></p>
+<p>When <span class="math inline">\(p-value\)</span> &gt; <span class="math inline">\(\alpha\)</span> risk, we FAIL to reject H0</p>
+<p>When <span class="math inline">\(p-value \leq \alpha\)</span> risk, we reject H0</p>
 </div>
 <p>The <span class="math inline">\(p-value\)</span> is not synonymous of the importance of the possible difference between groups. In other words, a very small p-value means that the risk of making a mistake is very low. It does not mean that there is a huge difference between groups.</p>
 <div class="example">
-<p>
-<strong>Example 3:</strong> Using 2 studies we are assessing 2 new methods (A and B) for the prevention of surgical site infections (SSI) compared to a conventional method (0).
-</p>
+<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 5.6  </strong></span><strong>Example 3:</strong> Using 2 studies we are assessing 2 new methods (A and B) for the prevention of surgical site infections (SSI) compared to a conventional method (0).</p>
 <ul>
-<li>
-In study A: method A shows 12% of SSI and the conventional method 24% of SSI. The test between A and 0 returns a <span class="math inline"><span class="math inline">\(p-value \leq 0.05\)</span></span>.
-</li>
-<li>
-In study B: method B shows 12% of SSI and the conventional method 24% of SSI. The test between B and 0 returns a <span class="math inline"><span class="math inline">\(p-value \leq 0.001\)</span></span>
-</li>
+<li>In study A: method A shows 12% of SSI and the conventional method 24% of SSI. The test between A and 0 returns a <span class="math inline">\(p-value \leq 0.05\)</span>.</li>
+<li>In study B: method B shows 12% of SSI and the conventional method 24% of SSI. The test between B and 0 returns a <span class="math inline">\(p-value \leq 0.001\)</span></li>
 </ul>
-<p>
-Is method B better than method A in preventing SSI?
-</p>
+<p>Is method B better than method A in preventing SSI?</p>
 </div>
 <p>In the example above, we cannot tell if method B is better than method A : we did not test A versus B. The only information we get is that method A is different from method 0 and that method B is different from method 0. In fact method A and B present the same level of SSI. They might not be different but to conclude (with a certain level of confidence) we need to do a test. (see section 5.7 for comparison of multiple groups)</p>
 <div class="practice">
-<p>
-In example 1, we tested H0 with the Student’s T test. The <span class="math inline"><span class="math inline">\(p-value\)</span></span> is 4.342e-07. What is your conclusion?
-</p>
+<p>In example 1, we tested H0 with the Student’s T test. The <span class="math inline">\(p-value\)</span> is 4.342e-07. What is your conclusion?</p>
 </div>
 <div class="practice">
-<p>
-In example 2, we tested H0 with a <span class="math inline"><span class="math inline">\(\chi^2\)</span></span> test. The <span class="math inline"><span class="math inline">\(p-value\)</span></span> is 0.462. What is your conclusion?
-</p>
-<p>
-We also tested H0 with the Fisher’s Exact test. The <span class="math inline"><span class="math inline">\(p-value\)</span></span> is 0.431. Do you reach the same conclusion than with the <span class="math inline"><span class="math inline">\(\chi^2\)</span></span> test? Why?
-</p>
+<p>In example 2, we tested H0 with a <span class="math inline">\(\chi^2\)</span> test. The <span class="math inline">\(p-value\)</span> is 0.462. What is your conclusion?</p>
+<p>We also tested H0 with the Fisher’s Exact test. The <span class="math inline">\(p-value\)</span> is 0.431. Do you reach the same conclusion than with the <span class="math inline">\(\chi^2\)</span> test? Why?</p>
 </div>
 <p>If you try to compare the effects of different risk factors or compare similar studies but with different protocols, you sholud not compare the <em>p-values</em>. A <em>p-value</em> smaller than an other <em>p-value</em> does not mean that the observed difference is greater. It only means that your are more confident on the results of the test.</p>
 <div class="caution">
-<p>
-You should not compare p-values.
-</p>
+<p>You should not compare p-values.</p>
 </div>
 <p><img src="fig/pval_nocomparison.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>In the cholestrol studies presented above, the <em>p-values</em> are different, one is smaller than the other (even significant). Although the observed differences in mean are identical. The difference is the same in study 1 and 2 (<span class="math inline">\(\delta=4\)</span>). The differences between the two studies are on the standard deviations of the samples and the sample sizes which affect the t-statistics.</p>
@@ -1065,7 +1006,7 @@ You should not compare p-values.
 <p><strong>Why do we not accept H0?</strong></p>
 <p>As mentioned earlier there is always a risk of being wrong (Figure <a href="tests.html#fig:riskdecision">5.6</a>) but that risk cannot be computed. It is <span class="math inline">\(\beta\)</span>.</p>
 <p>In row the unknown truth, in column the conclusion of the test.</p>
-<div class="figure" style="text-align: center"><span id="fig:riskdecision"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:riskdecision"></span>
 <img src="fig/riskdecision.png" alt="Where do the risks stand?" width="50%" />
 <p class="caption">
 Figure 5.6: Where do the risks stand?
@@ -1075,14 +1016,14 @@ Figure 5.6: Where do the risks stand?
 <li><span class="math inline">\(\alpha\)</span> is the probability of rejecting H0, when H0 is true (Figure <a href="tests.html#fig:alphavisual">5.7</a>)</li>
 <li><span class="math inline">\(\beta\)</span> is the probability of failing to reject H0, when H1 is true (Figure <a href="tests.html#fig:betavisual">5.8</a>)</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:alphavisual"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:alphavisual"></span>
 <img src="fig/alphavisual.png" alt="Population versus when it does not exist" width="40%" />
 <p class="caption">
 Figure 5.7: Population versus when it does not exist
 </p>
 </div>
 <p>Imagine that you are the “eyes” and you are unable to see the perspective above the horizon. You will believe that the 2 lines make 1 and that they are of the same length but in reality the further away is longer. That is the <span class="math inline">\(\beta\)</span> risk.</p>
-<div class="figure" style="text-align: center"><span id="fig:betavisual"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:betavisual"></span>
 <img src="fig/betavisual.png" alt="Not seeing a difference when it does exist." width="40%" />
 <p class="caption">
 Figure 5.8: Not seeing a difference when it does exist.
@@ -1091,12 +1032,8 @@ Figure 5.8: Not seeing a difference when it does exist.
 <p><strong>What do you prefer <span class="math inline">\(\alpha\)</span> or <span class="math inline">\(\beta\)</span> ?</strong></p>
 <p>It is a difficult question.</p>
 <div class="example">
-<p>
-<strong>Example 4:</strong> Hepatitis B vaccination and multiple sclerosis. Many study protocols have been conduct to assess an possible association between vaccination against Hepatitis B and the development of multiple sclerosis. The null hypothesis was that prevalence of multiple sclerosis was the same among people vaccinated against Hepatitis B and people not vaccinated against Hepatitis B.
-</p>
-<p>
-In that context, what would you favour <span class="math inline"><span class="math inline">\(\alpha\)</span></span> or <span class="math inline"><span class="math inline">\(\beta\)</span></span>?
-</p>
+<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 5.7  </strong></span><strong>Example 4:</strong> Hepatitis B vaccination and multiple sclerosis. Many study protocols have been conduct to assess an possible association between vaccination against Hepatitis B and the development of multiple sclerosis. The null hypothesis was that prevalence of multiple sclerosis was the same among people vaccinated against Hepatitis B and people not vaccinated against Hepatitis B.</p>
+<p>In that context, what would you favour <span class="math inline">\(\alpha\)</span> or <span class="math inline">\(\beta\)</span>?</p>
 </div>
 <ul>
 <li>Wrongly reject H0 and conclude that there is an effect : it could be catastrophic as the immunization coverage will fall down</li>
@@ -1104,35 +1041,19 @@ In that context, what would you favour <span class="math inline"><span class="ma
 </ul>
 <p>Note that there have been many studies on the above question and that no effect as been seen so far.</p>
 <div class="practice">
-<p>
-You test the hypothesis of an absence of difference in school grades between gender. What is your conclusion if:
-</p>
+<p>You test the hypothesis of an absence of difference in school grades between gender. What is your conclusion if:</p>
 <ul>
-<li>
-<p>
-<span class="math inline"><span class="math inline">\(p-value = 0.049\)</span></span>
-</p>
-</li>
-<li>
-<p>
-<span class="math inline"><span class="math inline">\(p-value = 0.051\)</span></span>
-</p>
-</li>
+<li><p><span class="math inline">\(p-value = 0.049\)</span></p></li>
+<li><p><span class="math inline">\(p-value = 0.051\)</span></p></li>
 </ul>
-<p>
-Comment on your conclusions.
-</p>
+<p>Comment on your conclusions.</p>
 </div>
 </div>
 <div id="multi-comp" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Comparison of multiple groups</h2>
 <div class="example">
-<p>
-<strong>Example 5:</strong> We are interested in the effect of 2 treatments to gain weight. The protocol include treatment A, treatment B, and a placebo group. We would like to compare the weights between the 3 groups.
-</p>
-<p>
-How do we compare the means? Can we do 2 by 2 comparisons?
-</p>
+<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 5.8  </strong></span><strong>Example 5:</strong> We are interested in the effect of 2 treatments to gain weight. The protocol include treatment A, treatment B, and a placebo group. We would like to compare the weights between the 3 groups.</p>
+<p>How do we compare the means? Can we do 2 by 2 comparisons?</p>
 </div>
 <p>Table 1: Effects of 2 treatments to gain weight</p>
 <table>
@@ -1171,21 +1092,19 @@ How do we compare the means? Can we do 2 by 2 comparisons?
 <h3><span class="header-section-number">5.6.1</span> Graphical comparison</h3>
 <p>A boxplot and whisker plot (section <a href="statdesc.html#plot">3.4</a>) is an ideal graphical representation to compare data series of the same variable between different groups.</p>
 <p>Figure <a href="tests.html#fig:boxplotanova">5.9</a> shows that the distributions seems to differ. The median (black line with the box) are located at differ weight.</p>
-<div class="figure"><span id="fig:boxplotanova"></span>
-<img src="ebook-M1-biostat_files/figure-html/boxplotanova-1.png" alt="Boxplot and whisker plot of the effect of different treatments on gain weight" width="400px" height="400px" />
+<div class="figure"><span style="display:block;" id="fig:boxplotanova"></span>
+<img src="_main_files/figure-html/boxplotanova-1.png" alt="Boxplot and whisker plot of the effect of different treatments on gain weight" width="400px" height="400px" />
 <p class="caption">
 Figure 5.9: Boxplot and whisker plot of the effect of different treatments on gain weight
 </p>
 </div>
 <div class="practice">
-<p>
-What are the IQR of the 3 groups?
-</p>
+<p>What are the IQR of the 3 groups?</p>
 </div>
 <p>In Figure <a href="tests.html#fig:boxplotanova">5.9</a> the medians are not in the middle of the box. This suggest that the distributions might be skewed.</p>
 <p>Figure <a href="tests.html#fig:densityanova">5.10</a> presents density plots, similar to histograms, and reveals the same thing.</p>
-<div class="figure"><span id="fig:densityanova"></span>
-<img src="ebook-M1-biostat_files/figure-html/densityanova-1.png" alt="Density plots of the effect of different treatments on gain weight" width="400px" height="400px" />
+<div class="figure"><span style="display:block;" id="fig:densityanova"></span>
+<img src="_main_files/figure-html/densityanova-1.png" alt="Density plots of the effect of different treatments on gain weight" width="400px" height="400px" />
 <p class="caption">
 Figure 5.10: Density plots of the effect of different treatments on gain weight
 </p>
@@ -1195,10 +1114,8 @@ Figure 5.10: Density plots of the effect of different treatments on gain weight
 <div id="analysis-of-variance" class="section level3" number="5.6.2">
 <h3><span class="header-section-number">5.6.2</span> Analysis Of Variance</h3>
 <p>The Analysis Of Variance or ANOVA allows comparing multiple groups</p>
-<div class="definition">
-<p>
-The Analysis Of Variance or ANOVA systematically compare variability <em>within</em> and <em>between</em> groups. When the variations observed between groups is greater than the within group variation, at least one group is differ from the other.
-</p>
+<div class="define">
+<p>The Analysis Of Variance or ANOVA systematically compare variability <em>within</em> and <em>between</em> groups. When the variations observed between groups is greater than the within group variation, at least one group is differ from the other.</p>
 </div>
 <p>The statistical hypotheses are:<br />
 - H0: <span class="math inline">\(\mu1 = \mu2 = \mu3 ... = \mu k\)</span> with <span class="math inline">\(\alpha\)</span>=5%<br />
@@ -1206,9 +1123,7 @@ The Analysis Of Variance or ANOVA systematically compare variability <em>within<
 <p>where <span class="math inline">\(k\)</span> is the number of independent groups</p>
 <p>To that aim we use the F-test (named in honor of Sir Ronald Fisher). The F-statistic is a ratio of two variances that examine variability.</p>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(F = \frac{Mean Square Between}{Mean Square Error}= \frac{MSB}{MSE}\)</span></span>
-</p>
+<p><span class="math inline">\(F = \frac{Mean Square Between}{Mean Square Error}= \frac{MSB}{MSE}\)</span></p>
 </div>
 <ul>
 <li>between groups being compared (Mean Square Between or Mean Square Treatment)</li>
@@ -1258,9 +1173,7 @@ N = total number of observations or total sample size</p>
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>The F-value is the F statistics. The F-value = 16.48 (=135.26/8.21). To conclude under H0 and a given <span class="math inline">\(\alpha\)</span> risk, we can try to look for the appropriate statistical law and its associated table or we can conclude using the p-value.</p>
 <div class="practice">
-<p>
-The <span class="math inline"><span class="math inline">\(p-value = 2.62e^{-07}\)</span></span>. What is your conclusion?
-</p>
+<p>The <span class="math inline">\(p-value = 2.62e^{-07}\)</span>. What is your conclusion?</p>
 </div>
 </div>
 <div id="post-hoc-analysis-and-anova-assumptions" class="section level3" number="5.6.3">
@@ -1325,14 +1238,14 @@ TukeyHSD’s test.</p>
 <span id="cb11-3"><a href="tests.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Shapiro-Wilk&#39;s test</span></span>
 <span id="cb11-4"><a href="tests.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data)</span></code></pre></div>
 <pre><code>## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  data
 ## W = 0.99103, p-value = 0.7475</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tests.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test</span></span>
 <span id="cb13-2"><a href="tests.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;pnorm&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## 	One-sample Kolmogorov-Smirnov test
+##  One-sample Kolmogorov-Smirnov test
 ## 
 ## data:  data
 ## D = 0.094664, p-value = 0.3316
@@ -1344,7 +1257,7 @@ TukeyHSD’s test.</p>
 <span id="cb15-3"><a href="tests.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test for Normality </span></span>
 <span id="cb15-4"><a href="tests.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;pnorm&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## 	One-sample Kolmogorov-Smirnov test
+##  One-sample Kolmogorov-Smirnov test
 ## 
 ## data:  data
 ## D = 0.50342, p-value &lt; 2.2e-16
@@ -1352,7 +1265,7 @@ TukeyHSD’s test.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tests.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test for Uniform distribution </span></span>
 <span id="cb17-2"><a href="tests.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;punif&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## 	One-sample Kolmogorov-Smirnov test
+##  One-sample Kolmogorov-Smirnov test
 ## 
 ## data:  data
 ## D = 0.050052, p-value = 0.9636
@@ -1373,35 +1286,17 @@ TukeyHSD’s test.</p>
 <p>If n1 and n2 &lt; 20, Mann-Whitney’s table</p>
 <p>IF n1 and n2 &gt; 20, Normal law table</p>
 <div class="example">
-<p>
-<strong>Example:</strong>
-</p>
-<p>
-Among diabetes patients, is there a difference in age at diagnosis between men and women?
-</p>
+<p><span id="exm:unlabeled-div-11" class="example"><strong>Example 5.9  </strong></span><strong>Example:</strong></p>
+<p>Among diabetes patients, is there a difference in age at diagnosis between men and women?</p>
 <ul>
-<li>
-Women: 20 11 17 12
-</li>
-<li>
-Men: 19 22 16 29 24
-</li>
+<li>Women: 20 11 17 12</li>
+<li>Men: 19 22 16 29 24</li>
 </ul>
-<p>
-Sorting data: 11 12 16 17 19 20 22 24 29
-</p>
-<p>
-R1 = 1+2+4+6 = 13 and Un1 = 17
-</p>
-<p>
-R2 = 3+5+7+8+9 = 32 and Un2= 3
-</p>
-<p>
-Table de Mann-Whitney p-value =0.11
-</p>
-<p>
-What is you conlusion?
-</p>
+<p>Sorting data: 11 12 16 17 19 20 22 24 29</p>
+<p>R1 = 1+2+4+6 = 13 and Un1 = 17</p>
+<p>R2 = 3+5+7+8+9 = 32 and Un2= 3</p>
+<p>Table de Mann-Whitney p-value =0.11</p>
+<p>What is you conlusion?</p>
 </div>
 </div>
 <div id="which-test-to-use" class="section level3" number="5.7.3">
@@ -1450,7 +1345,6 @@ may miss an important fact or instance.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1469,6 +1363,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1477,8 +1372,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-TestStat.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -1488,7 +1383,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ebook-M1-biostat.pdf", "ebook-M1-biostat.epub", "ebook-M1-biostat.html"],
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

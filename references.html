@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | index.split</title>
+  <title>References | Little e-book for MPH1 biostatistics</title>
   <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | index.split" />
+  <meta property="og:title" content="References | Little e-book for MPH1 biostatistics" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | index.split" />
+  <meta name="twitter:title" content="References | Little e-book for MPH1 biostatistics" />
   
   <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2021-09-17" />
+<meta name="date" content="2022-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="glossary.html"/>
 
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,8 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -122,6 +122,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -135,13 +158,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Little Book of Introduction to Biostatistics</a></li>
+<li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables</a>
 <ul>
@@ -255,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><img src="fig/logo_ehesp.jpg" style="width:1in" /></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little e-book for MPH1 biostatistics</a>
           </h1>
         </div>
 
@@ -267,32 +290,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>References</h1>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-aaro1986health" class="csl-entry">
+<div class="csl-entry">
 Aarø, Leif Edvard, Bente Wold, Lasse Kannas, and Matti Rimpelä. 1986. <span>“Health Behaviour in Schoolchildren a WHO Cross-National Survey: A Presentation of Philosophy, Methods and Selected Results of the First Survey.”</span> <em>Health Promotion International</em> 1 (1): 17–33.
 </div>
-<div id="ref-thierry_ancelle" class="csl-entry">
+<div class="csl-entry">
 Ancelle, Thierry. 2017. <em>Statistique, Epidemiologie / Thierry Ancelle</em>. 4e Edition. Sciences Fondamentales. Paris: Editions Maloine.
 </div>
-<div id="ref-diez2019openintro" class="csl-entry">
+<div class="csl-entry">
 Diez, D. M., C. D. Barr, and M. Çetinkaya-Rundel. 2019. <em>OpenIntro Statistics</em>. OpenIntro, Incorporated. <a href="https://leanpub.com/openintro-statistics">https://leanpub.com/openintro-statistics</a>.
 </div>
-<div id="ref-STATOnline" class="csl-entry">
+<div class="csl-entry">
 Marin, M, and L Hamadani. 2021. <span>“MarinStatslectures Online.”</span> Online. <a href="https://www.statslectures.com/">https://www.statslectures.com/</a>.
 </div>
-<div id="ref-Rsoftware" class="csl-entry">
+<div class="csl-entry">
 R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
-<div id="ref-sharpe_business_2012" class="csl-entry">
+<div class="csl-entry">
 Sharpe, Norean Radke, Richard D De Veaux, and Paul F Velleman. 2012. <em>Business Statistics</em>. Boston: Pearson Education.
 </div>
-<div id="ref-STAT501" class="csl-entry">
+<div class="csl-entry">
 Statistics PennState - Eberly College of Science, Department of. 2021. <span>“Regression Methods.”</span> Online. <a href="https://online.stat.psu.edu/stat501/">https://online.stat.psu.edu/stat501/</a>.
 </div>
-<div id="ref-SpuriousCorrelation" class="csl-entry">
+<div class="csl-entry">
 Vigen, T. 2021. <span>“Spurious Correlations.”</span> Online. <a href="https://www.tylervigen.com/spurious-correlations">https://www.tylervigen.com/spurious-correlations</a>.
 </div>
-<div id="ref-bookdown2016" class="csl-entry">
-Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with <span>R</span> Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
+<div class="csl-entry">
+Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with <span>R</span> Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/bookdown">https://bookdown.org/yihui/bookdown</a>.
 </div>
 </div>
 </div>
@@ -306,7 +329,6 @@ Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with <sp
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -325,6 +347,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -333,8 +356,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/08-references.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -344,7 +367,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ebook-M1-biostat.pdf", "ebook-M1-biostat.epub", "ebook-M1-biostat.html"],
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

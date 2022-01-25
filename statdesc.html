@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Descriptive statistics | index.split</title>
+  <title>Chapter 3 Descriptive statistics | Little e-book for MPH1 biostatistics</title>
   <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Descriptive statistics | index.split" />
+  <meta property="og:title" content="Chapter 3 Descriptive statistics | Little e-book for MPH1 biostatistics" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Descriptive statistics | index.split" />
+  <meta name="twitter:title" content="Chapter 3 Descriptive statistics | Little e-book for MPH1 biostatistics" />
   
   <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2021-09-17" />
+<meta name="date" content="2022-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="variables.html"/>
 <link rel="next" href="inferencestat.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,8 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -122,6 +122,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -135,13 +158,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Little Book of Introduction to Biostatistics</a></li>
+<li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables</a>
 <ul>
@@ -255,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><img src="fig/logo_ehesp.jpg" style="width:1in" /></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little e-book for MPH1 biostatistics</a>
           </h1>
         </div>
 
@@ -267,12 +290,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 3</span> Descriptive statistics</h1>
 <div class="objective">
 <ul>
-<li>
-Choose appropriate summary statistics (tables, graphics, parameters) to describe a population or a sample
-</li>
-<li>
-Interpret summary statistics
-</li>
+<li>Choose appropriate summary statistics (tables, graphics, parameters) to describe a population or a sample</li>
+<li>Interpret summary statistics</li>
 </ul>
 </div>
 <div id="frequency-table" class="section level2" number="3.1">
@@ -634,44 +653,34 @@ Total
 </div>
 <div id="central-parameters" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Central parameters</h2>
-<div class="definition">
-<p>
-A central parameter, or location parameter, is the numerical value around which are distributed most of the values of a serie of data.
-</p>
+<div class="define">
+<p>A central parameter, or location parameter, is the numerical value around which are distributed most of the values of a serie of data.</p>
 </div>
 <div id="mean" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Mean</h3>
 <p>The (arithmetic) mean is the most well known and commonly (but not always appropriately) used central parameter.</p>
-<div class="definition">
-<p>
-The arithmetic mean is the sum of the values divided by the number of values in the data serie.
-</p>
+<div class="define">
+<p>The arithmetic mean is the sum of the values divided by the number of values in the data serie.</p>
 </div>
 <p>Mathematically, in a population the equation is:</p>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(\mu = ({\sum^{{i=N}}_{{i=1}} X_{i})/N}\)</span></span>
-</p>
+<p><span class="math inline">\(\mu = ({\sum^{{i=N}}_{{i=1}} X_{i})/N}\)</span></p>
 </div>
 <p>In a sample, the equation is:</p>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(m = ({\sum^{{i=n}}_{{i=1}} x_{i})/n}\)</span></span>
-</p>
+<p><span class="math inline">\(m = ({\sum^{{i=n}}_{{i=1}} x_{i})/n}\)</span></p>
 </div>
 <p><em>Note: Greek letters are used for population and Roman letters for sample. The mean is also sometimes symbolized like <span class="math inline">\(\bar{X}\)</span> for population or <span class="math inline">\(\bar{x}\)</span> for sample</em></p>
 <p>Figure <a href="statdesc.html#fig:histogram">3.1</a> presents a <code>histogram</code> that summarize the distribution of weight of French student in the HBSC <code>sample</code> (for histogram definition see section <a href="statdesc.html#plot">3.4</a> and sample definition see <a href="inferencestat.html#sample">4.1</a>). From the graphic, the central point (pick) of the distribution, around which values of the data serie are spread is around the weight class [40-45[ Kg.</p>
-<div class="figure"><span id="fig:histogram"></span>
-<img src="ebook-M1-biostat_files/figure-html/histogram-1.png" alt="Distrubution of weights (Kg) of 11 to 16 years-old students, in France in 2006" width="70%" />
+<div class="figure"><span style="display:block;" id="fig:histogram"></span>
+<img src="_main_files/figure-html/histogram-1.png" alt="Distrubution of weights (Kg) of 11 to 16 years-old students, in France in 2006" width="70%" />
 <p class="caption">
 Figure 3.1: Distrubution of weights (Kg) of 11 to 16 years-old students, in France in 2006
 </p>
 </div>
 <p>On average, in 2006 the French students aged 11 to 16 weighted 48 Kg (dashed red color).</p>
 <div class="practice">
-<p>
-Why the mean is not between 40 and 45Kg?
-</p>
+<p>Why the mean is not between 40 and 45Kg?</p>
 </div>
 <p>The advantages:</p>
 <ul>
@@ -688,12 +697,10 @@ Why the mean is not between 40 and 45Kg?
 <div id="median" class="section level3" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Median</h3>
 <p>The mean is not always the appropriate statistical indicator to summarize the distribution data and should be sometimes replaced by the median.</p>
-<div class="definition">
-<p>
-The median is the middle value of a ordered data serie. The median split the data serie in two part of equal number of data.
-</p>
+<div class="define">
+<p>The median is the middle value of a ordered data serie. The median split the data serie in two part of equal number of data.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:mercuryMean"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mercuryMean"></span>
 <img src="fig/MercuryMean.png" alt="Mean or Median, that is the question?" width="70%" />
 <p class="caption">
 Figure 3.2: Mean or Median, that is the question?
@@ -712,9 +719,7 @@ Figure 3.2: Mean or Median, that is the question?
 <li>2’. If there are an even number of observations, find the middle two values and average them</li>
 </ul>
 <div class="practice">
-<p>
-Would you use the median or the mean to compare French region rainfall?
-</p>
+<p>Would you use the median or the mean to compare French region rainfall?</p>
 </div>
 <p>The advantages:</p>
 <ul>
@@ -733,12 +738,10 @@ Would you use the median or the mean to compare French region rainfall?
 <div id="percentile-and-quantile" class="section level3" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Percentile and quantile</h3>
 <p>When looking at height distribution, the median is the exact middle value when people are ordered by height which correspond to the 50<span class="math inline">\(^{th}\)</span> <code>percentile</code> or 50% below and above that value (Figure <a href="statdesc.html#fig:percentile">3.3</a>). But you could pick any percentile like the 80<span class="math inline">\(^{th}\)</span> with 80% below and 20% above.</p>
-<div class="definition">
-<p>
-The n<span class="math inline"><span class="math inline">\(^{th}\)</span></span> percentile of a set of data is the value at which <em>n</em> percent of the data is below it.
-</p>
+<div class="define">
+<p>The n<span class="math inline">\(^{th}\)</span> percentile of a set of data is the value at which <em>n</em> percent of the data is below it.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:percentile"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:percentile"></span>
 <img src="fig/percentile.png" alt="Percentile" width="70%" />
 <p class="caption">
 Figure 3.3: Percentile
@@ -746,18 +749,14 @@ Figure 3.3: Percentile
 </div>
 <p>Percentiles can be calculated using the formula <span class="math inline">\(n = (P/100)*N\)</span>, where <em>P</em> = percentile, <em>N</em> = number of values in a data set (sorted from smallest to largest), and <em>n</em> = ordinal rank of a given value.</p>
 <div class="practice">
-<p>
-A student scores in the 75<span class="math inline"><span class="math inline">\(^{th}\)</span></span> percentile of his class. What does that mean?
-</p>
+<p>A student scores in the 75<span class="math inline">\(^{th}\)</span> percentile of his class. What does that mean?</p>
 </div>
 <p>The 75<span class="math inline">\(^{th}\)</span> percentile is also the 3rd <code>quartile</code>.</p>
-<div class="definition">
-<p>
-The quartile split the sorted data values into quarters.
-</p>
+<div class="define">
+<p>The quartile split the sorted data values into quarters.</p>
 </div>
 <p>The quartiles are the values that frame the middle 50% of the data (median or Q2). One quarter of the data lies below the lower quartile, Q1 (25% or 25<span class="math inline">\(^{th}\)</span> percentile), and one quarter of the data lies above the upper quartile, Q3 (75% or 75<span class="math inline">\(^{th}\)</span> percentile).</p>
-<div class="figure" style="text-align: center"><span id="fig:quartile"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:quartile"></span>
 <img src="fig/quartile.png" alt="Quartiles" width="70%" />
 <p class="caption">
 Figure 3.4: Quartiles
@@ -777,20 +776,14 @@ Figure 3.4: Quartiles
 <li>The 3<span class="math inline">\(^{rd}\)</span> quartile is 56Kg meaning that 75% of the students weighted less than 56Kg and 25% weighted more.</li>
 </ul>
 <div class="caution">
-<p>
-<strong>Quantile algorithms</strong>
-</p>
-<p>
-Several algorithms exit to compute quantile (for instance see ?quantile in the R staistical software). They rely on different definitions of the underlying distribution of the sample: discontinuous or continuous.
-</p>
-<p>
-In your case no needs to go into the details but you should know how to interpret the values.
-</p>
+<p><strong>Quantile algorithms</strong></p>
+<p>Several algorithms exit to compute quantile (for instance see ?quantile in the R staistical software). They rely on different definitions of the underlying distribution of the sample: discontinuous or continuous.</p>
+<p>In your case no needs to go into the details but you should know how to interpret the values.</p>
 </div>
 <p><strong>Mean versus Median</strong></p>
 <p>If the data is normally distributed, i.e. bell shape, as statisticians like it (bottom of Figure <a href="statdesc.html#fig:distribution">3.5</a>), feel free to use the mean.he mean is easier to communicate and so if you can use it, use it. In fact the value of the mean should be really close the value of the median and the mode (or modal class).</p>
 <p>If your data is skewed (top of Figure <a href="statdesc.html#fig:distribution">3.5</a>), or there are large outliers, then use the median to find the centre of the data. Better yet, report both the mean and the median since any differences will reveal information about the presence of skew/outliers.</p>
-<div class="figure" style="text-align: center"><span id="fig:distribution"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:distribution"></span>
 <img src="fig/distribution.png" alt="Bell shape distribution" width="70%" />
 <p class="caption">
 Figure 3.5: Bell shape distribution
@@ -800,10 +793,8 @@ Figure 3.5: Bell shape distribution
 </div>
 <div id="mode" class="section level3" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Mode</h3>
-<div class="definition">
-<p>
-The most frequent value or modality
-</p>
+<div class="define">
+<p>The most frequent value or modality</p>
 </div>
 <p>It is the only statistical parameter for the <code>qualitative</code> variables.</p>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
@@ -882,34 +873,24 @@ every day
 <p>In table <a href="statdesc.html#tab:mode">3.6</a> the mode is the category “2 or 3 times a week” with 175 students out of 500 practicing that much sports.</p>
 <p>For <code>quantitative</code> variables it could be a number or a class interval as in Figure <a href="statdesc.html#fig:histogram">3.1</a> where the modal class is [40-45[Kg.</p>
 <div class="caution">
-<p>
-<strong>Likert scale data</strong>.
-</p>
-<p>
-A Likert Scale is a type of rating scale used to measure attitudes or opinions. Five to seven items are usually used in the scale.
-</p>
-<p>
-In a survey with a 1-5 scale of “1-Very bad,” “2-Bad,” “3-Neutral,” “4-Good” and “5-Very Good” categories, the mean result across many participants came out to be 3.5. But what does 3.5 even mean in this context? Half way between Neutral and Good : Neutood? In terms of best practice, use the median when describing the centre of Likert data. Some may even argue for only using the mode on Likert data.
-</p>
+<p><strong>Likert scale data</strong>.</p>
+<p>A Likert Scale is a type of rating scale used to measure attitudes or opinions. Five to seven items are usually used in the scale.</p>
+<p>In a survey with a 1-5 scale of “1-Very bad,” “2-Bad,” “3-Neutral,” “4-Good” and “5-Very Good” categories, the mean result across many participants came out to be 3.5. But what does 3.5 even mean in this context? Half way between Neutral and Good : Neutood? In terms of best practice, use the median when describing the centre of Likert data. Some may even argue for only using the mode on Likert data.</p>
 </div>
 </div>
 </div>
 <div id="variation-parameters" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Variation parameters</h2>
-<div class="definition">
-<p>
-A variation parameter is numerical value which describes the dispersion of all the values of a serie of data around its location parameter
-</p>
+<div class="define">
+<p>A variation parameter is numerical value which describes the dispersion of all the values of a serie of data around its location parameter</p>
 </div>
 <div id="range-and-iqr" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Range and IQR</h3>
 <p>The <code>range</code> is the difference between the minimum and maximum value of a data serie. It is better to report the boundaries rather then the output of the difference because otherwise we do not know from where it starts.</p>
 <div class="practice">
-<p>
-In which hospital will you go for emergency care?
-</p>
+<p>In which hospital will you go for emergency care?</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:range"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:range"></span>
 <img src="fig/range.png" alt="Hospitals ER" width="70%" />
 <p class="caption">
 Figure 3.6: Hospitals ER
@@ -920,10 +901,8 @@ Figure 3.6: Hospitals ER
 <div id="sd" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Variance and standard deviation</h3>
 <p>A powerful measure of spread is the distance of the values of a data serie to its mean.</p>
-<div class="definition">
-<p>
-The variance is the average squared differences to the mean.
-</p>
+<div class="define">
+<p>The variance is the average squared differences to the mean.</p>
 </div>
 <p>Based on the mean, the <code>variance</code> is appropriate only for symmetric data and can be influenced by outlying observations.</p>
 <p>Mathematically, if we tried to average the distances of all the values a data serie to its mean, the positive and negative differences would cancel each other out, giving an average deviation of 0-not very useful. Instead, we square each distance to get the <code>variance</code>.</p>
@@ -942,9 +921,7 @@ In a population the equation is:
 </ul>
 <p>In a sample, the formula is:</p>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(s^2=\frac{\sum_{1}^{n}(x_i-\bar{x})^2}{(n-1)}\)</span></span>
-</p>
+<p><span class="math inline">\(s^2=\frac{\sum_{1}^{n}(x_i-\bar{x})^2}{(n-1)}\)</span></p>
 </div>
 <p>where</p>
 <ul>
@@ -954,21 +931,15 @@ In a population the equation is:
 <li><span class="math inline">\(n\)</span> is number of values in the data serie</li>
 </ul>
 <p>The variance plays an important role in statistics, but as a measure of spread, it has a problem. Whatever the units of the original data, the variance is in squared units. To express the spread to in the same units as the data we take the square root of the variance. That gives the <code>standard deviation</code>.</p>
-<div class="definition">
-<p>
-A standard deviation is the square root of the variance, the average differences to the mean.
-</p>
+<div class="define">
+<p>A standard deviation is the square root of the variance, the average differences to the mean.</p>
 </div>
 <p>Mathematically, in a sample the formula is:</p>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(s=\sqrt\frac{\sum_{1}^{n}(x_i-\bar{x})^2}{(n-1)}\)</span></span>
-</p>
+<p><span class="math inline">\(s=\sqrt\frac{\sum_{1}^{n}(x_i-\bar{x})^2}{(n-1)}\)</span></p>
 </div>
 <div class="example">
-<p>
-In the HBSC sample, one average pupils weight 48.09 Kg +/- 12.25Kg. It means that the <strong>average variation</strong> of the weights around the mean is of 12.25Kg. However some pupils can be lighter than 35.75kg (48-12.25 - the minimum is in fact 24.5Kg) and some pupils can be heavier than 60.25kg (48+12.25 the minimum is in fact 90Kg).
-</p>
+<p><span id="exm:unlabeled-div-1" class="example"><strong>Example 3.1  </strong></span>In the HBSC sample, one average pupils weight 48.09 Kg +/- 12.25Kg. It means that the <strong>average variation</strong> of the weights around the mean is of 12.25Kg. However some pupils can be lighter than 35.75kg (48-12.25 - the minimum is in fact 24.5Kg) and some pupils can be heavier than 60.25kg (48+12.25 the minimum is in fact 90Kg).</p>
 </div>
 </div>
 </div>
@@ -976,33 +947,29 @@ In the HBSC sample, one average pupils weight 48.09 Kg +/- 12.25Kg. It means tha
 <h2><span class="header-section-number">3.4</span> Graphical summary</h2>
 <p>Graphical representations, as summary in tables, must be self-content and self-explanatory. They should be readable without text around.</p>
 <div class="caution">
-<p>
-<strong>Plot title should include the W’s</strong>
-</p>
-<p>
-Who are you representing, What characteristics, Where and When it is happening.
-</p>
+<p><strong>Plot title should include the W’s</strong></p>
+<p>Who are you representing, What characteristics, Where and When it is happening.</p>
 </div>
 <p><em>Note: I will be intransigent on that matter</em></p>
 <div id="barplot" class="section level3" number="3.4.1">
 <h3><span class="header-section-number">3.4.1</span> Barplot</h3>
 <p>For one <code>qualitative</code> variable, the frequency <code>barplot</code>, or <code>barchart</code>, is the most appropriate plot. It could use the absolute or relative frequencies.</p>
-<div class="figure" style="text-align: center"><span id="fig:barplot1"></span>
-<img src="ebook-M1-biostat_files/figure-html/barplot1-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplot1"></span>
+<img src="_main_files/figure-html/barplot1-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
 <p class="caption">
 Figure 3.7: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
 </p>
 </div>
 <p>Figure <a href="statdesc.html#fig:barplot1">3.7</a> represents the distribution of students (<em>Who</em>) according to their sport activity level (<em>What</em>), in France (<em>Where</em>) in 2006 (<em>When</em>) and if available the source should also be cited (here HSBC) in the caption.</p>
 <p>It is a better practice to multiply plots that combining too many information in one plot. Imagine you would like to display the same information but for boys and girls. The below barplot is better than the next one as you can easily compare boys and girl but you also easily visualize the trend within each group.</p>
-<div class="figure" style="text-align: center"><span id="fig:barplot2"></span>
-<img src="ebook-M1-biostat_files/figure-html/barplot2-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplot2"></span>
+<img src="_main_files/figure-html/barplot2-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
 <p class="caption">
 Figure 3.8: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:barplot3"></span>
-<img src="ebook-M1-biostat_files/figure-html/barplot3-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplot3"></span>
+<img src="_main_files/figure-html/barplot3-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
 <p class="caption">
 Figure 3.9: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
 </p>
@@ -1011,8 +978,8 @@ Figure 3.9: Repartition of students according to their sport activity level, in 
 <div id="pie-chart" class="section level3" number="3.4.2">
 <h3><span class="header-section-number">3.4.2</span> Pie chart</h3>
 <p>For one <code>qualitative</code> variable, you can also use a <code>pie chart</code>. However you should be careful on the number of modalities the variable to display can have: too few, the plot take lots of room for few information but too many you will rapidly get “the wheel of fortune.”</p>
-<div class="figure" style="text-align: center"><span id="fig:pie"></span>
-<img src="ebook-M1-biostat_files/figure-html/pie-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pie"></span>
+<img src="_main_files/figure-html/pie-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
 <p class="caption">
 Figure 3.10: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
 </p>
@@ -1022,14 +989,14 @@ Figure 3.10: Repartition of students according to their sport activity level, in
 <div id="histogram" class="section level3" number="3.4.3">
 <h3><span class="header-section-number">3.4.3</span> Histogram</h3>
 <p>For one <code>quantitative</code> variable, the <code>histogram</code> is often used to visualize the shape of the distibution of the data serie. Although one have to be careful of the bin width (breaks) use to group the numerical values.</p>
-<div class="figure" style="text-align: center"><span id="fig:histogram2"></span>
-<img src="ebook-M1-biostat_files/figure-html/histogram2-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=1" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogram2"></span>
+<img src="_main_files/figure-html/histogram2-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=1" width="70%" />
 <p class="caption">
 Figure 3.11: Distribution of students weight in France in 2006 (source: HBSC), binwidth=1
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:histogram3"></span>
-<img src="ebook-M1-biostat_files/figure-html/histogram3-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=10" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogram3"></span>
+<img src="_main_files/figure-html/histogram3-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=10" width="70%" />
 <p class="caption">
 Figure 3.12: Distribution of students weight in France in 2006 (source: HBSC), binwidth=10
 </p>
@@ -1037,19 +1004,13 @@ Figure 3.12: Distribution of students weight in France in 2006 (source: HBSC), b
 <p>Figures <a href="statdesc.html#fig:histogram2">3.11</a> and <a href="statdesc.html#fig:histogram3">3.12</a> present the same data serie but with a bin width of 1 and then 10. The shape of the plots are different, the modal class varies. With a bin width of 1 you have no summary and too many details while a bin width of 10 may be compact.</p>
 <p>There is no recipe, statistical software helps you with default algorithm but my advice would be to try a couple of bin widths and select the one you believe summarize the best the data</p>
 <div class="caution">
-<p>
-<strong>Barplot versus Histogram</strong>
-</p>
-<p>
-Barplot are for <code>qualitative</code> data. The bars are separated.
-</p>
-<p>
-Histogram are for <code>quantitative</code> data. The bins are joined. Gaps may occurred when no one fall in a particular bin.
-</p>
+<p><strong>Barplot versus Histogram</strong></p>
+<p>Barplot are for <code>qualitative</code> data. The bars are separated.</p>
+<p>Histogram are for <code>quantitative</code> data. The bins are joined. Gaps may occurred when no one fall in a particular bin.</p>
 </div>
 <p>If you want to compare the distribution of <code>one quantitative variable between more than 2 groups (qualitative)</code> the histogram remain interesting, as shown below. But up to three the comparison start to be difficult. A boxplot is then more appropriate.</p>
-<div class="figure" style="text-align: center"><span id="fig:histogram4"></span>
-<img src="ebook-M1-biostat_files/figure-html/histogram4-1.png" alt="Distribution of students weight by gender group in France in 2006 (source: HBSC)" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogram4"></span>
+<img src="_main_files/figure-html/histogram4-1.png" alt="Distribution of students weight by gender group in France in 2006 (source: HBSC)" width="70%" />
 <p class="caption">
 Figure 3.13: Distribution of students weight by gender group in France in 2006 (source: HBSC)
 </p>
@@ -1060,15 +1021,15 @@ Figure 3.13: Distribution of students weight by gender group in France in 2006 (
 <p>A boxplot helps presenting the five-number summary classically used to describe a sample.</p>
 <p>The central box shows the middle half of the data, between the quartiles. The top of the box is at the third quartile (Q3) and the bottom is at Q1, the height of the box is equal to which is the IQR. The median is displayed as a horizontal line. If the median is roughly centered between the quartiles, then the middle half of the data is roughly symmetric. If it is not centered,
 the distribution is skewed. In extreme cases, the median can coincide with one of the quartiles.</p>
-<div class="figure" style="text-align: center"><span id="fig:boxplot1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:boxplot1"></span>
 <img src="fig/boxplot.png" alt="Boxplot elements" width="70%" />
 <p class="caption">
 Figure 3.14: Boxplot elements
 </p>
 </div>
 <p>The whiskers reach out from the box to the most extreme values that are not considered outliers according to John W. Tukey’s rule. The boxplot nominates points as outliers if they fall farther than 1.5*IQRs beyond either quartile. They may be mistakes or they may be the most interesting cases in your data. This rule is not a definition of what makes a point an outlier. It just nominates cases for special attention.</p>
-<div class="figure" style="text-align: center"><span id="fig:boxplot2"></span>
-<img src="ebook-M1-biostat_files/figure-html/boxplot2-1.png" alt="Distribution of students weight by group of sport activity level, in France in 2006 (source: HBSC)" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:boxplot2"></span>
+<img src="_main_files/figure-html/boxplot2-1.png" alt="Distribution of students weight by group of sport activity level, in France in 2006 (source: HBSC)" width="70%" />
 <p class="caption">
 Figure 3.15: Distribution of students weight by group of sport activity level, in France in 2006 (source: HBSC)
 </p>
@@ -1076,16 +1037,14 @@ Figure 3.15: Distribution of students weight by group of sport activity level, i
 <p>In Figure <a href="statdesc.html#fig:boxplot2">3.15</a> the distribution of students’ weight vary by group of sport activity level. We note 3 extrema: 2 in the “2 or 3 times a week” group and 1 in the “once a month” group. Overall the boxplots overlap suggesting than on average the weights between groups might not be statistically different (see Chapter <a href="tests.html#tests">5</a>).</p>
 <p>Let’s interpret the “never” group (bottom boxplot): around 50% of the students in that group weight 45Kg or less, 75% of the students weight 55Kg or less while 25% weight 55Kg or more</p>
 <div class="practice">
-<p>
-What proportion of students lies between 42 and 55 Kg?
-</p>
+<p>What proportion of students lies between 42 and 55 Kg?</p>
 </div>
 </div>
 <div id="scatterplot" class="section level3" number="3.4.5">
 <h3><span class="header-section-number">3.4.5</span> Scatterplot</h3>
 <p>For two <code>quantitative</code> variables, a scatterplot is used to assess if there is a relationship between the two variables.</p>
-<div class="figure" style="text-align: center"><span id="fig:scatterplot"></span>
-<img src="ebook-M1-biostat_files/figure-html/scatterplot-1.png" alt="School results and BMI among students in France in 2006 (source: HBSC)" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterplot"></span>
+<img src="_main_files/figure-html/scatterplot-1.png" alt="School results and BMI among students in France in 2006 (source: HBSC)" width="70%" />
 <p class="caption">
 Figure 3.16: School results and BMI among students in France in 2006 (source: HBSC)
 </p>
@@ -1095,39 +1054,28 @@ Figure 3.16: School results and BMI among students in France in 2006 (source: HB
 <div id="communication-tips" class="section level3" number="3.4.6">
 <h3><span class="header-section-number">3.4.6</span> Communication tips</h3>
 <div class="caution">
-<p>
-<strong>Avoid 3D plots</strong> our eyes are not good at visualizing 3D and mathematically it’s often wrong you do not manipulate volumes but numbers.
-</p>
+<p><strong>Avoid 3D plots</strong> our eyes are not good at visualizing 3D and mathematically it’s often wrong you do not manipulate volumes but numbers.</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:badvisual1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:badvisual1"></span>
 <img src="fig/badpic1.png" alt="Bad visual 1" width="50%" />
 <p class="caption">
 Figure 3.17: Bad visual 1
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:badvisual2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:badvisual2"></span>
 <img src="fig/badpic2.png" alt="Bad visual 2" width="50%" />
 <p class="caption">
 Figure 3.18: Bad visual 2
 </p>
 </div>
 <div class="caution">
-<p>
-<strong>Use appropriate colors</strong>
-</p>
+<p><strong>Use appropriate colors</strong></p>
 <ul>
-<li>
-Proscribe rainbow plots
-</li>
-<li>
-Sequential scale (gradiant) are suited to ordered data
-</li>
-<li>
-Diverging palettes put equal emphasis on mid-range critical values and extremes at both ends of the data range -Qualitative palettes do not imply magnitude differences between legend classes, and hues are used to create the primary visual differences between classes.
-</li>
-<li>
-Do not forget our color-blind friends !
-</li>
+<li>Proscribe rainbow plots</li>
+<li>Sequential scale (gradiant) are suited to ordered data</li>
+<li>Diverging palettes put equal emphasis on mid-range critical values and extremes at both ends of the data range
+-Qualitative palettes do not imply magnitude differences between legend classes, and hues are used to create the primary visual differences between classes.</li>
+<li>Do not forget our color-blind friends !</li>
 </ul>
 </div>
 <p>What summary statistics should you use: tables, graphics or statistical parameters? It all depends.</p>
@@ -1146,7 +1094,7 @@ Do not forget our color-blind friends !
 <li>Qualitative</li>
 <li>Quantitative</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:visual"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:visual"></span>
 <img src="fig/visual.png" alt="Communication tips" width="50%" />
 <p class="caption">
 Figure 3.19: Communication tips
@@ -1166,7 +1114,6 @@ Figure 3.19: Communication tips
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1185,6 +1132,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -1193,8 +1141,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-DescripitiveStat.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -1204,7 +1152,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ebook-M1-biostat.pdf", "ebook-M1-biostat.epub", "ebook-M1-biostat.html"],
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

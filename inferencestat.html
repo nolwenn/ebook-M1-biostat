@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Inference and sample | index.split</title>
+  <title>Chapter 4 Inference and sample | Little e-book for MPH1 biostatistics</title>
   <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Inference and sample | index.split" />
+  <meta property="og:title" content="Chapter 4 Inference and sample | Little e-book for MPH1 biostatistics" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Inference and sample | index.split" />
+  <meta name="twitter:title" content="Chapter 4 Inference and sample | Little e-book for MPH1 biostatistics" />
   
   <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2021-09-17" />
+<meta name="date" content="2022-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="statdesc.html"/>
 <link rel="next" href="tests.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,8 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -122,6 +122,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -135,13 +158,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Little Book of Introduction to Biostatistics</a></li>
+<li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables</a>
 <ul>
@@ -255,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><img src="fig/logo_ehesp.jpg" style="width:1in" /></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little e-book for MPH1 biostatistics</a>
           </h1>
         </div>
 
@@ -267,18 +290,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 4</span> Inference and sample</h1>
 <div class="objective">
 <ul>
-<li>
-Make the difference between individual variation and sample variation
-</li>
-<li>
-Make the difference between observed values and estimated parameters
-</li>
-<li>
-Interpret a confidence interval
-</li>
-<li>
-Interpret a statistical test
-</li>
+<li>Make the difference between individual variation and sample variation</li>
+<li>Make the difference between observed values and estimated parameters</li>
+<li>Interpret a confidence interval</li>
+<li>Interpret a statistical test</li>
 </ul>
 </div>
 <div id="sample" class="section level2" number="4.1">
@@ -286,7 +301,7 @@ Interpret a statistical test
 <div id="population-versus-sample" class="section level3" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> Population versus Sample</h3>
 <p>Why take a sample … to conclude on the population?</p>
-<div class="figure" style="text-align: center"><span id="fig:sample"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sample"></span>
 <img src="fig/sampling_F1.png" alt="Population versus Sample" width="70%" />
 <p class="caption">
 Figure 4.1: Population versus Sample
@@ -301,20 +316,12 @@ Figure 4.1: Population versus Sample
 </li>
 <li>Poor sampling designs can yield misleading conclusions</li>
 </ul>
-<div class="definition">
+<div class="define">
 <ul>
-<li>
-Set of observations drawn from a population
-</li>
-<li>
-All the individuals of the study population should have the same probability of being drawn
-</li>
-<li>
-A <code>representative sample</code> should be an unbiased reflection of what the targeted population is like for the units of interest (outcome and covariates/determinants)
-</li>
-<li>
-A representative sample for a variable should reflect the variable distribution observed in the targeted population.
-</li>
+<li>Set of observations drawn from a population</li>
+<li>All the individuals of the study population should have the same probability of being drawn</li>
+<li>A <code>representative sample</code> should be an unbiased reflection of what the targeted population is like for the units of interest (outcome and covariates/determinants)</li>
+<li>A representative sample for a variable should reflect the variable distribution observed in the targeted population.</li>
 </ul>
 </div>
 <p>For example, you plan to determine the relationship between gratitude and job satisfaction in gynecologists. Your sample might consist of 30 to 40 gynecologists. Your population might be “gynecologists in the United States,” or, if the scope of your study was more narrow, “gynecologists in New York City.” So, if most gynecologists in the population are women, but your sample is all male, you do not have a good case for representativeness because your sample does not share the same characteristics as the larger population. In this case, you cannot generalize the results of your study to the population.</p>
@@ -354,7 +361,7 @@ A representative sample for a variable should reflect the variable distribution 
 <li><strong>Simple random sample</strong> of size <em>n</em> consists of <em>n</em> individuals from the population chosen in such a way that every set of <em>n</em> individuals has an <em>equal chance</em> to be the sample actually selected.</li>
 </ol>
 <p>The simple random sampling is <strong>the gold standard</strong>: All individuals are given an equal chance to be chosen to be in the sample.</p>
-<div class="figure" style="text-align: center"><span id="fig:randomSample"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:randomSample"></span>
 <img src="fig/randomSample_F2.png" alt="Simple random sample (source: Academic Web Services)" width="70%" />
 <p class="caption">
 Figure 4.2: Simple random sample (source: Academic Web Services)
@@ -363,7 +370,7 @@ Figure 4.2: Simple random sample (source: Academic Web Services)
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Stratified random samples</strong> (or block experiment) define by strata of similar characteristics and choose a separate simple random sample (SRS) in each stratum and combine these to form the full sample.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:stratified"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:stratified"></span>
 <img src="fig/stratified_F3.png" alt="Stratified sampling (source: Academic Web Services)" width="70%" />
 <p class="caption">
 Figure 4.3: Stratified sampling (source: Academic Web Services)
@@ -372,7 +379,7 @@ Figure 4.3: Stratified sampling (source: Academic Web Services)
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Cluster and multistage samples</strong> consist of all or random units within clusters (hierarchical sampling)</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:cluster"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cluster"></span>
 <img src="fig/cluster_F4.png" alt="Cluster sample (source: Academic Web Services)" width="70%" />
 <p class="caption">
 Figure 4.4: Cluster sample (source: Academic Web Services)
@@ -380,24 +387,18 @@ Figure 4.4: Cluster sample (source: Academic Web Services)
 </div>
 <p>For example, the HBSC study is based on a multistage sampling. In France, in each region some schools were randomly selected, within a school some classes were randomly selected and all the students of the selected class were interrogate.</p>
 <div class="practice">
-<p>
-The Dean of the School of public health wants to meet with several members of the faculty of the Department of Statistics to discuss concerns they might have about their department. He does not have time to talk to all of the faculty members, but wants to be sure that he meets with faculty with various levels of seniority.<br />
-The Department of Statistics is composed of:
-</p>
-<p>
-18 Professors<br />
+<p>The Dean of the School of public health wants to meet with several members of the faculty of the Department of Statistics to discuss concerns they might have about their department. He does not have time to talk to all of the faculty members, but wants to be sure that he meets with faculty with various levels of seniority.<br />
+The Department of Statistics is composed of:</p>
+<p>18 Professors<br />
 3 Associate Professors<br />
-5 Assistant Professors
-</p>
-<p>
-The Dean decides to speak with 5 Professors, 2 Associate Professors, and 3 Assistant Professors. What sampling design can be used?
-</p>
+5 Assistant Professors</p>
+<p>The Dean decides to speak with 5 Professors, 2 Associate Professors, and 3 Assistant Professors. What sampling design can be used?</p>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li><strong>Systematic sampling</strong></li>
 </ol>
 <p>Sometimes we draw a sample by selecting individuals systematically. For example, a systematic sample might select every tenth person entering a school cafeteria (price, food quality, opening hours…). To make sure our sample is random, we still must start the systematic selection with a randomly selected individual, not necessarily the first person entering the cafeteria at lunchtime. When there is no reason to believe that the order of people entering the pool could be associated in any way with the responses measured.</p>
-<div class="figure" style="text-align: center"><span id="fig:systematic"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:systematic"></span>
 <img src="fig/systematic_F6.png" alt="Systematic sampling (source: Academic Web Services)" width="70%" />
 <p class="caption">
 Figure 4.5: Systematic sampling (source: Academic Web Services)
@@ -410,7 +411,7 @@ Figure 4.5: Systematic sampling (source: Academic Web Services)
 <p>For example, the ABC news program Nightline once asked their viewers whether the United Nations should continue to have its headquarters in the United States. In order to have their opinions counted, viewers had to call a 1-900 number and pay a small fee. More than 186,000 callers responded and 67<span class="math inline">\(\%\)</span> said “No.” The callers of such program tend to be strong headed and often negative opinions. A nationwide poll with a proper sampling design found that less than 28 <span class="math inline">\(\%\)</span> of US adults want the UN to move out of the United States.</p>
 <p><strong>Convenience sampling</strong> chooses the individuals who are convenient, the easiest to reach to be in the sample. The group is probably not representative of the targeted population. This method is used in shopping area (street, mall). This population tend to be more affluent and include a larger percentage of
 teenagers and retirees than the population at large.</p>
-<div class="figure" style="text-align: center"><span id="fig:convenience"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:convenience"></span>
 <img src="fig/convenience_F5.png" alt="Convenience sample (source: Academic Web Services)" width="70%" />
 <p class="caption">
 Figure 4.6: Convenience sample (source: Academic Web Services)
@@ -418,7 +419,7 @@ Figure 4.6: Convenience sample (source: Academic Web Services)
 </div>
 <p>For example, you interview people at the mall or on a street corner about the French school policy that allows every cities to decide whether school schedule is spread over 4 or 5 days per week.</p>
 <p>Other non-probability sampling methods exists but are largely bias. One has to be aware and truthful when concluding on such samples.</p>
-<div class="figure" style="text-align: center"><span id="fig:nonprob"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nonprob"></span>
 <img src="fig/nonprob_F7.png" alt="Non-probability sampling methods" width="70%" />
 <p class="caption">
 Figure 4.7: Non-probability sampling methods
@@ -441,30 +442,28 @@ Figure 4.7: Non-probability sampling methods
 <h2><span class="header-section-number">4.2</span> Confidence intervals</h2>
 <div id="within-and-between-sample-variation" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Within and between sample variation</h3>
-<div class="figure" style="text-align: center"><span id="fig:pop2sampl"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pop2sampl"></span>
 <img src="fig/pop2sample.png" alt="Parameter estimation from sample to population" width="70%" />
 <p class="caption">
 Figure 4.8: Parameter estimation from sample to population
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:withinvar"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:withinvar"></span>
 <img src="fig/withinvar.png" alt="Variation of individuals within a sample" width="50%" />
 <p class="caption">
 Figure 4.9: Variation of individuals within a sample
 </p>
 </div>
 <p>As shown in Figure <a href="inferencestat.html#fig:withinvar">4.9</a>, individual measures vary with a sample. The standard deviation <span class="math inline">\(s\)</span> is a indicator of that <code>individual fluctuation</code>. It is the average distance of the measures of the individuals to the mean.</p>
-<div class="figure" style="text-align: center"><span id="fig:betweenvar"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:betweenvar"></span>
 <img src="fig/betweenvar.png" alt="Variation between a samples drawn from the same population" width="50%" />
 <p class="caption">
 Figure 4.10: Variation between a samples drawn from the same population
 </p>
 </div>
 <p>If you drawn different samples from the same population you will get different means (Figure <a href="inferencestat.html#fig:betweenvar">4.10</a>) due to <code>sampling fluctuation</code> or <code>sampling distribution of the mean</code>. This variance between the means of different samples can be estimated by the standard deviation of this sampling distribution and it is the standard error (SE) of the estimate of the mean.</p>
-<div class="definition">
-<p>
-The standard error (SE) is a type of standard deviation for the distribution of the means of samples drawn from the same population.
-</p>
+<div class="define">
+<p>The standard error (SE) is a type of standard deviation for the distribution of the means of samples drawn from the same population.</p>
 </div>
 Standard Error:
 <div class="center">
@@ -482,26 +481,20 @@ Standard Error:
 <div id="the-clt-and-the-confidence-interval" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> The CLT and the confidence interval</h3>
 <p>The mean <span class="math inline">\(m\)</span> in a sample of size <span class="math inline">\(n\)</span> is a random variable, which varies between samples. This random variables should follow a Normal distribution centered around <span class="math inline">\(\mu\)</span>, the true mean of the population. This is the <code>central Limit Theorem</code>.</p>
-<div class="figure" style="text-align: center"><span id="fig:estimatedmu"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:estimatedmu"></span>
 <img src="fig/estimatedmu.png" alt="The observed mean is a random variable" width="70%" />
 <p class="caption">
 Figure 4.11: The observed mean is a random variable
 </p>
 </div>
-<div class="definition">
-<p>
-<strong>Central Limit Theorem (CLT)</strong>
-</p>
-<p>
-The mean of a random sample has a sampling distribution whose shape can be approximated by a Normal model. The larger the sample, the better the approximation will be.
-</p>
+<div class="define">
+<p><strong>Central Limit Theorem (CLT)</strong></p>
+<p>The mean of a random sample has a sampling distribution whose shape can be approximated by a Normal model. The larger the sample, the better the approximation will be.</p>
 </div>
 <p>For example, in the HBSC survey the observed mean of weights of 11 years-old French children in 2006 in our sample (n=500) is 38, 55 Kg (s = 8,10 Kg). How do we estimate the <strong>TRUE value</strong> in the population of children aged 11 in 2006 in France?</p>
 <p>Using central limit theorem, one can demonstrate that <strong>we can be 95% confident that the true mean <span class="math inline">\(\mu\)</span> of the population from which is extracted our sample is within the interval</strong>:</p>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(m-1.96*\sigma_\mu \leq \mu \leq m+1.96*\sigma_\mu\)</span></span>
-</p>
+<p><span class="math inline">\(m-1.96*\sigma_\mu \leq \mu \leq m+1.96*\sigma_\mu\)</span></p>
 </div>
 <p>where:</p>
 <ul>
@@ -514,9 +507,7 @@ The mean of a random sample has a sampling distribution whose shape can be appro
 <p>For example, you are interested in the proportion of children (aged 2-3) with sleeping disorder in Isere, France (population: 14 000 children of 2 or 3 years old). You built a sample of 540 children among which 86 had sleeping disorder. The proportion of children with sleeping disorder in our sample is <span class="math inline">\(p=16\)</span>%. But what is the TRUE proportion of children (aged 2-3) with sleeping disorder in Isere?</p>
 <p>Using central limit theorem, one can demonstrate that <strong>we can be 95% confident that the true proportion <span class="math inline">\(\pi\)</span> of the population from which is extracted our sample is within the interval</strong>:</p>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(p-1.96*\sigma_\pi \leq \pi \leq p+1.96*\sigma_\pi\)</span></span>
-</p>
+<p><span class="math inline">\(p-1.96*\sigma_\pi \leq \pi \leq p+1.96*\sigma_\pi\)</span></p>
 </div>
 <p>where:</p>
 <ul>
@@ -529,7 +520,7 @@ The mean of a random sample has a sampling distribution whose shape can be appro
 <div id="interpretation-of-confidence-intervals" class="section level3" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Interpretation of confidence intervals</h3>
 <p><strong>The true mean is or is not in your estimated confidence interval</strong>. At 95% confidence, You took an 5%-risk of having the wrong confidence interval.</p>
-<div class="figure" style="text-align: center"><span id="fig:confin95"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:confin95"></span>
 <img src="fig/confin95.png" alt="Confidence interval estimation from 20 samples drawn from the same population." width="50%" />
 <p class="caption">
 Figure 4.12: Confidence interval estimation from 20 samples drawn from the same population.
@@ -554,35 +545,29 @@ Figure 4.12: Confidence interval estimation from 20 samples drawn from the same 
 <h3><span class="header-section-number">4.2.4</span> Why 1.96?</h3>
 <p>We can generalize the equation above to:</p>
 <div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(m-Z_\alpha\sigma_\mu \leq \mu \leq m+Z_\alpha\sigma_\mu\)</span></span>
-</p>
+<p><span class="math inline">\(m-Z_\alpha\sigma_\mu \leq \mu \leq m+Z_\alpha\sigma_\mu\)</span></p>
 </div>
 <p>where:</p>
 <ul>
 <li><span class="math inline">\(Z_\alpha\)</span> is the critical value of the Normal distribution (centered on <span class="math inline">\(\mu=0\)</span>, reduced to <span class="math inline">\(\sigma=1\)</span>) where <span class="math inline">\(100-\alpha\)</span> % of the values stand within <span class="math inline">\(Z\)</span> standard deviations of the mean.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:Zalpha"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Zalpha"></span>
 <img src="fig/Zalpha.png" alt="Centered reduced Normal distribution." width="40%" />
 <p class="caption">
 Figure 4.13: Centered reduced Normal distribution.
 </p>
 </div>
 <div class="practice">
-<p>
-The critical value <span class="math inline"><span class="math inline">\(Z_\alpha\)</span></span> will be larger or smaller when computing a confidence interval at 90?
-</p>
+<p>The critical value <span class="math inline">\(Z_\alpha\)</span> will be larger or smaller when computing a confidence interval at 90?</p>
 </div>
 </div>
 <div id="precision-or-margin-error" class="section level3" number="4.2.5">
 <h3><span class="header-section-number">4.2.5</span> Precision or Margin error</h3>
 <p>The term <span class="math inline">\(Z_\alpha\sigma_\mu\)</span> or <span class="math inline">\(Z_\alpha\sigma_\pi\)</span> is noted <span class="math inline">\(i\)</span> and named the <code>precision</code> or <code>margin error</code> of the confidence interval.</p>
 <div class="caution">
-<p>
-In a simple random sample, the precision is proportional to the square root of the inverse of the sample size. It is not linear!
-</p>
+<p>In a simple random sample, the precision is proportional to the square root of the inverse of the sample size. It is not linear!</p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:precision"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:precision"></span>
 <img src="fig/precision.png" alt="Precision to sample size relationship in a simple random sample." width="60%" />
 <p class="caption">
 Figure 4.14: Precision to sample size relationship in a simple random sample.
@@ -606,7 +591,6 @@ Figure 4.14: Precision to sample size relationship in a simple random sample.
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -625,6 +609,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -633,8 +618,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-InferentialStat.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -644,7 +629,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ebook-M1-biostat.pdf", "ebook-M1-biostat.epub", "ebook-M1-biostat.html"],
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

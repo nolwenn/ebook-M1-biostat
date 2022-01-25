@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Data: Statistical units and Variables | index.split</title>
+  <title>Chapter 2 Data: Statistical units and Variables | Little e-book for MPH1 biostatistics</title>
   <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Data: Statistical units and Variables | index.split" />
+  <meta property="og:title" content="Chapter 2 Data: Statistical units and Variables | Little e-book for MPH1 biostatistics" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
-  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Data: Statistical units and Variables | index.split" />
+  <meta name="twitter:title" content="Chapter 2 Data: Statistical units and Variables | Little e-book for MPH1 biostatistics" />
   
   <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
   
@@ -24,17 +24,18 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2021-09-17" />
+<meta name="date" content="2022-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
+<link rel="prev" href="introduction.html"/>
 <link rel="next" href="statdesc.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,8 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -122,6 +122,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -135,13 +158,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Little Book of Introduction to Biostatistics</a></li>
+<li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables</a>
 <ul>
@@ -255,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><img src="fig/logo_ehesp.jpg" style="width:1in" /></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little e-book for MPH1 biostatistics</a>
           </h1>
         </div>
 
@@ -266,22 +289,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="variables" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Data: Statistical units and Variables</h1>
 <div class="objective">
-<p>
-The <code>W’s</code> and their types are what you should be interested in and careful about in the data:
-</p>
+<p>The <code>W's</code> and their types are what you should be interested in and careful about in the data:</p>
 <ul>
-<li>
-Who
-</li>
-<li>
-What
-</li>
-<li>
-Where
-</li>
-<li>
-When
-</li>
+<li>Who</li>
+<li>What</li>
+<li>Where</li>
+<li>When</li>
 </ul>
 </div>
 <p>Statistics, from the latin <code>status</code> and same root as State, is the art of counting and classifying. At first, statistics were used to describe countable information on population. Rapidly they became essential to model and predict data from experiences to foresee outcomes and help decision making.</p>
@@ -292,28 +305,24 @@ When
 - patients, schooled children
 - health care services
 - countries</p>
-<div class="definition">
-<p>
-The <em>Who</em> is the <code>statistical unit</code>, the unitary element of interest (individual, hospital, country…).
-</p>
+<div class="define">
+<p>The <em>Who</em> is the <code>statistical unit</code>, the unitary element of interest (individual, hospital, country…).</p>
 </div>
 </div>
 <div id="variables-1" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Variables</h2>
 <p>The statistical units are characterized by one or more <code>variables</code>, which by definition varies between statistical units.</p>
-<div class="definition">
-<p>
-The <em>What</em> are <code>variables</code>, the recorded characteristics of the statistical units.
-</p>
+<div class="define">
+<p>The <em>What</em> are <code>variables</code>, the recorded characteristics of the statistical units.</p>
 </div>
 <p>For example, the variables characterizing the schooled children could be: age, height, weight…(Figure <a href="variables.html#fig:fig1">2.1</a>). For health care establishments, the characteristics could be the legal status, the number of beds, nurses, doctors, patients…(Figure <a href="variables.html#fig:fig2">2.2</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:fig1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig1"></span>
 <img src="fig/fig1.jpg" alt="Individuals as statistical units" width="70%" />
 <p class="caption">
 Figure 2.1: Individuals as statistical units
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:fig2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig2"></span>
 <img src="fig/fig2.jpg" alt="Hospitals as statistical units" width="65%" />
 <p class="caption">
 Figure 2.2: Hospitals as statistical units
@@ -322,7 +331,7 @@ Figure 2.2: Hospitals as statistical units
 </div>
 <div id="data-storage" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Data storage</h2>
-<p>The information on each statistical unit can be stored and displayed in a data table. Typically, the <em>Who</em> of the table are found in the leftmost column and read row-wise. The <em>What</em> are stored in the remaining columns. Table <a href="variables.html#tab:HBSC">2.1</a> presents a snapshot of the HBSC data presented in the Introduction section (<a href="intro.html#intro">1</a>).</p>
+<p>The information on each statistical unit can be stored and displayed in a data table. Typically, the <em>Who</em> of the table are found in the leftmost column and read row-wise. The <em>What</em> are stored in the remaining columns. Table <a href="variables.html#tab:HBSC">2.1</a> presents a snapshot of the HBSC data presented in the Introduction section (<a href="#intro"><strong>??</strong></a>).</p>
 <table>
 <caption><span id="tab:HBSC">Table 2.1: </span>A table of the first 10 rows and first 8 columns of the HBSC data, France 2006.</caption>
 <thead>
@@ -419,17 +428,11 @@ Figure 2.2: Hospitals as statistical units
 </tbody>
 </table>
 <div class="practice">
-<p>
-Try to guess what these data represent and what information is available.
-</p>
-<p>
-<strong>Hint:</strong> Do not forget to read the title of the table.
-</p>
+<p>Try to guess what these data represent and what information is available.</p>
+<p><strong>Hint:</strong> Do not forget to read the title of the table.</p>
 </div>
-<div class="definition">
-<p>
-The <em>Where</em> and <em>When</em> are the context/location and time of the data collection.
-</p>
+<div class="define">
+<p>The <em>Where</em> and <em>When</em> are the context/location and time of the data collection.</p>
 </div>
 <p>For instance in our HBSC the <em>When</em> is the year 2006 and the <em>Where</em> is in France. The scale of time and place are of great importance that need to be clearly defined. For example, the time can be a time point or a period of several months or years. As for France, it could be metropolitan France (excluding overseas departments) or France with all its departments. We could also look at different geographical levels like the city, the county, the state…</p>
 <p>Those information have to be reported in every titles of every tables and plots you will create from the data along with the <em>Who</em> and <em>What</em>. A table or a figure should be <code>self-explanatory</code> (self-content).</p>
@@ -440,9 +443,9 @@ The <em>Where</em> and <em>When</em> are the context/location and time of the da
 <p>In qualitative sciences, interviews are often based on open questions where answers are free text. We will not discuss that case in this class.</p>
 <p>In quantitative sciences, surveys or records from health information systems are based on short queries where short answers with a finite range of possibilities are expected. For instance, let’s say you are interested in tobacco consumption and plan a survey. You may ask the following questions with finite possibilities of answers:</p>
 <p><img src="fig/Tab1.jpg" width="70%" style="display: block; margin: auto;" /></p>
-<p>Variables are of different types (Figure <a href="variables.html#fig:fig3">2.3</a>). When a variable is allowed to takes a limited number of categorical values, or categories, and answers questions about how cases fall into those categories, we call it a <code>categorical</code>, or <code>qualitative</code>, variable. When a variable corresponds to measured numerical values with units and the variable tells us about the quantity of what is measured, we call it a <code>quantitative</code> variable <span class="citation">(<a href="references.html#ref-sharpe_business_2012" role="doc-biblioref">Sharpe, De Veaux, and Velleman 2012</a>)</span>.
+<p>Variables are of different types (Figure <a href="variables.html#fig:fig3">2.3</a>). When a variable is allowed to takes a limited number of categorical values, or categories, and answers questions about how cases fall into those categories, we call it a <code>categorical</code>, or <code>qualitative</code>, variable. When a variable corresponds to measured numerical values with units and the variable tells us about the quantity of what is measured, we call it a <code>quantitative</code> variable <span class="citation">(<a href="#ref-sharpe_business_2012" role="doc-biblioref">Sharpe, De Veaux, and Velleman 2012</a>)</span>.
 The type of a variable will condition the statistical method chosen to summarize and describe your population of interest (Chapter <a href="statdesc.html#statdesc">3</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:fig3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig3"></span>
 <img src="fig/fig3.jpg" alt="Different types of variables with example." width="70%" />
 <p class="caption">
 Figure 2.3: Different types of variables with example.
@@ -451,11 +454,15 @@ Figure 2.3: Different types of variables with example.
 <p>The <code>categorical</code>, or <code>qualitative</code>, variables can be of two sub-types: the <code>nominal</code> and the <code>ordinal</code> variables. The nominal variables are for instance the colors of the eyes or various professions that count many categories. The nominal variables can also be <code>binary</code> with only two categories like smoking/non smoking or boys/girls. The ordinal variables take into account an ordering between the possible categories of the variables. For instance, a ordinal variable could be a scale of spiciness: neutral, middle, hot, very hot ! Note that this is suggestive. You can come up with a ranking where the intervals between the categories are not of equal width.</p>
 <p>The <code>quantitative</code> variables can be discrete or continuous. A quantitative discrete variable corresponds to numerical counts like the <code>number</code> of kids per household. A quantitative continuous variable corresponds to <code>measures</code> with potential decimals like the weight or height of pupils in the HBSC cohort.</p>
 <div class="practice">
-<p>
-Propose a set of variables, one of each type.
-</p>
+<p>Propose a set of variables, one of each type.</p>
 </div>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-sharpe_business_2012" class="csl-entry">
+Sharpe, Norean Radke, Richard D De Veaux, and Paul F Velleman. 2012. <em>Business Statistics</em>. Boston: Pearson Education.
 </div>
 </div>
             </section>
@@ -463,12 +470,11 @@ Propose a set of variables, one of each type.
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="statdesc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -487,6 +493,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -495,8 +502,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Variables.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -506,7 +513,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ebook-M1-biostat.pdf", "ebook-M1-biostat.epub", "ebook-M1-biostat.html"],
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
