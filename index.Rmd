@@ -1,0 +1,33 @@
+--- 
+title: "Little e-book for MPH1 biostatistics"
+author: "Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+    self_contained: true
+documentclass: book
+bibliography:
+- book.bib
+- packages.bib
+description: |
+  This is a little book of essential biostatistic concepts for Master 1 in Public Health.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+site: bookdown::bookdown_site
+---
+
+
+
+```{r include=TRUE, echo=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown','dplyr','tidyr', 'kableExtra','ggplot2','epiDisplay','reshape2'
+), 'packages.bib')
+knitr::opts_chunk$set(echo = FALSE, fig.path = "fig/")
+```
+
+# Prerequisites {-}
+
+Not to be afraid of numbers ! Otherwise I will try to work around it.
+
