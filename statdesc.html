@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Descriptive statistics | Little e-book for MPH1 biostatistics</title>
+  <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Descriptive statistics | Little e-book for MPH1 biostatistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Descriptive statistics | Little e-book for MPH1 biostatistics" />
+  
+  <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
+  
+
+<meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
+
+
+<meta name="date" content="2022-09-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="variables.html"/>
+<link rel="next" href="inferencestat.html"/>
+<script src="libs/header-attrs-2.12/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#prerequisites">Prerequisites<span></span></a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#statistical-units"><i class="fa fa-check"></i><b>2.1</b> Statistical units<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.2</b> Variables<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#data-storage"><i class="fa fa-check"></i><b>2.3</b> Data storage<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#variable-types"><i class="fa fa-check"></i><b>2.4</b> Variable types<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statdesc.html"><a href="statdesc.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statdesc.html"><a href="statdesc.html#frequency-table"><i class="fa fa-check"></i><b>3.1</b> Frequency table<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="statdesc.html"><a href="statdesc.html#central-parameters"><i class="fa fa-check"></i><b>3.2</b> Central parameters<span></span></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="statdesc.html"><a href="statdesc.html#mean"><i class="fa fa-check"></i><b>3.2.1</b> Mean<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="statdesc.html"><a href="statdesc.html#median"><i class="fa fa-check"></i><b>3.2.2</b> Median<span></span></a></li>
+<li class="chapter" data-level="3.2.3" data-path="statdesc.html"><a href="statdesc.html#percentile-and-quantile"><i class="fa fa-check"></i><b>3.2.3</b> Percentile and quantile<span></span></a></li>
+<li class="chapter" data-level="3.2.4" data-path="statdesc.html"><a href="statdesc.html#mode"><i class="fa fa-check"></i><b>3.2.4</b> Mode<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="statdesc.html"><a href="statdesc.html#variation-parameters"><i class="fa fa-check"></i><b>3.3</b> Variation parameters<span></span></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="statdesc.html"><a href="statdesc.html#range-and-iqr"><i class="fa fa-check"></i><b>3.3.1</b> Range and IQR<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="statdesc.html"><a href="statdesc.html#sd"><i class="fa fa-check"></i><b>3.3.2</b> Variance and standard deviation<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="statdesc.html"><a href="statdesc.html#plot"><i class="fa fa-check"></i><b>3.4</b> Graphical summary<span></span></a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="statdesc.html"><a href="statdesc.html#barplot"><i class="fa fa-check"></i><b>3.4.1</b> Barplot<span></span></a></li>
+<li class="chapter" data-level="3.4.2" data-path="statdesc.html"><a href="statdesc.html#pie-chart"><i class="fa fa-check"></i><b>3.4.2</b> Pie chart<span></span></a></li>
+<li class="chapter" data-level="3.4.3" data-path="statdesc.html"><a href="statdesc.html#histogram"><i class="fa fa-check"></i><b>3.4.3</b> Histogram<span></span></a></li>
+<li class="chapter" data-level="3.4.4" data-path="statdesc.html"><a href="statdesc.html#boxplot"><i class="fa fa-check"></i><b>3.4.4</b> Boxplot<span></span></a></li>
+<li class="chapter" data-level="3.4.5" data-path="statdesc.html"><a href="statdesc.html#scatterplot"><i class="fa fa-check"></i><b>3.4.5</b> Scatterplot<span></span></a></li>
+<li class="chapter" data-level="3.4.6" data-path="statdesc.html"><a href="statdesc.html#communication-tips"><i class="fa fa-check"></i><b>3.4.6</b> Communication tips<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="inferencestat.html"><a href="inferencestat.html"><i class="fa fa-check"></i><b>4</b> Inference and sample<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="inferencestat.html"><a href="inferencestat.html#sample"><i class="fa fa-check"></i><b>4.1</b> Sample<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="inferencestat.html"><a href="inferencestat.html#population-versus-sample"><i class="fa fa-check"></i><b>4.1.1</b> Population versus Sample<span></span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="inferencestat.html"><a href="inferencestat.html#sample-designs"><i class="fa fa-check"></i><b>4.1.2</b> Sample designs<span></span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="inferencestat.html"><a href="inferencestat.html#probability-sampling"><i class="fa fa-check"></i><b>4.1.3</b> Probability sampling<span></span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="inferencestat.html"><a href="inferencestat.html#non-probability-sampling"><i class="fa fa-check"></i><b>4.1.4</b> Non-probability sampling<span></span></a></li>
+<li class="chapter" data-level="4.1.5" data-path="inferencestat.html"><a href="inferencestat.html#sampling-bias"><i class="fa fa-check"></i><b>4.1.5</b> Sampling bias<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="inferencestat.html"><a href="inferencestat.html#confidence-intervals"><i class="fa fa-check"></i><b>4.2</b> Confidence intervals<span></span></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="inferencestat.html"><a href="inferencestat.html#within-and-between-sample-variation"><i class="fa fa-check"></i><b>4.2.1</b> Within and between sample variation<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="inferencestat.html"><a href="inferencestat.html#the-clt-and-the-confidence-interval"><i class="fa fa-check"></i><b>4.2.2</b> The CLT and the confidence interval<span></span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="inferencestat.html"><a href="inferencestat.html#interpretation-of-confidence-intervals"><i class="fa fa-check"></i><b>4.2.3</b> Interpretation of confidence intervals<span></span></a></li>
+<li class="chapter" data-level="4.2.4" data-path="inferencestat.html"><a href="inferencestat.html#why-1.96"><i class="fa fa-check"></i><b>4.2.4</b> Why 1.96?<span></span></a></li>
+<li class="chapter" data-level="4.2.5" data-path="inferencestat.html"><a href="inferencestat.html#precision-or-margin-error"><i class="fa fa-check"></i><b>4.2.5</b> Precision or Margin error<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>5</b> Inference and statistical tests<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tests.html"><a href="tests.html#formulate-a-hypothesis"><i class="fa fa-check"></i><b>5.1</b> Formulate a hypothesis<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="tests.html"><a href="tests.html#comparison-of-two-means"><i class="fa fa-check"></i><b>5.2</b> Comparison of two means<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="tests.html"><a href="tests.html#comparison-of-two-proportions"><i class="fa fa-check"></i><b>5.3</b> Comparison of two proportions<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="tests.html"><a href="tests.html#chi-square-test"><i class="fa fa-check"></i><b>5.3.1</b> Chi-square test<span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="tests.html"><a href="tests.html#fishers-exact-test"><i class="fa fa-check"></i><b>5.3.2</b> Fisher’s Exact test<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tests.html"><a href="tests.html#alpha-p"><i class="fa fa-check"></i><b>5.4</b> Risk <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(p-value\)</span><span></span></a></li>
+<li class="chapter" data-level="5.5" data-path="tests.html"><a href="tests.html#risk-alpha-and-risk-beta"><i class="fa fa-check"></i><b>5.5</b> Risk <span class="math inline">\(\alpha\)</span> and risk <span class="math inline">\(\beta\)</span><span></span></a></li>
+<li class="chapter" data-level="5.6" data-path="tests.html"><a href="tests.html#multi-comp"><i class="fa fa-check"></i><b>5.6</b> Comparison of multiple groups<span></span></a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="tests.html"><a href="tests.html#graphical-comparison"><i class="fa fa-check"></i><b>5.6.1</b> Graphical comparison<span></span></a></li>
+<li class="chapter" data-level="5.6.2" data-path="tests.html"><a href="tests.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.6.2</b> Analysis Of Variance<span></span></a></li>
+<li class="chapter" data-level="5.6.3" data-path="tests.html"><a href="tests.html#post-hoc-analysis-and-anova-assumptions"><i class="fa fa-check"></i><b>5.6.3</b> Post-hoc analysis and ANOVA assumptions<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="tests.html"><a href="tests.html#paranonpara"><i class="fa fa-check"></i><b>5.7</b> Parametric and non-parametric test<span></span></a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="tests.html"><a href="tests.html#asessing-normality"><i class="fa fa-check"></i><b>5.7.1</b> Asessing Normality<span></span></a></li>
+<li class="chapter" data-level="5.7.2" data-path="tests.html"><a href="tests.html#two-sample-wilcoxon-test-or-mann-whitney-u-test"><i class="fa fa-check"></i><b>5.7.2</b> Two-sample Wilcoxon test (or Mann-Whitney U test)<span></span></a></li>
+<li class="chapter" data-level="5.7.3" data-path="tests.html"><a href="tests.html#which-test-to-use"><i class="fa fa-check"></i><b>5.7.3</b> Which test to use?<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html"><i class="fa fa-check"></i><b>6</b> Introduction to regression modelling<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#pearsons-coefficient-of-correlation"><i class="fa fa-check"></i><b>6.1.1</b> Pearson’s coefficient of correlation<span></span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simple-linear-regression-model"><i class="fa fa-check"></i><b>6.1.2</b> Simple linear regression model<span></span></a></li>
+<li class="chapter" data-level="6.1.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#posthocreg"><i class="fa fa-check"></i><b>6.1.3</b> Post-hoc assumptions verification<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression-model"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression model<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#logistic-regression-model"><i class="fa fa-check"></i><b>6.3</b> Logistic regression model<span></span></a></li>
+<li class="chapter" data-level="6.4" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#collinearity"><i class="fa fa-check"></i><b>6.4</b> Collinearity<span></span></a></li>
+<li class="chapter" data-level="6.5" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#detecting-multi-collinearity"><i class="fa fa-check"></i><b>6.5</b> Detecting (multi-)collinearity<span></span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#coefficient-of-correlation-and-visual-assessment"><i class="fa fa-check"></i><b>6.5.1</b> Coefficient of correlation and visual assessment<span></span></a></li>
+<li class="chapter" data-level="6.5.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#variance-inflation-factor"><i class="fa fa-check"></i><b>6.5.2</b> Variance Inflation Factor<span></span></a></li>
+<li class="chapter" data-level="6.5.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#remedial-measures"><i class="fa fa-check"></i><b>6.5.3</b> Remedial measures<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6</b> Explanatory variable selection<span></span></a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#iterative-procedures-for-explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6.1</b> Iterative procedures for explanatory variable selection<span></span></a></li>
+<li class="chapter" data-level="6.6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#goodness-of-fit-analysis"><i class="fa fa-check"></i><b>6.6.2</b> Goodness of fit analysis<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary<span></span></a></li>
+<li><a href="references.html#references">References<span></span></a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little e-book for MPH1 biostatistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statdesc" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Descriptive statistics<a href="statdesc.html#statdesc" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="objective">
+<ul>
+<li>Choose appropriate summary statistics (tables, graphics, parameters) to describe a population or a sample</li>
+<li>Interpret summary statistics</li>
+</ul>
+</div>
+<div id="frequency-table" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Frequency table<a href="statdesc.html#frequency-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One type of data statistical summary are <code>frequency table</code>, or <code>contingency table</code>.</p>
+<p>To summarize a <code>qualitative</code> variable, the frequency of the statistical units in each modality (category) of the variable is computed. The frequency can be reported as absolute count (absolute frequency) or proportion (relative frequency or count). For instance, in Table <a href="statdesc.html#tab:twoTable1">3.1</a> the partition of students according to the school status is summarized (HBSC dataset).</p>
+<table>
+<caption><span id="tab:twoTable1">Table 3.1: </span>Absolute frequency and relative frequency of pupils in each school type in the French HBSC database in 2006.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Count</th>
+<th align="right">Proportion (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">private</td>
+<td align="right">115</td>
+<td align="right">23</td>
+</tr>
+<tr class="even">
+<td align="left">public</td>
+<td align="right">385</td>
+<td align="right">77</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">500</td>
+<td align="right">100</td>
+</tr>
+</tbody>
+</table>
+<p>In rows are the modalities (categories) of the variable “school status” in the original database and in columns are the frequency of students in each category. The first column is the <code>absolute frequency</code> or count and the second column is the <code>relative frequency</code> or proportion out of the total of students. The <code>margin total</code> is essential to display for quick assessment of potential mistake or missing values.</p>
+<p>To summarize a <code>quantitative</code> variable into a contingency table, the numerical values first need to be grouped into classes, generating in fact like a categorical variable. Next, the frequency of the statistical units in each group (class) of the new variable is counted.</p>
+<p>In Table <a href="statdesc.html#tab:twoTable2">3.2</a>, first the quantitative variable <em>age</em> was used to create age groups and, next, the partition of students according to age group was summarized.</p>
+<table>
+<caption><span id="tab:twoTable2">Table 3.2: </span>Frequency table to summarize age distribution of children in the HBSC database, in France in 2006.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Count</th>
+<th align="right">Proportion (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="right">1</td>
+<td align="right">0.2</td>
+</tr>
+<tr class="even">
+<td align="left">[11-13[</td>
+<td align="right">173</td>
+<td align="right">34.6</td>
+</tr>
+<tr class="odd">
+<td align="left">[13-15[</td>
+<td align="right">178</td>
+<td align="right">35.6</td>
+</tr>
+<tr class="even">
+<td align="left">[15-17[</td>
+<td align="right">148</td>
+<td align="right">29.6</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">500</td>
+<td align="right">100.0</td>
+</tr>
+</tbody>
+</table>
+<p>One must read <code>[11-13[</code> as 11 years-old students being included (counted) in that group while 13 years-old students being excluded. <code>NA</code> stands for Not Attributed or missing values.</p>
+<p>When summarizing two (or more) variables in two-way (or more) table using frequencies via a statistical software you might have to look for the term <code>pivot table</code>. Table <a href="statdesc.html#tab:twoTable3">3.3</a> summarize in absolute frequencies the different age groups and the smoking status. For relative frequencies, you need to decide which way to count (Table <a href="statdesc.html#tab:twoTable4">3.4</a> and <a href="statdesc.html#tab:twoTable5">3.5</a>). You need to ask yourself: Who are you interested in? What is your denominator?</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:twoTable3">Table 3.3: </span>Repartition of smokers and non smokers among age groups in the HSBC sample, in France in 2006
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Age group
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Smoking Status
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+No
+</th>
+<th style="text-align:right;">
+Yes
+</th>
+<th style="text-align:right;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+[11-13[
+</td>
+<td style="text-align:right;">
+166
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+172
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+[13-15[
+</td>
+<td style="text-align:right;">
+161
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+178
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+[15-17[
+</td>
+<td style="text-align:right;">
+104
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+148
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+432
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+499
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:twoTable4">Table 3.4: </span>Proportion of smokers and non smokers among age groups in the HSBC sample, in France in 2006
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Age group
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Smoking Status
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+No
+</th>
+<th style="text-align:right;">
+Yes
+</th>
+<th style="text-align:right;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+100.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+[11-13[
+</td>
+<td style="text-align:right;">
+96.51
+</td>
+<td style="text-align:right;">
+3.49
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+[13-15[
+</td>
+<td style="text-align:right;">
+90.45
+</td>
+<td style="text-align:right;">
+9.55
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+[15-17[
+</td>
+<td style="text-align:right;">
+70.27
+</td>
+<td style="text-align:right;">
+29.73
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+</tbody>
+</table>
+<p>Among the [15-17[ years old, 29.7% smoke.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:twoTable5">Table 3.5: </span>Relative distribution of age groups among smokers and non smokers in the HSBC sample, in France in 2006
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Age group
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Smoking Status
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+No
+</th>
+<th style="text-align:right;">
+Yes
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0.23
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+[11-13[
+</td>
+<td style="text-align:right;">
+38.43
+</td>
+<td style="text-align:right;">
+8.96
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+[13-15[
+</td>
+<td style="text-align:right;">
+37.27
+</td>
+<td style="text-align:right;">
+25.37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+[15-17[
+</td>
+<td style="text-align:right;">
+24.07
+</td>
+<td style="text-align:right;">
+65.67
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+100.00
+</td>
+<td style="text-align:right;">
+100.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>Among the smokers, 65% are aged [15-17[ years old.</p>
+<p>The proportion of smoker seems to increase with age. We will verify this later using inferential statistics (see Chapter <a href="tests.html#tests">5</a>)</p>
+</div>
+<div id="central-parameters" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Central parameters<a href="statdesc.html#central-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="define">
+<p>A central parameter, or location parameter, is the numerical value around which are distributed most of the values of a serie of data.</p>
+</div>
+<div id="mean" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Mean<a href="statdesc.html#mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The (arithmetic) mean is the most well known and commonly (but not always appropriately) used central parameter.</p>
+<div class="define">
+<p>The arithmetic mean is the sum of the values divided by the number of values in the data serie.</p>
+</div>
+<p>Mathematically, in a population the equation is:</p>
+<div class="center">
+<p><span class="math inline">\(\mu = ({\sum^{{i=N}}_{{i=1}} X_{i})/N}\)</span></p>
+</div>
+<p>In a sample, the equation is:</p>
+<div class="center">
+<p><span class="math inline">\(m = ({\sum^{{i=n}}_{{i=1}} x_{i})/n}\)</span></p>
+</div>
+<p><em>Note: Greek letters are used for population and Roman letters for sample. The mean is also sometimes symbolized like <span class="math inline">\(\bar{X}\)</span> for population or <span class="math inline">\(\bar{x}\)</span> for sample</em></p>
+<p>Figure <a href="statdesc.html#fig:histogram">3.1</a> presents a <code>histogram</code> that summarize the distribution of weight of French student in the HBSC <code>sample</code> (for histogram definition see section <a href="statdesc.html#plot">3.4</a> and sample definition see <a href="inferencestat.html#sample">4.1</a>). From the graphic, the central point (pick) of the distribution, around which values of the data serie are spread is around the weight class [40-45[ Kg.</p>
+<div class="figure"><span style="display:block;" id="fig:histogram"></span>
+<img src="fig/histogram-1.png" alt="Distribution of weights (Kg) of 11 to 16 years-old students, in France in 2006" width="70%" />
+<p class="caption">
+Figure 3.1: Distribution of weights (Kg) of 11 to 16 years-old students, in France in 2006
+</p>
+</div>
+<p>On average, in 2006 the French students aged 11 to 16 weighted 48 Kg (dashed red color).</p>
+<div class="practice">
+<p>Why the mean is not between 40 and 45Kg?</p>
+</div>
+<p>The advantages:</p>
+<ul>
+<li>Easy to understand</li>
+<li>Easy to compute</li>
+</ul>
+<p>The drawbacks:</p>
+<ul>
+<li>Sensitive to outlier: each value of the data serie count with the same weight</li>
+<li>Sensitive to the distribution shape</li>
+</ul>
+<p><img src="fig/salary.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="median" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Median<a href="statdesc.html#median" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The mean is not always the appropriate statistical indicator to summarize the distribution data and should be sometimes replaced by the median.</p>
+<div class="define">
+<p>The median is the middle value of a ordered data serie. The median split the data serie in two part of equal number of data.</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mercuryMean"></span>
+<img src="fig/MercuryMean.png" alt="Mean or Median, that is the question?" width="70%" />
+<p class="caption">
+Figure 3.2: Mean or Median, that is the question?
+</p>
+</div>
+<p>In Figure <a href="statdesc.html#fig:mercuryMean">3.2</a>, 50% of the statistical units, i.e 142 children hair sample, have mercury concentration below 1.8 <span class="math inline">\(\mu g/g\)</span> while 50%, i.e 142 children hair sample, have mercury concentration above 1.8 <span class="math inline">\(\mu g/g\)</span>.</p>
+<p>If you had rely on the mean you would have said that on average children hair contain 4 <span class="math inline">\(\mu g/g\)</span> of mercury which wrongly make you believe that represent most of the children case.</p>
+<p>How to compute a median?</p>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>Sort values in increasing order</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>If there are an odd number of observations, find the middle value</li>
+</ol></li>
+<li>2’. If there are an even number of observations, find the middle two values and average them</li>
+</ul>
+<div class="practice">
+<p>Would you use the median or the mean to compare French region rainfall?</p>
+</div>
+<p>The advantages:</p>
+<ul>
+<li>Easy to compute</li>
+<li>Not sensitive to outlier</li>
+<li>Less sensitive to skewed distribution than the mean</li>
+<li>Easy to understand</li>
+</ul>
+<p>The drawbacks:</p>
+<ul>
+<li>Sensitive to the distribution shape</li>
+<li>No idea of the minimum and maximum</li>
+<li>Easy to understand but need to be explicitly exposed</li>
+</ul>
+</div>
+<div id="percentile-and-quantile" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Percentile and quantile<a href="statdesc.html#percentile-and-quantile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When looking at height distribution, the median is the exact middle value when people are ordered by height which correspond to the 50<span class="math inline">\(^{th}\)</span> <code>percentile</code> or 50% below and above that value (Figure <a href="statdesc.html#fig:percentile">3.3</a>). But you could pick any percentile like the 80<span class="math inline">\(^{th}\)</span> with 80% below and 20% above.</p>
+<div class="define">
+<p>The n<span class="math inline">\(^{th}\)</span> percentile of a set of data is the value at which <em>n</em> percent of the data is below it.</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:percentile"></span>
+<img src="fig/percentile.png" alt="Percentile" width="70%" />
+<p class="caption">
+Figure 3.3: Percentile
+</p>
+</div>
+<p>Percentiles can be calculated using the formula <span class="math inline">\(n = (P/100)*N\)</span>, where <em>P</em> = percentile, <em>N</em> = number of values in a data set (sorted from smallest to largest), and <em>n</em> = ordinal rank of a given value.</p>
+<div class="practice">
+<p>A student scores in the 75<span class="math inline">\(^{th}\)</span> percentile of his class. What does that mean?</p>
+</div>
+<p>The 75<span class="math inline">\(^{th}\)</span> percentile is also the 3rd <code>quartile</code>.</p>
+<div class="define">
+<p>The quartile split the sorted data values into quarters.</p>
+</div>
+<p>The quartiles are the values that frame the middle 50% of the data (median or Q2). One quarter of the data lies below the lower quartile, Q1 (25% or 25<span class="math inline">\(^{th}\)</span> percentile), and one quarter of the data lies above the upper quartile, Q3 (75% or 75<span class="math inline">\(^{th}\)</span> percentile).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:quartile"></span>
+<img src="fig/quartile.png" alt="Quartiles" width="70%" />
+<p class="caption">
+Figure 3.4: Quartiles
+</p>
+</div>
+<p>Using the R statistical software and the HBSC data set we can quickly describe the “Weight” variable of the French student aged 11 to 16 in 2006 with the <code>five-number summary</code>. The five-number summary provides a good overall look at the distribution of the data.</p>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   24.50   38.83   47.00   48.09   56.00   90.00      18</code></pre>
+<ul>
+<li>There was 18 missing values (NA)</li>
+<li>The minimum weight was 24.5 Kg</li>
+<li>The maximum weight was 90 Kg</li>
+<li>The mean (average) is 48.09 Kg</li>
+<li>The median is 47 Kg meaning that 50% of the students weighted less than 47Kg and 50% of the students are heavier.</li>
+<li>The 1<span class="math inline">\(^{st}\)</span> quartile is 38.8Kg meaning that 25% of the students weighted less than 38.8Kg and 75% weighted more.</li>
+<li>The 3<span class="math inline">\(^{rd}\)</span> quartile is 56Kg meaning that 75% of the students weighted less than 56Kg and 25% weighted more.</li>
+</ul>
+<div class="caution">
+<p><strong>Quantile algorithms</strong></p>
+<p>Several algorithms exit to compute quantile (for instance see ?quantile in the R staistical software). They rely on different definitions of the underlying distribution of the sample: discontinuous or continuous.</p>
+<p>In your case no needs to go into the details but you should know how to interpret the values.</p>
+</div>
+<p><strong>Mean versus Median</strong></p>
+<p>If the data is normally distributed, i.e. bell shape, as statisticians like it (bottom of Figure <a href="statdesc.html#fig:distribution">3.5</a>), feel free to use the mean.he mean is easier to communicate and so if you can use it, use it. In fact the value of the mean should be really close the value of the median and the mode (or modal class).</p>
+<p>If your data is skewed (top of Figure <a href="statdesc.html#fig:distribution">3.5</a>), or there are large outliers, then use the median to find the centre of the data. Better yet, report both the mean and the median since any differences will reveal information about the presence of skew/outliers.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:distribution"></span>
+<img src="fig/distribution.png" alt="Bell shape distribution" width="70%" />
+<p class="caption">
+Figure 3.5: Bell shape distribution
+</p>
+</div>
+<p>A more subtle rule: if you are more concerned with the total sum, rather than the typical value, use the mean. For instance, if you have a salary cap and you are interested in the average salary of your players, use the mean. In this case, the mean is biased towards the high earners, and you really care about the high earners because they are the ones who are eating up your salary cap.</p>
+</div>
+<div id="mode" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Mode<a href="statdesc.html#mode" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="define">
+<p>The most frequent value or modality</p>
+</div>
+<p>It is the only statistical parameter for the <code>qualitative</code> variables.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:mode">Table 3.6: </span>Frequency of physical activities (sport) in the HSBC sample, in France in 2006
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Sports frequency
+</th>
+<th style="text-align:right;">
+Number
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+never
+</td>
+<td style="text-align:right;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+less than once a month
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+once a month
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2 or 3 times a week
+</td>
+<td style="text-align:right;">
+175
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4 to 6 times a week
+</td>
+<td style="text-align:right;">
+81
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+every day
+</td>
+<td style="text-align:right;">
+63
+</td>
+</tr>
+</tbody>
+</table>
+<p>In table <a href="statdesc.html#tab:mode">3.6</a> the mode is the category “2 or 3 times a week” with 175 students out of 500 practicing that much sports.</p>
+<p>For <code>quantitative</code> variables it could be a number or a class interval as in Figure <a href="statdesc.html#fig:histogram">3.1</a> where the modal class is [40-45[Kg.</p>
+<div class="caution">
+<p><strong>Likert scale data</strong>.</p>
+<p>A Likert Scale is a type of rating scale used to measure attitudes or opinions. Five to seven items are usually used in the scale.</p>
+<p>In a survey with a 1-5 scale of “1-Very bad,” “2-Bad,” “3-Neutral,” “4-Good” and “5-Very Good” categories, the mean result across many participants came out to be 3.5. But what does 3.5 even mean in this context? Half way between Neutral and Good : Neutood? In terms of best practice, use the median when describing the centre of Likert data. Some may even argue for only using the mode on Likert data.</p>
+</div>
+</div>
+</div>
+<div id="variation-parameters" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Variation parameters<a href="statdesc.html#variation-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="define">
+<p>A variation parameter is numerical value which describes the dispersion of all the values of a serie of data around its location parameter</p>
+</div>
+<div id="range-and-iqr" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Range and IQR<a href="statdesc.html#range-and-iqr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>range</code> is the difference between the minimum and maximum value of a data serie. It is better to report the boundaries rather then the output of the difference because otherwise we do not know from where it starts.</p>
+<div class="practice">
+<p>In which hospital will you go for emergency care?</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:range"></span>
+<img src="fig/range.png" alt="Hospitals ER" width="70%" />
+<p class="caption">
+Figure 3.6: Hospitals ER
+</p>
+</div>
+<p>The <code>interquartile range (IQR)</code> summarizes the spread by focusing on the middle half of the data. It is defined as the difference between the two quartiles: <span class="math inline">\(IQR = Q3 - Q1\)</span>. As the range, the IQR should be reported as an interval. For example, the five-number summary above on HBSC weight data show us that IQR is [38.8-56] Kg.</p>
+</div>
+<div id="sd" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Variance and standard deviation<a href="statdesc.html#sd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A powerful measure of spread is the distance of the values of a data serie to its mean.</p>
+<div class="define">
+<p>The variance is the average squared differences to the mean.</p>
+</div>
+<p>Based on the mean, the <code>variance</code> is appropriate only for symmetric data and can be influenced by outlying observations.</p>
+<p>Mathematically, if we tried to average the distances of all the values a data serie to its mean, the positive and negative differences would cancel each other out, giving an average deviation of 0-not very useful. Instead, we square each distance to get the <code>variance</code>.</p>
+<p>In a population the equation is:</p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(\sigma^2\)</span> is the variance of population</li>
+<li><span class="math inline">\(X_i\)</span> is the <span class="math inline">\(i^{th}\)</span> value in the population</li>
+<li><span class="math inline">\(\bar{X}\)</span> is the mean in the population</li>
+<li><span class="math inline">\(N\)</span> is the size of the population</li>
+</ul>
+<p>In a sample, the formula is:</p>
+<div class="center">
+<p><span class="math inline">\(s^2=\frac{\sum_{1}^{n}(x_i-\bar{x})^2}{(n-1)}\)</span></p>
+</div>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(s^2\)</span> is the variance of the sample</li>
+<li><span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i^{th}\)</span> value of the data serie</li>
+<li><span class="math inline">\(\bar{x}\)</span> is the mean of the data serie</li>
+<li><span class="math inline">\(n\)</span> is number of values in the data serie</li>
+</ul>
+<p>The variance plays an important role in statistics, but as a measure of spread, it has a problem. Whatever the units of the original data, the variance is in squared units. To express the spread to in the same units as the data we take the square root of the variance. That gives the <code>standard deviation</code>.</p>
+<div class="define">
+<p>A standard deviation is the square root of the variance, the average differences to the mean.</p>
+</div>
+<p>Mathematically, in a sample the formula is:</p>
+<div class="center">
+<p><span class="math inline">\(s=\sqrt\frac{\sum_{1}^{n}(x_i-\bar{x})^2}{(n-1)}\)</span></p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-1" class="example"><strong>Example 3.1  </strong></span>In the HBSC sample, one average pupils weight 48.09 Kg +/- 12.25Kg. It means that the <strong>average variation</strong> of the weights around the mean is of 12.25Kg. However some pupils can be lighter than 35.75kg (48-12.25 - the minimum is in fact 24.5Kg) and some pupils can be heavier than 60.25kg (48+12.25 the minimum is in fact 90Kg).</p>
+</div>
+</div>
+</div>
+<div id="plot" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Graphical summary<a href="statdesc.html#plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Graphical representations, as summary in tables, must be self-content and self-explanatory. They should be readable without text around.</p>
+<div class="caution">
+<p><strong>Plot title should include the W’s</strong></p>
+<p>Who are you representing, What characteristics, Where and When it is happening.</p>
+</div>
+<p><em>Note: I will be intransigent on that matter</em></p>
+<div id="barplot" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Barplot<a href="statdesc.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For one <code>qualitative</code> variable, the frequency <code>barplot</code>, or <code>barchart</code>, is the most appropriate plot. It could use the absolute or relative frequencies.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplot1"></span>
+<img src="fig/barplot1-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<p class="caption">
+Figure 3.7: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
+</p>
+</div>
+<p>Figure <a href="statdesc.html#fig:barplot1">3.7</a> represents the distribution of students (<em>Who</em>) according to their sport activity level (<em>What</em>), in France (<em>Where</em>) in 2006 (<em>When</em>) and if available the source should also be cited (here HSBC) in the caption.</p>
+<p>It is a better practice to multiply plots that combining too many information in one plot. Imagine you would like to display the same information but for boys and girls. The below barplot is better than the next one as you can easily compare boys and girl but you also easily visualize the trend within each group.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplot2"></span>
+<img src="fig/barplot2-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<p class="caption">
+Figure 3.8: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplot3"></span>
+<img src="fig/barplot3-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<p class="caption">
+Figure 3.9: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
+</p>
+</div>
+</div>
+<div id="pie-chart" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Pie chart<a href="statdesc.html#pie-chart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For one <code>qualitative</code> variable, you can also use a <code>pie chart</code>. However you should be careful on the number of modalities the variable to display can have: too few, the plot take lots of room for few information but too many you will rapidly get “the wheel of fortune.”</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pie"></span>
+<img src="fig/pie-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<p class="caption">
+Figure 3.10: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
+</p>
+</div>
+<p>My advice would be to avoid using that plot but if you absolutely need to use it do not forget to <strong>display number and/or %</strong> in the sectors of the plot so reader do not have to do the math.</p>
+</div>
+<div id="histogram" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Histogram<a href="statdesc.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For one <code>quantitative</code> variable, the <code>histogram</code> is often used to visualize the shape of the distibution of the data serie. Although one have to be careful of the bin width (breaks) use to group the numerical values.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogram2"></span>
+<img src="fig/histogram2-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=1" width="70%" />
+<p class="caption">
+Figure 3.11: Distribution of students weight in France in 2006 (source: HBSC), binwidth=1
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogram3"></span>
+<img src="fig/histogram3-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=10" width="70%" />
+<p class="caption">
+Figure 3.12: Distribution of students weight in France in 2006 (source: HBSC), binwidth=10
+</p>
+</div>
+<p>Figures <a href="statdesc.html#fig:histogram2">3.11</a> and <a href="statdesc.html#fig:histogram3">3.12</a> present the same data serie but with a bin width of 1 and then 10. The shape of the plots are different, the modal class varies. With a bin width of 1 you have no summary and too many details while a bin width of 10 may be compact.</p>
+<p>There is no recipe, statistical software helps you with default algorithm but my advice would be to try a couple of bin widths and select the one you believe summarize the best the data</p>
+<div class="caution">
+<p><strong>Barplot versus Histogram</strong></p>
+<p>Barplot are for <code>qualitative</code> data. The bars are separated.</p>
+<p>Histogram are for <code>quantitative</code> data. The bins are joined. Gaps may occurred when no one fall in a particular bin.</p>
+</div>
+<p>If you want to compare the distribution of <code>one quantitative variable between more than 2 groups (qualitative)</code> the histogram remain interesting, as shown below. But up to three the comparison start to be difficult. A boxplot is then more appropriate.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogram4"></span>
+<img src="fig/histogram4-1.png" alt="Distribution of students weight by gender group in France in 2006 (source: HBSC)" width="70%" />
+<p class="caption">
+Figure 3.13: Distribution of students weight by gender group in France in 2006 (source: HBSC)
+</p>
+</div>
+</div>
+<div id="boxplot" class="section level3 hasAnchor" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> Boxplot<a href="statdesc.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A boxplot helps presenting the five-number summary classically used to describe a sample.</p>
+<p>The central box shows the middle half of the data, between the quartiles. The top of the box is at the third quartile (Q3) and the bottom is at Q1, the height of the box is equal to which is the IQR. The median is displayed as a horizontal line. If the median is roughly centered between the quartiles, then the middle half of the data is roughly symmetric. If it is not centered,
+the distribution is skewed. In extreme cases, the median can coincide with one of the quartiles.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:boxplot1"></span>
+<img src="fig/boxplot.png" alt="Boxplot elements" width="70%" />
+<p class="caption">
+Figure 3.14: Boxplot elements
+</p>
+</div>
+<p>The whiskers reach out from the box to the most extreme values that are not considered outliers according to John W. Tukey’s rule. The boxplot nominates points as outliers if they fall farther than 1.5*IQRs beyond either quartile. They may be mistakes or they may be the most interesting cases in your data. This rule is not a definition of what makes a point an outlier. It just nominates cases for special attention.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:boxplot2"></span>
+<img src="fig/boxplot2-1.png" alt="Distribution of students weight by group of sport activity level, in France in 2006 (source: HBSC)" width="70%" />
+<p class="caption">
+Figure 3.15: Distribution of students weight by group of sport activity level, in France in 2006 (source: HBSC)
+</p>
+</div>
+<p>In Figure <a href="statdesc.html#fig:boxplot2">3.15</a> the distribution of students’ weight vary by group of sport activity level. We note 3 extrema: 2 in the “2 or 3 times a week” group and 1 in the “once a month” group. Overall the boxplots overlap suggesting than on average the weights between groups might not be statistically different (see Chapter <a href="tests.html#tests">5</a>).</p>
+<p>Let’s interpret the “never” group (bottom boxplot): around 50% of the students in that group weight 45Kg or less, 75% of the students weight 55Kg or less while 25% weight 55Kg or more</p>
+<div class="practice">
+<p>What proportion of students lies between 42 and 55 Kg?</p>
+</div>
+</div>
+<div id="scatterplot" class="section level3 hasAnchor" number="3.4.5">
+<h3><span class="header-section-number">3.4.5</span> Scatterplot<a href="statdesc.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For two <code>quantitative</code> variables, a scatterplot is used to assess if there is a relationship between the two variables.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterplot"></span>
+<img src="fig/scatterplot-1.png" alt="School results and BMI among students in France in 2006 (source: HBSC)" width="70%" />
+<p class="caption">
+Figure 3.16: School results and BMI among students in France in 2006 (source: HBSC)
+</p>
+</div>
+<p>Figure <a href="statdesc.html#fig:scatterplot">3.16</a> displays the school results and BMI among students in France in 2006. It appears that there is no linear relationship between the two variables (see Chapter <a href="tests.html#tests">5</a> and <a href="introduction-to-regression-modelling.html#simplelm">6.1</a>).</p>
+</div>
+<div id="communication-tips" class="section level3 hasAnchor" number="3.4.6">
+<h3><span class="header-section-number">3.4.6</span> Communication tips<a href="statdesc.html#communication-tips" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="caution">
+<p><strong>Avoid 3D plots</strong> our eyes are not good at visualizing 3D and mathematically it’s often wrong you do not manipulate volumes but numbers.</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:badvisual1"></span>
+<img src="fig/badpic1.png" alt="Bad visual 1" width="50%" />
+<p class="caption">
+Figure 3.17: Bad visual 1
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:badvisual2"></span>
+<img src="fig/badpic2.png" alt="Bad visual 2" width="50%" />
+<p class="caption">
+Figure 3.18: Bad visual 2
+</p>
+</div>
+<div class="caution">
+<p><strong>Use appropriate colors</strong></p>
+<ul>
+<li>Proscribe rainbow plots</li>
+<li>Sequential scale (gradiant) are suited to ordered data</li>
+<li>Diverging palettes put equal emphasis on mid-range critical values and extremes at both ends of the data range
+-Qualitative palettes do not imply magnitude differences between legend classes, and hues are used to create the primary visual differences between classes.</li>
+<li>Do not forget our color-blind friends !</li>
+</ul>
+</div>
+<p>What summary statistics should you use: tables, graphics or statistical parameters? It all depends.</p>
+<p>Depend on the objective</p>
+<ul>
+<li>Return the data</li>
+<li>“take home message”</li>
+</ul>
+<p>Depend on the audience</p>
+<ul>
+<li>Expert</li>
+<li>Everybody else</li>
+</ul>
+<p>Depend on the data type</p>
+<ul>
+<li>Qualitative</li>
+<li>Quantitative</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:visual"></span>
+<img src="fig/visual.png" alt="Communication tips" width="50%" />
+<p class="caption">
+Figure 3.19: Communication tips
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inferencestat.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-DescripitiveStat.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
