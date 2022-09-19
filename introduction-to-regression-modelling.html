@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Introduction to regression modelling | Little e-book for MPH1 biostatistics</title>
+  <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Introduction to regression modelling | Little e-book for MPH1 biostatistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Introduction to regression modelling | Little e-book for MPH1 biostatistics" />
+  
+  <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
+  
+
+<meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
+
+
+<meta name="date" content="2022-01-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tests.html"/>
+<link rel="next" href="glossary.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#statistical-units"><i class="fa fa-check"></i><b>2.1</b> Statistical units</a></li>
+<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.2</b> Variables</a></li>
+<li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#data-storage"><i class="fa fa-check"></i><b>2.3</b> Data storage</a></li>
+<li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#variable-types"><i class="fa fa-check"></i><b>2.4</b> Variable types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statdesc.html"><a href="statdesc.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statdesc.html"><a href="statdesc.html#frequency-table"><i class="fa fa-check"></i><b>3.1</b> Frequency table</a></li>
+<li class="chapter" data-level="3.2" data-path="statdesc.html"><a href="statdesc.html#central-parameters"><i class="fa fa-check"></i><b>3.2</b> Central parameters</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="statdesc.html"><a href="statdesc.html#mean"><i class="fa fa-check"></i><b>3.2.1</b> Mean</a></li>
+<li class="chapter" data-level="3.2.2" data-path="statdesc.html"><a href="statdesc.html#median"><i class="fa fa-check"></i><b>3.2.2</b> Median</a></li>
+<li class="chapter" data-level="3.2.3" data-path="statdesc.html"><a href="statdesc.html#percentile-and-quantile"><i class="fa fa-check"></i><b>3.2.3</b> Percentile and quantile</a></li>
+<li class="chapter" data-level="3.2.4" data-path="statdesc.html"><a href="statdesc.html#mode"><i class="fa fa-check"></i><b>3.2.4</b> Mode</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="statdesc.html"><a href="statdesc.html#variation-parameters"><i class="fa fa-check"></i><b>3.3</b> Variation parameters</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="statdesc.html"><a href="statdesc.html#range-and-iqr"><i class="fa fa-check"></i><b>3.3.1</b> Range and IQR</a></li>
+<li class="chapter" data-level="3.3.2" data-path="statdesc.html"><a href="statdesc.html#sd"><i class="fa fa-check"></i><b>3.3.2</b> Variance and standard deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="statdesc.html"><a href="statdesc.html#plot"><i class="fa fa-check"></i><b>3.4</b> Graphical summary</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="statdesc.html"><a href="statdesc.html#barplot"><i class="fa fa-check"></i><b>3.4.1</b> Barplot</a></li>
+<li class="chapter" data-level="3.4.2" data-path="statdesc.html"><a href="statdesc.html#pie-chart"><i class="fa fa-check"></i><b>3.4.2</b> Pie chart</a></li>
+<li class="chapter" data-level="3.4.3" data-path="statdesc.html"><a href="statdesc.html#histogram"><i class="fa fa-check"></i><b>3.4.3</b> Histogram</a></li>
+<li class="chapter" data-level="3.4.4" data-path="statdesc.html"><a href="statdesc.html#boxplot"><i class="fa fa-check"></i><b>3.4.4</b> Boxplot</a></li>
+<li class="chapter" data-level="3.4.5" data-path="statdesc.html"><a href="statdesc.html#scatterplot"><i class="fa fa-check"></i><b>3.4.5</b> Scatterplot</a></li>
+<li class="chapter" data-level="3.4.6" data-path="statdesc.html"><a href="statdesc.html#communication-tips"><i class="fa fa-check"></i><b>3.4.6</b> Communication tips</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="inferencestat.html"><a href="inferencestat.html"><i class="fa fa-check"></i><b>4</b> Inference and sample</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="inferencestat.html"><a href="inferencestat.html#sample"><i class="fa fa-check"></i><b>4.1</b> Sample</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="inferencestat.html"><a href="inferencestat.html#population-versus-sample"><i class="fa fa-check"></i><b>4.1.1</b> Population versus Sample</a></li>
+<li class="chapter" data-level="4.1.2" data-path="inferencestat.html"><a href="inferencestat.html#sample-designs"><i class="fa fa-check"></i><b>4.1.2</b> Sample designs</a></li>
+<li class="chapter" data-level="4.1.3" data-path="inferencestat.html"><a href="inferencestat.html#probability-sampling"><i class="fa fa-check"></i><b>4.1.3</b> Probability sampling</a></li>
+<li class="chapter" data-level="4.1.4" data-path="inferencestat.html"><a href="inferencestat.html#non-probability-sampling"><i class="fa fa-check"></i><b>4.1.4</b> Non-probability sampling</a></li>
+<li class="chapter" data-level="4.1.5" data-path="inferencestat.html"><a href="inferencestat.html#sampling-bias"><i class="fa fa-check"></i><b>4.1.5</b> Sampling bias</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="inferencestat.html"><a href="inferencestat.html#confidence-intervals"><i class="fa fa-check"></i><b>4.2</b> Confidence intervals</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="inferencestat.html"><a href="inferencestat.html#within-and-between-sample-variation"><i class="fa fa-check"></i><b>4.2.1</b> Within and between sample variation</a></li>
+<li class="chapter" data-level="4.2.2" data-path="inferencestat.html"><a href="inferencestat.html#the-clt-and-the-confidence-interval"><i class="fa fa-check"></i><b>4.2.2</b> The CLT and the confidence interval</a></li>
+<li class="chapter" data-level="4.2.3" data-path="inferencestat.html"><a href="inferencestat.html#interpretation-of-confidence-intervals"><i class="fa fa-check"></i><b>4.2.3</b> Interpretation of confidence intervals</a></li>
+<li class="chapter" data-level="4.2.4" data-path="inferencestat.html"><a href="inferencestat.html#why-1.96"><i class="fa fa-check"></i><b>4.2.4</b> Why 1.96?</a></li>
+<li class="chapter" data-level="4.2.5" data-path="inferencestat.html"><a href="inferencestat.html#precision-or-margin-error"><i class="fa fa-check"></i><b>4.2.5</b> Precision or Margin error</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>5</b> Inference and statistical tests</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tests.html"><a href="tests.html#formulate-a-hypothesis"><i class="fa fa-check"></i><b>5.1</b> Formulate a hypothesis</a></li>
+<li class="chapter" data-level="5.2" data-path="tests.html"><a href="tests.html#comparison-of-two-means"><i class="fa fa-check"></i><b>5.2</b> Comparison of two means</a></li>
+<li class="chapter" data-level="5.3" data-path="tests.html"><a href="tests.html#comparison-of-two-proportions"><i class="fa fa-check"></i><b>5.3</b> Comparison of two proportions</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="tests.html"><a href="tests.html#chi-square-test"><i class="fa fa-check"></i><b>5.3.1</b> Chi-square test</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tests.html"><a href="tests.html#fishers-exact-test"><i class="fa fa-check"></i><b>5.3.2</b> Fisher’s Exact test</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tests.html"><a href="tests.html#alpha-p"><i class="fa fa-check"></i><b>5.4</b> Risk <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(p-value\)</span></a></li>
+<li class="chapter" data-level="5.5" data-path="tests.html"><a href="tests.html#risk-alpha-and-risk-beta"><i class="fa fa-check"></i><b>5.5</b> Risk <span class="math inline">\(\alpha\)</span> and risk <span class="math inline">\(\beta\)</span></a></li>
+<li class="chapter" data-level="5.6" data-path="tests.html"><a href="tests.html#multi-comp"><i class="fa fa-check"></i><b>5.6</b> Comparison of multiple groups</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="tests.html"><a href="tests.html#graphical-comparison"><i class="fa fa-check"></i><b>5.6.1</b> Graphical comparison</a></li>
+<li class="chapter" data-level="5.6.2" data-path="tests.html"><a href="tests.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.6.2</b> Analysis Of Variance</a></li>
+<li class="chapter" data-level="5.6.3" data-path="tests.html"><a href="tests.html#post-hoc-analysis-and-anova-assumptions"><i class="fa fa-check"></i><b>5.6.3</b> Post-hoc analysis and ANOVA assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="tests.html"><a href="tests.html#paranonpara"><i class="fa fa-check"></i><b>5.7</b> Parametric and non-parametric test</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="tests.html"><a href="tests.html#asessing-normality"><i class="fa fa-check"></i><b>5.7.1</b> Asessing Normality</a></li>
+<li class="chapter" data-level="5.7.2" data-path="tests.html"><a href="tests.html#two-sample-wilcoxon-test-or-mann-whitney-u-test"><i class="fa fa-check"></i><b>5.7.2</b> Two-sample Wilcoxon test (or Mann-Whitney U test)</a></li>
+<li class="chapter" data-level="5.7.3" data-path="tests.html"><a href="tests.html#which-test-to-use"><i class="fa fa-check"></i><b>5.7.3</b> Which test to use?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html"><i class="fa fa-check"></i><b>6</b> Introduction to regression modelling</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#pearsons-coefficient-of-correlation"><i class="fa fa-check"></i><b>6.1.1</b> Pearson’s coefficient of correlation</a></li>
+<li class="chapter" data-level="6.1.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simple-linear-regression-model"><i class="fa fa-check"></i><b>6.1.2</b> Simple linear regression model</a></li>
+<li class="chapter" data-level="6.1.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#posthocreg"><i class="fa fa-check"></i><b>6.1.3</b> Post-hoc assumptions verification</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression-model"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression model</a></li>
+<li class="chapter" data-level="6.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#logistic-regression-model"><i class="fa fa-check"></i><b>6.3</b> Logistic regression model</a></li>
+<li class="chapter" data-level="6.4" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#collinearity"><i class="fa fa-check"></i><b>6.4</b> Collinearity</a></li>
+<li class="chapter" data-level="6.5" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#detecting-multi-collinearity"><i class="fa fa-check"></i><b>6.5</b> Detecting (multi-)collinearity</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#coefficient-of-correlation-and-visual-assessment"><i class="fa fa-check"></i><b>6.5.1</b> Coefficient of correlation and visual assessment</a></li>
+<li class="chapter" data-level="6.5.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#variance-inflation-factor"><i class="fa fa-check"></i><b>6.5.2</b> Variance Inflation Factor</a></li>
+<li class="chapter" data-level="6.5.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#remedial-measures"><i class="fa fa-check"></i><b>6.5.3</b> Remedial measures</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6</b> Explanatory variable selection</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#iterative-procedures-for-explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6.1</b> Iterative procedures for explanatory variable selection</a></li>
+<li class="chapter" data-level="6.6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#goodness-of-fit-analysis"><i class="fa fa-check"></i><b>6.6.2</b> Goodness of fit analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little e-book for MPH1 biostatistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-regression-modelling" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Introduction to regression modelling</h1>
+<div class="objective">
+<ul>
+<li>the step by step procedure to obtain an informative linear model, assess its validity and interpret it</li>
+<li>Interpret results of a simple linear model</li>
+<li>Discuss significance of a simple linear model</li>
+</ul>
+</div>
+<div id="simplelm" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Simple linear regression</h2>
+<div class="define">
+<p>A regression attempt to explain the variations observed for a variable by other variables</p>
+</div>
+<p>In the plot below, we try to explain the observed distances to stop for cars by the speed of the cars. Here between the two variables, we see a rather linear diagonal trend. We may be able to fit a <strong>simple linear regression</strong> model.</p>
+<p><img src="_main_files/figure-html/speed%20dist-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="define">
+<p>A simple linear regression model is a statistical model that attempt to fit a linear relationship between two variables: one to explain and one explanatory variable</p>
+</div>
+<p>By convention:</p>
+<ul>
+<li><strong>Y axis</strong> presents the variable to explain also named the dependent variable, the outcome variable or the response variable<br />
+</li>
+<li><strong>X axis</strong> presents the explanatory variable also named the independent variable or the predictor variable.</li>
+</ul>
+<p>A first measure of linear relationship, often wrongly used, is the coefficient of correlation.</p>
+<div id="pearsons-coefficient-of-correlation" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Pearson’s coefficient of correlation</h3>
+<p>When we talk about correlation we often talk about the Pearson’s coefficient of correlation that quantify the linear association between two quantitative variables.</p>
+<p>Mathematically, the coefficient of correlation is the standardized covariance (Equation <a href="introduction-to-regression-modelling.html#eq:r">(6.1)</a>). While the covariance is the average the product of the deviations of observed values to their mean (Equation <a href="introduction-to-regression-modelling.html#eq:cov">(6.2)</a>).</p>
+<p><span class="math display" id="eq:r">\[\begin{equation}
+r = \frac{cov_x,_y}{s_xs_y} \tag{6.1}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:cov">\[\begin{equation}
+cov(x,y) = \frac{\sum{(x_i-\bar{x})(y_i-\bar{y})}}{N-1}  \tag{6.2}
+\end{equation}\]</span></p>
+<div class="define">
+<p>The coefficient of correlation <em>r</em> is :</p>
+<ul>
+<li>Dimensionless<br />
+</li>
+<li>Range between -1 and 1<br />
+</li>
+<li>its absolute value presents the force of the relationship<br />
+</li>
+<li>its sign presents the direction of the relationship<br />
+</li>
+</ul>
+</div>
+<div class="practice">
+<p>In the graphics below, what would be the estimated value of the Pearson’s coefficient of correlation?</p>
+</div>
+<p><img src="fig/coef_correlation.png" width="544" style="display: block; margin: auto;" /></p>
+<div class="caution">
+<p>Absence of linear association (r=0) does not mean absence of relation.</p>
+</div>
+<p><img src="fig/coef_correlation2.png" width="328" style="display: block; margin: auto;" /></p>
+<div class="caution">
+<p>Correlation does not mean causation.</p>
+</div>
+<p>For details and other examples on too fast conclusions or spurious correlations see PennState Eberly College of Science <span class="citation">(<a href="#ref-STAT501" role="doc-biblioref">Statistics PennState - Eberly College of Science 2021</a>)</span> and Tyler Vigen’s Website <span class="citation">(<a href="#ref-SpuriousCorrelation" role="doc-biblioref">Vigen 2021</a>)</span>.</p>
+</div>
+<div id="simple-linear-regression-model" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Simple linear regression model</h3>
+<p>A simple linear model fit a line between the points of the two variables. The final equation is of the form:</p>
+<p><span class="math display" id="eq:lm">\[\begin{equation}
+Y = \beta_1X + \beta_0 + \epsilon  \tag{6.3}
+\end{equation}\]</span></p>
+<p>Which line fits best ?</p>
+<p><img src="_main_files/figure-html/speed2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Of all possible lines, the <strong>regression line is the one that is the closest on average to all the points.</strong></p>
+<p><img src="fig/regression_residuals.png" width="478" style="display: block; margin: auto;" /></p>
+<p>The fitting of the regression line is based the least squares criteria. The aim is to minimize the sum of square distance between observed values and fitted values on the line (Equation <a href="introduction-to-regression-modelling.html#eq:sse">(6.4)</a>). The sum of square distance also named sum of square Error (SSE) or sum of square residuals (SSRes). When SSE is minimum it implies that the variance of the residuals that remain to be explained are fit to the minimum.</p>
+<p><span class="math display" id="eq:sse">\[\begin{equation}
+SSE=\sum_{i=1}^{n}{(y_i-\hat{y_i})^2} \tag{6.4}
+\end{equation}\]</span></p>
+<p>To fit a simple linear regression with R follow the example below:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-regression-modelling.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data</span></span>
+<span id="cb19-2"><a href="introduction-to-regression-modelling.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(cars)</span>
+<span id="cb19-3"><a href="introduction-to-regression-modelling.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the line</span></span>
+<span id="cb19-4"><a href="introduction-to-regression-modelling.html#cb19-4" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data=</span>cars)</span>
+<span id="cb19-5"><a href="introduction-to-regression-modelling.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># display the results</span></span>
+<span id="cb19-6"><a href="introduction-to-regression-modelling.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -29.069  -9.525  -2.272   9.215  43.201 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -17.5791     6.7584  -2.601   0.0123 *  
+## speed         3.9324     0.4155   9.464 1.49e-12 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 15.38 on 48 degrees of freedom
+## Multiple R-squared:  0.6511, Adjusted R-squared:  0.6438 
+## F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
+<p>The output tells us that:</p>
+<ul>
+<li>Y(distance to stop) = 3.93*X(speed) -17.57(intercept) + <span class="math inline">\(\epsilon\)</span></li>
+<li>If a car increases its speed by 1 mph, its distance to stop increases by 3.93 ft.</li>
+<li>This estimated coefficient is significantly different from 0 (<span class="math inline">\(Pr(&gt;|t|) = p-value = 1.49e^{-12}\)</span>)</li>
+<li>The model explain 64% of the observed variance in distances to stop for cars (Adjusted R-squared or coefficient of determination <span class="math inline">\(R^2\)</span>).</li>
+</ul>
+<p>The residuals are leftover of the outcome variance after fitting a model. They are use to:</p>
+<ul>
+<li>Verify if linear regression assumptions are met {<a href="introduction-to-regression-modelling.html#posthocreg">6.1.3</a>}</li>
+<li>Show how poorly a model represents data</li>
+<li>Reveal unexplained patterns in the data by the fitted model</li>
+<li>Could help improving the model in an exploratory way.</li>
+</ul>
+</div>
+<div id="posthocreg" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Post-hoc assumptions verification</h3>
+<p>How to verify if a simple linear regression model was appropriate?</p>
+<p>The method is descriptive and based on the distribution of the residuals that allows assessing:</p>
+<ul>
+<li>Linear and additivity of predictive relationships</li>
+<li>Homoscedasticity (constant variance) of residuals (errors)</li>
+<li>Normality of the residuals distribution</li>
+<li>Independence (lack of correlation) residuals (in particular, no correlation between consecutive errors in the case of time series data)</li>
+</ul>
+<p>Using R:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-regression-modelling.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a plotting area with 4 panels</span></span>
+<span id="cb21-2"><a href="introduction-to-regression-modelling.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow=</span><span class="dv">2</span>))</span>
+<span id="cb21-3"><a href="introduction-to-regression-modelling.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ask for diagnostic plots for linear regression</span></span>
+<span id="cb21-4"><a href="introduction-to-regression-modelling.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-regression-modelling.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set back the plotting area to 1 panel</span></span>
+<span id="cb22-2"><a href="introduction-to-regression-modelling.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>FALSE null device 
+FALSE           1</code></pre>
+<p>From top to bottom and left to right the plots assess :</p>
+<ol style="list-style-type: decimal">
+<li>Linearity and additivity of predictive relationships. A good fitting should show a red horizontal line, the variance of the residuals is randomly spread above and below the horizontal line.</li>
+<li>Homoscedasticity (<em>i.e.</em> constant variance) of residuals (errors). A good fitting should show a red horizontal line, the variance of the residuals is constant and do not depend on the fitted values.</li>
+<li>Normality of the residuals distribution. A good fitting should show a alignment of the dots on the diagonal of the Q-Q plot.</li>
+<li>Influential observations with Cook’s distance: if dots appear outside the Cook’s distance limits (red dashses) they are influential observations or even outliers (extreme). Their value need to be verified as they might negatively influence the fitting.</li>
+</ol>
+<div class="practice">
+<p>What do you think of the model above?</p>
+</div>
+<p>Below is an example of post-hoc assumptions verification of a linear model that shows problems. Here the model need to be refined or done differently.</p>
+<p><img src="fig/badmodel.png" width="422" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="multiple-linear-regression-model" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Multiple linear regression model</h2>
+<div class="define">
+<p>A multiple (or multivariate) linear regression model is a statistical model that attempt to fit a linear relationship between one outcome variable to explain and several explanatory variables (determinants).</p>
+</div>
+<p>For instance, do your age and your height predict your lung capacity?</p>
+The table below presents the lung capacity dataset shared by Mike Marin and Ladan Hamadani and available at <a href="http://www.statslectures.com/" class="uri">http://www.statslectures.com/</a>
+<span class="citation">(<a href="#ref-STATOnline" role="doc-biblioref">Marin and Hamadani 2021</a>)</span>. The first column is the lung capacity outcome variable and the other columns are some possible determinants.
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+LungCap
+</th>
+<th style="text-align:right;">
+Age
+</th>
+<th style="text-align:right;">
+Height
+</th>
+<th style="text-align:left;">
+Smoke
+</th>
+<th style="text-align:left;">
+Gender
+</th>
+<th style="text-align:left;">
+Caesarean
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+6.475
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+62.1
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+no
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10.125
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+74.7
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:left;">
+no
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9.550
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+69.7
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:left;">
+yes
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11.125
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+71.0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+no
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.800
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+56.9
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+no
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6.225
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+58.7
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:left;">
+no
+</td>
+</tr>
+</tbody>
+</table>
+<p>First, we have a look at the two first covariates along with the outcome variable using a pair plot to visually assess any linear relationship.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-regression-modelling.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(LungCapData[,<span class="fu">c</span>(<span class="st">&quot;LungCap&quot;</span>, <span class="st">&quot;Age&quot;</span>,<span class="st">&quot;Height&quot;</span>)], <span class="at">lower.panel =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>We could also look at each covariate against the outcome variable using a simple linear regression. However we will miss some information. Maybe it is better to be tall than small to have a large lung capacity whatever your age. To test this hypothesis we should apply a multivariate regression on the ouctome variable.</p>
+<p>Mathematically, <strong>a multivariate regression is a generalization of a simple linear regression</strong>.</p>
+<p>From one predictor …</p>
+<p><span class="math inline">\(y_i=\beta_0 + \beta_1x_{i1} + \epsilon_i\)</span></p>
+<p>… to two or more predictors</p>
+<p><span class="math inline">\(y_i=\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ...+ \beta_kx_{ik} + \epsilon_i\)</span></p>
+<p>and the independent error terms <span class="math inline">\(\epsilon_i\)</span> follow a normal distribution with mean 0 and equal variance <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>The R function calls for a multiple regression is similar to a simple linear regression. First you build the model adding up the covariate on the right hand side of the equation. Next you display the summary and interpret the coefficients.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-regression-modelling.html#cb25-1" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">=</span> <span class="fu">lm</span>(LungCap <span class="sc">~</span> Age <span class="sc">+</span> Height, <span class="at">data=</span> LungCapData)</span>
+<span id="cb25-2"><a href="introduction-to-regression-modelling.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model3)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = LungCap ~ Age + Height, data = LungCapData)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.4080 -0.7097 -0.0078  0.7167  3.1679 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -11.747065   0.476899 -24.632  &lt; 2e-16 ***
+## Age           0.126368   0.017851   7.079 3.45e-12 ***
+## Height        0.278432   0.009926  28.051  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.056 on 722 degrees of freedom
+## Multiple R-squared:  0.843,  Adjusted R-squared:  0.8425 
+## F-statistic:  1938 on 2 and 722 DF,  p-value: &lt; 2.2e-16</code></pre>
+<ul>
+<li><strong>P-values</strong> for the <em>t-tests</em> appearing in the table of estimates suggest that the slope parameters for Age and Height are significantly different from 0 (<span class="math inline">\(p-value &lt; 0.05\)</span>).<br />
+</li>
+<li><strong>Residual standard error</strong> of 1.056 is rather small</li>
+<li><strong>F-statistic</strong> (<span class="math inline">\(1938\)</span>) is highly significant (<span class="math inline">\(p-value: &lt; 2.2e-16\)</span>) implying that the model containing Age and Height is more useful in predicting lung capacity than not taking into account those 2 predictors. (Note that this does not tell us that the model with the 2 predictors is the best model!)</li>
+<li><strong>Multiple R squared</strong>: R-squared measures the amount of variation in the response variable that can be explained by the predictor variable. The multiple R-squared is for models with multiple predictor variables. When adding up predictors, the multiple Rsquared increases, as a predictor always explain some portion of the variance.</li>
+<li><strong>Adjusted Rsquared</strong>: is the R-squared corrected for multiple predictors’ side-effect. It adds penalties for the number of predictors in the model. It shows a balance between the most parsimonious model, and the best fitting model.</li>
+</ul>
+<p><span class="math inline">\(adj R^2 = 1 - \frac{n-1}{n-(k+1)}.(1- R^2)\)</span></p>
+<p>where n: size of the sample and k: number of independent variables</p>
+<p>Generally, if you have a large difference between your multiple and your adjusted R-squared that indicates you may have overfitted your model.</p>
+<p>In model3, when age increases by one year, the lung capacity increases by 0.12, all other things (height) being equal for the persons in the population. When height increases by one unit, the lung capacity increases by 0.27, all other things (height) being equal for the persons in the population.</p>
+<p>Once a model is built, we can use it for prediction.</p>
+<p>You can <strong>predict at the population level</strong> with the estimation of the confidence interval for the <strong>mean response</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-regression-modelling.html#cb27-1" aria-hidden="true" tabindex="-1"></a>new <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">&quot;Age&quot;</span><span class="ot">=</span><span class="dv">30</span>, <span class="st">&quot;Height&quot;</span><span class="ot">=</span><span class="dv">70</span>)</span>
+<span id="cb27-2"><a href="introduction-to-regression-modelling.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model3, new, <span class="at">interval=</span><span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 11.53421 10.99061 12.07781</code></pre>
+<p>We can be <span class="math inline">\(95\%\)</span> confident that the average lung capacity score for all persons with age = 30 and height = 70 is between 10.99 and 12.07.</p>
+<p>You can <strong>predict at the individual level</strong> using the prediction interval for a <strong>new response</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-regression-modelling.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model3, new, <span class="at">interval=</span><span class="st">&quot;prediction&quot;</span>)</span></code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 11.53421 9.390385 13.67804</code></pre>
+<p>We can be <span class="math inline">\(95\%\)</span> confident that the lung capacity score of an individual with age = 30 and height = 70 will be between 9.39 and 13.67</p>
+</div>
+<div id="logistic-regression-model" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Logistic regression model</h2>
+<div class="define">
+<p>Logistic regression is a process of modeling the probability of a discrete outcome given an input variable.</p>
+</div>
+<p>The most common logistic regression is the binary logistic regression that models a binary outcome (ex: Dead/Alive, yes/no). Multinomial logistic regression can model scenarios where there are more than two possible discrete outcomes (ex: low, medium, high).</p>
+<p>As an example, let’s investigate the risk factor of chronic kidney disease (CKD).The response variable is either 1 (Affected) or 0 (Not affected) - a dichotomous response. By definition, that’s a categorical response, so we can’t use linear regression methods to predict it.</p>
+<p>When coding the outcome variable 0 and 1 we can still represent what is happening in association with a covariate such as age but we cannot draw an simple line.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introduction-to-regression-modelling.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ckd<span class="sc">$</span>age2, ckd<span class="sc">$</span>affected, <span class="at">ylab=</span><span class="st">&quot;Affected&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;age (in years)&quot;</span>, <span class="at">pch=</span><span class="st">&quot;*&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/plot%20ckd-1.png" width="672" /></p>
+<p>We can see that the proportions (or probabilities) of having the disease must lie between 0 and 1. It corresponds to the prevalence (%) of CKD according to age.</p>
+<p>This relationship can be model using the Logistic function.</p>
+<ul>
+<li><span class="math inline">\(Y = \frac{1}{1 + e^{-(\beta_0 + \beta_1X)}}\)</span></li>
+</ul>
+<p><img src="fig/logReg.png" width="60%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> give the shape of the curve</li>
+</ul>
+<p><img src="fig/logReg-param.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>We note the the <span class="math inline">\(\beta_0 + \beta_1X\)</span> part looks really similar a linear model. In fact, to estimate those coefficients the mathematical trick is to transform the above equation in order to get to a linear form.</p>
+<p>By transformation:</p>
+<ul>
+<li>First we compute the odds of the disease</li>
+</ul>
+<p><span class="math inline">\(Y/(1-Y) = \frac{1}{e^{-(\beta_0 + \beta_1X + \beta_2x_2 + ... +\beta_ix_i)}}\)</span></p>
+<p><img src="fig/logReg2.png" width="70" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Second we compute the Logit</li>
+</ul>
+<p><span class="math inline">\(ln(Y/1-Y)=\beta_0 + \beta_1x_1 + \beta_2x_2 + ...\beta_ix_i\)</span></p>
+<p><img src="fig/logReg3.png" width="68" style="display: block; margin: auto;" /></p>
+<p><span class="math inline">\(\beta_0\)</span> = log odds of disease in unexposed</p>
+<p><span class="math inline">\(\beta_i\)</span> = log odds ratio associated with being exposed to <em>i</em> (age for instance)</p>
+<p>The <em>Logit function</em> is defined as the natural log of the odds. A probability of 0.5 corresponds to a logit of 0, probabilities smaller than 0.5 correspond to negative logit values, and probabilities greater than 0.5 correspond to positive logit values.</p>
+<p>After fit the model and estimating the <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> coefficients, we can retrieve the Odds Ratio (OR) which is the Probability of having the outcome / Probability of not having the outcome when exposed:</p>
+<div class="define">
+<p>OR= <span class="math inline">\(e^\beta_i\)</span> = odds ratio associated with being exposed to <em>i</em></p>
+</div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introduction-to-regression-modelling.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Can age contribute to developpping the disease? </span></span>
+<span id="cb32-2"><a href="introduction-to-regression-modelling.html#cb32-2" aria-hidden="true" tabindex="-1"></a>model_ckd <span class="ot">&lt;-</span> <span class="fu">glm</span>(affected  <span class="sc">~</span> age2, <span class="at">family=</span><span class="fu">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="at">data=</span>ckd)</span>
+<span id="cb32-3"><a href="introduction-to-regression-modelling.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_ckd) </span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = affected ~ age2, family = binomial(&quot;logit&quot;), data = ckd)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.8876  -1.2231   0.7832   0.9150   1.5734  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -1.198334   0.528806  -2.266 0.023444 *  
+## age2         0.033681   0.009818   3.431 0.000602 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 259.57  on 197  degrees of freedom
+## Residual deviance: 247.03  on 196  degrees of freedom
+## AIC: 251.03
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<p>The coefficient for age is positively link to the disease. When you increase in age you increase your risk of having disease. To compute the OR, we can use the <span class="math inline">\(exp(0.039)\)</span> but for a nicest output with confidence interval we can use the <em>epiDisplay</em> library and its <em>logistic.display()</em> function.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introduction-to-regression-modelling.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the epiDisplay library in the R environment</span></span>
+<span id="cb34-2"><a href="introduction-to-regression-modelling.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epiDisplay)</span>
+<span id="cb34-3"><a href="introduction-to-regression-modelling.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">logistic.display</span>(model_ckd) </span></code></pre></div>
+<pre><code>## 
+## Logistic regression predicting affected 
+##  
+##                   OR(95%CI)         P(Wald&#39;s test) P(LR-test)
+## age2 (cont. var.) 1.03 (1.01,1.05)  &lt; 0.001        &lt; 0.001   
+##                                                              
+## Log-likelihood = -123.5132
+## No. of observations = 198
+## AIC value = 251.0263</code></pre>
+<p>The odd (risk) of having the disease is 1.04 times higher when people get older by 1 year (95%CI[1.02,1.06]). The P(Wald’s test) tells us that the estimated coefficient is different from 0 (or the OR is different from 1). The P(LR-test) log-likelihood ratio test tells us that the model is better than the NULL model (without any covariate).</p>
+<p>We can add other covariates and then use a stepwise approach to get the most parsimonious model.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="introduction-to-regression-modelling.html#cb36-1" aria-hidden="true" tabindex="-1"></a>model_ckd2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(affected  <span class="sc">~</span> age2 <span class="sc">+</span> bp.limit, <span class="at">family=</span><span class="fu">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="at">data=</span>ckd)</span>
+<span id="cb36-2"><a href="introduction-to-regression-modelling.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_ckd2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = affected ~ age2 + bp.limit, family = binomial(&quot;logit&quot;), 
+##     data = ckd)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.9805  -1.1433   0.5753   0.9494   1.8686  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -1.87178    0.59109  -3.167  0.00154 ** 
+## age2         0.03529    0.01034   3.414  0.00064 ***
+## bp.limit     0.85816    0.22052   3.891 9.96e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 259.57  on 197  degrees of freedom
+## Residual deviance: 229.70  on 195  degrees of freedom
+## AIC: 235.7
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="introduction-to-regression-modelling.html#cb38-1" aria-hidden="true" tabindex="-1"></a>model_ckd2<span class="ot">&lt;-</span> <span class="fu">step</span>(model_ckd2)</span></code></pre></div>
+<pre><code>## Start:  AIC=235.7
+## affected ~ age2 + bp.limit
+## 
+##            Df Deviance    AIC
+## &lt;none&gt;          229.71 235.71
+## - age2      1   242.42 246.42
+## - bp.limit  1   247.03 251.03</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="introduction-to-regression-modelling.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The best model is with the smallest AIC</span></span>
+<span id="cb40-2"><a href="introduction-to-regression-modelling.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It is the model without removing any variable (&lt;none&gt;)</span></span>
+<span id="cb40-3"><a href="introduction-to-regression-modelling.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">logistic.display</span>(model_ckd) </span></code></pre></div>
+<pre><code>## 
+## Logistic regression predicting affected 
+##  
+##                   OR(95%CI)         P(Wald&#39;s test) P(LR-test)
+## age2 (cont. var.) 1.03 (1.01,1.05)  &lt; 0.001        &lt; 0.001   
+##                                                              
+## Log-likelihood = -123.5132
+## No. of observations = 198
+## AIC value = 251.0263</code></pre>
+</div>
+<div id="collinearity" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Collinearity</h2>
+<div class="define">
+<p>Collinearity is the correlation between 2 independent variables (predictors).</p>
+<p>Multi-collinearity is cross-correlation between multiple independent variables (predictors).</p>
+</div>
+<p>If the independent variables are perfectly correlated, you will face these problems:</p>
+<ul>
+<li>Inflated coefficients<br />
+</li>
+<li>Values and signs of the coefficients are incoherent with common knowledge<br />
+</li>
+<li>Underestimated Student T test (non-significant p-values)<br />
+</li>
+<li>Unsteady results, adding or deleting observation strongly modify the values and signs of the coefficients</li>
+</ul>
+</div>
+<div id="detecting-multi-collinearity" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Detecting (multi-)collinearity</h2>
+<div id="coefficient-of-correlation-and-visual-assessment" class="section level3" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Coefficient of correlation and visual assessment</h3>
+<p>Is there a problem in our example? Is Age too highly correlated with height?</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="introduction-to-regression-modelling.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LungCapData<span class="sc">$</span>Age, LungCapData<span class="sc">$</span>Height)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>A test over the coefficient of correlation can be performed where:</p>
+<ul>
+<li>H0: the coefficient of correlation r = 0<br />
+</li>
+<li>H1: the coefficient of correlation r != 0</li>
+</ul>
+<p>with <span class="math inline">\(\alpha &lt; 0.05\)</span></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introduction-to-regression-modelling.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(LungCapData<span class="sc">$</span>Age, LungCapData<span class="sc">$</span>Height)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  LungCapData$Age and LungCapData$Height
+## t = 40.923, df = 723, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.8123578 0.8564338
+## sample estimates:
+##       cor 
+## 0.8357368</code></pre>
+<p>Note that even a small correlation between 2 variables and thus the test over the coefficient of correlation statistically significant.</p>
+</div>
+<div id="variance-inflation-factor" class="section level3" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> Variance Inflation Factor</h3>
+<p>Therefore other metrics can be computed. The most commun one is the Variance Inflation Factor or <strong>VIF</strong> and its inverse the Tolerance indicator or <strong>TOL</strong></p>
+<div class="define">
+<p>Variance Inflation Factor (<strong>VIF</strong>): how much of the inflation of the standard error could be caused by collinearity</p>
+<p>Tolerance indicator (<strong>TOL</strong>) = <span class="math inline">\(\frac{1}{VIF}\)</span></p>
+</div>
+<p>If all of the variables are orthogonal to each other (uncorrelated with each other) both indicators (TOL and VIF) are 1.</p>
+<p>If a variable is very closely correlated to another variable, the TOL goes to 0, and the VIF gets very large. An independent variable with a VIF &gt; 10 (empirical threshold) should be look at and some remedial measures might have to be taken.</p>
+<p>Using the R <em>mctest</em> library and the <em>imcdiag()</em> function on your model you will get the VIF and TOL metrics and others. See help for interpretation of the others measures.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introduction-to-regression-modelling.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mctest)</span>
+<span id="cb45-2"><a href="introduction-to-regression-modelling.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imcdiag</span>(model3)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## imcdiag(mod = model3)
+## 
+## 
+## All Individual Multicollinearity Diagnostics Result
+## 
+##           VIF    TOL      Wi  Fi Leamer    CVIF Klein  IND1 IND2
+## Age    3.3163 0.3015 1674.66 Inf 0.5491 -1.0332     0 4e-04    1
+## Height 3.3163 0.3015 1674.66 Inf 0.5491 -1.0332     0 4e-04    1
+## 
+## 1 --&gt; COLLINEARITY is detected by the test 
+## 0 --&gt; COLLINEARITY is not detected by the test
+## 
+## * all coefficients have significant t-ratios
+## 
+## R-square of y on all x: 0.843 
+## 
+## * use method argument to check which regressors may be the reason of collinearity
+## ===================================</code></pre>
+</div>
+<div id="remedial-measures" class="section level3" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> Remedial measures</h3>
+<p>The remedial measures to manage collinearity could be :</p>
+<ul>
+<li>Manual exclusion: VIF values above 10 and as well as the concerned variables logically seem to be redundant. You remove one of them.</li>
+<li>Aggregation: The two redundant variables could be summarized into an third variable using statistical methods such as Principal Component Analysis (PCA). That third variable will then be used in the model in place of the first two.</li>
+<li>Automatic variable selection: you let the modeling algorithm able the issue using stepwise regression which might remove variables that generate unstable modeling results</li>
+</ul>
+</div>
+</div>
+<div id="explanatory-variable-selection" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Explanatory variable selection</h2>
+<p>When defining a model you would like to either obtain the best explanatory model (goodness of fit) or the best predictive model (parsimonious). To this aim you need to select the most relevant variables. If you add all the variables you have in hand it might be one too many. The number of degrees of freedom will decrease and as the consequence the residual variance could increase.</p>
+<p>How to select the contributing variables?</p>
+<ul>
+<li>Some variables are correlated with redundancy of information: the variables with the effect the easiest to explain/express should to be kept.<br />
+</li>
+<li>Univariate tests (e.g., outcome vs exposition) are highly recommended prior building the model. Results with a p-value &gt; 0.25 or 0.20 (empirical cut-off) is less likely to contribute to explain the outcome in a larger model. You might not want to include it in the full model. However, note that even so a variable shows a p-value &gt; 0.25 in an univariate test you might still want to force it in the model because of inconsistency with your prior knowledge (literature, own studies).<br />
+</li>
+<li>Automatic and iterative procedures for explanatory variable selection based on goodness of fit criterion (e.g., on Akaike’s information criterion - AIC)</li>
+</ul>
+<div id="iterative-procedures-for-explanatory-variable-selection" class="section level3" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> Iterative procedures for explanatory variable selection</h3>
+<p>These approaches introduced or suppressed variables based on results of nested models tests using goodness of fit criterion. The 3 variants are:</p>
+<ol style="list-style-type: decimal">
+<li>Backward procedure</li>
+</ol>
+<ul>
+<li>First, all of the predictors under consideration are in the model</li>
+<li>One at a time is deleted the less significant (the “worst”)</li>
+<li>All the remaining variables make a significant contribution</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Forward procedure</li>
+</ol>
+<ul>
+<li>Begins with none of the potential explanatory variables</li>
+<li>Adds one variable at a time</li>
+<li>Stops when no remaining variable makes a significant contribution</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Stepwise procedure</li>
+</ol>
+<ul>
+<li>Modification of the forward procedure</li>
+<li>Drops variables if they lose their significance as other are added</li>
+</ul>
+<p>The goodness of fit criteria is often the Akaike’s information criterion or AIC. <strong>The smaller the AIC, the better the fit</strong>.</p>
+<p>The R command for the stepwise approach is:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="introduction-to-regression-modelling.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Full model with all the variables you have in hand (or selected after univariate test)</span></span>
+<span id="cb47-2"><a href="introduction-to-regression-modelling.html#cb47-2" aria-hidden="true" tabindex="-1"></a>modelFull <span class="ot">&lt;-</span>  <span class="fu">lm</span>(LungCap <span class="sc">~</span> ., <span class="at">data=</span> LungCapData)</span>
+<span id="cb47-3"><a href="introduction-to-regression-modelling.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The argument direction=&quot;both&quot; is for the procedure type. See the help page for more details.</span></span>
+<span id="cb47-4"><a href="introduction-to-regression-modelling.html#cb47-4" aria-hidden="true" tabindex="-1"></a>modelStep <span class="ot">&lt;-</span> <span class="fu">step</span>(modelFull, <span class="at">direction =</span> <span class="st">&quot;both&quot;</span>)</span></code></pre></div>
+<pre><code>## Start:  AIC=34.43
+## LungCap ~ Age + Height + Smoke + Gender + Caesarean
+## 
+##             Df Sum of Sq     RSS    AIC
+## &lt;none&gt;                    747.78  34.43
+## - Caesarean  1      5.80  753.57  38.03
+## - Smoke      1     24.35  772.13  55.66
+## - Gender     1     24.55  772.33  55.85
+## - Age        1     82.65  830.43 108.44
+## - Height     1    716.54 1464.32 519.66</code></pre>
+<p>Here at each iteration one variable is removed and compare to the full model. For example, the line <em>-Caesarean</em> indicates that the variable <em>Caesarean</em> is removed. The AIC of 38.03 is compared to the AIC 34.43 of the full model (<span class="math inline">\(&lt;none&gt;\)</span> removed). The full model is more informative than the model without the variable <em>Caesarean</em>. The interpretation is the same for the rest of the variables.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="introduction-to-regression-modelling.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelStep)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = LungCap ~ Age + Height + Smoke + Gender + Caesarean, 
+##     data = LungCapData)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.3388 -0.7200  0.0444  0.7093  3.0172 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -11.32249    0.47097 -24.041  &lt; 2e-16 ***
+## Age            0.16053    0.01801   8.915  &lt; 2e-16 ***
+## Height         0.26411    0.01006  26.248  &lt; 2e-16 ***
+## Smokeyes      -0.60956    0.12598  -4.839 1.60e-06 ***
+## Gendermale     0.38701    0.07966   4.858 1.45e-06 ***
+## Caesareanyes  -0.21422    0.09074  -2.361   0.0185 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.02 on 719 degrees of freedom
+## Multiple R-squared:  0.8542, Adjusted R-squared:  0.8532 
+## F-statistic: 842.8 on 5 and 719 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="goodness-of-fit-analysis" class="section level3" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> Goodness of fit analysis</h3>
+<p>You can perform a goodness of fit analysis step by step using the <em>anova()</em> function call between 2 nested models [NOTE: do not mix-up anova() with aov() for the comparison of more than two means].</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="introduction-to-regression-modelling.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Model without the Age variable</span></span>
+<span id="cb51-2"><a href="introduction-to-regression-modelling.html#cb51-2" aria-hidden="true" tabindex="-1"></a>model4var <span class="ot">&lt;-</span>  <span class="fu">lm</span>(LungCap <span class="sc">~</span> Height <span class="sc">+</span> Smoke <span class="sc">+</span> Gender <span class="sc">+</span> Caesarean, <span class="at">data=</span> LungCapData)</span>
+<span id="cb51-3"><a href="introduction-to-regression-modelling.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model4var)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = LungCap ~ Height + Smoke + Gender + Caesarean, data = LungCapData)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.3631 -0.7360  0.0290  0.7529  3.0710 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -14.162235   0.365323 -38.766  &lt; 2e-16 ***
+## Height         0.339699   0.005706  59.536  &lt; 2e-16 ***
+## Smokeyes      -0.497653   0.132004  -3.770 0.000177 ***
+## Gendermale     0.197766   0.080852   2.446 0.014683 *  
+## Caesareanyes  -0.206444   0.095549  -2.161 0.031055 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.074 on 720 degrees of freedom
+## Multiple R-squared:  0.8381, Adjusted R-squared:  0.8372 
+## F-statistic: 932.1 on 4 and 720 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>All the variables in the model4var are significant. The <em>anova()</em> function compare the full model to the model4var.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="introduction-to-regression-modelling.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(modelFull, model4var)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: LungCap ~ Age + Height + Smoke + Gender + Caesarean
+## Model 2: LungCap ~ Height + Smoke + Gender + Caesarean
+##   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1    719 747.78                                  
+## 2    720 830.43 -1   -82.653 79.472 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>The 2 models differ (p-value &lt; 0.05). The AIC index highlight the model with the best fit (smallest AIC); here it is the full model.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="introduction-to-regression-modelling.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(modelFull, model4var)</span></code></pre></div>
+<pre><code>##           df      AIC
+## modelFull  7 2093.888
+## model4var  6 2167.896</code></pre>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-STATOnline" class="csl-entry">
+Marin, M, and L Hamadani. 2021. <span>“MarinStatslectures Online.”</span> Online. <a href="https://www.statslectures.com/">https://www.statslectures.com/</a>.
+</div>
+<div id="ref-STAT501" class="csl-entry">
+Statistics PennState - Eberly College of Science, Department of. 2021. <span>“Regression Methods.”</span> Online. <a href="https://online.stat.psu.edu/stat501/">https://online.stat.psu.edu/stat501/</a>.
+</div>
+<div id="ref-SpuriousCorrelation" class="csl-entry">
+Vigen, T. 2021. <span>“Spurious Correlations.”</span> Online. <a href="https://www.tylervigen.com/spurious-correlations">https://www.tylervigen.com/spurious-correlations</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="glossary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/06-IntroModelling.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
