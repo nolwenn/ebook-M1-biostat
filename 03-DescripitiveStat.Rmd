@@ -139,7 +139,7 @@ $m = ({\sum^{{i=n}}_{{i=1}} x_{i})/n}$
 Figure \@ref(fig:histogram) presents a `histogram` that summarize the distribution of weight of French student in the HBSC `sample` (for histogram definition see section \@ref(plot) and sample definition see \@ref(sample)). From the graphic, the central point (pick) of the distribution, around which values of the data serie are spread is around the weight class [40-45[ Kg.  
 
 
-```{r histogram,  fig.cap='Distribution of weights (Kg) of 11 to 16 years-old students, in France in 2006', out.width='70%', fig.asp=.75, echo=FALSE, message=FALSE, warning=FALSE}
+```{r histogram,  fig.cap='Distribution of weights (Kg) of 11 to 16 years-old students, in France in 2006', out.width='70%', fig.asp=.75, echo=FALSE, message=FALSE, warning=FALSE, fig.path = "fig/"}
 library(ggplot2)
 ggplot(hbsc, aes(Weight)) + geom_histogram(binwidth =5, fill='lightblue', color="black") + geom_vline(xintercept = 48, size = 1, colour = "#FF3721",linetype = "dashed")
 ```

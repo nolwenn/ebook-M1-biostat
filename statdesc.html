@@ -123,6 +123,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -652,7 +674,7 @@ Total
 <p><em>Note: Greek letters are used for population and Roman letters for sample. The mean is also sometimes symbolized like <span class="math inline">\(\bar{X}\)</span> for population or <span class="math inline">\(\bar{x}\)</span> for sample</em></p>
 <p>Figure <a href="statdesc.html#fig:histogram">3.1</a> presents a <code>histogram</code> that summarize the distribution of weight of French student in the HBSC <code>sample</code> (for histogram definition see section <a href="statdesc.html#plot">3.4</a> and sample definition see <a href="inferencestat.html#sample">4.1</a>). From the graphic, the central point (pick) of the distribution, around which values of the data serie are spread is around the weight class [40-45[ Kg.</p>
 <div class="figure"><span style="display:block;" id="fig:histogram"></span>
-<img src="_main_files/figure-html/histogram-1.png" alt="Distribution of weights (Kg) of 11 to 16 years-old students, in France in 2006" width="70%" />
+<img src="fig/histogram-1.png" alt="Distribution of weights (Kg) of 11 to 16 years-old students, in France in 2006" width="70%" />
 <p class="caption">
 Figure 3.1: Distribution of weights (Kg) of 11 to 16 years-old students, in France in 2006
 </p>
@@ -742,7 +764,6 @@ Figure 3.4: Quartiles
 </p>
 </div>
 <p>Using the R statistical software and the HBSC data set we can quickly describe the “Weight” variable of the French student aged 11 to 16 in 2006 with the <code>five-number summary</code>. The five-number summary provides a good overall look at the distribution of the data.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="statdesc.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hbsc<span class="sc">$</span>Weight)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   24.50   38.83   47.00   48.09   56.00   90.00      18</code></pre>
 <ul>
@@ -885,12 +906,7 @@ Figure 3.6: Hospitals ER
 </div>
 <p>Based on the mean, the <code>variance</code> is appropriate only for symmetric data and can be influenced by outlying observations.</p>
 <p>Mathematically, if we tried to average the distances of all the values a data serie to its mean, the positive and negative differences would cancel each other out, giving an average deviation of 0-not very useful. Instead, we square each distance to get the <code>variance</code>.</p>
-In a population the equation is:
-<div class="center">
-<p>
-<span class="math inline"><span class="math inline">\(\sigma^2=\frac{\sum_{1}^{N}(X_i-\bar{X})^2}{N}\)</span></span>
-</p>
-</div>
+<p>In a population the equation is:</p>
 <p>where</p>
 <ul>
 <li><span class="math inline">\(\sigma^2\)</span> is the variance of population</li>
@@ -934,7 +950,7 @@ In a population the equation is:
 <h3><span class="header-section-number">3.4.1</span> Barplot<a href="statdesc.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For one <code>qualitative</code> variable, the frequency <code>barplot</code>, or <code>barchart</code>, is the most appropriate plot. It could use the absolute or relative frequencies.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplot1"></span>
-<img src="_main_files/figure-html/barplot1-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<img src="fig/barplot1-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
 <p class="caption">
 Figure 3.7: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
 </p>
@@ -942,13 +958,13 @@ Figure 3.7: Repartition of students according to their sport activity level, in 
 <p>Figure <a href="statdesc.html#fig:barplot1">3.7</a> represents the distribution of students (<em>Who</em>) according to their sport activity level (<em>What</em>), in France (<em>Where</em>) in 2006 (<em>When</em>) and if available the source should also be cited (here HSBC) in the caption.</p>
 <p>It is a better practice to multiply plots that combining too many information in one plot. Imagine you would like to display the same information but for boys and girls. The below barplot is better than the next one as you can easily compare boys and girl but you also easily visualize the trend within each group.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplot2"></span>
-<img src="_main_files/figure-html/barplot2-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<img src="fig/barplot2-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
 <p class="caption">
 Figure 3.8: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplot3"></span>
-<img src="_main_files/figure-html/barplot3-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<img src="fig/barplot3-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
 <p class="caption">
 Figure 3.9: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
 </p>
@@ -958,7 +974,7 @@ Figure 3.9: Repartition of students according to their sport activity level, in 
 <h3><span class="header-section-number">3.4.2</span> Pie chart<a href="statdesc.html#pie-chart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For one <code>qualitative</code> variable, you can also use a <code>pie chart</code>. However you should be careful on the number of modalities the variable to display can have: too few, the plot take lots of room for few information but too many you will rapidly get “the wheel of fortune.”</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pie"></span>
-<img src="_main_files/figure-html/pie-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
+<img src="fig/pie-1.png" alt="Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)" width="70%" />
 <p class="caption">
 Figure 3.10: Repartition of students according to their sport activity level, in France in 2006 (source:HBSC)
 </p>
@@ -969,13 +985,13 @@ Figure 3.10: Repartition of students according to their sport activity level, in
 <h3><span class="header-section-number">3.4.3</span> Histogram<a href="statdesc.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For one <code>quantitative</code> variable, the <code>histogram</code> is often used to visualize the shape of the distibution of the data serie. Although one have to be careful of the bin width (breaks) use to group the numerical values.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogram2"></span>
-<img src="_main_files/figure-html/histogram2-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=1" width="70%" />
+<img src="fig/histogram2-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=1" width="70%" />
 <p class="caption">
 Figure 3.11: Distribution of students weight in France in 2006 (source: HBSC), binwidth=1
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogram3"></span>
-<img src="_main_files/figure-html/histogram3-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=10" width="70%" />
+<img src="fig/histogram3-1.png" alt="Distribution of students weight in France in 2006 (source: HBSC), binwidth=10" width="70%" />
 <p class="caption">
 Figure 3.12: Distribution of students weight in France in 2006 (source: HBSC), binwidth=10
 </p>
@@ -989,7 +1005,7 @@ Figure 3.12: Distribution of students weight in France in 2006 (source: HBSC), b
 </div>
 <p>If you want to compare the distribution of <code>one quantitative variable between more than 2 groups (qualitative)</code> the histogram remain interesting, as shown below. But up to three the comparison start to be difficult. A boxplot is then more appropriate.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogram4"></span>
-<img src="_main_files/figure-html/histogram4-1.png" alt="Distribution of students weight by gender group in France in 2006 (source: HBSC)" width="70%" />
+<img src="fig/histogram4-1.png" alt="Distribution of students weight by gender group in France in 2006 (source: HBSC)" width="70%" />
 <p class="caption">
 Figure 3.13: Distribution of students weight by gender group in France in 2006 (source: HBSC)
 </p>
@@ -1008,7 +1024,7 @@ Figure 3.14: Boxplot elements
 </div>
 <p>The whiskers reach out from the box to the most extreme values that are not considered outliers according to John W. Tukey’s rule. The boxplot nominates points as outliers if they fall farther than 1.5*IQRs beyond either quartile. They may be mistakes or they may be the most interesting cases in your data. This rule is not a definition of what makes a point an outlier. It just nominates cases for special attention.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:boxplot2"></span>
-<img src="_main_files/figure-html/boxplot2-1.png" alt="Distribution of students weight by group of sport activity level, in France in 2006 (source: HBSC)" width="70%" />
+<img src="fig/boxplot2-1.png" alt="Distribution of students weight by group of sport activity level, in France in 2006 (source: HBSC)" width="70%" />
 <p class="caption">
 Figure 3.15: Distribution of students weight by group of sport activity level, in France in 2006 (source: HBSC)
 </p>
@@ -1023,7 +1039,7 @@ Figure 3.15: Distribution of students weight by group of sport activity level, i
 <h3><span class="header-section-number">3.4.5</span> Scatterplot<a href="statdesc.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For two <code>quantitative</code> variables, a scatterplot is used to assess if there is a relationship between the two variables.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterplot"></span>
-<img src="_main_files/figure-html/scatterplot-1.png" alt="School results and BMI among students in France in 2006 (source: HBSC)" width="70%" />
+<img src="fig/scatterplot-1.png" alt="School results and BMI among students in France in 2006 (source: HBSC)" width="70%" />
 <p class="caption">
 Figure 3.16: School results and BMI among students in France in 2006 (source: HBSC)
 </p>
