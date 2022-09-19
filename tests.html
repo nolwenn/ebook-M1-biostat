@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2022-01-24" />
+<meta name="date" content="2022-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="inferencestat.html"/>
 <link rel="next" href="introduction-to-regression-modelling.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.12/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +51,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -122,28 +123,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -161,111 +140,111 @@ div.csl-indent {
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li><a href="index.html#prerequisites">Prerequisites<span></span></a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips</a></li>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables</a>
+<li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables<span></span></a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#statistical-units"><i class="fa fa-check"></i><b>2.1</b> Statistical units</a></li>
-<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.2</b> Variables</a></li>
-<li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#data-storage"><i class="fa fa-check"></i><b>2.3</b> Data storage</a></li>
-<li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#variable-types"><i class="fa fa-check"></i><b>2.4</b> Variable types</a></li>
+<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#statistical-units"><i class="fa fa-check"></i><b>2.1</b> Statistical units<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.2</b> Variables<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#data-storage"><i class="fa fa-check"></i><b>2.3</b> Data storage<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#variable-types"><i class="fa fa-check"></i><b>2.4</b> Variable types<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="statdesc.html"><a href="statdesc.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics</a>
+<li class="chapter" data-level="3" data-path="statdesc.html"><a href="statdesc.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics<span></span></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="statdesc.html"><a href="statdesc.html#frequency-table"><i class="fa fa-check"></i><b>3.1</b> Frequency table</a></li>
-<li class="chapter" data-level="3.2" data-path="statdesc.html"><a href="statdesc.html#central-parameters"><i class="fa fa-check"></i><b>3.2</b> Central parameters</a>
+<li class="chapter" data-level="3.1" data-path="statdesc.html"><a href="statdesc.html#frequency-table"><i class="fa fa-check"></i><b>3.1</b> Frequency table<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="statdesc.html"><a href="statdesc.html#central-parameters"><i class="fa fa-check"></i><b>3.2</b> Central parameters<span></span></a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="statdesc.html"><a href="statdesc.html#mean"><i class="fa fa-check"></i><b>3.2.1</b> Mean</a></li>
-<li class="chapter" data-level="3.2.2" data-path="statdesc.html"><a href="statdesc.html#median"><i class="fa fa-check"></i><b>3.2.2</b> Median</a></li>
-<li class="chapter" data-level="3.2.3" data-path="statdesc.html"><a href="statdesc.html#percentile-and-quantile"><i class="fa fa-check"></i><b>3.2.3</b> Percentile and quantile</a></li>
-<li class="chapter" data-level="3.2.4" data-path="statdesc.html"><a href="statdesc.html#mode"><i class="fa fa-check"></i><b>3.2.4</b> Mode</a></li>
+<li class="chapter" data-level="3.2.1" data-path="statdesc.html"><a href="statdesc.html#mean"><i class="fa fa-check"></i><b>3.2.1</b> Mean<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="statdesc.html"><a href="statdesc.html#median"><i class="fa fa-check"></i><b>3.2.2</b> Median<span></span></a></li>
+<li class="chapter" data-level="3.2.3" data-path="statdesc.html"><a href="statdesc.html#percentile-and-quantile"><i class="fa fa-check"></i><b>3.2.3</b> Percentile and quantile<span></span></a></li>
+<li class="chapter" data-level="3.2.4" data-path="statdesc.html"><a href="statdesc.html#mode"><i class="fa fa-check"></i><b>3.2.4</b> Mode<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="statdesc.html"><a href="statdesc.html#variation-parameters"><i class="fa fa-check"></i><b>3.3</b> Variation parameters</a>
+<li class="chapter" data-level="3.3" data-path="statdesc.html"><a href="statdesc.html#variation-parameters"><i class="fa fa-check"></i><b>3.3</b> Variation parameters<span></span></a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="statdesc.html"><a href="statdesc.html#range-and-iqr"><i class="fa fa-check"></i><b>3.3.1</b> Range and IQR</a></li>
-<li class="chapter" data-level="3.3.2" data-path="statdesc.html"><a href="statdesc.html#sd"><i class="fa fa-check"></i><b>3.3.2</b> Variance and standard deviation</a></li>
+<li class="chapter" data-level="3.3.1" data-path="statdesc.html"><a href="statdesc.html#range-and-iqr"><i class="fa fa-check"></i><b>3.3.1</b> Range and IQR<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="statdesc.html"><a href="statdesc.html#sd"><i class="fa fa-check"></i><b>3.3.2</b> Variance and standard deviation<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="statdesc.html"><a href="statdesc.html#plot"><i class="fa fa-check"></i><b>3.4</b> Graphical summary</a>
+<li class="chapter" data-level="3.4" data-path="statdesc.html"><a href="statdesc.html#plot"><i class="fa fa-check"></i><b>3.4</b> Graphical summary<span></span></a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="statdesc.html"><a href="statdesc.html#barplot"><i class="fa fa-check"></i><b>3.4.1</b> Barplot</a></li>
-<li class="chapter" data-level="3.4.2" data-path="statdesc.html"><a href="statdesc.html#pie-chart"><i class="fa fa-check"></i><b>3.4.2</b> Pie chart</a></li>
-<li class="chapter" data-level="3.4.3" data-path="statdesc.html"><a href="statdesc.html#histogram"><i class="fa fa-check"></i><b>3.4.3</b> Histogram</a></li>
-<li class="chapter" data-level="3.4.4" data-path="statdesc.html"><a href="statdesc.html#boxplot"><i class="fa fa-check"></i><b>3.4.4</b> Boxplot</a></li>
-<li class="chapter" data-level="3.4.5" data-path="statdesc.html"><a href="statdesc.html#scatterplot"><i class="fa fa-check"></i><b>3.4.5</b> Scatterplot</a></li>
-<li class="chapter" data-level="3.4.6" data-path="statdesc.html"><a href="statdesc.html#communication-tips"><i class="fa fa-check"></i><b>3.4.6</b> Communication tips</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="inferencestat.html"><a href="inferencestat.html"><i class="fa fa-check"></i><b>4</b> Inference and sample</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="inferencestat.html"><a href="inferencestat.html#sample"><i class="fa fa-check"></i><b>4.1</b> Sample</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="inferencestat.html"><a href="inferencestat.html#population-versus-sample"><i class="fa fa-check"></i><b>4.1.1</b> Population versus Sample</a></li>
-<li class="chapter" data-level="4.1.2" data-path="inferencestat.html"><a href="inferencestat.html#sample-designs"><i class="fa fa-check"></i><b>4.1.2</b> Sample designs</a></li>
-<li class="chapter" data-level="4.1.3" data-path="inferencestat.html"><a href="inferencestat.html#probability-sampling"><i class="fa fa-check"></i><b>4.1.3</b> Probability sampling</a></li>
-<li class="chapter" data-level="4.1.4" data-path="inferencestat.html"><a href="inferencestat.html#non-probability-sampling"><i class="fa fa-check"></i><b>4.1.4</b> Non-probability sampling</a></li>
-<li class="chapter" data-level="4.1.5" data-path="inferencestat.html"><a href="inferencestat.html#sampling-bias"><i class="fa fa-check"></i><b>4.1.5</b> Sampling bias</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="inferencestat.html"><a href="inferencestat.html#confidence-intervals"><i class="fa fa-check"></i><b>4.2</b> Confidence intervals</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="inferencestat.html"><a href="inferencestat.html#within-and-between-sample-variation"><i class="fa fa-check"></i><b>4.2.1</b> Within and between sample variation</a></li>
-<li class="chapter" data-level="4.2.2" data-path="inferencestat.html"><a href="inferencestat.html#the-clt-and-the-confidence-interval"><i class="fa fa-check"></i><b>4.2.2</b> The CLT and the confidence interval</a></li>
-<li class="chapter" data-level="4.2.3" data-path="inferencestat.html"><a href="inferencestat.html#interpretation-of-confidence-intervals"><i class="fa fa-check"></i><b>4.2.3</b> Interpretation of confidence intervals</a></li>
-<li class="chapter" data-level="4.2.4" data-path="inferencestat.html"><a href="inferencestat.html#why-1.96"><i class="fa fa-check"></i><b>4.2.4</b> Why 1.96?</a></li>
-<li class="chapter" data-level="4.2.5" data-path="inferencestat.html"><a href="inferencestat.html#precision-or-margin-error"><i class="fa fa-check"></i><b>4.2.5</b> Precision or Margin error</a></li>
+<li class="chapter" data-level="3.4.1" data-path="statdesc.html"><a href="statdesc.html#barplot"><i class="fa fa-check"></i><b>3.4.1</b> Barplot<span></span></a></li>
+<li class="chapter" data-level="3.4.2" data-path="statdesc.html"><a href="statdesc.html#pie-chart"><i class="fa fa-check"></i><b>3.4.2</b> Pie chart<span></span></a></li>
+<li class="chapter" data-level="3.4.3" data-path="statdesc.html"><a href="statdesc.html#histogram"><i class="fa fa-check"></i><b>3.4.3</b> Histogram<span></span></a></li>
+<li class="chapter" data-level="3.4.4" data-path="statdesc.html"><a href="statdesc.html#boxplot"><i class="fa fa-check"></i><b>3.4.4</b> Boxplot<span></span></a></li>
+<li class="chapter" data-level="3.4.5" data-path="statdesc.html"><a href="statdesc.html#scatterplot"><i class="fa fa-check"></i><b>3.4.5</b> Scatterplot<span></span></a></li>
+<li class="chapter" data-level="3.4.6" data-path="statdesc.html"><a href="statdesc.html#communication-tips"><i class="fa fa-check"></i><b>3.4.6</b> Communication tips<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>5</b> Inference and statistical tests</a>
+<li class="chapter" data-level="4" data-path="inferencestat.html"><a href="inferencestat.html"><i class="fa fa-check"></i><b>4</b> Inference and sample<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="tests.html"><a href="tests.html#formulate-a-hypothesis"><i class="fa fa-check"></i><b>5.1</b> Formulate a hypothesis</a></li>
-<li class="chapter" data-level="5.2" data-path="tests.html"><a href="tests.html#comparison-of-two-means"><i class="fa fa-check"></i><b>5.2</b> Comparison of two means</a></li>
-<li class="chapter" data-level="5.3" data-path="tests.html"><a href="tests.html#comparison-of-two-proportions"><i class="fa fa-check"></i><b>5.3</b> Comparison of two proportions</a>
+<li class="chapter" data-level="4.1" data-path="inferencestat.html"><a href="inferencestat.html#sample"><i class="fa fa-check"></i><b>4.1</b> Sample<span></span></a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="tests.html"><a href="tests.html#chi-square-test"><i class="fa fa-check"></i><b>5.3.1</b> Chi-square test</a></li>
-<li class="chapter" data-level="5.3.2" data-path="tests.html"><a href="tests.html#fishers-exact-test"><i class="fa fa-check"></i><b>5.3.2</b> Fisher’s Exact test</a></li>
+<li class="chapter" data-level="4.1.1" data-path="inferencestat.html"><a href="inferencestat.html#population-versus-sample"><i class="fa fa-check"></i><b>4.1.1</b> Population versus Sample<span></span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="inferencestat.html"><a href="inferencestat.html#sample-designs"><i class="fa fa-check"></i><b>4.1.2</b> Sample designs<span></span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="inferencestat.html"><a href="inferencestat.html#probability-sampling"><i class="fa fa-check"></i><b>4.1.3</b> Probability sampling<span></span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="inferencestat.html"><a href="inferencestat.html#non-probability-sampling"><i class="fa fa-check"></i><b>4.1.4</b> Non-probability sampling<span></span></a></li>
+<li class="chapter" data-level="4.1.5" data-path="inferencestat.html"><a href="inferencestat.html#sampling-bias"><i class="fa fa-check"></i><b>4.1.5</b> Sampling bias<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="tests.html"><a href="tests.html#alpha-p"><i class="fa fa-check"></i><b>5.4</b> Risk <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(p-value\)</span></a></li>
-<li class="chapter" data-level="5.5" data-path="tests.html"><a href="tests.html#risk-alpha-and-risk-beta"><i class="fa fa-check"></i><b>5.5</b> Risk <span class="math inline">\(\alpha\)</span> and risk <span class="math inline">\(\beta\)</span></a></li>
-<li class="chapter" data-level="5.6" data-path="tests.html"><a href="tests.html#multi-comp"><i class="fa fa-check"></i><b>5.6</b> Comparison of multiple groups</a>
+<li class="chapter" data-level="4.2" data-path="inferencestat.html"><a href="inferencestat.html#confidence-intervals"><i class="fa fa-check"></i><b>4.2</b> Confidence intervals<span></span></a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="tests.html"><a href="tests.html#graphical-comparison"><i class="fa fa-check"></i><b>5.6.1</b> Graphical comparison</a></li>
-<li class="chapter" data-level="5.6.2" data-path="tests.html"><a href="tests.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.6.2</b> Analysis Of Variance</a></li>
-<li class="chapter" data-level="5.6.3" data-path="tests.html"><a href="tests.html#post-hoc-analysis-and-anova-assumptions"><i class="fa fa-check"></i><b>5.6.3</b> Post-hoc analysis and ANOVA assumptions</a></li>
-</ul></li>
-<li class="chapter" data-level="5.7" data-path="tests.html"><a href="tests.html#paranonpara"><i class="fa fa-check"></i><b>5.7</b> Parametric and non-parametric test</a>
-<ul>
-<li class="chapter" data-level="5.7.1" data-path="tests.html"><a href="tests.html#asessing-normality"><i class="fa fa-check"></i><b>5.7.1</b> Asessing Normality</a></li>
-<li class="chapter" data-level="5.7.2" data-path="tests.html"><a href="tests.html#two-sample-wilcoxon-test-or-mann-whitney-u-test"><i class="fa fa-check"></i><b>5.7.2</b> Two-sample Wilcoxon test (or Mann-Whitney U test)</a></li>
-<li class="chapter" data-level="5.7.3" data-path="tests.html"><a href="tests.html#which-test-to-use"><i class="fa fa-check"></i><b>5.7.3</b> Which test to use?</a></li>
+<li class="chapter" data-level="4.2.1" data-path="inferencestat.html"><a href="inferencestat.html#within-and-between-sample-variation"><i class="fa fa-check"></i><b>4.2.1</b> Within and between sample variation<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="inferencestat.html"><a href="inferencestat.html#the-clt-and-the-confidence-interval"><i class="fa fa-check"></i><b>4.2.2</b> The CLT and the confidence interval<span></span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="inferencestat.html"><a href="inferencestat.html#interpretation-of-confidence-intervals"><i class="fa fa-check"></i><b>4.2.3</b> Interpretation of confidence intervals<span></span></a></li>
+<li class="chapter" data-level="4.2.4" data-path="inferencestat.html"><a href="inferencestat.html#why-1.96"><i class="fa fa-check"></i><b>4.2.4</b> Why 1.96?<span></span></a></li>
+<li class="chapter" data-level="4.2.5" data-path="inferencestat.html"><a href="inferencestat.html#precision-or-margin-error"><i class="fa fa-check"></i><b>4.2.5</b> Precision or Margin error<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html"><i class="fa fa-check"></i><b>6</b> Introduction to regression modelling</a>
+<li class="chapter" data-level="5" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>5</b> Inference and statistical tests<span></span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression</a>
+<li class="chapter" data-level="5.1" data-path="tests.html"><a href="tests.html#formulate-a-hypothesis"><i class="fa fa-check"></i><b>5.1</b> Formulate a hypothesis<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="tests.html"><a href="tests.html#comparison-of-two-means"><i class="fa fa-check"></i><b>5.2</b> Comparison of two means<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="tests.html"><a href="tests.html#comparison-of-two-proportions"><i class="fa fa-check"></i><b>5.3</b> Comparison of two proportions<span></span></a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#pearsons-coefficient-of-correlation"><i class="fa fa-check"></i><b>6.1.1</b> Pearson’s coefficient of correlation</a></li>
-<li class="chapter" data-level="6.1.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simple-linear-regression-model"><i class="fa fa-check"></i><b>6.1.2</b> Simple linear regression model</a></li>
-<li class="chapter" data-level="6.1.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#posthocreg"><i class="fa fa-check"></i><b>6.1.3</b> Post-hoc assumptions verification</a></li>
+<li class="chapter" data-level="5.3.1" data-path="tests.html"><a href="tests.html#chi-square-test"><i class="fa fa-check"></i><b>5.3.1</b> Chi-square test<span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="tests.html"><a href="tests.html#fishers-exact-test"><i class="fa fa-check"></i><b>5.3.2</b> Fisher’s Exact test<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression-model"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression model</a></li>
-<li class="chapter" data-level="6.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#logistic-regression-model"><i class="fa fa-check"></i><b>6.3</b> Logistic regression model</a></li>
-<li class="chapter" data-level="6.4" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#collinearity"><i class="fa fa-check"></i><b>6.4</b> Collinearity</a></li>
-<li class="chapter" data-level="6.5" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#detecting-multi-collinearity"><i class="fa fa-check"></i><b>6.5</b> Detecting (multi-)collinearity</a>
+<li class="chapter" data-level="5.4" data-path="tests.html"><a href="tests.html#alpha-p"><i class="fa fa-check"></i><b>5.4</b> Risk <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(p-value\)</span><span></span></a></li>
+<li class="chapter" data-level="5.5" data-path="tests.html"><a href="tests.html#risk-alpha-and-risk-beta"><i class="fa fa-check"></i><b>5.5</b> Risk <span class="math inline">\(\alpha\)</span> and risk <span class="math inline">\(\beta\)</span><span></span></a></li>
+<li class="chapter" data-level="5.6" data-path="tests.html"><a href="tests.html#multi-comp"><i class="fa fa-check"></i><b>5.6</b> Comparison of multiple groups<span></span></a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#coefficient-of-correlation-and-visual-assessment"><i class="fa fa-check"></i><b>6.5.1</b> Coefficient of correlation and visual assessment</a></li>
-<li class="chapter" data-level="6.5.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#variance-inflation-factor"><i class="fa fa-check"></i><b>6.5.2</b> Variance Inflation Factor</a></li>
-<li class="chapter" data-level="6.5.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#remedial-measures"><i class="fa fa-check"></i><b>6.5.3</b> Remedial measures</a></li>
+<li class="chapter" data-level="5.6.1" data-path="tests.html"><a href="tests.html#graphical-comparison"><i class="fa fa-check"></i><b>5.6.1</b> Graphical comparison<span></span></a></li>
+<li class="chapter" data-level="5.6.2" data-path="tests.html"><a href="tests.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.6.2</b> Analysis Of Variance<span></span></a></li>
+<li class="chapter" data-level="5.6.3" data-path="tests.html"><a href="tests.html#post-hoc-analysis-and-anova-assumptions"><i class="fa fa-check"></i><b>5.6.3</b> Post-hoc analysis and ANOVA assumptions<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6</b> Explanatory variable selection</a>
+<li class="chapter" data-level="5.7" data-path="tests.html"><a href="tests.html#paranonpara"><i class="fa fa-check"></i><b>5.7</b> Parametric and non-parametric test<span></span></a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#iterative-procedures-for-explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6.1</b> Iterative procedures for explanatory variable selection</a></li>
-<li class="chapter" data-level="6.6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#goodness-of-fit-analysis"><i class="fa fa-check"></i><b>6.6.2</b> Goodness of fit analysis</a></li>
+<li class="chapter" data-level="5.7.1" data-path="tests.html"><a href="tests.html#asessing-normality"><i class="fa fa-check"></i><b>5.7.1</b> Asessing Normality<span></span></a></li>
+<li class="chapter" data-level="5.7.2" data-path="tests.html"><a href="tests.html#two-sample-wilcoxon-test-or-mann-whitney-u-test"><i class="fa fa-check"></i><b>5.7.2</b> Two-sample Wilcoxon test (or Mann-Whitney U test)<span></span></a></li>
+<li class="chapter" data-level="5.7.3" data-path="tests.html"><a href="tests.html#which-test-to-use"><i class="fa fa-check"></i><b>5.7.3</b> Which test to use?<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html"><i class="fa fa-check"></i><b>6</b> Introduction to regression modelling<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#pearsons-coefficient-of-correlation"><i class="fa fa-check"></i><b>6.1.1</b> Pearson’s coefficient of correlation<span></span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simple-linear-regression-model"><i class="fa fa-check"></i><b>6.1.2</b> Simple linear regression model<span></span></a></li>
+<li class="chapter" data-level="6.1.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#posthocreg"><i class="fa fa-check"></i><b>6.1.3</b> Post-hoc assumptions verification<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression-model"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression model<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#logistic-regression-model"><i class="fa fa-check"></i><b>6.3</b> Logistic regression model<span></span></a></li>
+<li class="chapter" data-level="6.4" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#collinearity"><i class="fa fa-check"></i><b>6.4</b> Collinearity<span></span></a></li>
+<li class="chapter" data-level="6.5" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#detecting-multi-collinearity"><i class="fa fa-check"></i><b>6.5</b> Detecting (multi-)collinearity<span></span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#coefficient-of-correlation-and-visual-assessment"><i class="fa fa-check"></i><b>6.5.1</b> Coefficient of correlation and visual assessment<span></span></a></li>
+<li class="chapter" data-level="6.5.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#variance-inflation-factor"><i class="fa fa-check"></i><b>6.5.2</b> Variance Inflation Factor<span></span></a></li>
+<li class="chapter" data-level="6.5.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#remedial-measures"><i class="fa fa-check"></i><b>6.5.3</b> Remedial measures<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6</b> Explanatory variable selection<span></span></a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#iterative-procedures-for-explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6.1</b> Iterative procedures for explanatory variable selection<span></span></a></li>
+<li class="chapter" data-level="6.6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#goodness-of-fit-analysis"><i class="fa fa-check"></i><b>6.6.2</b> Goodness of fit analysis<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary<span></span></a></li>
+<li><a href="references.html#references">References<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -286,8 +265,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tests" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Inference and statistical tests</h1>
+<div id="tests" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Inference and statistical tests<a href="tests.html#tests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="objective">
 <ul>
 <li>Understand statistical test reasoning</li>
@@ -305,84 +284,46 @@ probabilistic basis, based on observed data.</p>
 <li>Calculate the appropriate statistic measure</li>
 <li>Interpret the result</li>
 </ol>
-<div id="formulate-a-hypothesis" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Formulate a hypothesis</h2>
+<div id="formulate-a-hypothesis" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Formulate a hypothesis<a href="tests.html#formulate-a-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In <strong>hypothesis formulation</strong> you always have two possibilities: <strong>it is not different OR it is different</strong>.</p>
 <p>In the HBSC data, we are interested in the characteristics of the smoking students compare to the non-smoking. Do they differ by some characteristics?</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-2" class="example"><strong>Example 5.1  </strong></span><strong>Example 1:</strong> we would like to test whether there is, on average, a difference in height between smokers and non-smokers.</p>
+<p><span id="exm:unlabeled-div-1" class="example"><strong>Example 5.1  </strong></span><strong>Example 1:</strong> we would like to test whether there is, on average, a difference in height between smokers and non-smokers.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-3" class="example"><strong>Example 5.2  </strong></span><strong>Example 2:</strong> we would like to test if the proportion of smokers varies according to gender.</p>
+<p><span id="exm:unlabeled-div-2" class="example"><strong>Example 5.2  </strong></span><strong>Example 2:</strong> we would like to test if the proportion of smokers varies according to gender.</p>
 </div>
 <p>First, we describe the distribution of the variable between the groups.</p>
 <p>In example 1, the height is a quantitative continuous variable which can be summarized by the mean (Table <a href="tests.html#tab:smokeheight">5.1</a>). In our sample, the students who do not smoke measure on average 157 cm while the students who smoke measure in average 166 cm. The question is “At the population level, is that different knowing that you do have individual variation (SD) and sample variations (SE)?”</p>
 <table>
-<caption>
-<span id="tab:smokeheight">Table 5.1: </span>Description of the Height (cm) variable by smoking group (0=non-smoking, 1=smoking) in the French HBSC database in 2006.
-</caption>
+<caption><span id="tab:smokeheight">Table 5.1: </span>Description of the Height (cm) variable by smoking group (0=non-smoking, 1=smoking) in the French HBSC database in 2006.</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-SmokingStatus
-</th>
-<th style="text-align:right;">
-Mean
-</th>
-<th style="text-align:right;">
-SD
-</th>
-<th style="text-align:right;">
-Median
-</th>
-<th style="text-align:right;">
-Q1
-</th>
-<th style="text-align:right;">
-Q3
-</th>
+<tr class="header">
+<th align="right">SmokingStatus</th>
+<th align="right">Mean</th>
+<th align="right">SD</th>
+<th align="right">Median</th>
+<th align="right">Q1</th>
+<th align="right">Q3</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-157.89
-</td>
-<td style="text-align:right;">
-12.00
-</td>
-<td style="text-align:right;">
-159
-</td>
-<td style="text-align:right;">
-149
-</td>
-<td style="text-align:right;">
-166.25
-</td>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">157.89</td>
+<td align="right">12.00</td>
+<td align="right">159</td>
+<td align="right">149</td>
+<td align="right">166.25</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-166.26
-</td>
-<td style="text-align:right;">
-11.39
-</td>
-<td style="text-align:right;">
-168
-</td>
-<td style="text-align:right;">
-159
-</td>
-<td style="text-align:right;">
-173.00
-</td>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">166.26</td>
+<td align="right">11.39</td>
+<td align="right">168</td>
+<td align="right">159</td>
+<td align="right">173.00</td>
 </tr>
 </tbody>
 </table>
@@ -447,19 +388,19 @@ Figure 5.1: Population versus Sample
 </div>
 <p>When you state the hypothesis you should explicit H0 an H1.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 5.1  </strong></span><strong>H0</strong> : The null hypothesis is that the parameters are EQUAL, i.e they are not different.</p>
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 5.1  </strong></span><strong>H0</strong> : The null hypothesis is that the parameters are EQUAL, i.e they are not different.</p>
 <p><strong>H1</strong>: The alternative hypothesis is that the parameters are NOT EQUAL, i.e they are different.</p>
 </div>
 <p>I like to write down the hypothesis with the <span class="math inline">\(=\)</span> sign and <span class="math inline">\(\neq\)</span> as I find easier to pick the test and interpret the results afterward.</p>
 <p>Remember the <strong>W’s</strong> they should appear in the hypothesis if you have the information.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-5" class="example"><strong>Example 5.3  </strong></span><strong>Example 1:</strong></p>
+<p><span id="exm:unlabeled-div-4" class="example"><strong>Example 5.3  </strong></span><strong>Example 1:</strong></p>
 <p>we would like to test whether there is, on average, a difference in height between smokers and non-smokers.</p>
 <p>H0: In France in 2006, the mean height of the students 11-16 who smoke was equal to the mean height of the students 11-16 who do not smoke.</p>
 <p>H1: In France in 2006, the mean height of the students 11-16 who smoke was NOT equal to the mean height of the students 11-16 who do not smoke.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 5.4  </strong></span><strong>Example 2:</strong></p>
+<p><span id="exm:unlabeled-div-5" class="example"><strong>Example 5.4  </strong></span><strong>Example 2:</strong></p>
 <p>we would like to test if the proportion of smokers varies according to the groups of ages.</p>
 <p>H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.</p>
 <p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.</p>
@@ -476,8 +417,8 @@ Figure 5.2: Statistical test interpretation
 </p>
 </div>
 </div>
-<div id="comparison-of-two-means" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Comparison of two means</h2>
+<div id="comparison-of-two-means" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Comparison of two means<a href="tests.html#comparison-of-two-means" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once the hypothesis are stated, we choose a test. In the context if the comparison of means, the test will assess whether the observed difference (<span class="math inline">\(\Delta\)</span>) between the two groups is random (due to individuals’ and sampling variations) or not (Figure <a href="tests.html#fig:meandelta">5.3</a>).</p>
 <p>In theory, if H0 is true <span class="math inline">\(\Delta = m_1 - m_2 = 0\)</span></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:meandelta"></span>
@@ -496,18 +437,18 @@ that does not exist in reality, the <span class="math inline">\(\alpha\)</span> 
 <p>In example 1, the statistical value for a risk <span class="math inline">\(\alpha=0.05\)</span> is -5.4582. What is you conclusion?</p>
 </div>
 </div>
-<div id="comparison-of-two-proportions" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Comparison of two proportions</h2>
+<div id="comparison-of-two-proportions" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Comparison of two proportions<a href="tests.html#comparison-of-two-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the context of proportion comparison like in example 2, the objective is to assess whether the proportion of cases among the exposed group is equal to the proportion of cases among the non-exposed group.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 5.5  </strong></span><strong>Example 2:</strong></p>
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 5.5  </strong></span><strong>Example 2:</strong></p>
 <p>we would like to test if the proportion of smokers varies according to the groups of ages.</p>
 <p>H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.</p>
 <p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.</p>
 </div>
 <p>To this aim, as for the comparison of means, we will compute the standardized differences (distances) between groups.</p>
-<div id="chi-square-test" class="section level3" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Chi-square test</h3>
+<div id="chi-square-test" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Chi-square test<a href="tests.html#chi-square-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Chi-square is often the test used as rather intuitive and non computer greedy.</p>
 <p>First, we compute a two-way table with your <code>observed counts</code>:</p>
 <table>
@@ -814,7 +755,7 @@ Total
 <p><span class="math inline">\(\chi^2_{Obs}= \sum(\dfrac{(Obs-Exp)^2}{Exp}\)</span></p>
 </div>
 <p>Using the R statistical software, we have</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tests.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(hbsc<span class="sc">$</span>Gender, hbsc<span class="sc">$</span>SmokingStatus)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tests.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(hbsc<span class="sc">$</span>Gender, hbsc<span class="sc">$</span>SmokingStatus)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
@@ -853,8 +794,8 @@ Figure 5.5: Chi2 distribution depends on the degree of fredom K
 <p>To correctly use the <span class="math inline">\(\chi^2\)</span> test and have accurate estimation of the associated probabilities, we need to have at least <strong>n=5</strong> count in each cell of the <strong>table of expected</strong> numbers.</p>
 </div>
 </div>
-<div id="fishers-exact-test" class="section level3" number="5.3.2">
-<h3><span class="header-section-number">5.3.2</span> Fisher’s Exact test</h3>
+<div id="fishers-exact-test" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Fisher’s Exact test<a href="tests.html#fishers-exact-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To compare proportions the Fisher’s Exact test is even better than <span class="math inline">\(\chi^2\)</span> as it computes the exact probability of obtaining a difference even greater if H0 is true. However the formula is more complex and difficult to compute by hand . A computer is highly recommended (Table <a href="tests.html#tab:FisherTab">5.7</a>).</p>
 <table>
 <caption>
@@ -933,7 +874,7 @@ N
 <p><span class="math inline">\(p = \dfrac{n_1!n_2!t_1!t_2!}{a!b!c!d!}\)</span></p>
 </div>
 <p>Using the R statistical software, we have</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tests.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(hbsc<span class="sc">$</span>Gender, hbsc<span class="sc">$</span>SmokingStatus)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tests.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(hbsc<span class="sc">$</span>Gender, hbsc<span class="sc">$</span>SmokingStatus)</span></code></pre></div>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data
 ## 
@@ -962,8 +903,8 @@ N
 </ol>
 </div>
 </div>
-<div id="alpha-p" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Risk <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(p-value\)</span></h2>
+<div id="alpha-p" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Risk <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(p-value\)</span><a href="tests.html#alpha-p" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The demonstrations above and the use of <span class="math inline">\(Z_\alpha\)</span> or <span class="math inline">\(\chi^2_\alpha\)</span> values are valid for comparison of means or proportions under some assumptions and conditions (<span class="math inline">\(Z_\alpha\)</span> with sample size above 30 in each group; <span class="math inline">\(\chi^2_\alpha\)</span> function <em>df</em>…). What is happening for other tests?</p>
 <p>The philosophy is exactly the same but the critical value might come from other statistical laws than the Normal law (Chi-square, Binomial, Poisson…). It might be difficult to retrieve the critical value need to compare to your computed statistical value. There are more statistical tables that there are statistical tests.</p>
 <p>The common practice is then to compare the risk <span class="math inline">\(\alpha\)</span>, defined <em>a priori</em>, to the <span class="math inline">\(p-value\)</span> returned by the test <em>a posteriori</em>.We want to know the ultimate risk that is taken. Meaning, the risk corresponding to the value found by the test.</p>
@@ -979,7 +920,7 @@ N
 </div>
 <p>The <span class="math inline">\(p-value\)</span> is not synonymous of the importance of the possible difference between groups. In other words, a very small p-value means that the risk of making a mistake is very low. It does not mean that there is a huge difference between groups.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 5.6  </strong></span><strong>Example 3:</strong> Using 2 studies we are assessing 2 new methods (A and B) for the prevention of surgical site infections (SSI) compared to a conventional method (0).</p>
+<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 5.6  </strong></span><strong>Example 3:</strong> Using 2 studies we are assessing 2 new methods (A and B) for the prevention of surgical site infections (SSI) compared to a conventional method (0).</p>
 <ul>
 <li>In study A: method A shows 12% of SSI and the conventional method 24% of SSI. The test between A and 0 returns a <span class="math inline">\(p-value \leq 0.05\)</span>.</li>
 <li>In study B: method B shows 12% of SSI and the conventional method 24% of SSI. The test between B and 0 returns a <span class="math inline">\(p-value \leq 0.001\)</span></li>
@@ -1001,8 +942,8 @@ N
 <p><img src="fig/pval_nocomparison.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>In the cholestrol studies presented above, the <em>p-values</em> are different, one is smaller than the other (even significant). Although the observed differences in mean are identical. The difference is the same in study 1 and 2 (<span class="math inline">\(\delta=4\)</span>). The differences between the two studies are on the standard deviations of the samples and the sample sizes which affect the t-statistics.</p>
 </div>
-<div id="risk-alpha-and-risk-beta" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Risk <span class="math inline">\(\alpha\)</span> and risk <span class="math inline">\(\beta\)</span></h2>
+<div id="risk-alpha-and-risk-beta" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Risk <span class="math inline">\(\alpha\)</span> and risk <span class="math inline">\(\beta\)</span><a href="tests.html#risk-alpha-and-risk-beta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Why do we not accept H0?</strong></p>
 <p>As mentioned earlier there is always a risk of being wrong (Figure <a href="tests.html#fig:riskdecision">5.6</a>) but that risk cannot be computed. It is <span class="math inline">\(\beta\)</span>.</p>
 <p>In row the unknown truth, in column the conclusion of the test.</p>
@@ -1032,7 +973,7 @@ Figure 5.8: Not seeing a difference when it does exist.
 <p><strong>What do you prefer <span class="math inline">\(\alpha\)</span> or <span class="math inline">\(\beta\)</span> ?</strong></p>
 <p>It is a difficult question.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 5.7  </strong></span><strong>Example 4:</strong> Hepatitis B vaccination and multiple sclerosis. Many study protocols have been conduct to assess an possible association between vaccination against Hepatitis B and the development of multiple sclerosis. The null hypothesis was that prevalence of multiple sclerosis was the same among people vaccinated against Hepatitis B and people not vaccinated against Hepatitis B.</p>
+<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 5.7  </strong></span><strong>Example 4:</strong> Hepatitis B vaccination and multiple sclerosis. Many study protocols have been conduct to assess an possible association between vaccination against Hepatitis B and the development of multiple sclerosis. The null hypothesis was that prevalence of multiple sclerosis was the same among people vaccinated against Hepatitis B and people not vaccinated against Hepatitis B.</p>
 <p>In that context, what would you favour <span class="math inline">\(\alpha\)</span> or <span class="math inline">\(\beta\)</span>?</p>
 </div>
 <ul>
@@ -1049,10 +990,10 @@ Figure 5.8: Not seeing a difference when it does exist.
 <p>Comment on your conclusions.</p>
 </div>
 </div>
-<div id="multi-comp" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Comparison of multiple groups</h2>
+<div id="multi-comp" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Comparison of multiple groups<a href="tests.html#multi-comp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="example">
-<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 5.8  </strong></span><strong>Example 5:</strong> We are interested in the effect of 2 treatments to gain weight. The protocol include treatment A, treatment B, and a placebo group. We would like to compare the weights between the 3 groups.</p>
+<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 5.8  </strong></span><strong>Example 5:</strong> We are interested in the effect of 2 treatments to gain weight. The protocol include treatment A, treatment B, and a placebo group. We would like to compare the weights between the 3 groups.</p>
 <p>How do we compare the means? Can we do 2 by 2 comparisons?</p>
 </div>
 <p>Table 1: Effects of 2 treatments to gain weight</p>
@@ -1088,31 +1029,31 @@ Figure 5.8: Not seeing a difference when it does exist.
 </table>
 <p>To the above question the answer is “No” : it increases the likelihood of incorrectly concluding that there are statistically significant differences, since each comparison adds to the probability of a type I error, <span class="math inline">\(\alpha\)</span>.</p>
 <p>At the end, if <span class="math inline">\(k\)</span> is the number of comparisons, the error rate becomes <span class="math inline">\(1-(0.95)^k\)</span></p>
-<div id="graphical-comparison" class="section level3" number="5.6.1">
-<h3><span class="header-section-number">5.6.1</span> Graphical comparison</h3>
+<div id="graphical-comparison" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Graphical comparison<a href="tests.html#graphical-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A boxplot and whisker plot (section <a href="statdesc.html#plot">3.4</a>) is an ideal graphical representation to compare data series of the same variable between different groups.</p>
-<p>Figure <a href="tests.html#fig:boxplotanova">5.9</a> shows that the distributions seems to differ. The median (black line with the box) are located at differ weight.</p>
-<div class="figure"><span style="display:block;" id="fig:boxplotanova"></span>
-<img src="_main_files/figure-html/boxplotanova-1.png" alt="Boxplot and whisker plot of the effect of different treatments on gain weight" width="400px" height="400px" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:boxplotanova"></span>
+<img src="_main_files/figure-html/boxplotanova-1.png" alt="Boxplot and whisker plot of the effect of different treatments on gain weight" width="60%" />
 <p class="caption">
 Figure 5.9: Boxplot and whisker plot of the effect of different treatments on gain weight
 </p>
 </div>
+<p>Figure <a href="tests.html#fig:boxplotanova">5.9</a> shows that the distributions seems to differ. The median (black line with the box) are located at differ weight.</p>
 <div class="practice">
 <p>What are the IQR of the 3 groups?</p>
 </div>
 <p>In Figure <a href="tests.html#fig:boxplotanova">5.9</a> the medians are not in the middle of the box. This suggest that the distributions might be skewed.</p>
 <p>Figure <a href="tests.html#fig:densityanova">5.10</a> presents density plots, similar to histograms, and reveals the same thing.</p>
-<div class="figure"><span style="display:block;" id="fig:densityanova"></span>
-<img src="_main_files/figure-html/densityanova-1.png" alt="Density plots of the effect of different treatments on gain weight" width="400px" height="400px" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:densityanova"></span>
+<img src="_main_files/figure-html/densityanova-1.png" alt="Density plots of the effect of different treatments on gain weight" width="60%" />
 <p class="caption">
 Figure 5.10: Density plots of the effect of different treatments on gain weight
 </p>
 </div>
 <p>The next step is thus to statistically test the hypothesis of equality of means.</p>
 </div>
-<div id="analysis-of-variance" class="section level3" number="5.6.2">
-<h3><span class="header-section-number">5.6.2</span> Analysis Of Variance</h3>
+<div id="analysis-of-variance" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Analysis Of Variance<a href="tests.html#analysis-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Analysis Of Variance or ANOVA allows comparing multiple groups</p>
 <div class="define">
 <p>The Analysis Of Variance or ANOVA systematically compare variability <em>within</em> and <em>between</em> groups. When the variations observed between groups is greater than the within group variation, at least one group is differ from the other.</p>
@@ -1164,8 +1105,8 @@ k = number of treatments or independent groups<br />
 n = number of observations in treatment <em>i</em>
 N = total number of observations or total sample size</p>
 <p>In practice with R</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tests.html#cb8-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">aov</span>(Weight <span class="sc">~</span> Treatment, <span class="at">data=</span>treatFrame)</span>
-<span id="cb8-2"><a href="tests.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tests.html#cb5-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">aov</span>(Weight <span class="sc">~</span> Treatment, <span class="at">data=</span>treatFrame)</span>
+<span id="cb5-2"><a href="tests.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res)</span></code></pre></div>
 <pre><code>##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## Treatment     2  270.5  135.26   16.48 2.62e-07 ***
 ## Residuals   183 1501.7    8.21                     
@@ -1176,8 +1117,8 @@ N = total number of observations or total sample size</p>
 <p>The <span class="math inline">\(p-value = 2.62e^{-07}\)</span>. What is your conclusion?</p>
 </div>
 </div>
-<div id="post-hoc-analysis-and-anova-assumptions" class="section level3" number="5.6.3">
-<h3><span class="header-section-number">5.6.3</span> Post-hoc analysis and ANOVA assumptions</h3>
+<div id="post-hoc-analysis-and-anova-assumptions" class="section level3 hasAnchor" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> Post-hoc analysis and ANOVA assumptions<a href="tests.html#post-hoc-analysis-and-anova-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The ANOVA results might help you conclude that a least one group varies differently that the others. However you will not know which group. To that aim you, need to perform a post-hoc analysis using the
 TukeyHSD’s test.</p>
 <p>In practice with R</p>
@@ -1203,8 +1144,8 @@ TukeyHSD’s test.</p>
 <p>However, the F-test is fairly resistant or robust to violations of assumptions 1 and 2.</p>
 </div>
 </div>
-<div id="paranonpara" class="section level2" number="5.7">
-<h2><span class="header-section-number">5.7</span> Parametric and non-parametric test</h2>
+<div id="paranonpara" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Parametric and non-parametric test<a href="tests.html#paranonpara" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Parametric tests are those that make assumptions about the parameters of the population distribution from which the sample is drawn. This is often the assumption that the population data are normally distributed. Non-parametric tests are “distribution-free” and, as such, can be used for non-Normal variables. Non-parametric tests are often based on the ranking of the values in the data serie.</p>
 <p>For the non-parametric the hypothesis are:</p>
 <p>H0: The two samples are from the same distribution</p>
@@ -1212,8 +1153,8 @@ TukeyHSD’s test.</p>
 <p>While for the parametric interested in comparing means the hypothesis are:</p>
 <p>H0: The two samples have the same mean</p>
 <p>H1: The two samples do not have the same mean</p>
-<div id="asessing-normality" class="section level3" number="5.7.1">
-<h3><span class="header-section-number">5.7.1</span> Asessing Normality</h3>
+<div id="asessing-normality" class="section level3 hasAnchor" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Asessing Normality<a href="tests.html#asessing-normality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Graphically</li>
 </ol>
@@ -1233,17 +1174,17 @@ TukeyHSD’s test.</p>
 <p>H0: The sample distribution is equal to the Normal distribution</p>
 <p>H1: The sample distribution is different from the Normal distribution</p>
 <p>As an example, we randomly generate values drawn from a Normal distribution and test the Normality.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="tests.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating numbers following a Normal distribution</span></span>
-<span id="cb11-2"><a href="tests.html#cb11-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb11-3"><a href="tests.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Shapiro-Wilk&#39;s test</span></span>
-<span id="cb11-4"><a href="tests.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tests.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating numbers following a Normal distribution</span></span>
+<span id="cb8-2"><a href="tests.html#cb8-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb8-3"><a href="tests.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Shapiro-Wilk&#39;s test</span></span>
+<span id="cb8-4"><a href="tests.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  data
 ## W = 0.99103, p-value = 0.7475</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tests.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test</span></span>
-<span id="cb13-2"><a href="tests.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;pnorm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tests.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test</span></span>
+<span id="cb10-2"><a href="tests.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;pnorm&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One-sample Kolmogorov-Smirnov test
 ## 
@@ -1252,18 +1193,18 @@ TukeyHSD’s test.</p>
 ## alternative hypothesis: two-sided</code></pre>
 <p>What is your conclusion?</p>
 <p>Note that the advantage of the Kolgomorov-Smirnov’s test is that it can help assessing other type of distributions than the Normal distribution.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tests.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating numbers following an Uniform distribution</span></span>
-<span id="cb15-2"><a href="tests.html#cb15-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span>
-<span id="cb15-3"><a href="tests.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test for Normality </span></span>
-<span id="cb15-4"><a href="tests.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;pnorm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tests.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating numbers following an Uniform distribution</span></span>
+<span id="cb12-2"><a href="tests.html#cb12-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span>
+<span id="cb12-3"><a href="tests.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test for Normality </span></span>
+<span id="cb12-4"><a href="tests.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;pnorm&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One-sample Kolmogorov-Smirnov test
 ## 
 ## data:  data
 ## D = 0.50342, p-value &lt; 2.2e-16
 ## alternative hypothesis: two-sided</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tests.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test for Uniform distribution </span></span>
-<span id="cb17-2"><a href="tests.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;punif&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tests.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test for Uniform distribution </span></span>
+<span id="cb14-2"><a href="tests.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;punif&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One-sample Kolmogorov-Smirnov test
 ## 
@@ -1272,8 +1213,8 @@ TukeyHSD’s test.</p>
 ## alternative hypothesis: two-sided</code></pre>
 <p>What are your conclusions?</p>
 </div>
-<div id="two-sample-wilcoxon-test-or-mann-whitney-u-test" class="section level3" number="5.7.2">
-<h3><span class="header-section-number">5.7.2</span> Two-sample Wilcoxon test (or Mann-Whitney U test)</h3>
+<div id="two-sample-wilcoxon-test-or-mann-whitney-u-test" class="section level3 hasAnchor" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> Two-sample Wilcoxon test (or Mann-Whitney U test)<a href="tests.html#two-sample-wilcoxon-test-or-mann-whitney-u-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Given two samples X et Y</li>
 <li>Sort in increasing order the data from X and Y</li>
@@ -1286,7 +1227,7 @@ TukeyHSD’s test.</p>
 <p>If n1 and n2 &lt; 20, Mann-Whitney’s table</p>
 <p>IF n1 and n2 &gt; 20, Normal law table</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-11" class="example"><strong>Example 5.9  </strong></span><strong>Example:</strong></p>
+<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 5.9  </strong></span><strong>Example:</strong></p>
 <p>Among diabetes patients, is there a difference in age at diagnosis between men and women?</p>
 <ul>
 <li>Women: 20 11 17 12</li>
@@ -1299,8 +1240,8 @@ TukeyHSD’s test.</p>
 <p>What is you conlusion?</p>
 </div>
 </div>
-<div id="which-test-to-use" class="section level3" number="5.7.3">
-<h3><span class="header-section-number">5.7.3</span> Which test to use?</h3>
+<div id="which-test-to-use" class="section level3 hasAnchor" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Which test to use?<a href="tests.html#which-test-to-use" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Non-parametric tests are valid for both non-Normally distributed data and Normally distributed data, so why not use them all the time?</strong></p>
 <p>When it is possible to perform both a parametric and a non-parametric test (because we have quantitative measurements) reducing the data to ranks and using the Wilcoxon/Mann-Whitney test will have about 95% of the power of a corresponding two-sample t-test. And, as we have seen,
 often outliers are interesting in their own right. An analysis that simply ignores them
