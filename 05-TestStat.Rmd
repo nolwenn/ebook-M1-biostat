@@ -43,6 +43,8 @@ In example 1, the height is a quantitative continuous variable which can be summ
 
 
 ```{r smokeheight, echo=F, message=FALSE}
+library(dplyr)
+hbsc<- read.csv("HBSC.csv", header=T, sep=",")
 smokeheight<- hbsc %>% group_by(SmokingStatus) %>% summarise("Mean"= round(mean(Height, na.rm=TRUE),2),
                                                "SD"= round(sd(Height, na.rm = TRUE),2),
                                                "Median"= median(Height, na.rm=TRUE),
@@ -61,6 +63,7 @@ In example 2, the gender is a qualitative variable which can be summarized into 
 
 ```{r smokegender, echo=F, message=FALSE}
 library(tidyr)
+library(kableExtra)
 smokegender<- hbsc  %>% 
   group_by(Gender, SmokingStatus) %>%
   filter(Gender!="" & SmokingStatus!="NA") %>% 
@@ -528,13 +531,14 @@ colnames(treatFrame) =c("Weight","Treatment")
 treatFrame$Treatment = as.factor(treatFrame$Treatment)
 ```
 
-Figure \@ref(fig:boxplotanova) shows that the distributions seems to differ. The median (black line with the box) are located at differ weight.
-
-```{r boxplotanova, fig.cap='Boxplot and whisker plot of the effect of different treatments on gain weight', eval = T, echo=F, out.height="400px", out.width="400px"}
+```{r boxplotanova, fig.cap='Boxplot and whisker plot of the effect of different treatments on gain weight', eval = T,  out.width='60%', fig.asp=.75, fig.align="center", echo=F}
 ## Data analysis with ANOVA
+library(ggplot2)
 ggplot(treatFrame, aes(y=Weight, x=Treatment)) + 
   geom_boxplot() 
 ```
+
+Figure \@ref(fig:boxplotanova) shows that the distributions seems to differ. The median (black line with the box) are located at differ weight.
 
 ::: {.practice} 
 What are the IQR of the 3 groups?
@@ -545,7 +549,7 @@ In Figure \@ref(fig:boxplotanova) the medians are not in the middle of the box. 
 
 Figure \@ref(fig:densityanova) presents density plots, similar to histograms, and reveals the same thing. 
 
-```{r densityanova, fig.cap='Density plots of the effect of different treatments on gain weight', eval = T, echo=F, out.height="400px", out.width="400px"}
+```{r densityanova, fig.cap='Density plots of the effect of different treatments on gain weight', eval = T, echo=F, out.width='60%', fig.asp=.75, fig.align="center"}
 ## Data analysis with ANOVA
 ggplot(treatFrame, aes(x=Weight, fill=Treatment)) + 
   geom_density(alpha=0.5) 

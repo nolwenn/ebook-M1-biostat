@@ -231,6 +231,10 @@ knitr::include_graphics('fig/confin95.png')
 
 In Figure \@ref(fig:confin95), 19 out of 20 samples (95%) from the same population will produce confidence intervals that contain the TRUE population parameter. There is a 95% probability that the calculated confidence interval encompasses the true value of the population parameter
 
+```{r, echo=F, quiet=T, warning=FALSE,message=FALSE}
+hbsc<- read.csv("HBSC.csv", header=T, sep=",")
+```
+
 For example, in the HBSC sample and the age group [11-13[ years old, the mean weight is `r round(mean(hbsc$Weight[hbsc$Age.group=="[11-13["], na.rm=T),2)`Kg. But what is the true mean in the population?
 
 ```{r ci95, echo=F, quiet=T, warning=FALSE,message=FALSE}

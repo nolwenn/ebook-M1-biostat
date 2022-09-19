@@ -75,8 +75,8 @@ pre code {
     background-image: url("fig/target.png");
 }
 .objective > :first-child:before {
-  font-weight: bold;
-  content: "Learning objective: ";
+   font-weight: bold;
+   content: "Learning objective: ";
 }
 .center {
   text-align: center;

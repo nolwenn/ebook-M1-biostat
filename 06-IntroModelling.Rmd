@@ -15,8 +15,9 @@ A regression attempt to explain the variations observed for a variable by other 
 
 In the plot below, we try to explain the observed distances to stop for cars by the speed of the cars. Here between the two variables, we see a rather linear diagonal trend. We may be able to fit a **simple linear regression** model.
 
-```{r, out.width='60%', fig.asp=.75, fig.align="center", echo=FALSE}
+```{r speed dist, fig.align="center", echo=FALSE}
 data(cars)
+library(ggplot2)
 ggplot(cars, aes(speed, dist)) + geom_point() + ggtitle("Distance to stop (ft) and speed of cars (mph) in the 1920s") + xlab("Speed of the cars (mph)") + ylab("Distance to stop (ft)")
 ```
 
@@ -58,7 +59,7 @@ The coefficient of correlation *r* is :
 In the graphics below, what would be the estimated value of the Pearson's coefficient of correlation? 
 :::
 
-```{r, out.width='70%', fig.asp=.75, fig.align="center", echo=FALSE}
+```{r correlation plot, fig.align="center", echo=FALSE}
 knitr::include_graphics('fig/coef_correlation.png')
 ```
 
@@ -67,7 +68,7 @@ knitr::include_graphics('fig/coef_correlation.png')
 Absence of linear association (r=0) does not mean absence of relation.
 :::
 
-```{r, out.width='40%', fig.asp=.75, fig.align="center", echo=FALSE}
+```{r correlation plot2, fig.align="center", echo=FALSE}
 knitr::include_graphics('fig/coef_correlation2.png')
 ```
 
@@ -89,7 +90,7 @@ Y = \beta_1X + \beta_0 + \epsilon  (\#eq:lm)
 
 Which line fits best ?
 
-```{r, out.width='60%', fig.asp=.75, fig.align="center", echo=FALSE}
+```{r speed2, fig.align="center", echo=FALSE}
 ggplot(cars, aes(dist, speed)) + geom_point() + ggtitle("Distance to stop (ft) and speed of cars (mph)") +
   geom_segment(aes(x = 0, y = 5, xend = 90, yend =25, colour = "red")) +
   geom_segment(aes(x = 25, y = 5, xend = 50, yend =25, colour = "red")) +
@@ -99,7 +100,7 @@ ggplot(cars, aes(dist, speed)) + geom_point() + ggtitle("Distance to stop (ft) a
 
 Of all possible lines, the **regression line is the one that is the closest on average to all the points.**
 
-```{r, out.width='70%', fig.asp=.75, fig.align="center", echo=FALSE}
+```{r, fig.align="center", echo=FALSE}
 knitr::include_graphics('fig/regression_residuals.png')
 ```
 
@@ -143,7 +144,7 @@ How to verify if a simple linear regression model was appropriate?
 
 The method is descriptive and based on the distribution of the residuals that allows assessing:
 
-- Linear and additivity of predictive relationships
+- Linear and additive of predictive relationships
 - Homoscedasticity (constant variance) of residuals (errors)
 - Normality of the residuals distribution
 - Independence (lack of correlation) residuals (in particular, no correlation between consecutive errors in the case of time series data)
@@ -164,7 +165,7 @@ From top to bottom and left to right the plots assess :
 (1) Linearity and additivity of predictive relationships. A good fitting should show a red horizontal line, the variance of the residuals is randomly spread above and below the horizontal line.
 (2) Homoscedasticity (*i.e.* constant variance) of residuals (errors). A good fitting should show a red horizontal line, the variance of the residuals is constant and do not depend on the fitted values.
 (3) Normality of the residuals distribution. A good fitting should show a alignment of the dots on the diagonal of the Q-Q plot.
-(4) Influential observations with Cook's distance: if dots appear outside the Cook's distance limits (red dashses) they are influential observations or even outliers (extreme). Their value need to be verified as they might negatively influence the fitting.
+(4) Influential observations with Cook's distance: if dots appear outside the Cook's distance limits (red dashes) they are influential observations or even outliers (extreme). Their value need to be verified as they might negatively influence the fitting.
 
 ::: {.practice}
 What do you think of the model above?
@@ -172,7 +173,7 @@ What do you think of the model above?
 
 Below is an example of post-hoc assumptions verification of a linear model that shows problems. Here the model need to be refined or done differently. 
 
-```{r, out.width='80%', fig.asp=.75, fig.align="center", echo=FALSE}
+```{r, fig.align="center", echo=FALSE}
 knitr::include_graphics('fig/badmodel.png')
 ```
 
@@ -193,12 +194,13 @@ LungCapData =read.csv("LungCapData.txt", sep="\t", header=T)
 The table below presents the lung capacity dataset shared by Mike Marin and  Ladan Hamadani and available at  http://www.statslectures.com/ 
 [@STATOnline]. The first column is the lung capacity outcome variable and the other columns are some possible determinants. 
 ```{r, echo=FALSE}
+library(kableExtra)
 kable(head(LungCapData))
 ```
 
 First, we have a look at the two first covariates along with the outcome variable using a pair plot to visually assess any linear relationship.
 
-```{r, out.height="350px", out.width="450px", message=F,warning=FALSE}
+```{r, message=F, warning=FALSE}
 pairs(LungCapData[,c("LungCap", "Age","Height")], lower.panel = NULL)
 ```
 
@@ -253,18 +255,18 @@ predict(model3, new, interval="prediction")
 We can be $95\%$ confident that the lung capacity score of an individual with age = 30 and height = 70 will be between 9.39 and 13.67
 
 
-## Logistic regression model
+## Logistic regression model {#logistic-regression-model}
 
 ::: {.define}
 Logistic regression is a process of modeling the probability of a discrete outcome given an input variable.  
 :::
 
-The most common logistic regression models a binary outcome (Dead/Alive, yes/no). Multinomial logistic regression can model scenarios where there are more than two possible discrete outcomes. 
+The most common logistic regression is the binary logistic regression that models a binary outcome (ex: Dead/Alive, yes/no). Multinomial logistic regression can model scenarios where there are more than two possible discrete outcomes (ex: low, medium, high). 
 
 As an example, let's investigate the risk factor of chronic kidney disease (CKD).The response variable is either 1 (Affected) or 0 (Not affected) - a dichotomous response. By definition, that's a categorical response, so we can't use linear regression methods to predict it.
 
-When coding the outcome variable 0 and 1 we can still represent what is happening in association with a covariate such as age. 
-```{r, echo=FALSE}
+When coding the outcome variable 0 and 1 we can still represent what is happening in association with a covariate such as age but we cannot draw an simple line. 
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 ckd <- read.csv("ckd-dataset.csv", skip=2,  col.names=c("Diastolic","bp.limit",       "sg","al","class","rbc","su","pc","pcc","ba","bgr","bu","sod","sc","pot","hemo","pcv","rbcc","wbcc","htn","dm","cad","appet","pe","ane","grf","stage","affected","age" ), stringsAsFactors = TRUE)
 ckd <- ckd[-c(1,2), ]
 ckd$affected <- as.numeric(ckd$affected)
@@ -283,7 +285,7 @@ ckd$age2[ckd$age =="66 - 74"] <- sample(66:73, 34, replace = T)
 ```
 
 
-```{r plot ckd, out.height="350px", out.width="350px", message=F,warning=FALSE}
+```{r plot ckd, message=F, warning=FALSE}
 plot(ckd$age2, ckd$affected, ylab="Affected", xlab="age (in years)", pch="*")
 ```
 
@@ -293,17 +295,37 @@ This relationship can be model using the Logistic function.
 
 - $Y = \frac{1}{1 + e^{-(\beta_0 + \beta_1X)}}$
 
- \centerline{\includegraphics[height=2in]{fig/logReg5.png}}
+```{r, out.width='60%', fig.asp=.75,fig.align="center", echo=FALSE}
+knitr::include_graphics('fig/logReg.png')
+```
 
 - $\beta_0$ and $\beta_1$ give the shape of the curve
 
-We note the the $\beta_0 + \beta_1X$ part looks really similar a  linear model. In fact, to estimate those coefficient a mathematical trick is to transform the above equation in order to get to a linear form.
+
+```{r, out.width='60%', fig.asp=.75,fig.align="center", echo=FALSE}
+knitr::include_graphics('fig/logReg-param.png')
+```
+
+
+We note the the $\beta_0 + \beta_1X$ part looks really similar a  linear model. In fact, to estimate those coefficients the mathematical trick is to transform the above equation in order to get to a linear form.
 
 By transformation:
 
+- First we compute the odds of the disease
+
 $Y/(1-Y) =  \frac{1}{e^{-(\beta_0 + \beta_1X + \beta_2x_2 + ... +\beta_ix_i)}}$
 
+```{r, fig.align="center", echo=FALSE}
+knitr::include_graphics('fig/logReg2.png')
+```
+
+- Second we compute the Logit
+
 $ln(Y/1-Y)=\beta_0 + \beta_1x_1 + \beta_2x_2 + ...\beta_ix_i$
+
+```{r, fig.align="center", echo=FALSE}
+knitr::include_graphics('fig/logReg3.png')
+```
 
 $\beta_0$ =  log odds of disease in unexposed
 
@@ -318,16 +340,15 @@ OR= $e^\beta_i$ = odds ratio associated with being exposed to *i*
 ::: 
 
 ```{r}
+# Can age contribute to developpping the disease? 
 model_ckd <- glm(affected  ~ age2, family=binomial("logit"), data=ckd)
-```
-
-```{r}
 summary(model_ckd) 
 ```
 
-The coefficient is positively link to the disease. When you increase in age you increase your risk of having disease. To compute the OR, we can use the $exp(0.039)$ but for a nicest output with confidence interval we can use the *epiDisplay* library and its *logistic.display()* function.
+The coefficient for age is positively link to the disease. When you increase in age you increase your risk of having disease. To compute the OR, we can use the $exp(0.039)$ but for a nicest output with confidence interval we can use the *epiDisplay* library and its *logistic.display()* function.
 
 ```{r}
+# Loading the epiDisplay library in the R environment
 library(epiDisplay)
 logistic.display(model_ckd) 
 ```
@@ -340,6 +361,8 @@ We can add other covariates and then use a stepwise approach to get the most par
 model_ckd2 <- glm(affected  ~ age2 + bp.limit, family=binomial("logit"), data=ckd)
 summary(model_ckd2)
 model_ckd2<- step(model_ckd2)
+# The best model is with the smallest AIC
+# It is the model without removing any variable (<none>)
 logistic.display(model_ckd) 
 ```
 
@@ -365,7 +388,7 @@ If the independent variables are perfectly correlated, you will face these probl
 ### Coefficient of correlation and visual assessment 
 
 Is there a problem in our example? Is Age too highly correlated with height?
-```{r, out.height="350px", out.width="350px", message=F,warning=FALSE}
+```{r, message=F,warning=FALSE}
 plot(LungCapData$Age, LungCapData$Height)
 ```
 

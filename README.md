@@ -1,1 +1,1 @@
-# ebook-M1-biostat
+# ebook-M1-computerLab

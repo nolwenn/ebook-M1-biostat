@@ -19,6 +19,7 @@ One type of data statistical summary are `frequency table`, or `contingency tabl
 To summarize a `qualitative` variable, the frequency of the statistical units in each modality (category) of the variable is computed. The frequency can be reported as absolute count (absolute frequency) or proportion (relative frequency or count). For instance, in Table \@ref(tab:twoTable1) the partition of students according to the school status is summarized (HBSC dataset).  
 
 ```{r twoTable1, echo=F}
+hbsc<- read.csv("HBSC.csv", header=T, sep=",")
 Count <- table(hbsc[, 3]) 
 Proportion <- prop.table(Count)*100
 knitr::kable(
