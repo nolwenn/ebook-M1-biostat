@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Inference and sample | Little e-book for MPH1 biostatistics</title>
+  <meta name="description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Inference and sample | Little e-book for MPH1 biostatistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Inference and sample | Little e-book for MPH1 biostatistics" />
+  
+  <meta name="twitter:description" content="This is a little book of essential biostatistic concepts for Master 1 in Public Health." />
+  
+
+<meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
+
+
+<meta name="date" content="2022-09-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="statdesc.html"/>
+<link rel="next" href="tests.html"/>
+<script src="libs/header-attrs-2.12/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#prerequisites">Prerequisites<span></span></a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#lecture-tips"><i class="fa fa-check"></i><b>1.1</b> Lecture Tips<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Data: Statistical units and Variables<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#statistical-units"><i class="fa fa-check"></i><b>2.1</b> Statistical units<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.2</b> Variables<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#data-storage"><i class="fa fa-check"></i><b>2.3</b> Data storage<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#variable-types"><i class="fa fa-check"></i><b>2.4</b> Variable types<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statdesc.html"><a href="statdesc.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statdesc.html"><a href="statdesc.html#frequency-table"><i class="fa fa-check"></i><b>3.1</b> Frequency table<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="statdesc.html"><a href="statdesc.html#central-parameters"><i class="fa fa-check"></i><b>3.2</b> Central parameters<span></span></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="statdesc.html"><a href="statdesc.html#mean"><i class="fa fa-check"></i><b>3.2.1</b> Mean<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="statdesc.html"><a href="statdesc.html#median"><i class="fa fa-check"></i><b>3.2.2</b> Median<span></span></a></li>
+<li class="chapter" data-level="3.2.3" data-path="statdesc.html"><a href="statdesc.html#percentile-and-quantile"><i class="fa fa-check"></i><b>3.2.3</b> Percentile and quantile<span></span></a></li>
+<li class="chapter" data-level="3.2.4" data-path="statdesc.html"><a href="statdesc.html#mode"><i class="fa fa-check"></i><b>3.2.4</b> Mode<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="statdesc.html"><a href="statdesc.html#variation-parameters"><i class="fa fa-check"></i><b>3.3</b> Variation parameters<span></span></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="statdesc.html"><a href="statdesc.html#range-and-iqr"><i class="fa fa-check"></i><b>3.3.1</b> Range and IQR<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="statdesc.html"><a href="statdesc.html#sd"><i class="fa fa-check"></i><b>3.3.2</b> Variance and standard deviation<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="statdesc.html"><a href="statdesc.html#plot"><i class="fa fa-check"></i><b>3.4</b> Graphical summary<span></span></a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="statdesc.html"><a href="statdesc.html#barplot"><i class="fa fa-check"></i><b>3.4.1</b> Barplot<span></span></a></li>
+<li class="chapter" data-level="3.4.2" data-path="statdesc.html"><a href="statdesc.html#pie-chart"><i class="fa fa-check"></i><b>3.4.2</b> Pie chart<span></span></a></li>
+<li class="chapter" data-level="3.4.3" data-path="statdesc.html"><a href="statdesc.html#histogram"><i class="fa fa-check"></i><b>3.4.3</b> Histogram<span></span></a></li>
+<li class="chapter" data-level="3.4.4" data-path="statdesc.html"><a href="statdesc.html#boxplot"><i class="fa fa-check"></i><b>3.4.4</b> Boxplot<span></span></a></li>
+<li class="chapter" data-level="3.4.5" data-path="statdesc.html"><a href="statdesc.html#scatterplot"><i class="fa fa-check"></i><b>3.4.5</b> Scatterplot<span></span></a></li>
+<li class="chapter" data-level="3.4.6" data-path="statdesc.html"><a href="statdesc.html#communication-tips"><i class="fa fa-check"></i><b>3.4.6</b> Communication tips<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="inferencestat.html"><a href="inferencestat.html"><i class="fa fa-check"></i><b>4</b> Inference and sample<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="inferencestat.html"><a href="inferencestat.html#sample"><i class="fa fa-check"></i><b>4.1</b> Sample<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="inferencestat.html"><a href="inferencestat.html#population-versus-sample"><i class="fa fa-check"></i><b>4.1.1</b> Population versus Sample<span></span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="inferencestat.html"><a href="inferencestat.html#sample-designs"><i class="fa fa-check"></i><b>4.1.2</b> Sample designs<span></span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="inferencestat.html"><a href="inferencestat.html#probability-sampling"><i class="fa fa-check"></i><b>4.1.3</b> Probability sampling<span></span></a></li>
+<li class="chapter" data-level="4.1.4" data-path="inferencestat.html"><a href="inferencestat.html#non-probability-sampling"><i class="fa fa-check"></i><b>4.1.4</b> Non-probability sampling<span></span></a></li>
+<li class="chapter" data-level="4.1.5" data-path="inferencestat.html"><a href="inferencestat.html#sampling-bias"><i class="fa fa-check"></i><b>4.1.5</b> Sampling bias<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="inferencestat.html"><a href="inferencestat.html#confidence-intervals"><i class="fa fa-check"></i><b>4.2</b> Confidence intervals<span></span></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="inferencestat.html"><a href="inferencestat.html#within-and-between-sample-variation"><i class="fa fa-check"></i><b>4.2.1</b> Within and between sample variation<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="inferencestat.html"><a href="inferencestat.html#the-clt-and-the-confidence-interval"><i class="fa fa-check"></i><b>4.2.2</b> The CLT and the confidence interval<span></span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="inferencestat.html"><a href="inferencestat.html#interpretation-of-confidence-intervals"><i class="fa fa-check"></i><b>4.2.3</b> Interpretation of confidence intervals<span></span></a></li>
+<li class="chapter" data-level="4.2.4" data-path="inferencestat.html"><a href="inferencestat.html#why-1.96"><i class="fa fa-check"></i><b>4.2.4</b> Why 1.96?<span></span></a></li>
+<li class="chapter" data-level="4.2.5" data-path="inferencestat.html"><a href="inferencestat.html#precision-or-margin-error"><i class="fa fa-check"></i><b>4.2.5</b> Precision or Margin error<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tests.html"><a href="tests.html"><i class="fa fa-check"></i><b>5</b> Inference and statistical tests<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tests.html"><a href="tests.html#formulate-a-hypothesis"><i class="fa fa-check"></i><b>5.1</b> Formulate a hypothesis<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="tests.html"><a href="tests.html#comparison-of-two-means"><i class="fa fa-check"></i><b>5.2</b> Comparison of two means<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="tests.html"><a href="tests.html#comparison-of-two-proportions"><i class="fa fa-check"></i><b>5.3</b> Comparison of two proportions<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="tests.html"><a href="tests.html#chi-square-test"><i class="fa fa-check"></i><b>5.3.1</b> Chi-square test<span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="tests.html"><a href="tests.html#fishers-exact-test"><i class="fa fa-check"></i><b>5.3.2</b> Fisher’s Exact test<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tests.html"><a href="tests.html#alpha-p"><i class="fa fa-check"></i><b>5.4</b> Risk <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(p-value\)</span><span></span></a></li>
+<li class="chapter" data-level="5.5" data-path="tests.html"><a href="tests.html#risk-alpha-and-risk-beta"><i class="fa fa-check"></i><b>5.5</b> Risk <span class="math inline">\(\alpha\)</span> and risk <span class="math inline">\(\beta\)</span><span></span></a></li>
+<li class="chapter" data-level="5.6" data-path="tests.html"><a href="tests.html#multi-comp"><i class="fa fa-check"></i><b>5.6</b> Comparison of multiple groups<span></span></a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="tests.html"><a href="tests.html#graphical-comparison"><i class="fa fa-check"></i><b>5.6.1</b> Graphical comparison<span></span></a></li>
+<li class="chapter" data-level="5.6.2" data-path="tests.html"><a href="tests.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.6.2</b> Analysis Of Variance<span></span></a></li>
+<li class="chapter" data-level="5.6.3" data-path="tests.html"><a href="tests.html#post-hoc-analysis-and-anova-assumptions"><i class="fa fa-check"></i><b>5.6.3</b> Post-hoc analysis and ANOVA assumptions<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="tests.html"><a href="tests.html#paranonpara"><i class="fa fa-check"></i><b>5.7</b> Parametric and non-parametric test<span></span></a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="tests.html"><a href="tests.html#asessing-normality"><i class="fa fa-check"></i><b>5.7.1</b> Asessing Normality<span></span></a></li>
+<li class="chapter" data-level="5.7.2" data-path="tests.html"><a href="tests.html#two-sample-wilcoxon-test-or-mann-whitney-u-test"><i class="fa fa-check"></i><b>5.7.2</b> Two-sample Wilcoxon test (or Mann-Whitney U test)<span></span></a></li>
+<li class="chapter" data-level="5.7.3" data-path="tests.html"><a href="tests.html#which-test-to-use"><i class="fa fa-check"></i><b>5.7.3</b> Which test to use?<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html"><i class="fa fa-check"></i><b>6</b> Introduction to regression modelling<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simplelm"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#pearsons-coefficient-of-correlation"><i class="fa fa-check"></i><b>6.1.1</b> Pearson’s coefficient of correlation<span></span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#simple-linear-regression-model"><i class="fa fa-check"></i><b>6.1.2</b> Simple linear regression model<span></span></a></li>
+<li class="chapter" data-level="6.1.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#posthocreg"><i class="fa fa-check"></i><b>6.1.3</b> Post-hoc assumptions verification<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#multiple-linear-regression-model"><i class="fa fa-check"></i><b>6.2</b> Multiple linear regression model<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#logistic-regression-model"><i class="fa fa-check"></i><b>6.3</b> Logistic regression model<span></span></a></li>
+<li class="chapter" data-level="6.4" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#collinearity"><i class="fa fa-check"></i><b>6.4</b> Collinearity<span></span></a></li>
+<li class="chapter" data-level="6.5" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#detecting-multi-collinearity"><i class="fa fa-check"></i><b>6.5</b> Detecting (multi-)collinearity<span></span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#coefficient-of-correlation-and-visual-assessment"><i class="fa fa-check"></i><b>6.5.1</b> Coefficient of correlation and visual assessment<span></span></a></li>
+<li class="chapter" data-level="6.5.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#variance-inflation-factor"><i class="fa fa-check"></i><b>6.5.2</b> Variance Inflation Factor<span></span></a></li>
+<li class="chapter" data-level="6.5.3" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#remedial-measures"><i class="fa fa-check"></i><b>6.5.3</b> Remedial measures<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6</b> Explanatory variable selection<span></span></a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#iterative-procedures-for-explanatory-variable-selection"><i class="fa fa-check"></i><b>6.6.1</b> Iterative procedures for explanatory variable selection<span></span></a></li>
+<li class="chapter" data-level="6.6.2" data-path="introduction-to-regression-modelling.html"><a href="introduction-to-regression-modelling.html#goodness-of-fit-analysis"><i class="fa fa-check"></i><b>6.6.2</b> Goodness of fit analysis<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>7</b> Glossary<span></span></a></li>
+<li><a href="references.html#references">References<span></span></a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Little e-book for MPH1 biostatistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inferencestat" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Inference and sample<a href="inferencestat.html#inferencestat" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="objective">
+<ul>
+<li>Make the difference between individual variation and sample variation</li>
+<li>Make the difference between observed values and estimated parameters</li>
+<li>Interpret a confidence interval</li>
+<li>Interpret a statistical test</li>
+</ul>
+</div>
+<div id="sample" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Sample<a href="inferencestat.html#sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="population-versus-sample" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Population versus Sample<a href="inferencestat.html#population-versus-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Why take a sample … to conclude on the population?</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sample"></span>
+<img src="fig/sampling_F1.png" alt="Population versus Sample" width="70%" />
+<p class="caption">
+Figure 4.1: Population versus Sample
+</p>
+</div>
+<p>When the population is small and isolated, like an Inuit village in Greenland for instance, it is relevant to study/interrogate the entire population to get the <em>exact</em> prevalence of a rare disease (Figure <a href="inferencestat.html#fig:sample">4.1</a>).</p>
+<p>However if the size of the population is large we might not be able (want) to get it all! It is time consuming, costs a lot, and we are smarter. Although we will conclude on the population, a well design sample allows an <em>estimation</em> of the prevalence of the outcome of interest.</p>
+<p>What is the main property of a good sample?</p>
+<ul>
+<li>Since we draw conclusions about a population based on the information obtained from a sample (subset of the population), it is important that the units of interest in the sample are <strong>representative</strong> of the entire population.</li>
+<li>A representative sample will allow to <strong>confidently generalize</strong> the results and the conclusion of your study<br />
+</li>
+<li>Poor sampling designs can yield misleading conclusions</li>
+</ul>
+<div class="define">
+<ul>
+<li>Set of observations drawn from a population</li>
+<li>All the individuals of the study population should have the same probability of being drawn</li>
+<li>A <code>representative sample</code> should be an unbiased reflection of what the targeted population is like for the units of interest (outcome and covariates/determinants)</li>
+<li>A representative sample for a variable should reflect the variable distribution observed in the targeted population.</li>
+</ul>
+</div>
+<p>For example, you plan to determine the relationship between gratitude and job satisfaction in gynecologists. Your sample might consist of 30 to 40 gynecologists. Your population might be “gynecologists in the United States,” or, if the scope of your study was more narrow, “gynecologists in New York City.” So, if most gynecologists in the population are women, but your sample is all male, you do not have a good case for representativeness because your sample does not share the same characteristics as the larger population. In this case, you cannot generalize the results of your study to the population.</p>
+</div>
+<div id="sample-designs" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Sample designs<a href="inferencestat.html#sample-designs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="21%" />
+<col width="34%" />
+<col width="44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Element selection technique</th>
+<th><em>Probability sampling</em></th>
+<th><em>Non-probability sampling</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Unrestricted sampling</td>
+<td>Simple random sampling</td>
+<td>Convenience sampling (Voluntary response)</td>
+</tr>
+<tr class="even">
+<td>Restricted sampling</td>
+<td>Complex random sampling (systematic sampling, stratified sampling)</td>
+<td>Purposive sample (such as quota sampling)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="probability-sampling" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Probability sampling<a href="inferencestat.html#probability-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><strong>Simple random sample</strong> of size <em>n</em> consists of <em>n</em> individuals from the population chosen in such a way that every set of <em>n</em> individuals has an <em>equal chance</em> to be the sample actually selected.</li>
+</ol>
+<p>The simple random sampling is <strong>the gold standard</strong>: All individuals are given an equal chance to be chosen to be in the sample.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:randomSample"></span>
+<img src="fig/randomSample_F2.png" alt="Simple random sample (source: Academic Web Services)" width="70%" />
+<p class="caption">
+Figure 4.2: Simple random sample (source: Academic Web Services)
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Stratified random samples</strong> (or block experiment) define by strata of similar characteristics and choose a separate simple random sample (SRS) in each stratum and combine these to form the full sample.</li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:stratified"></span>
+<img src="fig/stratified_F3.png" alt="Stratified sampling (source: Academic Web Services)" width="70%" />
+<p class="caption">
+Figure 4.3: Stratified sampling (source: Academic Web Services)
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Cluster and multistage samples</strong> consist of all or random units within clusters (hierarchical sampling)</li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cluster"></span>
+<img src="fig/cluster_F4.png" alt="Cluster sample (source: Academic Web Services)" width="70%" />
+<p class="caption">
+Figure 4.4: Cluster sample (source: Academic Web Services)
+</p>
+</div>
+<p>For example, the HBSC study is based on a multistage sampling. In France, in each region some schools were randomly selected, within a school some classes were randomly selected and all the students of the selected class were interrogate.</p>
+<div class="practice">
+<p>The Dean of the School of public health wants to meet with several members of the faculty of the Department of Statistics to discuss concerns they might have about their department. He does not have time to talk to all of the faculty members, but wants to be sure that he meets with faculty with various levels of seniority.<br />
+The Department of Statistics is composed of:</p>
+<p>18 Professors<br />
+3 Associate Professors<br />
+5 Assistant Professors</p>
+<p>The Dean decides to speak with 5 Professors, 2 Associate Professors, and 3 Assistant Professors. What sampling design can be used?</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Systematic sampling</strong></li>
+</ol>
+<p>Sometimes we draw a sample by selecting individuals systematically. For example, a systematic sample might select every tenth person entering a school cafeteria (price, food quality, opening hours…). To make sure our sample is random, we still must start the systematic selection with a randomly selected individual, not necessarily the first person entering the cafeteria at lunchtime. When there is no reason to believe that the order of people entering the pool could be associated in any way with the responses measured.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:systematic"></span>
+<img src="fig/systematic_F6.png" alt="Systematic sampling (source: Academic Web Services)" width="70%" />
+<p class="caption">
+Figure 4.5: Systematic sampling (source: Academic Web Services)
+</p>
+</div>
+</div>
+<div id="non-probability-sampling" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Non-probability sampling<a href="inferencestat.html#non-probability-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Voluntary response survey</strong> In a voluntary response sample, a large group of individuals is invited to respond, and all who do respond are counted. This method is used by call-in shows, Internet polls, Political party survey. Voluntary response samples are almost always biased, and so conclusions drawn from them are almost always wrong.</p>
+<p>For example, the ABC news program Nightline once asked their viewers whether the United Nations should continue to have its headquarters in the United States. In order to have their opinions counted, viewers had to call a 1-900 number and pay a small fee. More than 186,000 callers responded and 67<span class="math inline">\(\%\)</span> said “No.” The callers of such program tend to be strong headed and often negative opinions. A nationwide poll with a proper sampling design found that less than 28 <span class="math inline">\(\%\)</span> of US adults want the UN to move out of the United States.</p>
+<p><strong>Convenience sampling</strong> chooses the individuals who are convenient, the easiest to reach to be in the sample. The group is probably not representative of the targeted population. This method is used in shopping area (street, mall). This population tend to be more affluent and include a larger percentage of
+teenagers and retirees than the population at large.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:convenience"></span>
+<img src="fig/convenience_F5.png" alt="Convenience sample (source: Academic Web Services)" width="70%" />
+<p class="caption">
+Figure 4.6: Convenience sample (source: Academic Web Services)
+</p>
+</div>
+<p>For example, you interview people at the mall or on a street corner about the French school policy that allows every cities to decide whether school schedule is spread over 4 or 5 days per week.</p>
+<p>Other non-probability sampling methods exists but are largely bias. One has to be aware and truthful when concluding on such samples.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nonprob"></span>
+<img src="fig/nonprob_F7.png" alt="Non-probability sampling methods" width="70%" />
+<p class="caption">
+Figure 4.7: Non-probability sampling methods
+</p>
+</div>
+</div>
+<div id="sampling-bias" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> Sampling bias<a href="inferencestat.html#sampling-bias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When a sample is biased, the summary characteristics of a sample differ from the corresponding characteristics of the population it is trying to represent.</p>
+<ul>
+<li>Undercoverage: some portion of the population is not sampled at all or has a smaller representation in the sample than it has in the population.</li>
+<li>Non-response: those who don???t respond may differ from those who do</li>
+<li>Comparability</li>
+<li>Wording of questions: influence the answers by presenting one side of an issue consciously or not</li>
+<li>Response bias: tendency to please the interviewer</li>
+</ul>
+</div>
+</div>
+<div id="confidence-intervals" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Confidence intervals<a href="inferencestat.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="within-and-between-sample-variation" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Within and between sample variation<a href="inferencestat.html#within-and-between-sample-variation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pop2sampl"></span>
+<img src="fig/pop2sample.png" alt="Parameter estimation from sample to population" width="70%" />
+<p class="caption">
+Figure 4.8: Parameter estimation from sample to population
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:withinvar"></span>
+<img src="fig/withinvar.png" alt="Variation of individuals within a sample" width="50%" />
+<p class="caption">
+Figure 4.9: Variation of individuals within a sample
+</p>
+</div>
+<p>As shown in Figure <a href="inferencestat.html#fig:withinvar">4.9</a>, individual measures vary with a sample. The standard deviation <span class="math inline">\(s\)</span> is a indicator of that <code>individual fluctuation</code>. It is the average distance of the measures of the individuals to the mean.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:betweenvar"></span>
+<img src="fig/betweenvar.png" alt="Variation between a samples drawn from the same population" width="50%" />
+<p class="caption">
+Figure 4.10: Variation between a samples drawn from the same population
+</p>
+</div>
+<p>If you drawn different samples from the same population you will get different means (Figure <a href="inferencestat.html#fig:betweenvar">4.10</a>) due to <code>sampling fluctuation</code> or <code>sampling distribution of the mean</code>. This variance between the means of different samples can be estimated by the standard deviation of this sampling distribution and it is the standard error (SE) of the estimate of the mean.</p>
+<div class="define">
+<p>The standard error (SE) is a type of standard deviation for the distribution of the means of samples drawn from the same population.</p>
+</div>
+<p>Standard Error:</p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\sigma_\mu\)</span> standard error of the mean</li>
+<li><span class="math inline">\(s\)</span> standard deviation of the sample (<a href="statdesc.html#sd">3.3.2</a>)</li>
+<li><span class="math inline">\(n\)</span> size of the sample</li>
+</ul>
+</div>
+<div id="the-clt-and-the-confidence-interval" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> The CLT and the confidence interval<a href="inferencestat.html#the-clt-and-the-confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The mean <span class="math inline">\(m\)</span> in a sample of size <span class="math inline">\(n\)</span> is a random variable, which varies between samples. This random variables should follow a Normal distribution centered around <span class="math inline">\(\mu\)</span>, the true mean of the population. This is the <code>central Limit Theorem</code>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:estimatedmu"></span>
+<img src="fig/estimatedmu.png" alt="The observed mean is a random variable" width="70%" />
+<p class="caption">
+Figure 4.11: The observed mean is a random variable
+</p>
+</div>
+<div class="define">
+<p><strong>Central Limit Theorem (CLT)</strong></p>
+<p>The mean of a random sample has a sampling distribution whose shape can be approximated by a Normal model. The larger the sample, the better the approximation will be.</p>
+</div>
+<p>For example, in the HBSC survey the observed mean of weights of 11 years-old French children in 2006 in our sample (n=500) is 38, 55 Kg (s = 8,10 Kg). How do we estimate the <strong>TRUE value</strong> in the population of children aged 11 in 2006 in France?</p>
+<p>Using central limit theorem, one can demonstrate that <strong>we can be 95% confident that the true mean <span class="math inline">\(\mu\)</span> of the population from which is extracted our sample is within the interval</strong>:</p>
+<div class="center">
+<p><span class="math inline">\(m-1.96*\sigma_\mu \leq \mu \leq m+1.96*\sigma_\mu\)</span></p>
+</div>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\sigma_\mu\)</span> standard error of the mean</li>
+<li><span class="math inline">\(m\)</span> mean of the sample</li>
+<li>1.96 multiplier coefficient that depends on the confidence level expected</li>
+</ul>
+<p>Following the example, the CI95% will be [37.40Kg-39.85Kg].</p>
+<p>Similarly the proportion <span class="math inline">\(p\)</span> in a sample of size <span class="math inline">\(n\)</span> is a ramdon variable, which varies between samples. This random variables follows a Normal distribution centered around <span class="math inline">\(\pi\)</span>.</p>
+<p>For example, you are interested in the proportion of children (aged 2-3) with sleeping disorder in Isere, France (population: 14 000 children of 2 or 3 years old). You built a sample of 540 children among which 86 had sleeping disorder. The proportion of children with sleeping disorder in our sample is <span class="math inline">\(p=16\)</span>%. But what is the TRUE proportion of children (aged 2-3) with sleeping disorder in Isere?</p>
+<p>Using central limit theorem, one can demonstrate that <strong>we can be 95% confident that the true proportion <span class="math inline">\(\pi\)</span> of the population from which is extracted our sample is within the interval</strong>:</p>
+<div class="center">
+<p><span class="math inline">\(p-1.96*\sigma_\pi \leq \pi \leq p+1.96*\sigma_\pi\)</span></p>
+</div>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(p=k/n\)</span>, <span class="math inline">\(k\)</span> is the number of entities with the characteristic and <span class="math inline">\(n\)</span> the size of the sample</li>
+<li><span class="math inline">\(\sigma_\pi\)</span> standard error of a proportion <span class="math inline">\(\sqrt{p(1-p)/n}\)</span></li>
+<li>1.96 multiplier coefficient that depends on the confidence level expected</li>
+</ul>
+<p>Following the example, the CI95% will be [12.9% ; 19.1%].</p>
+</div>
+<div id="interpretation-of-confidence-intervals" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Interpretation of confidence intervals<a href="inferencestat.html#interpretation-of-confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>The true mean is or is not in your estimated confidence interval</strong>. At 95% confidence, You took an 5%-risk of having the wrong confidence interval.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:confin95"></span>
+<img src="fig/confin95.png" alt="Confidence interval estimation from 20 samples drawn from the same population." width="50%" />
+<p class="caption">
+Figure 4.12: Confidence interval estimation from 20 samples drawn from the same population.
+</p>
+</div>
+<p>In Figure <a href="inferencestat.html#fig:confin95">4.12</a>, 19 out of 20 samples (95%) from the same population will produce confidence intervals that contain the TRUE population parameter. There is a 95% probability that the calculated confidence interval encompasses the true value of the population parameter</p>
+<p>For example, in the HBSC sample and the age group [11-13[ years old, the mean weight is 38.61Kg. But what is the true mean in the population?</p>
+<pre><code>##    n     mean       sd        se lower95ci upper95ci
+##  167 38.60539 8.156085 0.6311368   37.3593  39.85148</code></pre>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> is the size of the sample</li>
+<li><span class="math inline">\(sd\)</span> standard deviation of the sample</li>
+<li><span class="math inline">\(se\)</span> standard error of population mean</li>
+<li><span class="math inline">\(lower95ci\)</span> lower bound of the 95% confidence interval</li>
+<li><span class="math inline">\(upper95ci\)</span> upper bound of the 95% confidence interval</li>
+</ul>
+<p>We cannot give a unique true answer but only an interval (an estimation) with a certain confidence. We will say that in our sample the punctual estimate of the mean of weights for student aged 11 in France in 2006 was 38.60 kg and that we are 95% confident that in 2006, among the entire population of 11 year-old French student, the mean of weights is between 37.40Kg and 39.85Kg (CI95% [37.40Kg-39.85Kg]).</p>
+<p>For the proportion example, we are 95% confident that the true proportion of children, aged 2-3, with sleeping disorder in Isere is between 12.9% and 19.1%.</p>
+</div>
+<div id="why-1.96" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Why 1.96?<a href="inferencestat.html#why-1.96" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can generalize the equation above to:</p>
+<div class="center">
+<p><span class="math inline">\(m-Z_\alpha\sigma_\mu \leq \mu \leq m+Z_\alpha\sigma_\mu\)</span></p>
+</div>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(Z_\alpha\)</span> is the critical value of the Normal distribution (centered on <span class="math inline">\(\mu=0\)</span>, reduced to <span class="math inline">\(\sigma=1\)</span>) where <span class="math inline">\(100-\alpha\)</span> % of the values stand within <span class="math inline">\(Z\)</span> standard deviations of the mean.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Zalpha"></span>
+<img src="fig/Zalpha.png" alt="Centered reduced Normal distribution." width="40%" />
+<p class="caption">
+Figure 4.13: Centered reduced Normal distribution.
+</p>
+</div>
+<div class="practice">
+<p>The critical value <span class="math inline">\(Z_\alpha\)</span> will be larger or smaller when computing a confidence interval at 90?</p>
+</div>
+</div>
+<div id="precision-or-margin-error" class="section level3 hasAnchor" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> Precision or Margin error<a href="inferencestat.html#precision-or-margin-error" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The term <span class="math inline">\(Z_\alpha\sigma_\mu\)</span> or <span class="math inline">\(Z_\alpha\sigma_\pi\)</span> is noted <span class="math inline">\(i\)</span> and named the <code>precision</code> or <code>margin error</code> of the confidence interval.</p>
+<div class="caution">
+<p>In a simple random sample, the precision is proportional to the square root of the inverse of the sample size. It is not linear!</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:precision"></span>
+<img src="fig/precision.png" alt="Precision to sample size relationship in a simple random sample." width="60%" />
+<p class="caption">
+Figure 4.14: Precision to sample size relationship in a simple random sample.
+</p>
+</div>
+<p>For example, what should be the size of the sample to estimate the prevalence of overweight children aged 12, in Haute Savoie with a precision of <span class="math inline">\(i\)</span> knowing from the literature that the estimate prevalence is 17%?</p>
+<p>From the equation of the confidence interval of a proportion is <span class="math inline">\(n=P(P-1)Z_\alpha^2/i^2\)</span></p>
+<p>For a precision of 3%, <span class="math inline">\(n = 0.17(1-0.17)*1.96^2/0.03^2 = 627\)</span></p>
+<p>For a precision of 1%, <span class="math inline">\(n = 0.17(1-0.17)*1.96^2/0.01^2 = 5644\)</span> !!!</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statdesc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-InferentialStat.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
