@@ -140,7 +140,6 @@ Figure \@ref(fig:histogram) presents a `histogram` that summarize the distributi
 
 
 ```{r histogram,  fig.cap='Distribution of weights (Kg) of 11 to 16 years-old students, in France in 2006', out.width='70%', fig.asp=.75, echo=FALSE, message=FALSE, warning=FALSE, fig.path = "fig/"}
-library(ggplot2)
 ggplot(hbsc, aes(Weight)) + geom_histogram(binwidth =5, fill='lightblue', color="black") + geom_vline(xintercept = 48, size = 1, colour = "#FF3721",linetype = "dashed")
 ```
 
