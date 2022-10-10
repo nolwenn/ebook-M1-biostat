@@ -753,8 +753,9 @@ may miss an important fact or instance.
 
 Parametric | Non-Parametric equivalent
 -----------|-------------------------
-Paired t-test | Wilcoxon rank sum test
-Unpaired t-test | Mann-Whitney U test
+Paired t-test | Wilcoxon rank sum test*
+Unpaired t-test | Mann-Whitney U test* 
 Pearson correlation | Spearmann Correlation
 One analysis of variance | Kruskal Wallis test
 
+*In R statistical software, see Wilcoxon.test() and the arguments
