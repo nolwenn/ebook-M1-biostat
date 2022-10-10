@@ -400,13 +400,13 @@ Figure 5.1: Population versus Sample
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-5" class="example"><strong>Example 5.4  </strong></span>We would like to test if the proportion of smokers varies according by gender.</p>
-<p>H0: In France in 2006, the proportion of student girls aged 11-16 who smoke was equal the proportion of student boys aged 11-16 who smoke.</p>
-<p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student boys aged 11-16 who smoke.</p>
+<p>H0: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was equal to the proportion of student girls aged 11-16 in the non-smoker group</p>
+<p>H1: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was NOT equal to the proportion of student girls aged 11-16 in the non-smoker group</p>
 </div>
 <p>A statistical test is always performed to answer the H0 hypothesis (Figure <a href="tests.html#fig:testH0rule">5.2</a>).</p>
 <ul>
 <li>When we prove that the statistical parameters differ we reject H0 and accept H1. We say that we observed a statistically significant difference between the parameters.</li>
-<li>When we cannot prove that the statistical parameters differ, we stay under H0 and say that: we fail to reject H0 because we cannot show any statistically significant difference. H0 is never accepted as an error risk still exists that we can not compute.</li>
+<li>When we cannot prove that the statistical parameters differ, we stay under H0 and say that: <strong>we fail to reject H0</strong> because we cannot show any statistically significant difference. H0 is never accepted as an error risk still exists that we can not compute.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:testH0rule"></span>
 <img src="fig/testH0rule.png" alt="Statistical test interpretation" width="70%" />
@@ -440,8 +440,8 @@ that does not exist in reality, the <span class="math inline">\(\alpha\)</span> 
 <p>In the context of proportion comparison like in example 2, the objective is to assess whether the proportion of cases among the exposed group is equal to the proportion of cases among the non-exposed group.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-6" class="example"><strong>Example 5.5  </strong></span>We would like to test if the proportion of smokers varies by gender.</p>
-<p>H0: In France in 2006, the proportion of student girls aged 11-16 who smoke was equal the proportion of student boys aged 11-16 who smoke.</p>
-<p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student boys aged 11-16 who smoke.</p>
+<p>H0: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was equal to the proportion of student girls aged 11-16 in the non-smoker group</p>
+<p>H1: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was NOT equal to the proportion of student girls aged 11-16 in the non-smoker group</p>
 </div>
 <p>To this aim, as for the comparison of means, we will compute the standardized differences (distances) between groups.</p>
 <div id="chi-square-test" class="section level3 hasAnchor" number="5.3.1">
@@ -747,7 +747,7 @@ Total
 </tr>
 </tbody>
 </table>
-<p>Then we compute the Chi-square (<span class="math inline">\(\chi^2\)</span>) statistic which is the standardized sum of the differences between the observed and the expected value.</p>
+<p>Then we compute the Chi-square (<span class="math inline">\(\chi^2\)</span>) statistic which is the standardized sum of the differences between the observed and the expected values.</p>
 <div class="center">
 <p><span class="math inline">\(\chi^2_{Obs}= \sum(\dfrac{(Obs-Exp)^2}{Exp}\)</span></p>
 </div>
@@ -785,7 +785,7 @@ Figure 5.5: Chi2 distribution depends on the degree of fredom K
 <p>In the <span class="math inline">\(\chi^2\)</span> table, for our 2x2 table the <span class="math inline">\(df = 1\)</span> and for a <span class="math inline">\(\alpha\)</span> risk of 5%, the <span class="math inline">\(\chi^2_{Theo}= 3.84\)</span>.</p>
 <p>Next the decision rule using the p-value is the same as for the comparison of means.</p>
 <div class="practice">
-<p>In example 2, the statistical value for a risk <span class="math inline">\(\alpha=0.05\)</span> and <span class="math inline">\(df=1\)</span> is 3.84. The <span class="math inline">\(\chi^2_{Obs} = 0.54\)</span>. What is you conclusion?</p>
+<p>In the example, the statistical value for a risk <span class="math inline">\(\alpha=0.05\)</span> and <span class="math inline">\(df=1\)</span> is 3.84. The <span class="math inline">\(\chi^2_{Obs} = 0.54\)</span>. What is you conclusion?</p>
 </div>
 <div class="caution">
 <p>To correctly use the <span class="math inline">\(\chi^2\)</span> test and have accurate estimation of the associated probabilities, we need to have at least <strong>n=5</strong> count in each cell of the <strong>table of expected</strong> numbers.</p>
@@ -893,7 +893,7 @@ N
 <li>If the confidence interval does not include 1, we reject H0, the proportions differ.</li>
 </ul>
 <div class="practice">
-<p>In example 2, the Fisher’s exact test returns an odds ratio of 0.79 and 95% CI [0.45, 1.37]. What is your conclusion?</p>
+<p>In the example, the Fisher’s exact test returns an odds ratio of 0.79 and 95% CI [0.45, 1.37]. What is your conclusion?</p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>We can look at the <span class="math inline">\(p-value\)</span> but what is a <span class="math inline">\(p-value\)</span> ? See next section <a href="tests.html#alpha-p">5.4</a>.</li>

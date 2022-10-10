@@ -126,7 +126,7 @@ A statistical test is always performed to answer the H0 hypothesis (Figure \@ref
 
 
 - When we prove that the statistical parameters differ we reject H0 and accept H1. We say that we observed a statistically significant difference between the parameters.
-- When we cannot prove that the statistical parameters differ, we stay under H0 and say that:  we fail to reject H0 because we cannot show any statistically significant difference. H0 is never accepted as an error risk still exists that we can not compute.  
+- When we cannot prove that the statistical parameters differ, we stay under H0 and say that:  **we fail to reject H0** because we cannot show any statistically significant difference. H0 is never accepted as an error risk still exists that we can not compute.  
 
 
 ```{r testH0rule, fig.cap='Statistical test interpretation', out.width='70%', fig.asp=.75, fig.align='center', echo=F}
