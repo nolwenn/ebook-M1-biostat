@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2022-09-19" />
+<meta name="date" content="2022-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -123,28 +123,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -311,83 +289,45 @@ probabilistic basis, based on observed data.</p>
 <p>In <strong>hypothesis formulation</strong> you always have two possibilities: <strong>it is not different OR it is different</strong>.</p>
 <p>In the HBSC data, we are interested in the characteristics of the smoking students compare to the non-smoking. Do they differ by some characteristics?</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-2" class="example"><strong>Example 5.1  </strong></span><strong>Example 1:</strong> we would like to test whether there is, on average, a difference in height between smokers and non-smokers.</p>
+<p><span id="exm:unlabeled-div-1" class="example"><strong>Example 5.1  </strong></span>We would like to test whether there is, on average, a difference in height between smokers and non-smokers.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-3" class="example"><strong>Example 5.2  </strong></span><strong>Example 2:</strong> we would like to test if the proportion of smokers varies according to gender.</p>
+<p><span id="exm:unlabeled-div-2" class="example"><strong>Example 5.2  </strong></span>We would like to test if the proportion of smokers varies by gender.</p>
 </div>
 <p>First, we describe the distribution of the variable between the groups.</p>
-<p>In example 1, the height is a quantitative continuous variable which can be summarized by the mean (Table <a href="tests.html#tab:smokeheight">5.1</a>). In our sample, the students who do not smoke measure on average 157 cm while the students who smoke measure in average 166 cm. The question is “At the population level, is that different knowing that you do have individual variation (SD) and sample variations (SE)?”</p>
+<p>In example 5.1, the height is a quantitative continuous variable which can be summarized by the mean (Table <a href="tests.html#tab:smokeheight">5.1</a>). In our sample, the students who do not smoke measure on average 157 cm while the students who smoke measure in average 166 cm. The question is “At the population level, is that different knowing that you do have individual variation (SD) and sample variations (SE)?”</p>
 <table>
-<caption>
-<span id="tab:smokeheight">Table 5.1: </span>Description of the Height (cm) variable by smoking group (0=non-smoking, 1=smoking) in the French HBSC database in 2006.
-</caption>
+<caption><span id="tab:smokeheight">Table 5.1: </span>Description of the Height (cm) variable by smoking group (0=non-smoking, 1=smoking) in the French HBSC database in 2006.</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-SmokingStatus
-</th>
-<th style="text-align:right;">
-Mean
-</th>
-<th style="text-align:right;">
-SD
-</th>
-<th style="text-align:right;">
-Median
-</th>
-<th style="text-align:right;">
-Q1
-</th>
-<th style="text-align:right;">
-Q3
-</th>
+<tr class="header">
+<th align="right">SmokingStatus</th>
+<th align="right">Mean</th>
+<th align="right">SD</th>
+<th align="right">Median</th>
+<th align="right">Q1</th>
+<th align="right">Q3</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-157.89
-</td>
-<td style="text-align:right;">
-12.00
-</td>
-<td style="text-align:right;">
-159
-</td>
-<td style="text-align:right;">
-149
-</td>
-<td style="text-align:right;">
-166.25
-</td>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">157.89</td>
+<td align="right">12.00</td>
+<td align="right">159</td>
+<td align="right">149</td>
+<td align="right">166.25</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-166.26
-</td>
-<td style="text-align:right;">
-11.39
-</td>
-<td style="text-align:right;">
-168
-</td>
-<td style="text-align:right;">
-159
-</td>
-<td style="text-align:right;">
-173.00
-</td>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">166.26</td>
+<td align="right">11.39</td>
+<td align="right">168</td>
+<td align="right">159</td>
+<td align="right">173.00</td>
 </tr>
 </tbody>
 </table>
-<p>In example 2, the gender is a qualitative variable which can be summarized into proportions (Table <a href="tests.html#tab:smokegender">5.2</a>). In our sample, the proportion of students <em>seem</em> to different between groups. The question is “At the population level, are those proportions real different knowing that you do have individuals’ variation (<em>sd</em>) and sampling variation (<em>se</em>)?”</p>
+<p>In example 5.2, the gender is a qualitative variable which can be summarized into proportions (Table <a href="tests.html#tab:smokegender">5.2</a>). In our sample, the proportion of students <em>seem</em> to different between groups. The question is “At the population level, are those proportions real different knowing that you do have individuals’ variation (<em>sd</em>) and sampling variation (<em>se</em>)?”</p>
 <table>
 <caption>
 <span id="tab:smokegender">Table 5.2: </span>Proportion of students smoking (1) or non-smoking (0) by gender in the French HBSC database in 2006.
@@ -448,22 +388,20 @@ Figure 5.1: Population versus Sample
 </div>
 <p>When you state the hypothesis you should explicit H0 an H1.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 5.1  </strong></span><strong>H0</strong> : The null hypothesis is that the parameters are EQUAL, i.e they are not different.</p>
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 5.1  </strong></span><strong>H0</strong> : The null hypothesis is that the parameters are EQUAL, i.e they are not different.</p>
 <p><strong>H1</strong>: The alternative hypothesis is that the parameters are NOT EQUAL, i.e they are different.</p>
 </div>
 <p>I like to write down the hypothesis with the <span class="math inline">\(=\)</span> sign and <span class="math inline">\(\neq\)</span> as I find easier to pick the test and interpret the results afterward.</p>
 <p>Remember the <strong>W’s</strong> they should appear in the hypothesis if you have the information.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-5" class="example"><strong>Example 5.3  </strong></span><strong>Example 1:</strong></p>
-<p>we would like to test whether there is, on average, a difference in height between smokers and non-smokers.</p>
+<p><span id="exm:unlabeled-div-4" class="example"><strong>Example 5.3  </strong></span>We would like to test whether there is, on average, a difference in height between smokers and non-smokers.</p>
 <p>H0: In France in 2006, the mean height of the students 11-16 who smoke was equal to the mean height of the students 11-16 who do not smoke.</p>
 <p>H1: In France in 2006, the mean height of the students 11-16 who smoke was NOT equal to the mean height of the students 11-16 who do not smoke.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 5.4  </strong></span><strong>Example 2:</strong></p>
-<p>we would like to test if the proportion of smokers varies according to the groups of ages.</p>
-<p>H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.</p>
-<p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.</p>
+<p><span id="exm:unlabeled-div-5" class="example"><strong>Example 5.4  </strong></span>We would like to test if the proportion of smokers varies according by gender.</p>
+<p>H0: In France in 2006, the proportion of student girls aged 11-16 who smoke was equal the proportion of student boys aged 11-16 who smoke.</p>
+<p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student boys aged 11-16 who smoke.</p>
 </div>
 <p>A statistical test is always performed to answer the H0 hypothesis (Figure <a href="tests.html#fig:testH0rule">5.2</a>).</p>
 <ul>
@@ -501,10 +439,9 @@ that does not exist in reality, the <span class="math inline">\(\alpha\)</span> 
 <h2><span class="header-section-number">5.3</span> Comparison of two proportions<a href="tests.html#comparison-of-two-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the context of proportion comparison like in example 2, the objective is to assess whether the proportion of cases among the exposed group is equal to the proportion of cases among the non-exposed group.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 5.5  </strong></span><strong>Example 2:</strong></p>
-<p>we would like to test if the proportion of smokers varies according to the groups of ages.</p>
-<p>H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.</p>
-<p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.</p>
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 5.5  </strong></span>We would like to test if the proportion of smokers varies by gender.</p>
+<p>H0: In France in 2006, the proportion of student girls aged 11-16 who smoke was equal the proportion of student boys aged 11-16 who smoke.</p>
+<p>H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student boys aged 11-16 who smoke.</p>
 </div>
 <p>To this aim, as for the comparison of means, we will compute the standardized differences (distances) between groups.</p>
 <div id="chi-square-test" class="section level3 hasAnchor" number="5.3.1">
@@ -513,7 +450,7 @@ that does not exist in reality, the <span class="math inline">\(\alpha\)</span> 
 <p>First, we compute a two-way table with your <code>observed counts</code>:</p>
 <table>
 <caption>
-<span id="tab:chisquare1">Table 5.3: </span>Observed number of boys and girls students exposed or not to smoking in the French HBSC database in 2006.
+<span id="tab:chisquare1">Table 5.3: </span>Observed number of boys and girls students smoking or not in the French HBSC database in 2006.
 </caption>
 <thead>
 <tr>
@@ -585,10 +522,10 @@ Total
 </tr>
 </tbody>
 </table>
-<p>Under H0 the absence of difference (independence assumption), we would expect to have the same proportion of patients among those exposed and those not exposed. So keeping the total margins what would be the expected counts? (Table <a href="tests.html#tab:chisquare2">5.4</a>)</p>
+<p>Under H0 the absence of difference (independence assumption), we would expect to have the same proportion of smokers among the girls and the boys. So keeping the total margins what would be the expected counts? (Table <a href="tests.html#tab:chisquare2">5.4</a>)</p>
 <table>
 <caption>
-<span id="tab:chisquare2">Table 5.4: </span>Expected number of boys and girls students exposed or not to smoking in the French HBSC database in 2006.
+<span id="tab:chisquare2">Table 5.4: </span>Expected number of boys and girls smoking or not in the French HBSC database in 2006.
 </caption>
 <thead>
 <tr>
@@ -666,7 +603,7 @@ Total
 </ul>
 <table>
 <caption>
-<span id="tab:chisquare3">Table 5.5: </span>Expected number of boys and girls students exposed or not to smoking in the French HBSC database in 2006.
+<span id="tab:chisquare3">Table 5.5: </span>Expected number of boys and girls smoking or not in the French HBSC database in 2006.
 </caption>
 <thead>
 <tr>
@@ -739,7 +676,7 @@ Total
 </table>
 <table>
 <caption>
-<span id="tab:chisquare4">Table 5.6: </span>Expected number of boys and girls students exposed or not to smoking in the French HBSC database in 2006.
+<span id="tab:chisquare4">Table 5.6: </span>Expected number of boys and girls students smoking or not in the French HBSC database in 2006.
 </caption>
 <thead>
 <tr>
@@ -815,13 +752,14 @@ Total
 <p><span class="math inline">\(\chi^2_{Obs}= \sum(\dfrac{(Obs-Exp)^2}{Exp}\)</span></p>
 </div>
 <p>Using the R statistical software, we have</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tests.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(hbsc<span class="sc">$</span>Gender, hbsc<span class="sc">$</span>SmokingStatus)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
 ## data:  hbsc$Gender and hbsc$SmokingStatus
 ## X-squared = 0.54013, df = 1, p-value = 0.4624</code></pre>
 <p>The <span class="math inline">\(\chi^2_{Obs} = 0.54\)</span>. Now the question is:</p>
-<p>“is it equal to 0?”</p>
+<p>“Is <span class="math inline">\(\chi^2_{Obs}\)</span> equal to 0?”</p>
 <p>As for the comparison of means, in theory, if H0 is true <span class="math inline">\(\chi^2_{Obs} \sim 0\)</span> but it is never 0. There are variations and we test H0 with a <span class="math inline">\(\alpha\)</span> risk. Therefore, what is the threshold?</p>
 <p>To define that threshold, we need to choose the correct statistical law. The <span class="math inline">\(\chi^2\)</span> distribution depends on <em>k</em>, the number of degrees of freedom (df) which depends on the number of characteristics of the two variables we are comparing (Figure <a href="tests.html#fig:chi2-distrib">5.4</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:chi2-distrib"></span>
@@ -845,7 +783,7 @@ Figure 5.5: Chi2 distribution depends on the degree of fredom K
 </p>
 </div>
 <p>In the <span class="math inline">\(\chi^2\)</span> table, for our 2x2 table the <span class="math inline">\(df = 1\)</span> and for a <span class="math inline">\(\alpha\)</span> risk of 5%, the <span class="math inline">\(\chi^2_{Theo}= 3.84\)</span>.</p>
-<p>Next the decision rule is the same as for the comparison of means.</p>
+<p>Next the decision rule using the p-value is the same as for the comparison of means.</p>
 <div class="practice">
 <p>In example 2, the statistical value for a risk <span class="math inline">\(\alpha=0.05\)</span> and <span class="math inline">\(df=1\)</span> is 3.84. The <span class="math inline">\(\chi^2_{Obs} = 0.54\)</span>. What is you conclusion?</p>
 </div>
@@ -933,6 +871,7 @@ N
 <p><span class="math inline">\(p = \dfrac{n_1!n_2!t_1!t_2!}{a!b!c!d!}\)</span></p>
 </div>
 <p>Using the R statistical software, we have</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tests.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(hbsc<span class="sc">$</span>Gender, hbsc<span class="sc">$</span>SmokingStatus)</span></code></pre></div>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data
 ## 
@@ -978,7 +917,7 @@ N
 </div>
 <p>The <span class="math inline">\(p-value\)</span> is not synonymous of the importance of the possible difference between groups. In other words, a very small p-value means that the risk of making a mistake is very low. It does not mean that there is a huge difference between groups.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 5.6  </strong></span><strong>Example 3:</strong> Using 2 studies we are assessing 2 new methods (A and B) for the prevention of surgical site infections (SSI) compared to a conventional method (0).</p>
+<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 5.6  </strong></span><strong>Example 3:</strong> Using 2 studies we are assessing 2 new methods (A and B) for the prevention of surgical site infections (SSI) compared to a conventional method (0).</p>
 <ul>
 <li>In study A: method A shows 12% of SSI and the conventional method 24% of SSI. The test between A and 0 returns a <span class="math inline">\(p-value \leq 0.05\)</span>.</li>
 <li>In study B: method B shows 12% of SSI and the conventional method 24% of SSI. The test between B and 0 returns a <span class="math inline">\(p-value \leq 0.001\)</span></li>
@@ -1031,7 +970,7 @@ Figure 5.8: Not seeing a difference when it does exist.
 <p><strong>What do you prefer <span class="math inline">\(\alpha\)</span> or <span class="math inline">\(\beta\)</span> ?</strong></p>
 <p>It is a difficult question.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 5.7  </strong></span><strong>Example 4:</strong> Hepatitis B vaccination and multiple sclerosis. Many study protocols have been conduct to assess an possible association between vaccination against Hepatitis B and the development of multiple sclerosis. The null hypothesis was that prevalence of multiple sclerosis was the same among people vaccinated against Hepatitis B and people not vaccinated against Hepatitis B.</p>
+<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 5.7  </strong></span><strong>Example 4:</strong> Hepatitis B vaccination and multiple sclerosis. Many study protocols have been conduct to assess an possible association between vaccination against Hepatitis B and the development of multiple sclerosis. The null hypothesis was that prevalence of multiple sclerosis was the same among people vaccinated against Hepatitis B and people not vaccinated against Hepatitis B.</p>
 <p>In that context, what would you favour <span class="math inline">\(\alpha\)</span> or <span class="math inline">\(\beta\)</span>?</p>
 </div>
 <ul>
@@ -1051,7 +990,7 @@ Figure 5.8: Not seeing a difference when it does exist.
 <div id="multi-comp" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> Comparison of multiple groups<a href="tests.html#multi-comp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="example">
-<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 5.8  </strong></span><strong>Example 5:</strong> We are interested in the effect of 2 treatments to gain weight. The protocol include treatment A, treatment B, and a placebo group. We would like to compare the weights between the 3 groups.</p>
+<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 5.8  </strong></span><strong>Example 5:</strong> We are interested in the effect of 2 treatments to gain weight. The protocol include treatment A, treatment B, and a placebo group. We would like to compare the weights between the 3 groups.</p>
 <p>How do we compare the means? Can we do 2 by 2 comparisons?</p>
 </div>
 <p>Table 1: Effects of 2 treatments to gain weight</p>
@@ -1091,7 +1030,7 @@ Figure 5.8: Not seeing a difference when it does exist.
 <h3><span class="header-section-number">5.6.1</span> Graphical comparison<a href="tests.html#graphical-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A boxplot and whisker plot (section <a href="statdesc.html#plot">3.4</a>) is an ideal graphical representation to compare data series of the same variable between different groups.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:boxplotanova"></span>
-<img src="fig/boxplotanova-1.png" alt="Boxplot and whisker plot of the effect of different treatments on gain weight" width="60%" />
+<img src="_main_files/figure-html/boxplotanova-1.png" alt="Boxplot and whisker plot of the effect of different treatments on gain weight" width="60%" />
 <p class="caption">
 Figure 5.9: Boxplot and whisker plot of the effect of different treatments on gain weight
 </p>
@@ -1103,7 +1042,7 @@ Figure 5.9: Boxplot and whisker plot of the effect of different treatments on ga
 <p>In Figure <a href="tests.html#fig:boxplotanova">5.9</a> the medians are not in the middle of the box. This suggest that the distributions might be skewed.</p>
 <p>Figure <a href="tests.html#fig:densityanova">5.10</a> presents density plots, similar to histograms, and reveals the same thing.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:densityanova"></span>
-<img src="fig/densityanova-1.png" alt="Density plots of the effect of different treatments on gain weight" width="60%" />
+<img src="_main_files/figure-html/densityanova-1.png" alt="Density plots of the effect of different treatments on gain weight" width="60%" />
 <p class="caption">
 Figure 5.10: Density plots of the effect of different treatments on gain weight
 </p>
@@ -1232,11 +1171,17 @@ TukeyHSD’s test.</p>
 <p>H0: The sample distribution is equal to the Normal distribution</p>
 <p>H1: The sample distribution is different from the Normal distribution</p>
 <p>As an example, we randomly generate values drawn from a Normal distribution and test the Normality.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tests.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating numbers following a Normal distribution</span></span>
+<span id="cb8-2"><a href="tests.html#cb8-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb8-3"><a href="tests.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Shapiro-Wilk&#39;s test</span></span>
+<span id="cb8-4"><a href="tests.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  data
 ## W = 0.99103, p-value = 0.7475</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tests.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test</span></span>
+<span id="cb10-2"><a href="tests.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;pnorm&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One-sample Kolmogorov-Smirnov test
 ## 
@@ -1245,12 +1190,18 @@ TukeyHSD’s test.</p>
 ## alternative hypothesis: two-sided</code></pre>
 <p>What is your conclusion?</p>
 <p>Note that the advantage of the Kolgomorov-Smirnov’s test is that it can help assessing other type of distributions than the Normal distribution.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tests.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating numbers following an Uniform distribution</span></span>
+<span id="cb12-2"><a href="tests.html#cb12-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span>
+<span id="cb12-3"><a href="tests.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test for Normality </span></span>
+<span id="cb12-4"><a href="tests.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;pnorm&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One-sample Kolmogorov-Smirnov test
 ## 
 ## data:  data
 ## D = 0.50342, p-value &lt; 2.2e-16
 ## alternative hypothesis: two-sided</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tests.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using Kolgomorov-Smirnov&#39;s test for Uniform distribution </span></span>
+<span id="cb14-2"><a href="tests.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(data, <span class="st">&quot;punif&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One-sample Kolmogorov-Smirnov test
 ## 
@@ -1273,7 +1224,7 @@ TukeyHSD’s test.</p>
 <p>If n1 and n2 &lt; 20, Mann-Whitney’s table</p>
 <p>IF n1 and n2 &gt; 20, Normal law table</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-11" class="example"><strong>Example 5.9  </strong></span><strong>Example:</strong></p>
+<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 5.9  </strong></span><strong>Example:</strong></p>
 <p>Among diabetes patients, is there a difference in age at diagnosis between men and women?</p>
 <ul>
 <li>Women: 20 11 17 12</li>

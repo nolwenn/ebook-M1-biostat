@@ -27,18 +27,18 @@ In **hypothesis formulation** you always have two possibilities: **it is not dif
 In the HBSC data, we are interested in the characteristics of the smoking students compare to the non-smoking. Do they differ by some characteristics?
 
 ::: {.example}
-**Example 1:**  we would like to test whether there is, on average, a difference in height between smokers and non-smokers.
+We would like to test whether there is, on average, a difference in height between smokers and non-smokers.
 ::: 
 
 ::: {.example}
-**Example 2:**  we would like to test if the proportion of smokers varies according to gender.
+We would like to test if the proportion of smokers varies by gender.
 ::: 
 
 First, we describe the distribution of the variable between the groups.  
 
 
 
-In example 1, the height is a quantitative continuous variable which can be summarized by the mean (Table \@ref(tab:smokeheight)). In our sample, the students who do not smoke measure on average 157 cm while the students who smoke measure in average 166 cm. The question is "At the population level, is that different knowing that you do have individual variation (SD) and sample variations (SE)?".    
+In example 5.1, the height is a quantitative continuous variable which can be summarized by the mean (Table \@ref(tab:smokeheight)). In our sample, the students who do not smoke measure on average 157 cm while the students who smoke measure in average 166 cm. The question is "At the population level, is that different knowing that you do have individual variation (SD) and sample variations (SE)?".    
 
 
 
@@ -57,7 +57,7 @@ knitr::kable(
 )
 ```
 
-In example 2, the gender is a qualitative variable which can be summarized into proportions (Table \@ref(tab:smokegender)). In our sample, the proportion of students *seem* to different between groups. The question is "At the population level, are those proportions real different knowing that you do have individuals' variation (*sd*) and sampling variation (*se*)?".    
+In example 5.2, the gender is a qualitative variable which can be summarized into proportions (Table \@ref(tab:smokegender)). In our sample, the proportion of students *seem* to different between groups. The question is "At the population level, are those proportions real different knowing that you do have individuals' variation (*sd*) and sampling variation (*se*)?".    
 
 
 
@@ -104,10 +104,8 @@ I like to write down the hypothesis with the $=$ sign and $\neq$ as I find easie
 Remember the **W's** they should appear in the hypothesis if you have the information.
 
 ::: {.example}
-**Example 1:**  
 
-
-we would like to test whether there is, on average, a difference in height between smokers and non-smokers.  
+We would like to test whether there is, on average, a difference in height between smokers and non-smokers.  
 
 H0: In France in 2006, the mean height of the students 11-16 who smoke was equal to the mean height of the students 11-16 who do not smoke.  
 
@@ -116,16 +114,13 @@ H1: In France in 2006, the mean height of the students 11-16 who smoke was NOT e
 ::: 
 
 ::: {.example}
-**Example 2:**    
+We would like to test if the proportion of smokers varies according by gender.  
 
 
-we would like to test if the proportion of smokers varies according to the groups of ages.  
+H0: In France in 2006, the proportion of student girls aged 11-16 who smoke was equal the proportion of student boys aged 11-16 who smoke.
 
 
-H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.
-
-
-H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.
+H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student boys aged 11-16 who smoke.
 ::: 
 
 
@@ -178,16 +173,12 @@ In example 1, the statistical value for a risk $\alpha=0.05$ is -5.4582. What is
 In the context of proportion comparison like in example 2, the objective is to assess whether the proportion of cases among the exposed group is equal to the proportion of cases among the non-exposed group.
 
 ::: {.example}
-**Example 2:**    
+We would like to test if the proportion of smokers varies by gender.  
+
+H0: In France in 2006, the proportion of student girls aged 11-16 who smoke was equal the proportion of student boys aged 11-16 who smoke.
 
 
-we would like to test if the proportion of smokers varies according to the groups of ages.  
-
-
-H0: In France in 2006, the proportion of student girls 11-16 who smoke was equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was equal the proportion of student boys 11-16 who do not smoke.
-
-
-H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student girls 11-16 who do not smoke and the proportion of student boys 11-16 who smoke was NOT equal the proportion of student boys 11-16 who do not smoke.
+H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student boys aged 11-16 who smoke.
 ::: 
 
 
@@ -206,10 +197,10 @@ twcount <- twcount %>% ungroup() %>% add_row(Gender="Total", No=432, Yes=67, Tot
 
 knitr::kable(
   twcount, booktabs = TRUE,  col.names=c("Gender","No","Yes", "Total"),
-  caption = 'Observed number of boys and girls students exposed or not to smoking in the French HBSC database in 2006.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3))
+  caption = 'Observed number of boys and girls students smoking or not in the French HBSC database in 2006.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3))
 ```
 
-Under H0 the absence of difference (independence assumption), we would expect to have the same proportion of patients among those exposed and those not exposed. So keeping the total margins what would be the expected counts? (Table \@ref(tab:chisquare2))   
+Under H0 the absence of difference (independence assumption), we would expect to have the same proportion of smokers among the girls and the boys. So keeping the total margins what would be the expected counts? (Table \@ref(tab:chisquare2))   
 
 
 
@@ -221,7 +212,7 @@ row.names(twexpectedcount) <- c("boy","girl", "Total")
 
 knitr::kable(
   twexpectedcount, booktabs = TRUE,
-  caption = 'Expected number of boys and girls students exposed or not to smoking in the French HBSC database in 2006.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3)) 
+  caption = 'Expected number of boys and girls smoking or not in the French HBSC database in 2006.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3)) 
 ```
 
 To compute a theoretical two-way table with your `expected counts`:  
@@ -239,7 +230,7 @@ row.names(twexpectedcount) <- c("boy","girl", "Total")
 
 knitr::kable(
   twexpectedcount, booktabs = TRUE,
-  caption = 'Expected number of boys and girls students exposed or not to smoking in the French HBSC database in 2006.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3)) 
+  caption = 'Expected number of boys and girls smoking or not in the French HBSC database in 2006.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3)) 
 ```
 
 
@@ -253,7 +244,7 @@ row.names(twexpectedcount) <- c("boy","girl", "Total")
 
 knitr::kable(
   twexpectedcount, booktabs = TRUE,
-  caption = 'Expected number of boys and girls students exposed or not to smoking in the French HBSC database in 2006.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3)) 
+  caption = 'Expected number of boys and girls students smoking or not in the French HBSC database in 2006.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3)) 
 ```
 
 Then we compute the Chi-square ($\chi^2$) statistic which is the standardized sum of the differences between the observed and the expected value.
@@ -270,8 +261,7 @@ chisq.test(hbsc$Gender, hbsc$SmokingStatus)
 The $\chi^2_{Obs} = 0.54$. Now the question is:  
 
 
-"is it equal to 0?"  
-
+"Is $\chi^2_{Obs}$ equal to 0?"  
 
 As for the comparison of means, in theory, if H0 is true $\chi^2_{Obs} \sim 0$  but it is never 0. There are variations and we test H0 with a $\alpha$ risk. Therefore, what is the threshold?
 
@@ -301,10 +291,9 @@ Next, we need to look at the statistical table of the $\chi^2$ law (Figure \@ref
 knitr::include_graphics('fig/chi2-table.png')
 ```
 
-In the $\chi^2$ table, for our 2x2 table the $df = 1$ and for a $\alpha$ risk of 5%, the $\chi^2_{Theo}= 3.84$. 
+In the $\chi^2$ table, for our 2x2 table the $df = 1$ and for a $\alpha$ risk of 5%, the $\chi^2_{Theo}= 3.84$.   
 
-
-Next the decision rule is the same as for the comparison of means.
+Next the decision rule using the p-value is the same as for the comparison of means.
 
 ::: {.practice}
 In example 2, the statistical value for a risk $\alpha=0.05$ and $df=1$ is 3.84. The $\chi^2_{Obs} = 0.54$.  What is you conclusion?
