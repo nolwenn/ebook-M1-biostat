@@ -116,11 +116,9 @@ H1: In France in 2006, the mean height of the students 11-16 who smoke was NOT e
 ::: {.example}
 We would like to test if the proportion of smokers varies according by gender.  
 
+H0: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was equal to the proportion of student girls aged 11-16 in the non-smoker group
 
-H0: In France in 2006, the proportion of student girls aged 11-16 who smoke was equal the proportion of student boys aged 11-16 who smoke.
-
-
-H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student boys aged 11-16 who smoke.
+H1: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was NOT equal to the proportion of student girls aged 11-16 in the non-smoker group
 ::: 
 
 
@@ -175,10 +173,9 @@ In the context of proportion comparison like in example 2, the objective is to a
 ::: {.example}
 We would like to test if the proportion of smokers varies by gender.  
 
-H0: In France in 2006, the proportion of student girls aged 11-16 who smoke was equal the proportion of student boys aged 11-16 who smoke.
+H0: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was equal to the proportion of student girls aged 11-16 in the non-smoker group
 
-
-H1: In France in 2006, the proportion of student girls 11-16 who smoke was NOT equal the proportion of student boys aged 11-16 who smoke.
+H1: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was NOT equal to the proportion of student girls aged 11-16 in the non-smoker group
 ::: 
 
 
@@ -247,7 +244,7 @@ knitr::kable(
   caption = 'Expected number of boys and girls students smoking or not in the French HBSC database in 2006.')  %>%  add_header_above(c(" " = 1, "Smoking status" = 3)) 
 ```
 
-Then we compute the Chi-square ($\chi^2$) statistic which is the standardized sum of the differences between the observed and the expected value.
+Then we compute the Chi-square ($\chi^2$) statistic which is the standardized sum of the differences between the observed and the expected values.
 
 ::: {.center}
 $\chi^2_{Obs}= \sum(\dfrac{(Obs-Exp)^2}{Exp}$
@@ -296,7 +293,7 @@ In the $\chi^2$ table, for our 2x2 table the $df = 1$ and for a $\alpha$ risk of
 Next the decision rule using the p-value is the same as for the comparison of means.
 
 ::: {.practice}
-In example 2, the statistical value for a risk $\alpha=0.05$ and $df=1$ is 3.84. The $\chi^2_{Obs} = 0.54$.  What is you conclusion?
+In the example, the statistical value for a risk $\alpha=0.05$ and $df=1$ is 3.84. The $\chi^2_{Obs} = 0.54$.  What is you conclusion?
 ::: 
 
 ::: {.caution}
@@ -340,7 +337,7 @@ As it is a ratio (numerator/denominator) if there is no difference (numerator=de
 - If the confidence interval does not include 1, we reject H0, the proportions differ.
 
 ::: {.practice}
-In example 2, the Fisher's exact test returns an odds ratio of 0.79 and 95% CI [0.45, 1.37]. What is your conclusion?
+In the example, the Fisher's exact test returns an odds ratio of 0.79 and 95% CI [0.45, 1.37]. What is your conclusion?
 ::: 
 
 
