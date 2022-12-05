@@ -258,10 +258,10 @@ We can be $95\%$ confident that the lung capacity score of an individual with ag
 ## Logistic regression model {#logistic-regression-model}
 
 ::: {.define}
-Logistic regression is a process of modeling the probability of a discrete outcome given an input variable.  
+Logistic regression is a process of modeling the probability of a categorical outcome given an input variable.  
 :::
 
-The most common logistic regression is the binary logistic regression that models a binary outcome (ex: Dead/Alive, yes/no). Multinomial logistic regression can model scenarios where there are more than two possible discrete outcomes (ex: low, medium, high). 
+The most common logistic regression is the binary logistic regression that models a binary outcome (ex: Dead/Alive, yes/no). Multinomial logistic regression can model scenarios where there are more than two possible modalities/outcomes (ex: low, medium, high) for the categorical variable. 
 
 As an example, let's investigate the risk factor of chronic kidney disease (CKD).The response variable is either 1 (Affected) or 0 (Not affected) - a dichotomous response. By definition, that's a categorical response, so we can't use linear regression methods to predict it.
 
