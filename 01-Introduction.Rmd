@@ -1,3 +1,4 @@
+
 # Introduction {#introduction}
 
 You may wonder why you will need to learn some statistics as you do not plan to compute statistics yourself in your future job. But, as a public health professional, the decisions you may be brought to make based on data will be too important to delegate. You will want to be able to interpret the data that surrounds you and to come to your own conclusions [@sharpe_business_2012].

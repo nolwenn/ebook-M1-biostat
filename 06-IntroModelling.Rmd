@@ -261,7 +261,7 @@ We can be $95\%$ confident that the lung capacity score of an individual with ag
 Logistic regression is a process of modeling the probability of a categorical outcome given an input variable.  
 :::
 
-The most common logistic regression is the binary logistic regression that models a binary outcome (ex: Dead/Alive, yes/no). Multinomial logistic regression can model scenarios where there are more than two possible modalities/outcomes (ex: low, medium, high) for the categorical variable. 
+The most common logistic regression is the binary logistic regression that models a binary outcome (ex: Dead/Alive, yes/no). Multinomial (or polychotomous) logistic regression can model scenarios where there are more than two possible modalities/outcomes (ex: low, medium, high) for the categorical variable. 
 
 As an example, let's investigate the risk factor of chronic kidney disease (CKD).The response variable is either 1 (Affected) or 0 (Not affected) - a dichotomous response. By definition, that's a categorical response, so we can't use linear regression methods to predict it.
 
@@ -333,21 +333,21 @@ $\beta_i$ =  log odds ratio associated with being exposed to *i* (age for instan
 
 The *Logit function* is defined as the natural log of the odds. A probability of 0.5 corresponds to a logit of 0, probabilities smaller than 0.5 correspond to negative logit values, and probabilities greater than 0.5 correspond to positive logit values. 
 
-After fit the model and estimating the $\beta_0$ and $\beta_1$ coefficients, we can retrieve the Odds Ratio (OR) which is the Probability of having the outcome / Probability of not having the outcome when exposed:
+After fit the model and estimating the $\beta_0$ and $\beta_1$ coefficients, we can retrieve the Odds Ratio (OR) which is the Probability of having the outcome / Probability of not having the outcome when exposed compare to the Probability of having the outcome / Probability of not having the outcome when unexposed :
 
 ::: {.define}
 OR= $e^\beta_i$ = odds ratio associated with being exposed to *i*
 ::: 
 
-```{r}
-# Can age contribute to developpping the disease? 
+```{r, echo=TRUE}
+# Can age contribute to the onset of the disease? 
 model_ckd <- glm(affected  ~ age2, family=binomial("logit"), data=ckd)
 summary(model_ckd) 
 ```
 
 The coefficient for age is positively link to the disease. When you increase in age you increase your risk of having disease. To compute the OR, we can use the $exp(0.039)$ but for a nicest output with confidence interval we can use the *epiDisplay* library and its *logistic.display()* function.
 
-```{r}
+```{r, echo=TRUE}
 # Loading the epiDisplay library in the R environment
 library(epiDisplay)
 logistic.display(model_ckd) 
@@ -357,7 +357,7 @@ The odd (risk) of having the disease is 1.04 times higher when people get older 
 
 We can add other covariates and then use a stepwise approach to get the most parsimonious model.
 
-```{r}
+```{r, echo=TRUE}
 model_ckd2 <- glm(affected  ~ age2 + bp.limit, family=binomial("logit"), data=ckd)
 summary(model_ckd2)
 model_ckd2<- step(model_ckd2)

@@ -14,5 +14,5 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
-  book_filename:"NLeMeur_ebook-M1-biostat"
+  book_filename: "NLeMeur_ebook-M1-biostat"
 bookdown::epub_book: default

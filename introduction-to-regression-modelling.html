@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2022-10-10" />
+<meta name="date" content="2022-12-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -633,9 +633,9 @@ no
 <div id="logistic-regression-model" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Logistic regression model<a href="introduction-to-regression-modelling.html#logistic-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="define">
-<p>Logistic regression is a process of modeling the probability of a discrete outcome given an input variable.</p>
+<p>Logistic regression is a process of modeling the probability of a categorical outcome given an input variable.</p>
 </div>
-<p>The most common logistic regression is the binary logistic regression that models a binary outcome (ex: Dead/Alive, yes/no). Multinomial logistic regression can model scenarios where there are more than two possible discrete outcomes (ex: low, medium, high).</p>
+<p>The most common logistic regression is the binary logistic regression that models a binary outcome (ex: Dead/Alive, yes/no). Multinomial (or polychotomous) logistic regression can model scenarios where there are more than two possible modalities/outcomes (ex: low, medium, high) for the categorical variable.</p>
 <p>As an example, let’s investigate the risk factor of chronic kidney disease (CKD).The response variable is either 1 (Affected) or 0 (Not affected) - a dichotomous response. By definition, that’s a categorical response, so we can’t use linear regression methods to predict it.</p>
 <p>When coding the outcome variable 0 and 1 we can still represent what is happening in association with a covariate such as age but we cannot draw an simple line.</p>
 <p><img src="fig/plot%20ckd-1.png" width="672" /></p>
@@ -664,10 +664,13 @@ no
 <p><span class="math inline">\(\beta_0\)</span> = log odds of disease in unexposed</p>
 <p><span class="math inline">\(\beta_i\)</span> = log odds ratio associated with being exposed to <em>i</em> (age for instance)</p>
 <p>The <em>Logit function</em> is defined as the natural log of the odds. A probability of 0.5 corresponds to a logit of 0, probabilities smaller than 0.5 correspond to negative logit values, and probabilities greater than 0.5 correspond to positive logit values.</p>
-<p>After fit the model and estimating the <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> coefficients, we can retrieve the Odds Ratio (OR) which is the Probability of having the outcome / Probability of not having the outcome when exposed:</p>
+<p>After fit the model and estimating the <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> coefficients, we can retrieve the Odds Ratio (OR) which is the Probability of having the outcome / Probability of not having the outcome when exposed compare to the Probability of having the outcome / Probability of not having the outcome when unexposed :</p>
 <div class="define">
 <p>OR= <span class="math inline">\(e^\beta_i\)</span> = odds ratio associated with being exposed to <em>i</em></p>
 </div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-to-regression-modelling.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Can age contribute to the onset of the disease? </span></span>
+<span id="cb17-2"><a href="introduction-to-regression-modelling.html#cb17-2" aria-hidden="true" tabindex="-1"></a>model_ckd <span class="ot">&lt;-</span> <span class="fu">glm</span>(affected  <span class="sc">~</span> age2, <span class="at">family=</span><span class="fu">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="at">data=</span>ckd)</span>
+<span id="cb17-3"><a href="introduction-to-regression-modelling.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_ckd) </span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = affected ~ age2, family = binomial(&quot;logit&quot;), data = ckd)
@@ -691,6 +694,9 @@ no
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
 <p>The coefficient for age is positively link to the disease. When you increase in age you increase your risk of having disease. To compute the OR, we can use the <span class="math inline">\(exp(0.039)\)</span> but for a nicest output with confidence interval we can use the <em>epiDisplay</em> library and its <em>logistic.display()</em> function.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-regression-modelling.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the epiDisplay library in the R environment</span></span>
+<span id="cb19-2"><a href="introduction-to-regression-modelling.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epiDisplay)</span>
+<span id="cb19-3"><a href="introduction-to-regression-modelling.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">logistic.display</span>(model_ckd) </span></code></pre></div>
 <pre><code>## 
 ## Logistic regression predicting affected 
 ##  
@@ -702,6 +708,8 @@ no
 ## AIC value = 251.0263</code></pre>
 <p>The odd (risk) of having the disease is 1.04 times higher when people get older by 1 year (95%CI[1.02,1.06]). The P(Wald’s test) tells us that the estimated coefficient is different from 0 (or the OR is different from 1). The P(LR-test) log-likelihood ratio test tells us that the model is better than the NULL model (without any covariate).</p>
 <p>We can add other covariates and then use a stepwise approach to get the most parsimonious model.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-regression-modelling.html#cb21-1" aria-hidden="true" tabindex="-1"></a>model_ckd2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(affected  <span class="sc">~</span> age2 <span class="sc">+</span> bp.limit, <span class="at">family=</span><span class="fu">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="at">data=</span>ckd)</span>
+<span id="cb21-2"><a href="introduction-to-regression-modelling.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_ckd2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = affected ~ age2 + bp.limit, family = binomial(&quot;logit&quot;), 
@@ -726,6 +734,7 @@ no
 ## AIC: 235.7
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-regression-modelling.html#cb23-1" aria-hidden="true" tabindex="-1"></a>model_ckd2<span class="ot">&lt;-</span> <span class="fu">step</span>(model_ckd2)</span></code></pre></div>
 <pre><code>## Start:  AIC=235.7
 ## affected ~ age2 + bp.limit
 ## 
@@ -733,6 +742,9 @@ no
 ## &lt;none&gt;          229.71 235.71
 ## - age2      1   242.42 246.42
 ## - bp.limit  1   247.03 251.03</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-regression-modelling.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The best model is with the smallest AIC</span></span>
+<span id="cb25-2"><a href="introduction-to-regression-modelling.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It is the model without removing any variable (&lt;none&gt;)</span></span>
+<span id="cb25-3"><a href="introduction-to-regression-modelling.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">logistic.display</span>(model_ckd) </span></code></pre></div>
 <pre><code>## 
 ## Logistic regression predicting affected 
 ##  
