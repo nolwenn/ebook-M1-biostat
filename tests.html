@@ -24,7 +24,7 @@
 <meta name="author" content="Nolwenn Le Meur, PhD - EHESP associate professor in Biostatistics and Bioinformatic" />
 
 
-<meta name="date" content="2022-12-07" />
+<meta name="date" content="2022-12-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -500,10 +500,10 @@ that does not exist in reality, the <span class="math inline">\(\alpha\)</span> 
 <p>In the context of proportion comparison like in example 2, the objective is to assess whether the proportion of cases among the exposed group is equal to the proportion of cases among the non-exposed group.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-7" class="example"><strong>Example 5.5  </strong></span>We would like to test if the proportion of smokers varies by gender.</p>
-<p>H0: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was equal to the proportion of student girls aged 11-16 in the non-smoker group</p>
-<p>H1: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was NOT equal to the proportion of student girls aged 11-16 in the non-smoker group</p>
+<p>H0: In France in 2006, the proportion of student boys aged 11-16 in the smoker group was equal to the proportion of student girls aged 11-16 in the smoker group</p>
+<p>H1: In France in 2006, the proportion of student boys aged 11-16 in the smoker group was NOT equal to the proportion of student girls aged 11-16 in the smoker group</p>
 </div>
-<p>To this aim, as for the comparison of means, we will compute the standardized differences (distances) between groups.</p>
+<p>To this aim, we will compute the standardized differences (distances) between groups.</p>
 <div id="chi-square-test" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Chi-square test<a href="tests.html#chi-square-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Chi-square is often the test used as rather intuitive and non computer greedy.</p>
@@ -658,8 +658,8 @@ Total
 </table>
 <p>To compute a theoretical two-way table with your <code>expected counts</code>:</p>
 <ul>
-<li>the proportion exposed student is: <span class="math inline">\(p= 251/499= 0.503\)</span>, <em>i.e</em> 50.3%.</li>
-<li>the number of boys students exposed would be: <span class="math inline">\(p= (251/499)*67= 33.7\)</span>.</li>
+<li>the proportion exposed students is: <span class="math inline">\(p= 67/499= 0.134\)</span>, <em>i.e</em> 13.4%.</li>
+<li>the number of boys students exposed would be: <span class="math inline">\(p= (67/499)*251 = 33.7\)</span>.</li>
 </ul>
 <table>
 <caption>
@@ -698,7 +698,7 @@ boy
 ?
 </td>
 <td style="text-align:left;">
-(251/499)*67
+(67/499)*251
 </td>
 <td style="text-align:left;">
 251

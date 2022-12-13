@@ -173,13 +173,13 @@ In the context of proportion comparison like in example 2, the objective is to a
 ::: {.example}
 We would like to test if the proportion of smokers varies by gender.  
 
-H0: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was equal to the proportion of student girls aged 11-16 in the non-smoker group
+H0: In France in 2006, the proportion of student boys aged 11-16 in the smoker group was equal to the proportion of student girls aged 11-16 in the smoker group
 
-H1: In France in 2006, the proportion of student girls aged 11-16 in the smoker group was NOT equal to the proportion of student girls aged 11-16 in the non-smoker group
+H1: In France in 2006, the proportion of student boys aged 11-16 in the smoker group was NOT equal to the proportion of student girls aged 11-16 in the smoker group
 ::: 
 
 
-To this aim, as for the comparison of means, we will compute the standardized differences (distances) between groups.
+To this aim, we will compute the standardized differences (distances) between groups.
 
 ### Chi-square test
 
@@ -214,14 +214,14 @@ knitr::kable(
 
 To compute a theoretical two-way table with your `expected counts`:  
 
-- the proportion exposed student is: $p= 251/499= 0.503$, *i.e* 50.3%. 
-- the number of boys students exposed would be: $p= (251/499)*67= 33.7$.  
+- the proportion exposed students is: $p= 67/499= 0.134$, *i.e* 13.4%. 
+- the number of boys students exposed would be: $p= (67/499)*251 = 33.7$.  
 
 
 
 ```{r chisquare3, echo=F, warning=FALSE}
 twexpectedcount <- as.data.frame(cbind("No"=c("?", "?", 432), 
-                                 "Yes"=c("(251/499)*67", "?", 67), 
+                                 "Yes"=c("(67/499)*251", "?", 67), 
                                  "Total"=c(251, 248,499)))
 row.names(twexpectedcount) <- c("boy","girl", "Total")
 
